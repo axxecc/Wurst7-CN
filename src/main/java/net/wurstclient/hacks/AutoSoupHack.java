@@ -40,7 +40,7 @@ public final class AutoSoupHack extends Hack implements UpdateListener
 	
 	public AutoSoupHack()
 	{
-		super("AutoSoup");
+		super("自动喝汤");
 		
 		setCategory(Category.COMBAT);
 		addSetting(health);

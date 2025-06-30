@@ -22,7 +22,7 @@ public final class MaceDmgHack extends Hack
 {
 	public MaceDmgHack()
 	{
-		super("MaceDMG");
+		super("重锤出击");
 		setCategory(Category.COMBAT);
 	}
 	

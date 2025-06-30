@@ -24,7 +24,7 @@ public final class BunnyHopHack extends Hack implements UpdateListener
 	
 	public BunnyHopHack()
 	{
-		super("BunnyHop");
+		super("连跳");
 		setCategory(Category.MOVEMENT);
 		addSetting(jumpIf);
 	}

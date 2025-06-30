@@ -63,7 +63,7 @@ public final class AutoArmorHack extends Hack
 	
 	public AutoArmorHack()
 	{
-		super("AutoArmor");
+		super("自动盔甲");
 		setCategory(Category.COMBAT);
 		addSetting(useEnchantments);
 		addSetting(swapWhileMoving);

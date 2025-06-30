@@ -37,7 +37,7 @@ public final class ParkourHack extends Hack implements UpdateListener
 	
 	public ParkourHack()
 	{
-		super("Parkour");
+		super("自动跳跃");
 		setCategory(Category.MOVEMENT);
 		addSetting(minDepth);
 		addSetting(edgeDistance);

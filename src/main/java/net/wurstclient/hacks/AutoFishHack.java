@@ -81,7 +81,7 @@ public final class AutoFishHack extends Hack
 	
 	public AutoFishHack()
 	{
-		super("AutoFish");
+		super("自动钓鱼");
 		setCategory(Category.OTHER);
 		addSetting(biteMode);
 		addSetting(validRange);

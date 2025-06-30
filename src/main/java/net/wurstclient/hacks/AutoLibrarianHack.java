@@ -124,7 +124,7 @@ public final class AutoLibrarianHack extends Hack
 	
 	public AutoLibrarianHack()
 	{
-		super("AutoLibrarian");
+		super("自动图书管理员");
 		setCategory(Category.OTHER);
 		addSetting(wantedBooks);
 		addSetting(lockInTrade);

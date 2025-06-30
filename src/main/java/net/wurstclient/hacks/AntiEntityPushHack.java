@@ -18,7 +18,7 @@ public final class AntiEntityPushHack extends Hack
 {
 	public AntiEntityPushHack()
 	{
-		super("AntiEntityPush");
+		super("反实体推动");
 		setCategory(Category.MOVEMENT);
 	}
 	

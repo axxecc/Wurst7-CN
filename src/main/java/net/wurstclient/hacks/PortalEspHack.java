@@ -82,7 +82,7 @@ public final class PortalEspHack extends Hack implements UpdateListener,
 	
 	public PortalEspHack()
 	{
-		super("PortalESP");
+		super("传送门高亮");
 		setCategory(Category.RENDER);
 		
 		addSetting(style);

@@ -23,7 +23,7 @@ public final class OverlayHack extends Hack
 	
 	public OverlayHack()
 	{
-		super("Overlay");
+		super("破坏动画");
 		setCategory(Category.RENDER);
 	}
 	

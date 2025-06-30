@@ -24,7 +24,7 @@ public final class NoClipHack extends Hack
 {
 	public NoClipHack()
 	{
-		super("NoClip");
+		super("穿墙");
 		setCategory(Category.MOVEMENT);
 	}
 	

@@ -21,7 +21,7 @@ public final class CameraDistanceHack extends Hack
 	
 	public CameraDistanceHack()
 	{
-		super("CameraDistance");
+		super("相机距离");
 		setCategory(Category.RENDER);
 		addSetting(distance);
 	}

@@ -32,30 +32,30 @@ public final class AimAssistHack extends Hack
 	implements UpdateListener, MouseUpdateListener
 {
 	private final SliderSetting range =
-		new SliderSetting("Range", 4.5, 1, 6, 0.05, ValueDisplay.DECIMAL);
+		new SliderSetting("范围", 4.5, 1, 6, 0.05, ValueDisplay.DECIMAL);
 	
 	private final SliderSetting rotationSpeed =
-		new SliderSetting("Rotation Speed", 600, 10, 3600, 10,
+		new SliderSetting("旋转速度", 600, 10, 3600, 10,
 			ValueDisplay.DEGREES.withSuffix("/s"));
 	
 	private final SliderSetting fov =
-		new SliderSetting("FOV", "description.wurst.setting.aimassist.fov", 120,
+		new SliderSetting("视角范围", "description.wurst.setting.aimassist.fov", 120,
 			30, 360, 10, ValueDisplay.DEGREES);
 	
 	private final AimAtSetting aimAt = new AimAtSetting(
-		"What point in the target's hitbox AimAssist should aim at.");
+		"AimAssist应该瞄准目标碰撞箱的哪个点？");
 	
 	private final SliderSetting ignoreMouseInput =
-		new SliderSetting("Ignore mouse input",
+		new SliderSetting("忽略鼠标输入",
 			"description.wurst.setting.aimassist.ignore_mouse_input", 0, 0, 1,
 			0.01, ValueDisplay.PERCENTAGE);
 	
 	private final CheckboxSetting checkLOS =
-		new CheckboxSetting("Check line of sight",
+		new CheckboxSetting("检查视线",
 			"description.wurst.setting.aimassist.check_line_of_sight", true);
 	
 	private final CheckboxSetting aimWhileBlocking =
-		new CheckboxSetting("Aim while blocking",
+		new CheckboxSetting("格挡时瞄准",
 			"description.wurst.setting.aimassist.aim_while_blocking", false);
 	
 	private final EntityFilterList entityFilters =
@@ -93,7 +93,7 @@ public final class AimAssistHack extends Hack
 	
 	public AimAssistHack()
 	{
-		super("AimAssist");
+		super("瞄准辅助");
 		setCategory(Category.COMBAT);
 		
 		addSetting(range);

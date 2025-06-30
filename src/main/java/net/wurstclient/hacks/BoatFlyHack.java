@@ -34,7 +34,7 @@ public final class BoatFlyHack extends Hack implements UpdateListener
 	
 	public BoatFlyHack()
 	{
-		super("BoatFly");
+		super("载具飞行");
 		setCategory(Category.MOVEMENT);
 		addSetting(changeForwardSpeed);
 		addSetting(forwardSpeed);

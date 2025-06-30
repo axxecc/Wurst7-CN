@@ -77,7 +77,7 @@ public final class AnchorAuraHack extends Hack implements UpdateListener
 	
 	public AnchorAuraHack()
 	{
-		super("AnchorAura");
+		super("锚光环");
 		
 		setCategory(Category.COMBAT);
 		addSetting(range);

@@ -31,7 +31,7 @@ public final class AutoPotionHack extends Hack implements UpdateListener
 	
 	public AutoPotionHack()
 	{
-		super("AutoPotion");
+		super("自动药水");
 		
 		setCategory(Category.COMBAT);
 		addSetting(health);

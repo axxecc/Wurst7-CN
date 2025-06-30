@@ -45,7 +45,7 @@ public final class SpeedNukerHack extends Hack implements UpdateListener
 	
 	public SpeedNukerHack()
 	{
-		super("SpeedNuker");
+		super("速度Nuker");
 		setCategory(Category.BLOCKS);
 		addSetting(range);
 		commonSettings.getSettings().forEach(this::addSetting);

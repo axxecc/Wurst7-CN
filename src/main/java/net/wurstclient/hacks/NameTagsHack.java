@@ -44,7 +44,7 @@ public final class NameTagsHack extends Hack
 	
 	public NameTagsHack()
 	{
-		super("NameTags");
+		super("名称标签");
 		setCategory(Category.RENDER);
 		addSetting(scale);
 		addSetting(unlimitedRange);

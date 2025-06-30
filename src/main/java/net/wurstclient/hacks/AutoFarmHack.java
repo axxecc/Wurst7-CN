@@ -76,7 +76,7 @@ public final class AutoFarmHack extends Hack
 	
 	public AutoFarmHack()
 	{
-		super("AutoFarm");
+		super("自动农场");
 		
 		setCategory(Category.BLOCKS);
 		addSetting(range);

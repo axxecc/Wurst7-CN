@@ -16,7 +16,7 @@ public final class NoVignetteHack extends Hack
 {
 	public NoVignetteHack()
 	{
-		super("NoVignette");
+		super("无晕影");
 		setCategory(Category.RENDER);
 	}
 	

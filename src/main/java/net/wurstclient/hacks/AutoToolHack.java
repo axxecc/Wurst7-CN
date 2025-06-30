@@ -65,7 +65,7 @@ public final class AutoToolHack extends Hack
 	
 	public AutoToolHack()
 	{
-		super("AutoTool");
+		super("自动工具");
 		
 		setCategory(Category.BLOCKS);
 		addSetting(useSwords);

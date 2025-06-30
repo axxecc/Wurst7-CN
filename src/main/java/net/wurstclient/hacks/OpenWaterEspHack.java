@@ -21,7 +21,7 @@ public final class OpenWaterEspHack extends Hack implements RenderListener
 {
 	public OpenWaterEspHack()
 	{
-		super("OpenWaterESP");
+		super("开放水域高亮");
 		setCategory(Category.RENDER);
 	}
 	

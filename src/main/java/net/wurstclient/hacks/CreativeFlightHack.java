@@ -44,7 +44,7 @@ public final class CreativeFlightHack extends Hack implements UpdateListener
 	
 	public CreativeFlightHack()
 	{
-		super("CreativeFlight");
+		super("创造飞行");
 		setCategory(Category.MOVEMENT);
 		addSetting(antiKick);
 		addSetting(antiKickInterval);

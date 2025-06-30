@@ -17,7 +17,7 @@ public final class NoOverlayHack extends Hack
 {
 	public NoOverlayHack()
 	{
-		super("NoOverlay");
+		super("无视角遮盖");
 		setCategory(Category.RENDER);
 	}
 	

@@ -18,7 +18,7 @@ public final class AutoSwitchHack extends Hack implements UpdateListener
 {
 	public AutoSwitchHack()
 	{
-		super("AutoSwitch");
+		super("自动切换");
 		setCategory(Category.ITEMS);
 	}
 	

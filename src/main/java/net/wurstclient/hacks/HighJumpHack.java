@@ -23,7 +23,7 @@ public final class HighJumpHack extends Hack
 	
 	public HighJumpHack()
 	{
-		super("HighJump");
+		super("高跳");
 		
 		setCategory(Category.MOVEMENT);
 		addSetting(height);

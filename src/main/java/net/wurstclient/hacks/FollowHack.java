@@ -55,7 +55,7 @@ public final class FollowHack extends Hack
 	
 	public FollowHack()
 	{
-		super("Follow");
+		super("跟随");
 		
 		setCategory(Category.MOVEMENT);
 		addSetting(distance);

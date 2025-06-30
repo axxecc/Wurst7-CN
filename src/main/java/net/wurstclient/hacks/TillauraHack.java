@@ -56,7 +56,7 @@ public final class TillauraHack extends Hack implements HandleInputListener
 	
 	public TillauraHack()
 	{
-		super("Tillaura");
+		super("耕地光环");
 		
 		setCategory(Category.BLOCKS);
 		addSetting(range);

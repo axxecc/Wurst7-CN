@@ -17,7 +17,7 @@ public final class FastPlaceHack extends Hack implements UpdateListener
 {
 	public FastPlaceHack()
 	{
-		super("FastPlace");
+		super("快速放置");
 		setCategory(Category.BLOCKS);
 	}
 	

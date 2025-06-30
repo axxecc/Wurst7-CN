@@ -53,7 +53,7 @@ public final class ClickAuraHack extends Hack
 	
 	public ClickAuraHack()
 	{
-		super("ClickAura");
+		super("自动扳机");
 		
 		setCategory(Category.COMBAT);
 		addSetting(range);

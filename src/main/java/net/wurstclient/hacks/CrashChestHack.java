@@ -25,7 +25,7 @@ public final class CrashChestHack extends Hack
 {
 	public CrashChestHack()
 	{
-		super("CrashChest");
+		super("崩溃箱子");
 		
 		setCategory(Category.ITEMS);
 	}

@@ -44,7 +44,7 @@ public final class AirPlaceHack extends Hack
 	
 	public AirPlaceHack()
 	{
-		super("AirPlace");
+		super("空中放置");
 		setCategory(Category.BLOCKS);
 		addSetting(range);
 		addSetting(guide);

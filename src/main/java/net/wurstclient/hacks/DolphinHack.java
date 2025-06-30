@@ -19,7 +19,7 @@ public final class DolphinHack extends Hack implements UpdateListener
 {
 	public DolphinHack()
 	{
-		super("Dolphin");
+		super("水中漂浮");
 		setCategory(Category.MOVEMENT);
 	}
 	

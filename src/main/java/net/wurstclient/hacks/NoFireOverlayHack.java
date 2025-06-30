@@ -22,7 +22,7 @@ public final class NoFireOverlayHack extends Hack
 	
 	public NoFireOverlayHack()
 	{
-		super("NoFireOverlay");
+		super("无火焰贴图");
 		setCategory(Category.RENDER);
 		addSetting(offset);
 	}

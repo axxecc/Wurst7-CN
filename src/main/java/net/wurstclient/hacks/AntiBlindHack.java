@@ -19,7 +19,7 @@ public final class AntiBlindHack extends Hack
 {
 	public AntiBlindHack()
 	{
-		super("AntiBlind");
+		super("反失明");
 		setCategory(Category.RENDER);
 	}
 	

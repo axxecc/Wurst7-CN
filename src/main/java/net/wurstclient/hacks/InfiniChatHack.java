@@ -16,7 +16,7 @@ public final class InfiniChatHack extends Hack
 {
 	public InfiniChatHack()
 	{
-		super("InfiniChat");
+		super("移除聊天限制");
 		setCategory(Category.CHAT);
 	}
 }

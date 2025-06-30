@@ -50,7 +50,7 @@ public final class AutoSwordHack extends Hack implements UpdateListener
 	
 	public AutoSwordHack()
 	{
-		super("AutoSword");
+		super("自动武器");
 		setCategory(Category.COMBAT);
 		
 		addSetting(priority);

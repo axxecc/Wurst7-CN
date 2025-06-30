@@ -16,7 +16,7 @@ public final class NoFogHack extends Hack
 {
 	public NoFogHack()
 	{
-		super("NoFog");
+		super("无雾");
 		setCategory(Category.RENDER);
 	}
 	

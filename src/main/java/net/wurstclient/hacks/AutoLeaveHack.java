@@ -54,7 +54,7 @@ public final class AutoLeaveHack extends Hack implements UpdateListener
 	
 	public AutoLeaveHack()
 	{
-		super("AutoLeave");
+		super("自动登出");
 		setCategory(Category.COMBAT);
 		addSetting(health);
 		addSetting(mode);
