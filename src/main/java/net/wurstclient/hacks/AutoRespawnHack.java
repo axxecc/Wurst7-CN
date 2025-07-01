@@ -23,7 +23,7 @@ public final class AutoRespawnHack extends Hack implements DeathListener
 	
 	public AutoRespawnHack()
 	{
-		super("自动重生");
+		super("AutoRespawn");
 		setCategory(Category.COMBAT);
 		addSetting(button);
 	}

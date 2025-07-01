@@ -63,7 +63,7 @@ public final class ExcavatorHack extends Hack
 	
 	public ExcavatorHack()
 	{
-		super("无差别破坏");
+		super("Excavator");
 		setCategory(Category.BLOCKS);
 		addSetting(range);
 		addSetting(mode);

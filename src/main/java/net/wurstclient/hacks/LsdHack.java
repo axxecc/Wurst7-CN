@@ -18,7 +18,7 @@ public final class LsdHack extends Hack
 {
 	public LsdHack()
 	{
-		super("云南蘑菇");
+		super("LSD");
 		setCategory(Category.FUN);
 	}
 	

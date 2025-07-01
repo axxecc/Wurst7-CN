@@ -36,7 +36,7 @@ public final class TrollPotionHack extends Hack
 	
 	public TrollPotionHack()
 	{
-		super("恼人药水");
+		super("TrollPotion");
 		setCategory(Category.ITEMS);
 		addSetting(potionType);
 	}

@@ -79,7 +79,7 @@ public final class CaveFinderHack extends Hack
 	
 	public CaveFinderHack()
 	{
-		super("洞穴查找器");
+		super("CaveFinder");
 		setCategory(Category.RENDER);
 		addSetting(area);
 		addSetting(limit);

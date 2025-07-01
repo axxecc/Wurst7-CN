@@ -17,7 +17,7 @@ public final class JetpackHack extends Hack implements UpdateListener
 {
 	public JetpackHack()
 	{
-		super("喷气背包");
+		super("Jetpack");
 		
 		setCategory(Category.MOVEMENT);
 	}

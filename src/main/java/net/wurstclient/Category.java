@@ -9,14 +9,14 @@ package net.wurstclient;
 
 public enum Category
 {
-	BLOCKS("世界"),
-	MOVEMENT("移动"),
-	COMBAT("战斗"),
-	RENDER("视觉"),
-	CHAT("聊天"),
-	FUN("娱乐"),
-	ITEMS("物品"),
-	OTHER("其它");
+	BLOCKS("Blocks"),
+	MOVEMENT("Movement"),
+	COMBAT("Combat"),
+	RENDER("Render"),
+	CHAT("Chat"),
+	FUN("Fun"),
+	ITEMS("Items"),
+	OTHER("Other");
 	
 	private final String name;
 	

@@ -181,8 +181,8 @@ public final class SliderComponent extends Component
 	private String getSliderTooltip()
 	{
 		String tooltip =
-			"\u00a7e[Ctrl]\u00a7r+\u00a7e[左键]\u00a7r 用于精确输入\n";
-		tooltip += "\u00a7e[右键]\u00a7r 重置";
+			"\u00a7e[ctrl]\u00a7r+\u00a7e[left-click]\u00a7r for precise input\n";
+		tooltip += "\u00a7e[right-click]\u00a7r to reset";
 		return tooltip;
 	}
 	

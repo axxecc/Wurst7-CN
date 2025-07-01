@@ -75,7 +75,7 @@ public final class MobSpawnEspHack extends Hack
 	
 	public MobSpawnEspHack()
 	{
-		super("生物刷新区");
+		super("MobSpawnESP");
 		setCategory(Category.RENDER);
 		addSetting(drawDistance);
 		addSetting(nightColor);

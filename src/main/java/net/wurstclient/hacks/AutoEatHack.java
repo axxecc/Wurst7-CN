@@ -93,7 +93,7 @@ public final class AutoEatHack extends Hack implements UpdateListener
 	
 	public AutoEatHack()
 	{
-		super("自动进食");
+		super("AutoEat");
 		setCategory(Category.ITEMS);
 		
 		addSetting(targetHunger);

@@ -50,7 +50,7 @@ public final class MultiAuraHack extends Hack implements UpdateListener
 	
 	public MultiAuraHack()
 	{
-		super("多重光环");
+		super("MultiAura");
 		setCategory(Category.COMBAT);
 		
 		addSetting(range);

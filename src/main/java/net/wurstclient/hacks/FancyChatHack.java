@@ -19,7 +19,7 @@ public final class FancyChatHack extends Hack implements ChatOutputListener
 	
 	public FancyChatHack()
 	{
-		super("聊天绕过");
+		super("FancyChat");
 		setCategory(Category.CHAT);
 	}
 	

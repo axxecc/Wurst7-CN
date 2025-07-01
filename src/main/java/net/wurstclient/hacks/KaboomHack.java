@@ -43,7 +43,7 @@ public final class KaboomHack extends Hack implements UpdateListener
 	
 	public KaboomHack()
 	{
-		super("核爆");
+		super("Kaboom");
 		setCategory(Category.BLOCKS);
 		addSetting(power);
 		addSetting(sound);

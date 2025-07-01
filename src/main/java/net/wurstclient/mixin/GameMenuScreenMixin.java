@@ -110,7 +110,7 @@ public abstract class GameMenuScreenMixin extends Screen
 		ensureSpaceAvailable(buttonX, buttonY, buttonWidth, buttonHeight);
 		
 		// Create Wurst Options button
-		MutableText buttonText = Text.literal("            选项");
+		MutableText buttonText = Text.literal("            Options");
 		wurstOptionsButton = ButtonWidget
 			.builder(buttonText, b -> openWurstOptions())
 			.dimensions(buttonX, buttonY, buttonWidth, buttonHeight).build();

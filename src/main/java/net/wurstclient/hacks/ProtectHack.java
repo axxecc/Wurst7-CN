@@ -95,7 +95,7 @@ public final class ProtectHack extends Hack
 	
 	public ProtectHack()
 	{
-		super("保护实体");
+		super("Protect");
 		
 		setCategory(Category.COMBAT);
 		addSetting(speed);

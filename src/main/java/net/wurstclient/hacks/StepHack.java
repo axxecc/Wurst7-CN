@@ -32,7 +32,7 @@ public final class StepHack extends Hack implements UpdateListener
 	
 	public StepHack()
 	{
-		super("快速上楼");
+		super("Step");
 		setCategory(Category.MOVEMENT);
 		addSetting(mode);
 		addSetting(height);

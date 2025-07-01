@@ -40,7 +40,7 @@ public final class JesusHack extends Hack
 	
 	public JesusHack()
 	{
-		super("水上行走");
+		super("Jesus");
 		setCategory(Category.MOVEMENT);
 		addSetting(bypass);
 	}

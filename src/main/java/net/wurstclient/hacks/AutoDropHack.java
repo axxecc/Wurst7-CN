@@ -37,7 +37,7 @@ public final class AutoDropHack extends Hack implements UpdateListener
 	
 	public AutoDropHack()
 	{
-		super("自动丢弃");
+		super("AutoDrop");
 		setCategory(Category.ITEMS);
 		addSetting(items);
 	}

@@ -22,7 +22,7 @@ public final class DerpHack extends Hack implements UpdateListener
 	
 	public DerpHack()
 	{
-		super("甩头");
+		super("Derp");
 		setCategory(Category.FUN);
 	}
 	

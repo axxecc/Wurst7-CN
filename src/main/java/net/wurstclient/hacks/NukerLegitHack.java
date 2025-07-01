@@ -58,7 +58,7 @@ public final class NukerLegitHack extends Hack
 	
 	public NukerLegitHack()
 	{
-		super("合法挖掘光环");
+		super("NukerLegit");
 		setCategory(Category.BLOCKS);
 		addSetting(range);
 		commonSettings.getSettings().forEach(this::addSetting);

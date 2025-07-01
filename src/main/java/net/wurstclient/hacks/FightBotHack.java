@@ -70,7 +70,7 @@ public final class FightBotHack extends Hack
 	
 	public FightBotHack()
 	{
-		super("战斗机器人");
+		super("FightBot");
 		
 		setCategory(Category.COMBAT);
 		addSetting(range);

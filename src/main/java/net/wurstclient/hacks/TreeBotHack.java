@@ -76,7 +76,7 @@ public final class TreeBotHack extends Hack
 	
 	public TreeBotHack()
 	{
-		super("砍树机器人");
+		super("TreeBot");
 		setCategory(Category.BLOCKS);
 		addSetting(range);
 		addSetting(facing);

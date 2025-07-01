@@ -67,7 +67,7 @@ public final class BowAimbotHack extends Hack
 	
 	public BowAimbotHack()
 	{
-		super("弓箭自瞄");
+		super("BowAimbot");
 		
 		setCategory(Category.COMBAT);
 		addSetting(priority);

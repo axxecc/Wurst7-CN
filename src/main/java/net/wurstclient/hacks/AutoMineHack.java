@@ -34,7 +34,7 @@ public final class AutoMineHack extends Hack
 	
 	public AutoMineHack()
 	{
-		super("自动挖掘");
+		super("AutoMine");
 		setCategory(Category.BLOCKS);
 		addSetting(superFastMode);
 	}

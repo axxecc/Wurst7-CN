@@ -51,7 +51,7 @@ public final class TrajectoriesHack extends Hack implements RenderListener
 	
 	public TrajectoriesHack()
 	{
-		super("轨迹预测");
+		super("Trajectories");
 		setCategory(Category.RENDER);
 		addSetting(missColor);
 		addSetting(entityHitColor);

@@ -53,7 +53,7 @@ public final class RadarHack extends Hack implements UpdateListener
 	
 	public RadarHack()
 	{
-		super("雷达");
+		super("Radar");
 		
 		setCategory(Category.RENDER);
 		addSetting(radius);

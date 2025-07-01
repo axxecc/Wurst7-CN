@@ -41,7 +41,7 @@ public final class RemoteViewHack extends Hack
 	
 	public RemoteViewHack()
 	{
-		super("其它视角");
+		super("RemoteView");
 		setCategory(Category.RENDER);
 		entityFilters.forEach(this::addSetting);
 	}

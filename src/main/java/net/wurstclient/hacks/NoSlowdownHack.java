@@ -16,7 +16,7 @@ public final class NoSlowdownHack extends Hack
 {
 	public NoSlowdownHack()
 	{
-		super("无减速");
+		super("NoSlowdown");
 		setCategory(Category.MOVEMENT);
 	}
 	

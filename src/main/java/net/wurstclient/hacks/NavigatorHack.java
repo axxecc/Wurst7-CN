@@ -21,7 +21,7 @@ public final class NavigatorHack extends Hack
 {
 	public NavigatorHack()
 	{
-		super("导航仪");
+		super("Navigator");
 	}
 	
 	@Override

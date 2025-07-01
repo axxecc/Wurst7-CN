@@ -87,7 +87,7 @@ public final class TunnellerHack extends Hack
 	
 	public TunnellerHack()
 	{
-		super("隧道机器人");
+		super("Tunneller");
 		setCategory(Category.BLOCKS);
 		addSetting(size);
 		addSetting(limit);

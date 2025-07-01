@@ -66,7 +66,7 @@ public final class MassTpaHack extends Hack
 	
 	public MassTpaHack()
 	{
-		super("TPA光环");
+		super("MassTPA");
 		setCategory(Category.CHAT);
 		addSetting(commandSetting);
 		addSetting(delay);

@@ -23,7 +23,7 @@ public final class NoBackgroundHack extends Hack
 	
 	public NoBackgroundHack()
 	{
-		super("无深色背景");
+		super("NoBackground");
 		setCategory(Category.RENDER);
 		addSetting(allGuis);
 	}

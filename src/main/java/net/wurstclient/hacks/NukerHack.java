@@ -50,7 +50,7 @@ public final class NukerHack extends Hack
 	
 	public NukerHack()
 	{
-		super("挖掘光环");
+		super("Nuker");
 		setCategory(Category.BLOCKS);
 		addSetting(range);
 		commonSettings.getSettings().forEach(this::addSetting);

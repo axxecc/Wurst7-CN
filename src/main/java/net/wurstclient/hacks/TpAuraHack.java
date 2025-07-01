@@ -60,7 +60,7 @@ public final class TpAuraHack extends Hack implements UpdateListener
 	
 	public TpAuraHack()
 	{
-		super("TP-光环");
+		super("TP-Aura");
 		setCategory(Category.COMBAT);
 		
 		addSetting(range);

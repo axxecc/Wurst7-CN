@@ -29,7 +29,7 @@ public final class CriticalsHack extends Hack
 	
 	public CriticalsHack()
 	{
-		super("暴击");
+		super("Criticals");
 		setCategory(Category.COMBAT);
 		addSetting(mode);
 	}

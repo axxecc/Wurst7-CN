@@ -97,7 +97,7 @@ public final class BuildRandomHack extends Hack
 	
 	public BuildRandomHack()
 	{
-		super("随机建造");
+		super("BuildRandom");
 		setCategory(Category.BLOCKS);
 		addSetting(range);
 		addSetting(maxAttempts);

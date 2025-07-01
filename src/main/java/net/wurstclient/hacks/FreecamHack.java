@@ -49,7 +49,7 @@ public final class FreecamHack extends Hack implements UpdateListener,
 	
 	public FreecamHack()
 	{
-		super("灵魂出窍");
+		super("Freecam");
 		setCategory(Category.RENDER);
 		addSetting(speed);
 		addSetting(tracer);

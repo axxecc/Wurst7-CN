@@ -72,7 +72,7 @@ public final class SearchHack extends Hack
 	
 	public SearchHack()
 	{
-		super("方块高亮");
+		super("Search");
 		setCategory(Category.RENDER);
 		addSetting(block);
 		addSetting(area);

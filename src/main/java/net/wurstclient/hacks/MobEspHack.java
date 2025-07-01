@@ -71,7 +71,7 @@ public final class MobEspHack extends Hack implements UpdateListener,
 	
 	public MobEspHack()
 	{
-		super("生物透视");
+		super("MobESP");
 		setCategory(Category.RENDER);
 		addSetting(style);
 		addSetting(boxSize);

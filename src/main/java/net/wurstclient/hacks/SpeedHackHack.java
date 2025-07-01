@@ -18,7 +18,7 @@ public final class SpeedHackHack extends Hack implements UpdateListener
 {
 	public SpeedHackHack()
 	{
-		super("移动速度");
+		super("SpeedHack");
 		setCategory(Category.MOVEMENT);
 	}
 	

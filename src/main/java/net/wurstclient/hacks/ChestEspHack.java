@@ -129,7 +129,7 @@ public class ChestEspHack extends Hack implements UpdateListener,
 	
 	public ChestEspHack()
 	{
-		super("箱子透视");
+		super("ChestESP");
 		setCategory(Category.RENDER);
 		
 		addSetting(style);

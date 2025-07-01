@@ -50,7 +50,7 @@ public final class FastBreakHack extends Hack
 	
 	public FastBreakHack()
 	{
-		super("快速破坏");
+		super("FastBreak");
 		setCategory(Category.BLOCKS);
 		addSetting(activationChance);
 		addSetting(legitMode);

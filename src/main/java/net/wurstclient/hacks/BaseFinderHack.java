@@ -97,7 +97,7 @@ public final class BaseFinderHack extends Hack
 	
 	public BaseFinderHack()
 	{
-		super("基地查找器");
+		super("BaseFinder");
 		setCategory(Category.RENDER);
 		addSetting(naturalBlocks);
 		addSetting(color);

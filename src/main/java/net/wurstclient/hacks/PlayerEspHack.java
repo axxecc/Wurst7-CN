@@ -54,7 +54,7 @@ public final class PlayerEspHack extends Hack implements UpdateListener,
 	
 	public PlayerEspHack()
 	{
-		super("玩家透视");
+		super("PlayerESP");
 		setCategory(Category.RENDER);
 		addSetting(style);
 		addSetting(boxSize);

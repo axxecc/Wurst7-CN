@@ -36,7 +36,7 @@ public final class ArrowDmgHack extends Hack implements StopUsingItemListener
 	
 	public ArrowDmgHack()
 	{
-		super("强力箭矢");
+		super("ArrowDMG");
 		setCategory(Category.COMBAT);
 		addSetting(strength);
 		addSetting(yeetTridents);

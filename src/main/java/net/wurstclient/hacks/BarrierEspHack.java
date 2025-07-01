@@ -16,7 +16,7 @@ public class BarrierEspHack extends Hack
 {
 	public BarrierEspHack()
 	{
-		super("屏障高亮");
+		super("BarrierESP");
 		setCategory(Category.RENDER);
 	}
 	

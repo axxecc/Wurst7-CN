@@ -46,7 +46,7 @@ public final class InstantBunkerHack extends Hack implements UpdateListener
 	
 	public InstantBunkerHack()
 	{
-		super("自闭小屋");
+		super("InstantBunker");
 		setCategory(Category.BLOCKS);
 	}
 	

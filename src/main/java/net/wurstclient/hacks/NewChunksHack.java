@@ -94,7 +94,7 @@ public final class NewChunksHack extends Hack
 	
 	public NewChunksHack()
 	{
-		super("新区块");
+		super("NewChunks");
 		setCategory(Category.RENDER);
 		addSetting(style);
 		addSetting(show);

@@ -36,7 +36,7 @@ public final class TooManyHaxHack extends Hack
 	
 	public TooManyHaxHack()
 	{
-		super("屏蔽功能");
+		super("TooManyHax");
 		setCategory(Category.OTHER);
 		
 		Path wurstFolder = WURST.getWurstFolder();

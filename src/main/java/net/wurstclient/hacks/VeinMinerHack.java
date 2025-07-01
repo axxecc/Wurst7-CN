@@ -76,7 +76,7 @@ public final class VeinMinerHack extends Hack
 	
 	public VeinMinerHack()
 	{
-		super("自动挖矿");
+		super("VeinMiner");
 		setCategory(Category.BLOCKS);
 		addSetting(range);
 		addSetting(flat);

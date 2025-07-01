@@ -16,7 +16,7 @@ public final class PortalGuiHack extends Hack
 {
 	public PortalGuiHack()
 	{
-		super("传送门GUI");
+		super("PortalGUI");
 		setCategory(Category.OTHER);
 	}
 	

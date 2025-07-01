@@ -44,7 +44,7 @@ public final class ItemEspHack extends Hack implements UpdateListener,
 	
 	public ItemEspHack()
 	{
-		super("掉落物透视");
+		super("ItemESP");
 		setCategory(Category.RENDER);
 		addSetting(style);
 		addSetting(boxSize);

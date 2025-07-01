@@ -57,7 +57,7 @@ public final class TemplateToolHack extends Hack
 	
 	public TemplateToolHack()
 	{
-		super("模板工具");
+		super("TemplateTool");
 		setCategory(Category.BLOCKS);
 	}
 	

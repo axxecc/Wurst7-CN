@@ -28,7 +28,7 @@ public final class NoFallHack extends Hack implements UpdateListener
 	
 	public NoFallHack()
 	{
-		super("无摔伤");
+		super("NoFall");
 		setCategory(Category.MOVEMENT);
 		addSetting(allowElytra);
 		addSetting(pauseForMace);

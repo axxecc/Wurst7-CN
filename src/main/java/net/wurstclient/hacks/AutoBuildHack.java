@@ -70,7 +70,7 @@ public final class AutoBuildHack extends Hack
 	
 	public AutoBuildHack()
 	{
-		super("自动建造");
+		super("AutoBuild");
 		setCategory(Category.BLOCKS);
 		addSetting(templateSetting);
 		addSetting(range);

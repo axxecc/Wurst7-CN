@@ -119,7 +119,7 @@ public final class KillauraLegitHack extends Hack implements UpdateListener,
 	
 	public KillauraLegitHack()
 	{
-		super("合法杀戮光环");
+		super("KillauraLegit");
 		setCategory(Category.COMBAT);
 		
 		addSetting(range);

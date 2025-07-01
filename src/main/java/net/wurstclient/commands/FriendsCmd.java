@@ -23,7 +23,7 @@ public class FriendsCmd extends Command
 	
 	private final CheckboxSetting middleClickFriends =
 		new CheckboxSetting("Middle click friends",
-			"使用鼠标中键单击 添加/删除 好友",
+			"Add/remove friends by clicking them with the middle mouse button.",
 			true);
 	
 	public FriendsCmd()

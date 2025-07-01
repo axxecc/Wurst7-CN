@@ -19,7 +19,7 @@ public final class AntiCactusHack extends Hack
 {
 	public AntiCactusHack()
 	{
-		super("反仙人掌");
+		super("AntiCactus");
 		setCategory(Category.BLOCKS);
 	}
 	

@@ -21,7 +21,7 @@ public final class AntiHungerHack extends Hack implements PacketOutputListener
 {
 	public AntiHungerHack()
 	{
-		super("反饥饿");
+		super("AntiHunger");
 		setCategory(Category.MOVEMENT);
 	}
 	

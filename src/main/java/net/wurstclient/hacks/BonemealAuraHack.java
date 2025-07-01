@@ -68,7 +68,7 @@ public final class BonemealAuraHack extends Hack implements HandleInputListener
 	
 	public BonemealAuraHack()
 	{
-		super("骨粉光环");
+		super("BonemealAura");
 		setCategory(Category.BLOCKS);
 		addSetting(range);
 		addSetting(mode);
