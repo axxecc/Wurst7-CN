@@ -81,9 +81,8 @@ public final class XRayHack extends Hack implements UpdateListener,
 		false);
 	
 	private final SliderSetting opacity = new SliderSetting("Opacity",
-		"Opacity of non-ore blocks when X-Ray is enabled.\n\n"
-			+ "Remember to restart X-Ray when changing this setting.",
-		0, 0, 0.99, 0.01, ValueDisplay.PERCENTAGE.withLabel(0, "off"));
+		"启用 X-Ray 时非矿石块的不透明度\n\n更改此设置时，请记住重新启动 X-Ray",
+		0, 0, 0.99, 0.01, ValueDisplay.PERCENTAGE.withLabel(0, "关闭"));
 	
 	private final String optiFineWarning;
 	private final String renderName =

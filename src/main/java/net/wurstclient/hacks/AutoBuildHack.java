@@ -57,10 +57,8 @@ public final class AutoBuildHack extends Hack
 		false);
 	
 	private final CheckboxSetting useSavedBlocks = new CheckboxSetting(
-		"Use saved blocks",
-		"Tries to place the same blocks that were saved in the template.\n\n"
-			+ "If the template does not specify block types, it will be built"
-			+ " from whatever block you are holding.",
+		"使用已保存的块",
+		"尝试放置保存在模板中的相同块\n\n如果模板未指定块类型，则将从您持有的任何块构建它",
 		true);
 	
 	private final CheckboxSetting fastPlace =
@@ -68,9 +66,8 @@ public final class AutoBuildHack extends Hack
 			"即使未启用快速放置也会加快放置速度", true);
 	
 	private final CheckboxSetting strictBuildOrder = new CheckboxSetting(
-		"Strict build order",
-		"Places blocks in exactly the same order that they appear in the"
-			+ " template. This is slower, but provides more consistent results.",
+		"严格的构建顺序",
+		"按块在模板中的显示顺序完全相同的顺序放置块，这速度较慢，但提供更一致的结果",
 		false);
 
 	private Status status = Status.NO_TEMPLATE;
