@@ -11,6 +11,7 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 
+import net.minecraft.util.Colors;
 import org.lwjgl.glfw.GLFW;
 
 import net.minecraft.client.gui.DrawContext;
@@ -235,33 +236,33 @@ public class ServerFinderScreen extends Screen
 		float partialTicks)
 	{
 		context.drawCenteredTextWithShadow(textRenderer, "服务器查找器",
-			width / 2, 20, 16777215);
+			width / 2, 20, Colors.WHITE);
 		context.drawCenteredTextWithShadow(textRenderer,
-			"T他将搜索具有相似 IP 的服务器", width / 2, 40,
-			10526880);
+			"他将搜索具有相似 IP 的服务器", width / 2, 40,
+			Colors.LIGHT_GRAY);
 		context.drawCenteredTextWithShadow(textRenderer,
 			"到您在下面的字段中输入的 IP", width / 2, 50,
-			10526880);
+			Colors.LIGHT_GRAY);
 		context.drawCenteredTextWithShadow(textRenderer,
 			"它找到的服务器将添加到您的服务器列表中",
-			width / 2, 60, 10526880);
+			width / 2, 60, Colors.LIGHT_GRAY);
 		
 		context.drawTextWithShadow(textRenderer, "服务器地址：",
-			width / 2 - 100, height / 4 + 24, 10526880);
+			width / 2 - 100, height / 4 + 24, Colors.LIGHT_GRAY);
 		ipBox.render(context, mouseX, mouseY, partialTicks);
 		
 		context.drawTextWithShadow(textRenderer, "最大线程数：",
-			width / 2 - 100, height / 4 + 60, 10526880);
+			width / 2 - 100, height / 4 + 60, Colors.LIGHT_GRAY);
 		maxThreadsBox.render(context, mouseX, mouseY, partialTicks);
 		
 		context.drawCenteredTextWithShadow(textRenderer, state.toString(),
-			width / 2, height / 4 + 73, 10526880);
+			width / 2, height / 4 + 73, Colors.LIGHT_GRAY);
 		
 		context.drawTextWithShadow(textRenderer,
-			"检查中：" + checked + " / 1792", width / 2 - 100, height / 4 + 84,
-			10526880);
+			"Checked: " + checked + " / 1792", width / 2 - 100, height / 4 + 84,
+			Colors.LIGHT_GRAY);
 		context.drawTextWithShadow(textRenderer, "工作中：" + working,
-			width / 2 - 100, height / 4 + 94, 10526880);
+			width / 2 - 100, height / 4 + 94, Colors.LIGHT_GRAY);
 		
 		for(Drawable drawable : drawables)
 			drawable.render(context, mouseX, mouseY, partialTicks);

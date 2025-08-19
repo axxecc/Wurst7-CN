@@ -80,9 +80,10 @@ public final class XRayHack extends Hack implements UpdateListener,
 		"仅显示洞穴中可见的矿石，这有助于绕过反X-Ray\n\n更改此设置时，请重新启动X-Ray",
 		false);
 	
-	private final SliderSetting opacity = new SliderSetting("不透明度",
-		"启用X-Ray时非矿石块的不透明度\n\n安装钠时不起作用\n\n更改此设置时请重新启动X-Ray",
-		0, 0, 0.99, 0.01, ValueDisplay.PERCENTAGE.withLabel(0, "关闭"));
+	private final SliderSetting opacity = new SliderSetting("Opacity",
+		"Opacity of non-ore blocks when X-Ray is enabled.\n\n"
+			+ "Remember to restart X-Ray when changing this setting.",
+		0, 0, 0.99, 0.01, ValueDisplay.PERCENTAGE.withLabel(0, "off"));
 	
 	private final String optiFineWarning;
 	private final String renderName =

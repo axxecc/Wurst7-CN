@@ -14,16 +14,17 @@ import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.PotionContentsComponent;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.network.packet.c2s.play.CreativeInventoryActionC2SPacket;
 import net.minecraft.text.Text;
 import net.wurstclient.Category;
 import net.wurstclient.SearchTags;
 import net.wurstclient.hack.Hack;
 import net.wurstclient.settings.EnumSetting;
 import net.wurstclient.util.ChatUtils;
+import net.wurstclient.util.InventoryUtils;
 
 @SearchTags({"kill potion", "KillerPotion", "killer potion", "KillingPotion",
 	"killing potion", "InstantDeathPotion", "instant death potion"})
@@ -56,29 +57,19 @@ public final class KillPotionHack extends Hack
 		ItemStack stack = potionType.getSelected().createPotionStack();
 		
 		// give potion
-		if(placeStackInHotbar(stack))
-			ChatUtils.message("已创建药水");
+		PlayerInventory inventory = MC.player.getInventory();
+		int slot = inventory.getEmptySlot();
+		if(slot < 0)
+			ChatUtils.error("不能给药水，您的背包已满！");
 		else
-			ChatUtils.error("请在你的快捷栏中清空一个槽位");
+		{
+			InventoryUtils.setCreativeStack(slot, stack);
+			ChatUtils.message("已创建药水");
+		}
 		
 		setEnabled(false);
 	}
-	
-	private boolean placeStackInHotbar(ItemStack stack)
-	{
-		for(int i = 0; i < 9; i++)
-		{
-			if(!MC.player.getInventory().getStack(i).isEmpty())
-				continue;
-			
-			MC.player.networkHandler.sendPacket(
-				new CreativeInventoryActionC2SPacket(36 + i, stack));
-			return true;
-		}
-		
-		return false;
-	}
-	
+
 	private enum PotionType
 	{
 		NORMAL("正常", "", Items.POTION),
