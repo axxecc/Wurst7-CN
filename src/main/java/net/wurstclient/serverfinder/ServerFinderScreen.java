@@ -259,7 +259,7 @@ public class ServerFinderScreen extends Screen
 			width / 2, height / 4 + 73, Colors.LIGHT_GRAY);
 		
 		context.drawTextWithShadow(textRenderer,
-			"Checked: " + checked + " / 1792", width / 2 - 100, height / 4 + 84,
+			"检查: " + checked + " / 1792", width / 2 - 100, height / 4 + 84,
 			Colors.LIGHT_GRAY);
 		context.drawTextWithShadow(textRenderer, "工作中：" + working,
 			width / 2 - 100, height / 4 + 94, Colors.LIGHT_GRAY);

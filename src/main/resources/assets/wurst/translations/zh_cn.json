@@ -128,6 +128,7 @@
   "description.wurst.hack.生命标签": "在玩家名字旁边显示血量。",
   "description.wurst.hack.高跳": "使你跳的更高。\n\n§c§l警告：§r 如果你不使用 NoFall，依然会受到摔落伤害。",
   "description.wurst.hack.移除聊天限制": "移除聊天栏的 256 字符限制。\n一般用于编辑 NBT 的指令。\n\n§6§l注意：§r不推荐用于和别人聊天。大多数服务器一般超过 256 字符就会无法显示后面的内容。",
+  "description.wurst.hack.模板建造": "与自动构建类似，但尝试在一次更新中构建整个模板\n仅适用于非常简单的模板",
   "description.wurst.hack.自闭小屋": "建造一个小小的火柴盒，需要57个方块。",
   "description.wurst.hack.背包移动": "允许你在物品栏打开时移动。",
   "description.wurst.setting.invwalk.allow_clickgui": "允许你在 Wurst 的 ClickGUI 打开时移动。",

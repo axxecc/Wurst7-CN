@@ -15,14 +15,7 @@ public final class NukerModeSetting
 	public NukerModeSetting()
 	{
 		super("模式",
-			" mode simply breaks everything around you.\n\n"
-				+ " mode only breaks the selected block type."
-				+ " Left-click on a block to select it.\n\n"
-				+ "mode only breaks the block types in"
-				+ " your MultiID List.\n\n"
-				+ "mode only breaks blocks that can be"
-				+ " destroyed instantly (e.g. tall grass)." +
-					"\u00a7l正常\u00a7r模式只会破坏你周围的一切\n\n\u00a7lID\u00a7r模式只会破坏选定的方块类型，左键点击一个方块将其选中\n\n\u00a7l多个方块\u00a7r模式只会破坏多个方块列表中的方块类型\n\n§l\u00a7l破坏\u00a7r模式只会破坏可以立即摧毁的方块（例如高草）",
+			"\u00a7l正常\u00a7r模式只会破坏你周围的一切\n\n\u00a7lID\u00a7r模式只会破坏选定的方块类型，左键点击一个方块将其选中\n\n\u00a7l多个方块\u00a7r模式只会破坏多个方块列表中的方块类型\n\n§l\u00a7l破坏\u00a7r模式只会破坏可以立即摧毁的方块（例如高草）",
 			NukerMode.values(), NukerMode.NORMAL);
 	}
 

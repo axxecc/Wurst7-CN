@@ -41,22 +41,17 @@ import net.wurstclient.util.json.JsonException;
 public final class InstaBuildHack extends Hack
 	implements UpdateListener, RightClickListener
 {
-	private final FileSetting templateSetting = new FileSetting("Template",
-		"Determines what to build.\n\n"
-			+ "Templates are just JSON files. Feel free to add your own or to edit / delete the default templates.\n\n"
-			+ "If you mess up, simply press the 'Reset to Defaults' button or delete the folder.",
+	private final FileSetting templateSetting = new FileSetting("模板",
+		"确定要构建的内容\n\n模板只是 JSON 文件，请随意添加您自己的模板或编辑/删除默认模板\n\n如果您搞砸了，只需按\"重置为默认值\"按钮或删除文件夹即可",
 		"autobuild", path -> {});
 	
-	private final SliderSetting range = new SliderSetting("Range",
-		"How far to reach when placing blocks.\n" + "Recommended values:\n"
-			+ "6.0 for vanilla\n" + "4.25 for NoCheat+",
+	private final SliderSetting range = new SliderSetting("范围",
+		"放置物块时要达到多远\n“ + ”推荐值：\nvanilla 为 6.0\n“ + ”NoCheat+ 为 4.25",
 		6, 1, 10, 0.05, ValueDisplay.DECIMAL);
 	
 	private final CheckboxSetting useSavedBlocks = new CheckboxSetting(
-		"Use saved blocks",
-		"Tries to place the same blocks that were saved in the template.\n\n"
-			+ "If the template does not specify block types, it will be built"
-			+ " from whatever block you are holding.",
+		"使用已保存的块",
+		"尝试放置保存在模板中的相同块\n\n如果模板未指定块类型，则将从您持有的任何块构建它",
 		false);
 	
 	private Status status = Status.NO_TEMPLATE;
@@ -66,7 +61,7 @@ public final class InstaBuildHack extends Hack
 	
 	public InstaBuildHack()
 	{
-		super("InstaBuild");
+		super("模板建造");
 		setCategory(Category.BLOCKS);
 		addSetting(templateSetting);
 		addSetting(range);
@@ -84,7 +79,7 @@ public final class InstaBuildHack extends Hack
 			break;
 			
 			case LOADING:
-			name += " [Loading...]";
+			name += " [加载...]";
 			break;
 			
 			case IDLE:
@@ -220,7 +215,7 @@ public final class InstaBuildHack extends Hack
 		}catch(IOException | JsonException e)
 		{
 			Path fileName = path.getFileName();
-			ChatUtils.error("Couldn't load template '" + fileName + "'.");
+			ChatUtils.error("无法加载模板 '" + fileName);
 			
 			String simpleClassName = e.getClass().getSimpleName();
 			String message = e.getMessage();
