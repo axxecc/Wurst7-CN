@@ -75,7 +75,7 @@ public final class InstantBunkerHack extends Hack implements UpdateListener
 			ChatUtils.warning("没有足够的方块，自闭小屋可能不完整");
 		
 		// get start pos and facings
-		BlockPos startPos = BlockPos.ofFloored(MC.player.getPos());
+		BlockPos startPos = BlockPos.ofFloored(MC.player.getEntityPos());
 		Direction facing = MC.player.getHorizontalFacing();
 		Direction facing2 = facing.rotateYCounterclockwise();
 		
