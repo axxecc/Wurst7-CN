@@ -19,7 +19,8 @@ import net.wurstclient.events.RenderListener;
 import net.wurstclient.events.UpdateListener;
 import net.wurstclient.hack.Hack;
 import net.wurstclient.settings.CheckboxSetting;
-import net.wurstclient.settings.FacingSetting;
+import net.wurstclient.settings.FaceTargetSetting;
+import net.wurstclient.settings.FaceTargetSetting.FaceTarget;
 import net.wurstclient.settings.SliderSetting;
 import net.wurstclient.settings.SliderSetting.ValueDisplay;
 import net.wurstclient.settings.SwingHandSetting;
@@ -53,8 +54,8 @@ public final class BuildRandomHack extends Hack
 			"确保随机建造不会尝试在墙后放置块",
 			false);
 	
-	private final FacingSetting facing = FacingSetting.withoutPacketSpam(
-		"随机建造应该如何面对随机放置的块\n\n\u00a7l关闭\u00a7r - 根本不面对块。将被反作弊插件检测到\n\n\u00a7l服务器\u00a7r - 面对服务器端的障碍，同时仍然允许您在客户端自由移动摄像机\n\n\u00a7l客户端\u00a7r - 通过在客户端移动您的摄像机来面对障碍。这是最合法的选择");
+	private final FaceTargetSetting faceTarget =
+		FaceTargetSetting.withoutPacketSpam(this, FaceTarget.SERVER);
 	
 	private final SwingHandSetting swingHand =
 		new SwingHandSetting(this, SwingHand.SERVER);
@@ -87,7 +88,7 @@ public final class BuildRandomHack extends Hack
 		addSetting(maxAttempts);
 		addSetting(checkItem);
 		addSetting(checkLOS);
-		addSetting(facing);
+		addSetting(faceTarget);
 		addSetting(swingHand);
 		addSetting(fastPlace);
 		addSetting(placeWhileBreaking);
@@ -162,7 +163,7 @@ public final class BuildRandomHack extends Hack
 			return false;
 		
 		MC.itemUseCooldown = 4;
-		facing.getSelected().face(params.hitVec());
+		faceTarget.face(params.hitVec());
 		lastPos = pos;
 		
 		InteractionSimulator.rightClickBlock(params.toHitResult(),

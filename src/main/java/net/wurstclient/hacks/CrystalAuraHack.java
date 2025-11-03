@@ -31,8 +31,8 @@ import net.wurstclient.events.UpdateListener;
 import net.wurstclient.hack.Hack;
 import net.wurstclient.settings.CheckboxSetting;
 import net.wurstclient.settings.EnumSetting;
-import net.wurstclient.settings.FacingSetting;
-import net.wurstclient.settings.FacingSetting.Facing;
+import net.wurstclient.settings.FaceTargetSetting;
+import net.wurstclient.settings.FaceTargetSetting.FaceTarget;
 import net.wurstclient.settings.SliderSetting;
 import net.wurstclient.settings.SliderSetting.ValueDisplay;
 import net.wurstclient.settings.SwingHandSetting;
@@ -55,17 +55,15 @@ public final class CrystalAuraHack extends Hack implements UpdateListener
 		"自动放置水晶",
 		"启用后，水晶光环会自动将水晶放置在有效实体附近\n禁用后，水晶光环只会引爆手动放置的水晶",
 		true);
-	
-	private final FacingSetting faceBlocks =
-		FacingSetting.withPacketSpam("面朝水晶",
-			"放置和左键点击末端水晶时，水晶光环是否应该朝向正确的方向\n\n速度较慢，但可以帮助反作弊插件",
-			Facing.OFF);
-	
+
 	private final CheckboxSetting checkLOS = new CheckboxSetting(
 		"检查视线",
 		"确保你在放置或左键点击末地水晶时不会穿过方块\n\n速度较慢，但可以帮助反作弊插件",
 		false);
 	
+	private final FaceTargetSetting faceTarget =
+		FaceTargetSetting.withPacketSpam(this, FaceTarget.OFF);
+
 	private final SwingHandSetting swingHand =
 		new SwingHandSetting(this, SwingHand.CLIENT);
 	
@@ -83,8 +81,8 @@ public final class CrystalAuraHack extends Hack implements UpdateListener
 		setCategory(Category.COMBAT);
 		addSetting(range);
 		addSetting(autoPlace);
-		addSetting(faceBlocks);
 		addSetting(checkLOS);
+		addSetting(faceTarget);
 		addSetting(swingHand);
 		addSetting(takeItemsFrom);
 		
@@ -166,7 +164,7 @@ public final class CrystalAuraHack extends Hack implements UpdateListener
 	{
 		for(Entity e : crystals)
 		{
-			faceBlocks.getSelected().face(e.getBoundingBox().getCenter());
+			faceTarget.face(e.getBoundingBox().getCenter());
 			MC.interactionManager.attackEntity(MC.player, e);
 		}
 		
@@ -209,7 +207,7 @@ public final class CrystalAuraHack extends Hack implements UpdateListener
 			if(!MC.player.isHolding(Items.END_CRYSTAL))
 				return false;
 			
-			faceBlocks.getSelected().face(hitVec);
+			faceTarget.face(hitVec);
 			
 			// place block
 			IMC.getInteractionManager().rightClickBlock(neighbor,
