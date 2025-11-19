@@ -14,18 +14,18 @@ import java.util.Objects;
 
 import org.lwjgl.glfw.GLFW;
 
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.font.TextRenderer;
-import net.minecraft.client.gui.DrawContext;
-import net.minecraft.client.gui.Drawable;
-import net.minecraft.client.gui.screen.ConfirmScreen;
-import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.client.gui.widget.AlwaysSelectedEntryListWidget;
-import net.minecraft.client.gui.widget.ButtonWidget;
-import net.minecraft.client.input.KeyInput;
-import net.minecraft.text.Text;
-import net.minecraft.util.Colors;
-import net.minecraft.util.Util;
+import net.minecraft.Util;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.Font;
+import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.components.Button;
+import net.minecraft.client.gui.components.ObjectSelectionList;
+import net.minecraft.client.gui.components.Renderable;
+import net.minecraft.client.gui.screens.ConfirmScreen;
+import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.client.input.KeyEvent;
+import net.minecraft.network.chat.Component;
+import net.minecraft.util.CommonColors;
 import net.wurstclient.settings.FileSetting;
 import net.wurstclient.util.WurstColors;
 
@@ -35,11 +35,11 @@ public final class SelectFileScreen extends Screen
 	private final FileSetting setting;
 	
 	private ListGui listGui;
-	private ButtonWidget doneButton;
+	private Button doneButton;
 	
 	public SelectFileScreen(Screen prevScreen, FileSetting blockList)
 	{
-		super(Text.literal(""));
+		super(Component.literal(""));
 		this.prevScreen = prevScreen;
 		setting = blockList;
 	}
@@ -47,35 +47,35 @@ public final class SelectFileScreen extends Screen
 	@Override
 	public void init()
 	{
-		listGui = new ListGui(client, this, setting.listFiles());
-		addSelectableChild(listGui);
+		listGui = new ListGui(minecraft, this, setting.listFiles());
+		addWidget(listGui);
 		
-		addDrawableChild(
-			ButtonWidget.builder(Text.literal("打开文件夹"), b -> openFolder())
-				.dimensions(8, 8, 100, 20).build());
+		addRenderableWidget(
+			Button.builder(Component.literal("打开文件夹"), b -> openFolder())
+				.bounds(8, 8, 100, 20).build());
 		
-		addDrawableChild(ButtonWidget
-			.builder(Text.literal("重置为默认值"),
+		addRenderableWidget(Button
+			.builder(Component.literal("重置为默认值"),
 				b -> askToConfirmReset())
-			.dimensions(width - 108, 8, 100, 20).build());
+			.bounds(width - 108, 8, 100, 20).build());
 		
-		doneButton = addDrawableChild(
-			ButtonWidget.builder(Text.literal("完成"), b -> done())
-				.dimensions(width / 2 - 102, height - 48, 100, 20).build());
+		doneButton = addRenderableWidget(
+			Button.builder(Component.literal("完成"), b -> done())
+				.bounds(width / 2 - 102, height - 48, 100, 20).build());
 		
-		addDrawableChild(
-			ButtonWidget.builder(Text.literal("取消"), b -> openPrevScreen())
-				.dimensions(width / 2 + 2, height - 48, 100, 20).build());
+		addRenderableWidget(
+			Button.builder(Component.literal("取消"), b -> openPrevScreen())
+				.bounds(width / 2 + 2, height - 48, 100, 20).build());
 	}
 	
 	private void openFolder()
 	{
-		Util.getOperatingSystem().open(setting.getFolder().toFile());
+		Util.getPlatform().openFile(setting.getFolder().toFile());
 	}
 	
 	private void openPrevScreen()
 	{
-		client.setScreen(prevScreen);
+		minecraft.setScreen(prevScreen);
 	}
 	
 	private void done()
@@ -92,12 +92,15 @@ public final class SelectFileScreen extends Screen
 	
 	private void askToConfirmReset()
 	{
-		Text title = Text.literal("重置文件夹");
+		Component title = Component.literal("重置文件夹");
 		
-		Text message = Text
-			.literal("这将清空 '" + setting.getFolder().getFileName() + "' 文件夹，然后重新生成默认文件\n你确定要这样做吗？");
+		Component message = Component
+			.literal("这将清空 '" + setting.getFolder().getFileName()
+				+ "' 文件夹，然后重新生成默认文件\n"
+				+ "你确定要这样做吗?");
 		
-		client.setScreen(new ConfirmScreen(this::confirmReset, title, message));
+		minecraft
+			.setScreen(new ConfirmScreen(this::confirmReset, title, message));
 	}
 	
 	private void confirmReset(boolean confirmed)
@@ -105,11 +108,11 @@ public final class SelectFileScreen extends Screen
 		if(confirmed)
 			setting.resetFolder();
 		
-		client.setScreen(SelectFileScreen.this);
+		minecraft.setScreen(SelectFileScreen.this);
 	}
 	
 	@Override
-	public boolean keyPressed(KeyInput context)
+	public boolean keyPressed(KeyEvent context)
 	{
 		if(context.key() == GLFW.GLFW_KEY_ENTER)
 			done();
@@ -122,29 +125,30 @@ public final class SelectFileScreen extends Screen
 	@Override
 	public void tick()
 	{
-		doneButton.active = listGui.getSelectedOrNull() != null;
+		doneButton.active = listGui.getSelected() != null;
 	}
 	
 	@Override
-	public void render(DrawContext context, int mouseX, int mouseY,
+	public void render(GuiGraphics context, int mouseX, int mouseY,
 		float partialTicks)
 	{
 		listGui.render(context, mouseX, mouseY, partialTicks);
 		
-		context.drawCenteredTextWithShadow(client.textRenderer,
-			setting.getName(), width / 2, 12, Colors.WHITE);
+		context.drawCenteredString(minecraft.font, setting.getName(), width / 2,
+			12, CommonColors.WHITE);
 		
-		for(Drawable drawable : drawables)
+		for(Renderable drawable : renderables)
 			drawable.render(context, mouseX, mouseY, partialTicks);
 		
-		if(doneButton.isSelected() && !doneButton.active)
-			context.drawTooltip(textRenderer,
-				Arrays.asList(Text.literal("您必须首先选择一个文件")),
+		if(doneButton.isHoveredOrFocused() && !doneButton.active)
+			context.setComponentTooltipForNextFrame(font,
+				Arrays
+					.asList(Component.literal("您必须首先选择一个文件")),
 				mouseX, mouseY);
 	}
 	
 	@Override
-	public boolean shouldPause()
+	public boolean isPauseScreen()
 	{
 		return false;
 	}
@@ -156,7 +160,7 @@ public final class SelectFileScreen extends Screen
 	}
 	
 	private final class Entry
-		extends AlwaysSelectedEntryListWidget.Entry<SelectFileScreen.Entry>
+		extends ObjectSelectionList.Entry<SelectFileScreen.Entry>
 	{
 		private final Path path;
 		
@@ -166,36 +170,36 @@ public final class SelectFileScreen extends Screen
 		}
 		
 		@Override
-		public Text getNarration()
+		public Component getNarration()
 		{
-			return Text.translatable("narrator.select",
+			return Component.translatable("narrator.select",
 				"File " + path.getFileName());
 		}
 		
 		@Override
-		public void render(DrawContext context, int mouseX, int mouseY,
+		public void renderContent(GuiGraphics context, int mouseX, int mouseY,
 			boolean hovered, float tickDelta)
 		{
 			int x = getContentX();
 			int y = getContentY();
 			
-			TextRenderer tr = client.textRenderer;
+			Font tr = minecraft.font;
 			
 			String fileName = "" + path.getFileName();
-			context.drawTextWithShadow(tr, fileName, x + 28, y,
+			context.drawString(tr, fileName, x + 28, y,
 				WurstColors.VERY_LIGHT_GRAY);
 			
-			String relPath = "" + client.runDirectory.toPath().relativize(path);
-			context.drawTextWithShadow(tr, relPath, x + 28, y + 9,
-				Colors.LIGHT_GRAY);
+			String relPath =
+				"" + minecraft.gameDirectory.toPath().relativize(path);
+			context.drawString(tr, relPath, x + 28, y + 9,
+				CommonColors.LIGHT_GRAY);
 		}
 	}
 	
 	private final class ListGui
-		extends AlwaysSelectedEntryListWidget<SelectFileScreen.Entry>
+		extends ObjectSelectionList<SelectFileScreen.Entry>
 	{
-		public ListGui(MinecraftClient mc, SelectFileScreen screen,
-			List<Path> list)
+		public ListGui(Minecraft mc, SelectFileScreen screen, List<Path> list)
 		{
 			super(mc, screen.width, screen.height - 96, 36, 20);
 			
@@ -205,7 +209,7 @@ public final class SelectFileScreen extends Screen
 		
 		public Path getSelectedPath()
 		{
-			SelectFileScreen.Entry selected = getSelectedOrNull();
+			SelectFileScreen.Entry selected = getSelected();
 			return selected != null ? selected.path : null;
 		}
 	}

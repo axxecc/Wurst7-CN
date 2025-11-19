@@ -11,12 +11,13 @@ import java.util.ArrayList;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import net.minecraft.client.network.AbstractClientPlayerEntity;
-import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.util.math.Box;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.Vec3d;
+import com.mojang.blaze3d.vertex.PoseStack;
+
+import net.minecraft.client.player.AbstractClientPlayer;
+import net.minecraft.util.Mth;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.phys.AABB;
+import net.minecraft.world.phys.Vec3;
 import net.wurstclient.Category;
 import net.wurstclient.SearchTags;
 import net.wurstclient.events.CameraTransformViewBobbingListener;
@@ -49,7 +50,7 @@ public final class PlayerEspHack extends Hack implements UpdateListener,
 		new FilterSleepingSetting("不会显示睡觉的玩家", false),
 		new FilterInvisibleSetting("不会显示隐身的玩家", false));
 	
-	private final ArrayList<PlayerEntity> players = new ArrayList<>();
+	private final ArrayList<Player> players = new ArrayList<>();
 	
 	public PlayerEspHack()
 	{
@@ -81,7 +82,7 @@ public final class PlayerEspHack extends Hack implements UpdateListener,
 	{
 		players.clear();
 		
-		Stream<AbstractClientPlayerEntity> stream = MC.world.getPlayers()
+		Stream<AbstractClientPlayer> stream = MC.level.players()
 			.parallelStream().filter(e -> !e.isRemoved() && e.getHealth() > 0)
 			.filter(e -> e != MC.player)
 			.filter(e -> !(e instanceof FakePlayerEntity))
@@ -101,17 +102,17 @@ public final class PlayerEspHack extends Hack implements UpdateListener,
 	}
 	
 	@Override
-	public void onRender(MatrixStack matrixStack, float partialTicks)
+	public void onRender(PoseStack matrixStack, float partialTicks)
 	{
 		if(style.hasBoxes())
 		{
 			double extraSize = boxSize.getExtraSize() / 2;
 			
 			ArrayList<ColoredBox> boxes = new ArrayList<>(players.size());
-			for(PlayerEntity e : players)
+			for(Player e : players)
 			{
-				Box box = EntityUtils.getLerpedBox(e, partialTicks)
-					.offset(0, extraSize, 0).expand(extraSize);
+				AABB box = EntityUtils.getLerpedBox(e, partialTicks)
+					.move(0, extraSize, 0).inflate(extraSize);
 				boxes.add(new ColoredBox(box, getColor(e)));
 			}
 			
@@ -121,9 +122,9 @@ public final class PlayerEspHack extends Hack implements UpdateListener,
 		if(style.hasLines())
 		{
 			ArrayList<ColoredPoint> ends = new ArrayList<>(players.size());
-			for(PlayerEntity e : players)
+			for(Player e : players)
 			{
-				Vec3d point =
+				Vec3 point =
 					EntityUtils.getLerpedBox(e, partialTicks).getCenter();
 				ends.add(new ColoredPoint(point, getColor(e)));
 			}
@@ -132,14 +133,14 @@ public final class PlayerEspHack extends Hack implements UpdateListener,
 		}
 	}
 	
-	private int getColor(PlayerEntity e)
+	private int getColor(Player e)
 	{
 		if(WURST.getFriends().contains(e.getName().getString()))
 			return 0x800000FF;
 		
 		float f = MC.player.distanceTo(e) / 20F;
-		float r = MathHelper.clamp(2 - f, 0, 1);
-		float g = MathHelper.clamp(f, 0, 1);
+		float r = Mth.clamp(2 - f, 0, 1);
+		float g = Mth.clamp(f, 0, 1);
 		float[] rgb = {r, g, 0};
 		return RenderUtils.toIntColor(rgb, 0.5F);
 	}

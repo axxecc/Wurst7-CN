@@ -161,8 +161,8 @@ public final class HackListOtf extends OtherFeature
 	{
 		NAME("名称", (a, b) -> a.getName().compareToIgnoreCase(b.getName())),
 		
-		WIDTH("宽度", Comparator.comparingInt(
-			h -> WurstClient.MC.textRenderer.getWidth(h.getRenderName())));
+		WIDTH("宽度", Comparator
+			.comparingInt(h -> WurstClient.MC.font.width(h.getRenderName())));
 		
 		private final String name;
 		private final Comparator<Hack> comparator;

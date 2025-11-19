@@ -7,7 +7,7 @@
  */
 package net.wurstclient.other_features;
 
-import net.minecraft.util.Util;
+import net.minecraft.Util;
 import net.wurstclient.DontBlock;
 import net.wurstclient.SearchTags;
 import net.wurstclient.other_feature.OtherFeature;
@@ -31,7 +31,7 @@ public final class ChangelogOtf extends OtherFeature
 	@Override
 	public void doPrimaryAction()
 	{
-		String link = "https://www.wurstclient.net/download/";
-		Util.getOperatingSystem().open(link);
+        String link = "https://www.wurstclient.net/download/";
+		Util.getPlatform().openUri(link);
 	}
 }
