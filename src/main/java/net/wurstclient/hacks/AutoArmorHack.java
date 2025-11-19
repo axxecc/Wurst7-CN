@@ -51,7 +51,7 @@ public final class AutoArmorHack extends Hack
 	
 	private final CheckboxSetting swapWhileMoving = new CheckboxSetting(
 		"移动时切换",
-		"是否在玩家移动时切换盔甲\n\n\u00a7c\u00a7l警告：\u00a7r如果没有作弊，这是不可能的",
+		"是否在玩家移动时切换盔甲\n\n\u00a7c\u00a7l警告: \u00a7r如果没有作弊, 这是不可能的",
 		false);
 	
 	private final SliderSetting delay = new SliderSetting("延迟",

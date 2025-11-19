@@ -27,7 +27,7 @@ import net.wurstclient.util.InventoryUtils;
 public final class ItemGeneratorHack extends Hack implements UpdateListener
 {
 	private final SliderSetting speed = new SliderSetting("速度",
-		"\u00a74\u00a7l警告：\u00a7r高速会导致大量延迟，并且很容易使游戏崩溃！",
+		"\u00a74\u00a7l警告: \u00a7r高速会导致大量延迟, 并且很容易使游戏崩溃！",
 		1, 1, 36, 1, ValueDisplay.INTEGER);
 	
 	private final SliderSetting stackSize = new SliderSetting("堆大小",

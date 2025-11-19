@@ -44,7 +44,7 @@ public final class AmethystPlantType extends AutoFarmPlantType
 	@Override
 	protected PlantTypeSetting createSetting()
 	{
-		return new PlantTypeSetting("Amethyst", Items.AMETHYST_SHARD, true,
+		return new PlantTypeSetting("紫水晶", Items.AMETHYST_SHARD, true,
 			true);
 	}
 }

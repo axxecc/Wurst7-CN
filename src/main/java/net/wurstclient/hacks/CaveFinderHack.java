@@ -211,7 +211,7 @@ public final class CaveFinderHack extends Hack
 			notify = true;
 		else if(notify)
 		{
-			ChatUtils.warning("洞穴高亮发现了\u00a7l很多\u00a7r的方块！为了防止延迟，它只会显示最接近的\u00a76"
+			ChatUtils.warning("洞穴高亮发现了\u00a7l很多\u00a7r的方块！为了防止延迟, 它只会显示最接近的\u00a76"
 				+ limit.getValueString() + "\u00a7r结果");
 			notify = false;
 		}

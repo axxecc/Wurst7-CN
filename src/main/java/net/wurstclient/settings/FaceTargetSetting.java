@@ -27,7 +27,7 @@ public final class FaceTargetSetting
 	private FaceTargetSetting(WText description, FaceTarget[] values,
 		FaceTarget selected)
 	{
-		super("Face target", description, values, selected);
+		super("转头级别", description, values, selected);
 	}
 	
 	public static FaceTargetSetting withPacketSpam(Hack hack,
@@ -86,15 +86,15 @@ public final class FaceTargetSetting
 	
 	public enum FaceTarget
 	{
-		OFF("Off", v -> {}),
+		OFF("关闭", v -> {}),
 		
-		SERVER("Server-side",
+		SERVER("服务端",
 			v -> WURST.getRotationFaker().faceVectorPacket(v)),
 		
-		CLIENT("Client-side",
+		CLIENT("客户端",
 			v -> WURST.getRotationFaker().faceVectorClient(v)),
 		
-		SPAM("Packet spam",
+		SPAM("垃圾数据包",
 			v -> RotationUtils.getNeededRotations(v).sendPlayerLookPacket());
 		
 		private static final String TRANSLATION_KEY_PREFIX =

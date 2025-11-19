@@ -39,10 +39,10 @@ public final class FeaturesCmd extends Command
 		int otfs = WURST.getOtfs().countOtfs();
 		int all = hax + cmds + otfs;
 		
-		ChatUtils.message("所有功能：" + all);
-		ChatUtils.message("普通功能：" + hax);
-		ChatUtils.message("功能命令：" + cmds);
-		ChatUtils.message("其他功能：" + otfs);
+		ChatUtils.message("所有功能: " + all);
+		ChatUtils.message("普通功能: " + hax);
+		ChatUtils.message("功能命令: " + cmds);
+		ChatUtils.message("其他功能: " + otfs);
 		
 		int settings = 0;
 		for(Hack hack : WURST.getHax().getAllHax())
@@ -52,7 +52,7 @@ public final class FeaturesCmd extends Command
 		for(OtherFeature otf : WURST.getOtfs().getAllOtfs())
 			settings += otf.getSettings().size();
 		
-		ChatUtils.message("设置：" + settings);
+		ChatUtils.message("设置: " + settings);
 	}
 	
 	@Override

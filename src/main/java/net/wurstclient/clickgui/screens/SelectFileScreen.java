@@ -96,7 +96,7 @@ public final class SelectFileScreen extends Screen
 		
 		Component message = Component
 			.literal("这将清空 '" + setting.getFolder().getFileName()
-				+ "' 文件夹，然后重新生成默认文件\n"
+				+ "' 文件夹, 然后重新生成默认文件\n"
 				+ "你确定要这样做吗?");
 		
 		minecraft

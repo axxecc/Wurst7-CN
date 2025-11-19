@@ -69,9 +69,9 @@ public final class HelpCmd extends Command
 		
 		Command cmd = WURST.getCmds().getCmdByName(cmdName);
 		if(cmd == null)
-			throw new CmdSyntaxError("未知命令：." + cmdName);
+			throw new CmdSyntaxError("未知命令: ." + cmdName);
 		
-		ChatUtils.message("可用的帮助 ." + cmdName + "：");
+		ChatUtils.message("可用的帮助 ." + cmdName + ": ");
 		cmd.printHelp();
 	}
 }

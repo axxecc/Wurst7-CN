@@ -25,8 +25,8 @@ public final class PlantTypeComponent extends Component
 	private static final Font TR = MC.font;
 	private static final int BOX_SIZE = 11;
 	private static final int ICON_SIZE = 24;
-	private static final String HARVEST = "Harvest";
-	private static final String REPLANT = "Replant";
+	private static final String HARVEST = "收获";
+	private static final String REPLANT = "种植";
 	
 	private final PlantTypeSetting setting;
 	

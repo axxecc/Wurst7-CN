@@ -42,7 +42,7 @@ public final class TillauraHack extends Hack implements HandleInputListener
 		ValueDisplay.DECIMAL);
 	
 	private final CheckboxSetting multiTill =
-		new CheckboxSetting("多个播种", "一次耕种多个方块\n 速度更快，但无法绕过 NoCheat+", false);
+		new CheckboxSetting("多个播种", "一次耕种多个方块\n 速度更快, 但无法绕过 NoCheat+", false);
 	
 	private final CheckboxSetting checkLOS =
 		new CheckboxSetting("检查视线",

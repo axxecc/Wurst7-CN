@@ -42,7 +42,7 @@ public final class AutoFishHack extends Hack
 			AutoFishHack.BiteMode.values(), AutoFishHack.BiteMode.SOUND);
 	
 	private final SliderSetting validRange = new SliderSetting("有效范围",
-		"任何超出此范围的咬合都将被忽略\n\n如果未检测到咬钩，则增加您的范围；如果将其他人的咬钩为您的咬钩，则减少范围\n\n当\"咬钩模式\"设置为\u00a7l实体\u00a7r时，此设置无效",
+		"任何超出此范围的咬合都将被忽略\n\n如果未检测到咬钩, 则增加您的范围；如果将其他人的咬钩为您的咬钩, 则减少范围\n\n当\"咬钩模式\"设置为\u00a7l实体\u00a7r时, 此设置无效",
 		1.5, 0.25, 8, 0.25, ValueDisplay.DECIMAL);
 	
 	private final SliderSetting catchDelay = new SliderSetting("捕获延迟",
@@ -50,12 +50,12 @@ public final class AutoFishHack extends Hack
 		1, ValueDisplay.INTEGER.withSuffix(" Tick"));
 	
 	private final SliderSetting retryDelay = new SliderSetting("重试延迟",
-		"如果抛竿或收竿失败，自动钓鱼将等待以下时间后再尝试重试",
+		"如果抛竿或收竿失败, 自动钓鱼将等待以下时间后再尝试重试",
 		15, 0, 100, 1,
 		ValueDisplay.INTEGER.withSuffix(" Tick"));
 	
 	private final SliderSetting patience = new SliderSetting("耐心",
-		"如果自动钓鱼没有钓到鱼，它会等待多久才收线",
+		"如果自动钓鱼没有钓到鱼, 它会等待多久才收线",
 		60, 10, 120, 1, ValueDisplay.INTEGER.withSuffix("S"));
 	
 	private final ShallowWaterWarningCheckbox shallowWaterWarning =

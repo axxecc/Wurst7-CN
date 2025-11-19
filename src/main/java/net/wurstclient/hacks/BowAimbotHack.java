@@ -205,7 +205,7 @@ public final class BowAimbotHack extends Hack
 		
 		String message;
 		if(velocity < 1)
-			message = "锁定：" + (int)(velocity * 100) + "%";
+			message = "锁定: " + (int)(velocity * 100) + "%";
 		else
 			message = "目标已锁定";
 		

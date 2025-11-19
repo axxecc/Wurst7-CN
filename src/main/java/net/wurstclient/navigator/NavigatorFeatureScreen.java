@@ -109,7 +109,7 @@ public final class NavigatorFeatureScreen extends NavigatorScreen
 		}
 		
 		// type
-		text = "类型：";
+		text = "类型: ";
 		if(feature instanceof Hack)
 			text += "功能";
 		else if(feature instanceof Command)
@@ -119,12 +119,12 @@ public final class NavigatorFeatureScreen extends NavigatorScreen
 		
 		// category
 		if(feature.getCategory() != null)
-			text += "，类别：" + feature.getCategory().getName();
+			text += ", 类别: " + feature.getCategory().getName();
 		
 		// description
 		String description = feature.getWrappedDescription(300);
 		if(!description.isEmpty())
-			text += "\n\n描述：\n" + description;
+			text += "\n\n描述: \n" + description;
 		
 		// area
 		Rectangle area = new Rectangle(middleX - 154, 60, 308, height - 103);
@@ -133,7 +133,7 @@ public final class NavigatorFeatureScreen extends NavigatorScreen
 		Collection<Setting> settings = feature.getSettings().values();
 		if(!settings.isEmpty())
 		{
-			text += "\n\n设置：";
+			text += "\n\n设置: ";
 			windowComponentY = getStringHeight(text) + 2;
 			
 			for(int i = 0; i < Math.ceil(window.getInnerHeight() / 9.0); i++)
@@ -145,7 +145,7 @@ public final class NavigatorFeatureScreen extends NavigatorScreen
 		if(!possibleKeybinds.isEmpty())
 		{
 			// heading
-			text += "\n\n快捷键：";
+			text += "\n\n快捷键: ";
 			
 			// add keybind button
 			ButtonData addKeybindButton =

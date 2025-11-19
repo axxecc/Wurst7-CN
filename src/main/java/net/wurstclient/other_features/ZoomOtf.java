@@ -29,15 +29,15 @@ public final class ZoomOtf extends OtherFeature implements MouseScrollListener
 		50, 0.1, ValueDisplay.DECIMAL.withSuffix("x"));
 	
 	private final CheckboxSetting scroll = new CheckboxSetting(
-		"使用鼠标滚轮", "如果启用，您可以在缩放时使用鼠标滚轮来进一步放大",
+		"使用鼠标滚轮", "如果启用, 您可以在缩放时使用鼠标滚轮来进一步放大",
 		true);
 	
 	private final CheckboxSetting zoomInScreens = new CheckboxSetting(
-		"放大屏幕", "如果启用，您还可以在屏幕（聊天、背包等）打开时进行缩放",
+		"放大屏幕", "如果启用, 您还可以在屏幕（聊天、背包等）打开时进行缩放",
 		false);
 	
 	private final TextFieldSetting keybind = new TextFieldSetting("快捷键",
-		"确定缩放键绑定\n\n您无需手动编辑此值，而应前往 Wurst 选项 -> 缩放并在那里进行设置",
+		"确定缩放键绑定\n\n您无需手动编辑此值, 而应前往 Wurst 选项 -> 缩放并在那里进行设置",
 		"key.keyboard.v", this::isValidKeybind);
 	
 	private Double currentLevel;
@@ -45,7 +45,7 @@ public final class ZoomOtf extends OtherFeature implements MouseScrollListener
 	
 	public ZoomOtf()
 	{
-		super("缩放", "允许您放大\n默认情况下，按\u00a7lV\u00a7r键可激活缩放\n转到 Wurst 选项 -> 缩放可更改此按键绑定");
+		super("缩放", "允许您放大\n默认情况下, 按\u00a7lV\u00a7r键可激活缩放\n转到 Wurst 选项 -> 缩放可更改此按键绑定");
 		addSetting(level);
 		addSetting(scroll);
 		addSetting(zoomInScreens);

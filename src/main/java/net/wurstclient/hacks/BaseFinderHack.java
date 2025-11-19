@@ -227,7 +227,7 @@ public final class BaseFinderHack extends Hack
 				ChatUtils
 					.warning("基地查找器发现了很多\u00a7方块");
 				ChatUtils.message(
-					"为了防止延迟，它只会显示前 10000 个方块");
+					"为了防止延迟, 它只会显示前 10000 个方块");
 			}
 			
 			// reset timer

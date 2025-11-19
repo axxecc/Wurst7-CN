@@ -116,7 +116,7 @@ public final class EditBlockScreen extends Screen
 		boolean lblAbove =
 			!blockField.getValue().isEmpty() || blockField.isFocused();
 		String lblText =
-			lblAbove ? "方块ID或编号：" : "block ID or number";
+			lblAbove ? "方块ID或编号: " : "block ID or number";
 		int lblX = lblAbove ? 50 : 68;
 		int lblY = lblAbove ? -66 : -50;
 		int lblColor =

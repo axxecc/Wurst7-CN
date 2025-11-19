@@ -56,7 +56,7 @@ public final class AutoCompleteHack extends Hack
 		if(completer instanceof OpenAiMessageCompleter
 			&& System.getenv("WURST_OPENAI_KEY") == null)
 		{
-			ChatUtils.error("找不到 API 密钥，请设置 WURST_OPENAI_KEY 环境变量并重新启动");
+			ChatUtils.error("找不到 API 密钥, 请设置 WURST_OPENAI_KEY 环境变量并重新启动");
 			setEnabled(false);
 			return;
 		}

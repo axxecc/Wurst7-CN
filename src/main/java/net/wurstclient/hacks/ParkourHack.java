@@ -18,7 +18,7 @@ import net.wurstclient.settings.SliderSetting.ValueDisplay;
 public final class ParkourHack extends Hack implements UpdateListener
 {
 	private final SliderSetting minDepth = new SliderSetting("最小深度",
-		"如果坑不是至少这么深，则不会跳过坑\n增加以阻止跑酷跳下楼梯\n减少以使跑酷在地毯边缘跳跃",
+		"如果坑不是至少这么深, 则不会跳过坑\n增加以阻止跑酷跳下楼梯\n减少以使跑酷在地毯边缘跳跃",
 		0.5, 0.05, 10, 0.05, ValueDisplay.DECIMAL.withSuffix("m"));
 	
 	private final SliderSetting edgeDistance =
@@ -28,7 +28,7 @@ public final class ParkourHack extends Hack implements UpdateListener
 	
 	private final CheckboxSetting sneak = new CheckboxSetting(
 		"潜行时跳跃",
-		"即使在您潜行时也能保持跑酷活动\n使用此选项时，您可能希望增加\u00a7l边距\u00a7r滑块",
+		"即使在您潜行时也能保持跑酷活动\n使用此选项时, 您可能希望增加\u00a7l边距\u00a7r滑块",
 		false);
 	
 	public ParkourHack()

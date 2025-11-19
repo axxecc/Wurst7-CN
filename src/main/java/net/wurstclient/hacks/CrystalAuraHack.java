@@ -53,12 +53,12 @@ public final class CrystalAuraHack extends Hack implements UpdateListener
 	
 	private final CheckboxSetting autoPlace = new CheckboxSetting(
 		"自动放置水晶",
-		"启用后，水晶光环会自动将水晶放置在有效实体附近\n禁用后，水晶光环只会引爆手动放置的水晶",
+		"启用后, 水晶光环会自动将水晶放置在有效实体附近\n禁用后, 水晶光环只会引爆手动放置的水晶",
 		true);
 
 	private final CheckboxSetting checkLOS = new CheckboxSetting(
 		"检查视线",
-		"确保你在放置或左键点击末地水晶时不会穿过方块\n\n速度较慢，但可以帮助反作弊插件",
+		"确保你在放置或左键点击末地水晶时不会穿过方块\n\n速度较慢, 但可以帮助反作弊插件",
 		false);
 	
 	private final FaceTargetSetting faceTarget =

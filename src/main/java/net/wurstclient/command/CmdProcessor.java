@@ -109,7 +109,7 @@ public final class CmdProcessor implements ChatOutputListener
 		public void printToChat()
 		{
 			String cmdName = input.split(" ")[0];
-			ChatUtils.error("未知命令：." + cmdName);
+			ChatUtils.error("未知命令: ." + cmdName);
 			
 			StringBuilder helpMsg = new StringBuilder();
 			

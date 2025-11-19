@@ -54,7 +54,7 @@ public final class AutoToolHack extends Hack
 		0, 0, 100, 1, ValueDisplay.INTEGER.withLabel(0, "关闭"));
 	
 	private final CheckboxSetting switchBack = new CheckboxSetting(
-		"切换回去", "使用工具后，自动切换回之前选择的插槽",
+		"切换回去", "使用工具后, 自动切换回之前选择的插槽",
 		false);
 	
 	private int prevSelectedSlot;

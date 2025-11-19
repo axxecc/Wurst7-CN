@@ -68,7 +68,7 @@ public final class KillauraHack extends Hack
 	
 	private final CheckboxSetting damageIndicator = new CheckboxSetting(
 		"伤害指示器",
-		"在目标中渲染一个彩色框，与其剩余生命值成反比",
+		"在目标中渲染一个彩色框, 与其剩余生命值成反比",
 		true);
 	
 	private final PauseAttackOnContainersSetting pauseOnContainers =
@@ -76,7 +76,7 @@ public final class KillauraHack extends Hack
 	
 	private final CheckboxSetting checkLOS =
 		new CheckboxSetting("检查视线",
-			"确保你在攻击时不会伸手穿过物块\n速度较慢，但可以帮助反作弊插件",
+			"确保你在攻击时不会伸手穿过物块\n速度较慢, 但可以帮助反作弊插件",
 			false);
 	
 	private final EntityFilterList entityFilters =

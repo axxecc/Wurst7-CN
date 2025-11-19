@@ -220,7 +220,7 @@ public final class ExcavatorHack extends Hack
 	{
 		String message;
 		if(step.selectPos && step.pos != null)
-			message = "按 Enter 确认，或选择其他位置";
+			message = "按 Enter 确认, 或选择其他位置";
 		else
 			message = step.message;
 		

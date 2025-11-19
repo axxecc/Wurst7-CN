@@ -101,7 +101,7 @@ public final class NoChatReportsOtf extends OtherFeature
 			Component.literal("Original message: ").append(originalText));
 		
 		ChatUtils.component(Component.literal(
-			"服务器拒绝让您在不启用聊天报告的情况下聊天，单击\u00a7n这里\u00a7r了解更多信息")
+			"服务器拒绝让您在不启用聊天报告的情况下聊天, 单击\u00a7n这里\u00a7r了解更多信息")
 			.withStyle(
 				s -> s.withClickEvent(clickEvent).withHoverEvent(hoverEvent)));
 	}

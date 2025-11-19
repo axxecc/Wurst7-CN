@@ -35,7 +35,7 @@ public final class ItemEspHack extends Hack implements UpdateListener,
 	private final EspStyleSetting style = new EspStyleSetting();
 	
 	private final EspBoxSizeSetting boxSize = new EspBoxSizeSetting(
-		"\u00a7l精确\u00a7r模式显示每个物品的确切命中框\n\u00a7l花哨\u00a7r模式显示更大的框，看起来更好。");
+		"\u00a7l精确\u00a7r模式显示每个物品的确切命中框\n\u00a7l花哨\u00a7r模式显示更大的框, 看起来更好。");
 	
 	private final ColorSetting color = new ColorSetting("颜色",
 		"掉落物将以这种颜色高亮显示", Color.YELLOW);

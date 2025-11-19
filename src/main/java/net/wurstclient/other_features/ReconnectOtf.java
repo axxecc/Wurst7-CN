@@ -16,6 +16,6 @@ public final class ReconnectOtf extends OtherFeature
 	public ReconnectOtf()
 	{
 		super("重新连接",
-			"每当您被踢出服务器时，Wurst 都会为您提供\"重新连接\"按钮，让您可以立即再次加入");
+			"每当您被踢出服务器时, Wurst 都会为您提供\"重新连接\"按钮, 让您可以立即再次加入");
 	}
 }

@@ -63,7 +63,7 @@ public final class TunnellerHack extends Hack
 		"隧道尺寸", TunnelSize.values(), TunnelSize.SIZE_3X3);
 	
 	private final SliderSetting limit = new SliderSetting("限制",
-		"一旦隧道达到指定长度，就会自动停止\n\n 0 = 无限制",
+		"一旦隧道达到指定长度, 就会自动停止\n\n 0 = 无限制",
 		0, 0, 1000, 1, ValueDisplay.INTEGER.withSuffix(" 方块")
 			.withLabel(0, "禁用"));
 	
@@ -471,7 +471,7 @@ public final class TunnellerHack extends Hack
 			if(!equipSolidBlock(pos))
 			{
 				ChatUtils.error(
-					"在隧道底部发现一个洞，但没有任何方块可以填补它");
+					"在隧道底部发现一个洞, 但没有任何方块可以填补它");
 				setEnabled(false);
 				return;
 			}
@@ -565,7 +565,7 @@ public final class TunnellerHack extends Hack
 			if(liquids.isEmpty())
 				return false;
 			
-			ChatUtils.error("隧道被水淹没，无法继续通行");
+			ChatUtils.error("隧道被水淹没, 无法继续通行");
 
 			if(vertexBuffers[3] != null)
 			{

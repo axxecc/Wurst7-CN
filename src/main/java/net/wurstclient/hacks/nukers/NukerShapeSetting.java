@@ -15,7 +15,7 @@ public final class NukerShapeSetting
 	public NukerShapeSetting()
 	{
 		super("形状",
-			"\u00a7l注意：\u00a7r如果您的范围设置得太高，立方体形状将开始看起来像一个球体，因为您无法到达角落。范围 1-3 最适合立方体形状",
+			"\u00a7l注意: \u00a7r如果您的范围设置得太高, 立方体形状将开始看起来像一个球体, 因为您无法到达角落。范围 1-3 最适合立方体形状",
 			NukerShape.values(), NukerShape.SPHERE);
 	}
 	

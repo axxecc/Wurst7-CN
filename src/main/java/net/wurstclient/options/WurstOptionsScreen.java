@@ -66,26 +66,26 @@ public class WurstOptionsScreen extends Screen
 			wurst.getOtfs().translationsOtf.getForceEnglish();
 		
 		new WurstOptionsButton(-154, 24,
-			() -> "点击好友："
+			() -> "点击好友: "
 				+ (middleClickFriends.isChecked() ? "开启" : "关闭"),
 			middleClickFriends.getWrappedDescription(200),
 			b -> middleClickFriends
 				.setChecked(!middleClickFriends.isChecked()));
 		
 		new WurstOptionsButton(-154, 48,
-			() -> "统用户统计：" + (plausible.isEnabled() ? "开启" : "关闭"),
+			() -> "统用户统计: " + (plausible.isEnabled() ? "开启" : "关闭"),
 			"统计有多少用户使用 Wurst",
 			b -> plausible.setEnabled(!plausible.isEnabled()));
 		
 		new WurstOptionsButton(-154, 72,
-			() -> "客户端欺骗："
+			() -> "客户端欺骗: "
 				+ (vanillaSpoofOtf.isEnabled() ? "开启" : "关闭"),
 			vanillaSpoofOtf.getDescription(),
 			b -> vanillaSpoofOtf.doPrimaryAction());
 		
 		new WurstOptionsButton(-154, 96,
-			() -> "翻译：" + (!forceEnglish.isChecked() ? "开启" : "关闭"),
-			"使用客户端语言，但我只做了中文汉化\n所以这个选项已经没有意义了",
+			() -> "翻译: " + (!forceEnglish.isChecked() ? "开启" : "关闭"),
+			"使用客户端语言, 但我只做了中文汉化\n所以这个选项已经没有意义了",
 			b -> forceEnglish.setChecked(!forceEnglish.isChecked()));
 	}
 	
@@ -103,7 +103,7 @@ public class WurstOptionsScreen extends Screen
 		
 		new WurstOptionsButton(-50, 72, () -> "缩放",
 			"缩放管理器允许您更改缩放键及其放大距离",
-			b -> client.setScreen(new ZoomManagerScreen(this)));
+			b -> minecraft.setScreen(new ZoomManagerScreen(this)));
 	}
 	
 	private void addLinkButtons()

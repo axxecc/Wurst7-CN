@@ -67,7 +67,7 @@ public final class KeybindManagerScreen extends Screen
 				b -> minecraft.setScreen(prevScreen))
 			.bounds(width / 2 + 2, height - 28, 100, 20).build());
 		
-		addRenderableWidget(Button.builder(Component.literal("Reset Keybinds"),
+		addRenderableWidget(Button.builder(Component.literal("重置快捷键"),
 			b -> minecraft.setScreen(new ConfirmScreen(confirmed -> {
 				if(confirmed)
 					WurstClient.INSTANCE.getKeybinds()

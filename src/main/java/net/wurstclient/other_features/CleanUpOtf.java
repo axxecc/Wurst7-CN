@@ -17,6 +17,6 @@ public final class CleanUpOtf extends OtherFeature
 {
 	public CleanUpOtf()
 	{
-		super("清理", "清理您的服务器列表\n要使用它，请按服务器选择屏幕上的'清理'按钮");
+		super("清理", "清理您的服务器列表\n要使用它, 请按服务器选择屏幕上的'清理'按钮");
 	}
 }

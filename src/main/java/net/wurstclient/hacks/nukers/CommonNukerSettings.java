@@ -59,8 +59,8 @@ public final class CommonNukerSettings implements LeftClickListener
 	{
 		return switch(mode.getSelected())
 		{
-			case ID -> " [ID：" + id.getShortBlockName() + "]";
-			case MULTI_ID -> " [多个方块：" + multiIdList.size() + "]";
+			case ID -> " [ID: " + id.getShortBlockName() + "]";
+			case MULTI_ID -> " [多个方块: " + multiIdList.size() + "]";
 			case SMASH -> " [破坏]";
 			default -> "";
 		};

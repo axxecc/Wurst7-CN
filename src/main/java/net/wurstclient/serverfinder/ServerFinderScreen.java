@@ -57,7 +57,7 @@ public class ServerFinderScreen extends Screen
 		searchButton.active = false;
 		
 		addRenderableWidget(Button
-			.builder(Component.literal("教程),
+			.builder(Component.literal("教程"),
 				b -> Util.getPlatform().openUri(
 					"https://www.wurstclient.net/serverfinder-tutorial/"))
 			.bounds(width / 2 - 100, height / 4 + 120 + 12, 200, 20).build());
@@ -88,7 +88,7 @@ public class ServerFinderScreen extends Screen
 			state = ServerFinderState.CANCELLED;
 			ipBox.active = true;
 			maxThreadsBox.active = true;
-			searchButton.setMessage(Component.literal("搜索));
+			searchButton.setMessage(Component.literal("搜索"));
 			return;
 		}
 		

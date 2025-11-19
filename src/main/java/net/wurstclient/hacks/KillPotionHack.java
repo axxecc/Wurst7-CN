@@ -60,7 +60,7 @@ public final class KillPotionHack extends Hack
 		Inventory inventory = MC.player.getInventory();
 		int slot = inventory.getFreeSlot();
 		if(slot < 0)
-			ChatUtils.error("不能给药水，您的背包已满！");
+			ChatUtils.error("不能给药水, 您的背包已满！");
 		else
 		{
 			InventoryUtils.setCreativeStack(slot, stack);

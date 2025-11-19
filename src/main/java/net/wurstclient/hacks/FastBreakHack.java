@@ -31,11 +31,11 @@ public final class FastBreakHack extends Hack
 {
 	private final SliderSetting activationChance = new SliderSetting(
 		"激活概率",
-		"只有快速破坏会破坏您可以破坏的方块，这使得反作弊插件更难检测到\n\n如果启用了合法模式，此设置不会执行任何操作",
+		"只有快速破坏会破坏您可以破坏的方块, 这使得反作弊插件更难检测到\n\n如果启用了合法模式, 此设置不会执行任何操作",
 		1, 0, 1, 0.01, ValueDisplay.PERCENTAGE);
 	
 	private final CheckboxSetting legitMode = new CheckboxSetting("合法模式",
-		"只消除了破坏方块之间的延迟，而不会加快破坏过程本身\n\n这要慢得多，如果常规快速破坏不起作用并且激活概率滑块不起作用，请使用此选项",
+		"只消除了破坏方块之间的延迟, 而不会加快破坏过程本身\n\n这要慢得多, 如果常规快速破坏不起作用并且激活概率滑块不起作用, 请使用此选项",
 		false);
 	
 	private final Random random = new Random();

@@ -19,7 +19,7 @@ public final class AutoSprintHack extends Hack implements UpdateListener
 {
 	private final CheckboxSetting allDirections =
 		new CheckboxSetting("全向冲刺",
-			"向各个方向冲刺，而不仅仅是向前", false);
+			"向各个方向冲刺, 而不仅仅是向前", false);
 	
 	private final CheckboxSetting hungry = new CheckboxSetting("饥饿冲刺",
 		"即使在低饥饿度下也能冲刺", false);

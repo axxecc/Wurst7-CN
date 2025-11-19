@@ -42,12 +42,12 @@ public final class BuildRandomHack extends Hack
 		new SliderSetting("范围", 5, 1, 6, 0.05, ValueDisplay.DECIMAL);
 	
 	private SliderSetting maxAttempts = new SliderSetting("最大尝试次数",
-		"随机建造在一次更新中尝试放置块的最大随机位置数\n\n较高的值会加快构建过程，但代价是增加延迟",
+		"随机建造在一次更新中尝试放置块的最大随机位置数\n\n较高的值会加快构建过程, 但代价是增加延迟",
 		128, 1, 1024, 1, ValueDisplay.INTEGER);
 	
 	private final CheckboxSetting checkItem =
 		new CheckboxSetting("检查保留物品",
-			"仅在您实际持有方块时构建\n关闭此选项以使用火、水、熔岩、刷怪蛋构建，或者如果您只想在随机位置用空手右键单击",
+			"仅在您实际持有方块时构建\n关闭此选项以使用火、水、熔岩、刷怪蛋构建, 或者如果您只想在随机位置用空手右键单击",
 			true);
 	
 	private final CheckboxSetting checkLOS =
@@ -63,16 +63,16 @@ public final class BuildRandomHack extends Hack
 	
 	private final CheckboxSetting fastPlace =
 		new CheckboxSetting("始终快速放置",
-			"即使未启用快速放置，也会像启用快速放置一样建造", false);
+			"即使未启用快速放置, 也会像启用快速放置一样建造", false);
 	
 	private final CheckboxSetting placeWhileBreaking = new CheckboxSetting(
 		"破坏时放置",
-		"即使在你打破方块时也能建造\n可以通过 hacks 进行，但在原版中不起作用",
+		"即使在你打破方块时也能建造\n可以通过 hacks 进行, 但在原版中不起作用",
 		false);
 	
 	private final CheckboxSetting placeWhileRiding = new CheckboxSetting(
 		"骑行时放置",
-		"即使在你骑车时也能建造\n可以通过 hacks 进行，但在原版中不起作用",
+		"即使在你骑车时也能建造\n可以通过 hacks 进行, 但在原版中不起作用",
 		false);
 	
 	private final CheckboxSetting indicator = new CheckboxSetting("指示器",

@@ -57,7 +57,7 @@ public class PressAKeyScreen extends Screen
 	public void render(GuiGraphics context, int mouseX, int mouseY,
 		float partialTicks)
 	{
-		context.drawCenteredString(font, "Press a key", width / 2,
+		context.drawCenteredString(font, "请按下按键", width / 2,
 			height / 4 + 48, CommonColors.WHITE);
 		
 		for(Renderable drawable : renderables)

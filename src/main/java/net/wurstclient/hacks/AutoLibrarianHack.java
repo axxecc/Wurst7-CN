@@ -67,7 +67,7 @@ public final class AutoLibrarianHack extends Hack
 {
 	private final BookOffersSetting wantedBooks = new BookOffersSetting(
 		"希望书籍",
-		"您希望村民出售的附魔书列表\n\n一旦自动图书馆员学会了出售其中一本书，它就会停止训练当前的村民\n\n您还可以为每本书设置最高价格，以防您已经有村民出售它，但您希望它以更便宜的价格出售",
+		"您希望村民出售的附魔书列表\n\n一旦自动图书馆员学会了出售其中一本书, 它就会停止训练当前的村民\n\n您还可以为每本书设置最高价格, 以防您已经有村民出售它, 但您希望它以更便宜的价格出售",
 		"minecraft:depth_strider;3", "minecraft:efficiency;5",
 		"minecraft:feather_falling;4", "minecraft:fortune;3",
 		"minecraft:looting;3", "minecraft:mending;1", "minecraft:protection;4",
@@ -76,7 +76,7 @@ public final class AutoLibrarianHack extends Hack
 	
 	private final CheckboxSetting lockInTrade = new CheckboxSetting(
 		"交易锁定",
-		"一旦村民学会了出售你想要的书，它就会自动从村民那里购买东西。这可以防止村民以后更改其交易报价\n\n使用此功能时，请确保您的库存中至少有 24 张纸和 9 颗绿宝石。或者，1 本书和 64 颗绿宝石",
+		"一旦村民学会了出售你想要的书, 它就会自动从村民那里购买东西。这可以防止村民以后更改其交易报价\n\n使用此功能时, 请确保您的库存中至少有 24 张纸和 9 颗绿宝石。或者, 1 本书和 64 颗绿宝石",
 		false);
 	
 	private final UpdateBooksSetting updateBooks = new UpdateBooksSetting();
@@ -91,7 +91,7 @@ public final class AutoLibrarianHack extends Hack
 		new SwingHandSetting(this, SwingHand.SERVER);
 	
 	private final SliderSetting repairMode = new SliderSetting("修复模式",
-		"当斧头的耐久度达到给定阈值时，防止自动图书馆员使用你的斧头\n可以从 0（关闭）调整到 100 次剩余使用次数",
+		"当斧头的耐久度达到给定阈值时, 防止自动图书馆员使用你的斧头\n可以从 0（关闭）调整到 100 次剩余使用次数",
 		1, 0, 100, 1, ValueDisplay.INTEGER.withLabel(0, "关闭"));
 	
 	private final OverlayRenderer overlay = new OverlayRenderer();
@@ -161,7 +161,7 @@ public final class AutoLibrarianHack extends Hack
 		
 		if(placingJobSite && breakingJobSite)
 			throw new IllegalStateException(
-				"尝试同时放置和破坏工作方块，出了点问题");
+				"尝试同时放置和破坏工作方块, 出了点问题");
 		
 		if(placingJobSite)
 		{
@@ -187,7 +187,7 @@ public final class AutoLibrarianHack extends Hack
 		if(experience > 0)
 		{
 			ChatUtils.warning(villager.blockPosition().toShortString()
-				+ " 的村民已经交易过了，这意味着它不能再被训练了");
+				+ " 的村民已经交易过了, 这意味着它不能再被训练了");
 			ChatUtils.message("寻找另一个村民...");
 			experiencedVillagers.add(villager);
 			villager = null;
@@ -256,7 +256,7 @@ public final class AutoLibrarianHack extends Hack
 		
 		if(params == null || BlockUtils.getState(jobSite).canBeReplaced())
 		{
-			System.out.println("工作方块已损坏，取代...");
+			System.out.println("工作方块已损坏, 取代...");
 			breakingJobSite = false;
 			placingJobSite = true;
 			return;
@@ -292,7 +292,7 @@ public final class AutoLibrarianHack extends Hack
 			}else
 			{
 				System.out
-					.println("在作业区域找到错误的块，破坏...");
+					.println("在作业区域找到错误的块, 破坏...");
 				breakingJobSite = true;
 				placingJobSite = false;
 			}
@@ -351,7 +351,7 @@ public final class AutoLibrarianHack extends Hack
 		
 		if(player.distanceToSqr(villager) > range.getValueSq())
 		{
-			ChatUtils.error("村民超出范围！考虑困住村民，这样它就不会走失");
+			ChatUtils.error("村民超出范围！考虑困住村民, 这样它就不会走失");
 			setEnabled(false);
 			return;
 		}
@@ -412,7 +412,7 @@ public final class AutoLibrarianHack extends Hack
 			
 			if(!bookOffer.isFullyValid())
 			{
-				System.out.println("找到无效的附魔书优惠\n 组件数据：" + enchantmentLevelMap);
+				System.out.println("找到无效的附魔书优惠\n 组件数据: " + enchantmentLevelMap);
 				continue;
 			}
 			

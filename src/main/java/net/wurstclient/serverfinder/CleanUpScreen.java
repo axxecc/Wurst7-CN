@@ -60,7 +60,7 @@ public class CleanUpScreen extends Screen
 		
 		addRenderableWidget(
 			new CleanUpButton(width / 2 - 100, height / 4 - 24 + 12,
-				() -> "未知主机：" + removeOrKeep(cleanupUnknown),
+				() -> "未知主机: " + removeOrKeep(cleanupUnknown),
 				"不存在的服务器",
 				b -> cleanupUnknown = !cleanupUnknown));
 		
@@ -72,25 +72,25 @@ public class CleanUpScreen extends Screen
 		
 		addRenderableWidget(
 			new CleanUpButton(width / 2 - 100, height / 4 + 24 + 12,
-				() -> "Ping 失败：" + removeOrKeep(cleanupFailed),
-				"上次 ping 失败的所有服务器\n在执行此作之前，请确保最后一次 ping 已完成\n这意味着：返回，按下刷新按钮并等待所有服务器完成刷新",
+				() -> "Ping 失败: " + removeOrKeep(cleanupFailed),
+				"上次 ping 失败的所有服务器\n在执行此作之前, 请确保最后一次 ping 已完成\n这意味着: 返回, 按下刷新按钮并等待所有服务器完成刷新",
 				b -> cleanupFailed = !cleanupFailed));
 		
 		addRenderableWidget(
 			new CleanUpButton(width / 2 - 100, height / 4 + 48 + 12,
-				() -> "\"Grief me\"服务器：" + removeOrKeep(cleanupGriefMe),
+				() -> "\"Grief me\"服务器: " + removeOrKeep(cleanupGriefMe),
 				"用于删除所有名称以\"Grief me\"开头查找器找到的服务器",
 				b -> cleanupGriefMe = !cleanupGriefMe));
 		
 		addRenderableWidget(
 			new CleanUpButton(width / 2 - 100, height / 4 + 72 + 12,
-				() -> "\u00a7c删除所有服务器：" + yesOrNo(removeAll),
+				() -> "\u00a7c删除所有服务器: " + yesOrNo(removeAll),
 				"这将彻底清除您的服务器列表\n\u00a7c请谨慎使用！",
 				b -> removeAll = !removeAll));
 		
 		addRenderableWidget(
 			new CleanUpButton(width / 2 - 100, height / 4 + 96 + 12,
-				() -> "重命名所有服务器：" + yesOrNo(cleanupRename),
+				() -> "重命名所有服务器: " + yesOrNo(cleanupRename),
 				"将您的服务器重命名为\n\"Grief me #1\"\"Grief me #2\" 等等",
 				b -> cleanupRename = !cleanupRename));
 	}

@@ -41,12 +41,12 @@ public class MultiplayerScreenMixin extends Screen
 	{
 		if(!WurstClient.INSTANCE.isEnabled())
 			return;
-		
+
 		JoinMultiplayerScreen mpScreen = (JoinMultiplayerScreen)(Object)this;
-		
+
 		// Add Last Server button early for better tab navigation
 		lastServerButton = Button
-			.builder(Component.nullToEmpty("Last Server"),
+			.builder(Component.nullToEmpty("上次的服务器"),
 				b -> LastServerRememberer.joinLastServer(mpScreen))
 			.width(100).build();
 		addRenderableWidget(lastServerButton);
@@ -65,20 +65,20 @@ public class MultiplayerScreenMixin extends Screen
 		JoinMultiplayerScreen mpScreen = (JoinMultiplayerScreen)(Object)this;
 
 		Button serverFinderButton = Button
-			.builder(Component.nullToEmpty("Server Finder"),
+			.builder(Component.nullToEmpty("服务器扫描"),
 				b -> minecraft.setScreen(new ServerFinderScreen(mpScreen)))
 			.width(100).build();
 		addRenderableWidget(serverFinderButton);
 		footerTopRow.addChild(serverFinderButton);
 
 		Button cleanUpButton = Button
-			.builder(Component.nullToEmpty("Clean Up"),
+			.builder(Component.nullToEmpty("清理服务器"),
 				b -> minecraft.setScreen(new CleanUpScreen(mpScreen)))
 			.width(100).build();
 		addRenderableWidget(cleanUpButton);
 		footerBottomRow.addChild(cleanUpButton);
 	}
-	
+
 	@Inject(at = @At("TAIL"), method = "repositionElements()V")
 	private void onRefreshWidgetPositions(CallbackInfo ci)
 	{

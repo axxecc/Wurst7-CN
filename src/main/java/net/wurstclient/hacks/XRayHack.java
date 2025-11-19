@@ -42,7 +42,7 @@ public final class XRayHack extends Hack implements UpdateListener,
 	ShouldDrawSideListener, RenderBlockEntityListener
 {
 	private final BlockListSetting ores = new BlockListSetting("矿石",
-		"X-Ray将显示的方块列表，它们不一定是矿石 - 您可以添加任何您想要的方块\n\n更改此设置时，请重新启动X-Ray",
+		"X-Ray将显示的方块列表, 它们不一定是矿石 - 您可以添加任何您想要的方块\n\n更改此设置时, 请重新启动X-Ray",
 		"minecraft:amethyst_cluster", "minecraft:ancient_debris",
 		"minecraft:anvil", "minecraft:beacon", "minecraft:bone_block",
 		"minecraft:bookshelf", "minecraft:brewing_stand",
@@ -77,11 +77,11 @@ public final class XRayHack extends Hack implements UpdateListener,
 	
 	private final CheckboxSetting onlyExposed = new CheckboxSetting(
 		"只显示暴露",
-		"仅显示洞穴中可见的矿石，这有助于绕过反X-Ray\n\n更改此设置时，请重新启动X-Ray",
+		"仅显示洞穴中可见的矿石, 这有助于绕过反X-Ray\n\n更改此设置时, 请重新启动X-Ray",
 		false);
 	
 	private final SliderSetting opacity = new SliderSetting("Opacity",
-		"启用 X-Ray 时非矿石块的不透明度\n\n更改此设置时，请记住重新启动 X-Ray",
+		"启用 X-Ray 时非矿石块的不透明度\n\n更改此设置时, 请记住重新启动 X-Ray",
 		0, 0, 0.99, 0.01, ValueDisplay.PERCENTAGE.withLabel(0, "关闭"));
 	
 	private final String optiFineWarning;
@@ -238,7 +238,7 @@ public final class XRayHack extends Hack implements UpdateListener,
 		Pattern optifine = Pattern.compile("opti(?:fine|fabric).*");
 		
 		if(mods.anyMatch(optifine.asPredicate()))
-			return "OptiFine已安装，X-Ray将无法正常工作！";
+			return "OptiFine已安装, X-Ray将无法正常工作！";
 		
 		return null;
 	}

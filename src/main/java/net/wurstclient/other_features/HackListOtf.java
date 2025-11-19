@@ -30,7 +30,7 @@ public final class HackListOtf extends OtherFeature
 		Mode.values(), Mode.AUTO);
 	
 	private final EnumSetting<Position> position = new EnumSetting<>("位置",
-		"功能列表应该显示在屏幕的哪一侧\n使用TabGUI时，将此更改为\u00a7l右边",
+		"功能列表应该显示在屏幕的哪一侧\n使用TabGUI时, 将此更改为\u00a7l右边",
 		Position.values(), Position.LEFT);
 
 	private final ColorSetting color = new ColorSetting("颜色",
@@ -45,7 +45,7 @@ public final class HackListOtf extends OtherFeature
 		new CheckboxSetting("反向排序", false);
 	
 	private final CheckboxSetting animations = new CheckboxSetting("动画",
-		"启用后，条目会随着功能的启用和禁用而滑入和滑出功能列表",
+		"启用后, 条目会随着功能的启用和禁用而滑入和滑出功能列表",
 		true);
 	
 	private SortBy prevSortBy;

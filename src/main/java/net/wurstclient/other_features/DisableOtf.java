@@ -19,13 +19,13 @@ public final class DisableOtf extends OtherFeature
 {
 	private final CheckboxSetting hideEnableButton = new CheckboxSetting(
 		"隐藏启用按钮",
-		"关闭统计信息界面后立即删除\"启用Wurst\"按钮，您必须重新启动游戏才能重新启用Wurst",
+		"关闭统计信息界面后立即删除\"启用Wurst\"按钮, 您必须重新启动游戏才能重新启用Wurst",
 		false);
 	
 	public DisableOtf()
 	{
 		super("禁用Wurst",
-			"要禁用Wurst请转到统计信息界面并按下\"禁用Wurst\"按钮\n一旦按下，它将变成一个\"启用Wurst\"按钮");
+			"要禁用Wurst请转到统计信息界面并按下\"禁用Wurst\"按钮\n一旦按下, 它将变成一个\"启用Wurst\"按钮");
 		addSetting(hideEnableButton);
 	}
 	

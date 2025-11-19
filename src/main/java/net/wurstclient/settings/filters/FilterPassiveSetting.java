@@ -42,11 +42,11 @@ public final class FilterPassiveSetting extends EntityFilterCheckbox
 	
 	public static FilterPassiveSetting genericCombat(boolean checked)
 	{
-		return new FilterPassiveSetting("不会攻击猪和牛等动物，蝙蝠等环境生物，以及鱼、鱿鱼和海豚等水生生物", checked);
+		return new FilterPassiveSetting("不会攻击猪和牛等动物, 蝙蝠等环境生物, 以及鱼、鱿鱼和海豚等水生生物", checked);
 	}
 	
 	public static FilterPassiveSetting genericVision(boolean checked)
 	{
-		return new FilterPassiveSetting("不会显示猪和牛等动物，蝙蝠等环境生物，以及鱼、鱿鱼和海豚等生水生物", checked);
+		return new FilterPassiveSetting("不会显示猪和牛等动物, 蝙蝠等环境生物, 以及鱼、鱿鱼和海豚等生水生物", checked);
 	}
 }

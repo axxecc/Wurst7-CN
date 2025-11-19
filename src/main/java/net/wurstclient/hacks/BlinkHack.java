@@ -26,7 +26,7 @@ public final class BlinkHack extends Hack
 	implements UpdateListener, PacketOutputListener
 {
 	private final SliderSetting limit = new SliderSetting("限制",
-		"一旦暂停了给定数量的数据包，就会自动重新启动闪现\n\n0 = 无限制",
+		"一旦暂停了给定数量的数据包, 就会自动重新启动闪现\n\n0 = 无限制",
 		0, 0, 500, 1, ValueDisplay.INTEGER.withLabel(0, "禁用"));
 	
 	private final ArrayDeque<ServerboundMovePlayerPacket> packets =

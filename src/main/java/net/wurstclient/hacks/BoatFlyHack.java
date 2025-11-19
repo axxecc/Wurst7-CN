@@ -23,7 +23,7 @@ public final class BoatFlyHack extends Hack implements UpdateListener
 {
 	private final CheckboxSetting changeForwardSpeed = new CheckboxSetting(
 		"更改前进速度",
-		"允许更改\u00a7e前进速度\u00a7r，禁用平滑加速",
+		"允许更改\u00a7e前进速度\u00a7r, 禁用平滑加速",
 		false);
 	
 	private final SliderSetting forwardSpeed = new SliderSetting(

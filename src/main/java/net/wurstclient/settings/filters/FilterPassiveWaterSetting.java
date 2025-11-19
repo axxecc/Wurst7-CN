@@ -37,11 +37,11 @@ public final class FilterPassiveWaterSetting extends EntityFilterCheckbox
 	
 	public static FilterPassiveWaterSetting genericCombat(boolean checked)
 	{
-		return new FilterPassiveWaterSetting("不会攻击被动的水生物，如鱼、鱿鱼、海豚和美西螈", checked);
+		return new FilterPassiveWaterSetting("不会攻击被动的水生物, 如鱼、鱿鱼、海豚和美西螈", checked);
 	}
 	
 	public static FilterPassiveWaterSetting genericVision(boolean checked)
 	{
-		return new FilterPassiveWaterSetting("不会显示被动的水生物，如鱼、鱿鱼、海豚和美西螈", checked);
+		return new FilterPassiveWaterSetting("不会显示被动的水生物, 如鱼、鱿鱼、海豚和美西螈", checked);
 	}
 }

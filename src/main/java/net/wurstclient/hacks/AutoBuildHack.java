@@ -45,21 +45,21 @@ public final class AutoBuildHack extends Hack
 		new AABB(1 / 16.0, 1 / 16.0, 1 / 16.0, 15 / 16.0, 15 / 16.0, 15 / 16.0);
 	
 	private final FileSetting templateSetting = new FileSetting("模板",
-		"确定要构建的内容\n\n模板只是 JSON 文件，请随意添加您自己的模板或编辑/删除默认模板\n\n'重置为默认值'按钮或删除文件夹",
+		"确定要构建的内容\n\n模板只是 JSON 文件, 请随意添加您自己的模板或编辑/删除默认模板\n\n'重置为默认值'按钮或删除文件夹",
 		"autobuild", DefaultAutoBuildTemplates::createFiles);
 	
 	private final SliderSetting range = new SliderSetting("范围",
-		"放置方块时可以到达多远\n建议的值：\n6.0 对于Vanilla\n" + "4.25 对于NoCheat+",
+		"放置方块时可以到达多远\n建议的值: \n6.0 对于Vanilla\n" + "4.25 对于NoCheat+",
 		6, 1, 10, 0.05, ValueDisplay.DECIMAL);
 	
 	private final CheckboxSetting checkLOS = new CheckboxSetting(
 		"检查视线",
-		"确保在放置方块时不要穿过墙壁，可以帮助 AntiCheat 插件，但会减慢建造速度",
+		"确保在放置方块时不要穿过墙壁, 可以帮助 AntiCheat 插件, 但会减慢建造速度",
 		false);
 	
 	private final CheckboxSetting useSavedBlocks = new CheckboxSetting(
 		"使用已保存的块",
-		"尝试放置保存在模板中的相同块\n\n如果模板未指定块类型，则将从您持有的任何块构建它",
+		"尝试放置保存在模板中的相同块\n\n如果模板未指定块类型, 则将从您持有的任何块构建它",
 		true);
 	
 	private final CheckboxSetting fastPlace =
@@ -68,7 +68,7 @@ public final class AutoBuildHack extends Hack
 	
 	private final CheckboxSetting strictBuildOrder = new CheckboxSetting(
 		"严格的构建顺序",
-		"按块在模板中的显示顺序完全相同的顺序放置块，这速度较慢，但提供更一致的结果",
+		"按块在模板中的显示顺序完全相同的顺序放置块, 这速度较慢, 但提供更一致的结果",
 		false);
 
 	private Status status = Status.NO_TEMPLATE;

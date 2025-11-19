@@ -54,7 +54,7 @@ public final class AutoFarmPlantTypeManager
 			twistingVinesType, weepingVinesType, wheatType);
 	
 	public final ToggleAllPlantTypesSetting toggleAllSetting =
-		new ToggleAllPlantTypesSetting("All plant types",
+		new ToggleAllPlantTypesSetting("所有植物种类",
 			plantTypes.stream().flatMap(AutoFarmPlantType::getSettings));
 	
 	public AutoFarmPlantType getReplantingSpotType(BlockPos pos)

@@ -20,7 +20,7 @@ public final class KeybindManagerOtf extends OtherFeature
 	public KeybindManagerOtf()
 	{
 		super("快捷键",
-			"这只是一个快捷方式，可让您从GUI中打开快捷键管理，通常你会去Wurst选项 > 快捷键");
+			"这只是一个快捷方式, 可让您从GUI中打开快捷键管理, 通常你会去Wurst选项 > 快捷键");
 	}
 	
 	@Override

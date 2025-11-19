@@ -28,7 +28,7 @@ public final class FlightHack extends Hack
 	
 	public final SliderSetting verticalSpeed = new SliderSetting(
 		"垂直速度",
-		"\u00a7c\u00a7l警告：\u00a7r将此值设置得太高可能会导致跌落伤害，即使使用无摔伤也是如此",
+		"\u00a7c\u00a7l警告: \u00a7r将此值设置得太高可能会导致跌落伤害, 即使使用无摔伤也是如此",
 		1, 0.05, 5, 0.05, ValueDisplay.DECIMAL);
 	
 	private final CheckboxSetting slowSneaking = new CheckboxSetting(
@@ -37,7 +37,7 @@ public final class FlightHack extends Hack
 		true);
 	
 	private final CheckboxSetting antiKick = new CheckboxSetting("防踢",
-		"让你时不时地下降一点，以防止你被踢到",
+		"让你时不时地下降一点, 以防止你被踢到",
 		false);
 	
 	private final SliderSetting antiKickInterval =

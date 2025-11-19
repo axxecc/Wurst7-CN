@@ -73,7 +73,7 @@ public final class KillauraLegitHack extends Hack implements UpdateListener,
 	
 	private final CheckboxSetting damageIndicator = new CheckboxSetting(
 		"伤害指示器",
-		"在目标中渲染一个彩色框，与其剩余生命值成反比",
+		"在目标中渲染一个彩色框, 与其剩余生命值成反比",
 		true);
 	
 	// same filters as in Killaura, but with stricter defaults

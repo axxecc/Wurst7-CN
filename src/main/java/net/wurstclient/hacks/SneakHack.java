@@ -26,7 +26,7 @@ public final class SneakHack extends Hack
 	
 	private final CheckboxSetting offWhileFlying =
 		new CheckboxSetting("飞行时关闭",
-			"当你在飞行或使用灵魂出窍时，会自动禁用保持潜行，这样它就不会强迫你飞下来",
+			"当你在飞行或使用灵魂出窍时, 会自动禁用保持潜行, 这样它就不会强迫你飞下来",
 			false);
 	
 	public SneakHack()

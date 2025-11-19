@@ -63,10 +63,10 @@ public class ForceOpDialog extends JDialog
 		
 		addSeparator(4, 132, 498, 4);
 		
-		addLabel("用户名：" + username, 4, 140);
-		lPasswords = addLabel("密码：错误", 4, 160);
-		lTime = addPersistentLabel("预计时间：错误", 4, 180);
-		lAttempts = addPersistentLabel("尝试次数：错误", 4, 200);
+		addLabel("用户名: " + username, 4, 140);
+		lPasswords = addLabel("密码: 错误", 4, 160);
+		lTime = addPersistentLabel("预计时间: 错误", 4, 180);
+		lAttempts = addPersistentLabel("尝试次数: 错误", 4, 200);
 		addStartButton();
 		
 		updateNumPasswords();
@@ -190,7 +190,7 @@ public class ForceOpDialog extends JDialog
 	
 	private void addDelaySelector()
 	{
-		JLabel lDelay1 = addLabel("尝试之间的延迟：", 4, 84);
+		JLabel lDelay1 = addLabel("尝试之间的延迟: ", 4, 84);
 		
 		spDelay = new JSpinner();
 		spDelay.setToolTipText("<html>"
@@ -278,7 +278,7 @@ public class ForceOpDialog extends JDialog
 	
 	private void updatePasswordsLabel()
 	{
-		lPasswords.setText("密码：" + numPW);
+		lPasswords.setText("密码: " + numPW);
 		lPasswords.setSize(lPasswords.getPreferredSize());
 	}
 	
@@ -297,7 +297,7 @@ public class ForceOpDialog extends JDialog
 		
 		String timeString = getTimeString(timeMS);
 		
-		lTime.setText("预计时间：" + timeString);
+		lTime.setText("预计时间: " + timeString);
 		lTime.setSize(lTime.getPreferredSize());
 	}
 	
@@ -318,7 +318,7 @@ public class ForceOpDialog extends JDialog
 	
 	private void updateAttemptsLabel()
 	{
-		lAttempts.setText("尝试：" + (lastPW + 1) + "/" + numPW);
+		lAttempts.setText("尝试: " + (lastPW + 1) + "/" + numPW);
 		lAttempts.setSize(lAttempts.getPreferredSize());
 	}
 	

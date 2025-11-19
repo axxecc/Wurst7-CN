@@ -27,7 +27,7 @@ public final class WikiDataExportOtf extends OtherFeature
 	public WikiDataExportOtf()
 	{
 		super("维基数据导出",
-			"创建一个JSON文件，其中包含有关此版本Wurst中所有不同功能和设置的技术细节，主要用于更新WurstWiki");
+			"创建一个JSON文件, 其中包含有关此版本Wurst中所有不同功能和设置的技术细节, 主要用于更新WurstWiki");
 	}
 	
 	@Override
@@ -51,7 +51,7 @@ public final class WikiDataExportOtf extends OtherFeature
 			
 		}catch(Exception e)
 		{
-			ChatUtils.error("导出数据失败：" + e.getMessage());
+			ChatUtils.error("导出数据失败: " + e.getMessage());
 			e.printStackTrace();
 		}
 	}

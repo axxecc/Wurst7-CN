@@ -49,12 +49,12 @@ public final class TriggerBotHack extends Hack
 	
 	private final CheckboxSetting attackWhileBlocking =
 		new CheckboxSetting("格挡时攻击",
-			"即使在使用盾牌或物品格挡时也会攻击\n\n这在原版中是不可能的，并且不会启用\"模拟鼠标点击\"",
+			"即使在使用盾牌或物品格挡时也会攻击\n\n这在原版中是不可能的, 并且不会启用\"模拟鼠标点击\"",
 			false);
 	
 	private final CheckboxSetting simulateMouseClick = new CheckboxSetting(
 		"模拟鼠标点击",
-		"模拟攻击时真实的鼠标点击（或按键），可用于欺骗 CPS 测量工具，使其误认为您正在手动攻击\n\n\u00a7c\u00a7l警告：\u00a7r模拟鼠标点击可能会导致意外行为，例如游戏内菜单自动点击。此外，启用此选项时，\"挥动手\"和\"格挡时攻击\"设置将不起作用",
+		"模拟攻击时真实的鼠标点击（或按键）, 可用于欺骗 CPS 测量工具, 使其误认为您正在手动攻击\n\n\u00a7c\u00a7l警告: \u00a7r模拟鼠标点击可能会导致意外行为, 例如游戏内菜单自动点击。此外, 启用此选项时, \"挥动手\"和\"格挡时攻击\"设置将不起作用",
 		false);
 	
 	private final EntityFilterList entityFilters =

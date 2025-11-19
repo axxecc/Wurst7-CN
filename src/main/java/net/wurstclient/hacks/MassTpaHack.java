@@ -36,7 +36,7 @@ public final class MassTpaHack extends Hack
 	
 	private final TextFieldSetting commandSetting =
 		new TextFieldSetting("命令",
-			"用于传送的命令\n示例：/tp、/tpa、/tpahere、/tpo",
+			"用于传送的命令\n示例: /tp、/tpa、/tpahere、/tpo",
 			"/tpa",
 			s -> s.length() < 64 && ALLOWED_COMMANDS.matcher(s).matches());
 	
@@ -46,11 +46,11 @@ public final class MassTpaHack extends Hack
 	
 	private final CheckboxSetting ignoreErrors =
 		new CheckboxSetting("忽略错误",
-			"是否忽略来自服务器的消息，告诉您传送命令无效或您无权使用它",
+			"是否忽略来自服务器的消息, 告诉您传送命令无效或您无权使用它",
 			false);
 	
 	private final CheckboxSetting stopWhenAccepted = new CheckboxSetting(
-		"接受时停止", "当有人接受其中一个传送请求时，是否停止发送更多传送请求",
+		"接受时停止", "当有人接受其中一个传送请求时, 是否停止发送更多传送请求",
 		true);
 	
 	private final Random random = new Random();

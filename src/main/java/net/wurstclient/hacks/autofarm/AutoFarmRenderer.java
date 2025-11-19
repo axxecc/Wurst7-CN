@@ -26,11 +26,11 @@ public final class AutoFarmRenderer
 	private static final AABB NODE_BOX = new AABB(BlockPos.ZERO).deflate(0.25);
 	
 	public final CheckboxSetting drawReplantingSpots =
-		new CheckboxSetting("Draw replanting spots", true);
+		new CheckboxSetting("绘制重新种植点", true);
 	public final CheckboxSetting drawBlocksToHarvest =
-		new CheckboxSetting("Draw blocks to harvest", true);
+		new CheckboxSetting("绘制方块进行收获", true);
 	public final CheckboxSetting drawBlocksToReplant =
-		new CheckboxSetting("Draw blocks to replant", true);
+		new CheckboxSetting("绘制块重新种植", true);
 	
 	private List<AABB> replantingSpots = List.of();
 	private List<AABB> blocksToHarvest = List.of();

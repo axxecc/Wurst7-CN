@@ -28,7 +28,7 @@ public final class SwingHandSetting
 	private SwingHandSetting(WText description, SwingHand[] values,
 		SwingHand selected)
 	{
-		super("Swing hand", description, values, selected);
+		super("挥手级别", description, values, selected);
 	}
 	
 	public SwingHandSetting(WText description, SwingHand selected)

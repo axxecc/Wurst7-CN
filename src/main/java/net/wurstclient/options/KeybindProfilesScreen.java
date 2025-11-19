@@ -136,7 +136,7 @@ public final class KeybindProfilesScreen extends Screen
 	{
 		listGui.render(context, mouseX, mouseY, partialTicks);
 		
-		context.drawCenteredString(minecraft.font, "Keybind Profiles",
+		context.drawCenteredString(minecraft.font, "快捷键配置文件",
 			width / 2, 12, CommonColors.WHITE);
 		
 		for(Renderable drawable : renderables)

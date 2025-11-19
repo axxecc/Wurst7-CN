@@ -216,7 +216,7 @@ public final class SearchHack extends Hack
 			notify = true;
 		else if(notify)
 		{
-			ChatUtils.warning("为防止滞后，它只会显示最接近的\u00a76 "
+			ChatUtils.warning("为防止滞后, 它只会显示最接近的\u00a76 "
 				+ limit.getValueString() + "\u00a7r 个结果");
 			notify = false;
 		}

@@ -22,7 +22,7 @@ public final class CriticalsHack extends Hack
 	implements PlayerAttacksEntityListener
 {
 	private final EnumSetting<Mode> mode = new EnumSetting<>("模式",
-		"\u00a7l数据包\u00a7r模式将数据包发送到服务器，但实际上根本不会移动您\n\n\u00a7l迷你跳跃\u00a7r模式会进行一次微小的跳跃，刚好足以获得暴击\n\n§l\u00a7l完全跳跃\u00a7r模式让您正常跳跃",
+		"\u00a7l数据包\u00a7r模式将数据包发送到服务器, 但实际上根本不会移动您\n\n\u00a7l迷你跳跃\u00a7r模式会进行一次微小的跳跃, 刚好足以获得暴击\n\n§l\u00a7l完全跳跃\u00a7r模式让您正常跳跃",
 		Mode.values(), Mode.PACKET);
 	
 	public CriticalsHack()

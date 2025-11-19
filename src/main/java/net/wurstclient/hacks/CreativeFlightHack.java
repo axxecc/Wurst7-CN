@@ -24,7 +24,7 @@ import net.wurstclient.settings.SliderSetting.ValueDisplay;
 public final class CreativeFlightHack extends Hack implements UpdateListener
 {
 	private final CheckboxSetting antiKick = new CheckboxSetting("防踢",
-		"让你时不时地下降一点，以防止你被踢出",
+		"让你时不时地下降一点, 以防止你被踢出",
 		false);
 	
 	private final SliderSetting antiKickInterval =
