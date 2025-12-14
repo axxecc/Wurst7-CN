@@ -26,88 +26,55 @@ import net.wurstclient.util.LastServerRememberer;
 @Mixin(JoinMultiplayerScreen.class)
 public class MultiplayerScreenMixin extends Screen
 {
-	private Button lastServerButton;
-	
-	private MultiplayerScreenMixin(WurstClient wurst, Component title)
-	{
-		super(title);
-	}
-	
-	@Inject(at = @At("HEAD"), method = "init()V")
-	private void beforeVanillaButtons(CallbackInfo ci)
-	{
-		if(!WurstClient.INSTANCE.isEnabled())
-			return;
+    private Button lastServerButton;
 
-		JoinMultiplayerScreen mpScreen = (JoinMultiplayerScreen)(Object)this;
+    private MultiplayerScreenMixin(WurstClient wurst, Component title)
+    {
+        super(title);
+    }
 
-		// Add Last Server button early for better tab navigation
-		lastServerButton = Button
-			.builder(Component.nullToEmpty("上次的服务器"),
-				b -> LastServerRememberer.joinLastServer(mpScreen))
-			.width(100).build();
-		addRenderableWidget(lastServerButton);
-	}
+    @Inject(at = @At("TAIL"), method = "init()V")
+    private void onInit(CallbackInfo ci)
+    {
+        if(!WurstClient.INSTANCE.isEnabled())
+            return;
 
-	@Inject(at = @At(value = "INVOKE",
-		target = "Lnet/minecraft/client/gui/screens/multiplayer/JoinMultiplayerScreen;repositionElements()V",
-		ordinal = 0), method = "init()V")
-	private void afterVanillaButtons(CallbackInfo ci,
-		@Local(ordinal = 1) LinearLayout footerTopRow,
-		@Local(ordinal = 2) LinearLayout footerBottomRow)
-	{
-		if(!WurstClient.INSTANCE.isEnabled())
-			return;
-		
-		JoinMultiplayerScreen mpScreen = (JoinMultiplayerScreen)(Object)this;
+        lastServerButton =
+                addRenderableWidget(
+                        Button
+                                .builder(Component.literal("上次的服务器"),
+                                        b -> LastServerRememberer.joinLastServer(
+                                                (JoinMultiplayerScreen)(Object)this))
+                                .bounds(width / 2 - 154, 10, 100, 20).build());
+        updateLastServerButton();
 
-		Button serverFinderButton = Button
-			.builder(Component.nullToEmpty("服务器扫描"),
-				b -> minecraft.setScreen(new ServerFinderScreen(mpScreen)))
-			.width(100).build();
-		addRenderableWidget(serverFinderButton);
-		footerTopRow.addChild(serverFinderButton);
+        addRenderableWidget(Button
+                .builder(Component.literal("服务器扫描"),
+                        b -> minecraft.setScreen(new ServerFinderScreen(
+                                (JoinMultiplayerScreen)(Object)this)))
+                .bounds(width / 2 + 154 + 4, height - 54, 100, 20).build());
 
-		Button cleanUpButton = Button
-			.builder(Component.nullToEmpty("清理服务器"),
-				b -> minecraft.setScreen(new CleanUpScreen(mpScreen)))
-			.width(100).build();
-		addRenderableWidget(cleanUpButton);
-		footerBottomRow.addChild(cleanUpButton);
-	}
+        addRenderableWidget(Button
+                .builder(Component.literal("清理服务器"),
+                        b -> minecraft.setScreen(
+                                new CleanUpScreen((JoinMultiplayerScreen)(Object)this)))
+                .bounds(width / 2 + 154 + 4, height - 30, 100, 20).build());
+    }
 
-	@Inject(at = @At("TAIL"), method = "repositionElements()V")
-	private void onRefreshWidgetPositions(CallbackInfo ci)
-	{
-		updateLastServerButton();
+    @Inject(at = @At("HEAD"),
+            method = "join(Lnet/minecraft/client/multiplayer/ServerData;)V")
+    private void onConnect(ServerData entry, CallbackInfo ci)
+    {
+        LastServerRememberer.setLastServer(entry);
+        updateLastServerButton();
+    }
 
-		addRenderableWidget(Button
-			.builder(Component.literal("Server Finder"),
-				b -> minecraft.setScreen(new ServerFinderScreen(
-					(JoinMultiplayerScreen)(Object)this)))
-			.bounds(width / 2 + 154 + 4, height - 54, 100, 20).build());
+    @Unique
+    private void updateLastServerButton()
+    {
+        if(lastServerButton == null)
+            return;
 
-		addRenderableWidget(Button
-			.builder(Component.literal("Clean Up"),
-				b -> minecraft.setScreen(
-					new CleanUpScreen((JoinMultiplayerScreen)(Object)this)))
-			.bounds(width / 2 + 154 + 4, height - 30, 100, 20).build());
-	}
-	
-	@Inject(at = @At("HEAD"),
-		method = "join(Lnet/minecraft/client/multiplayer/ServerData;)V")
-	private void onConnect(ServerData entry, CallbackInfo ci)
-	{
-		LastServerRememberer.setLastServer(entry);
-		updateLastServerButton();
-	}
-	
-	@Unique
-	private void updateLastServerButton()
-	{
-		if(lastServerButton == null)
-			return;
-		
-		lastServerButton.active = LastServerRememberer.getLastServer() != null;
-	}
+        lastServerButton.active = LastServerRememberer.getLastServer() != null;
+    }
 }
