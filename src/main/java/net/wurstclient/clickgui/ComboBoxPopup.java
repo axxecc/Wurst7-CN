@@ -93,6 +93,7 @@ public final class ComboBoxPopup<T extends Enum<T>> extends Popup
 			context.guiRenderState.up();
 			context.drawString(TR, value.toString(), x1 + 2, yi1 + 2,
 				GUI.getTxtColor(), false);
+			context.guiRenderState.down();
 		}
 	}
 	

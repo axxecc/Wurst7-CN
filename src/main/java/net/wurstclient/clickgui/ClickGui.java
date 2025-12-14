@@ -28,7 +28,6 @@ import com.google.gson.JsonParser;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.client.input.MouseButtonEvent;
 import net.wurstclient.Category;
 import net.wurstclient.Feature;
 import net.wurstclient.WurstClient;
@@ -191,11 +190,8 @@ public final class ClickGui
 		}
 	}
 	
-	public void handleMouseClick(MouseButtonEvent context)
+	public void handleMouseClick(int mouseX, int mouseY, int mouseButton)
 	{
-		int mouseX = (int)context.x();
-		int mouseY = (int)context.y();
-		int mouseButton = context.button();
 		if(mouseButton == GLFW.GLFW_MOUSE_BUTTON_LEFT)
 			leftMouseButtonPressed = true;
 		
@@ -203,7 +199,7 @@ public final class ClickGui
 			handlePopupMouseClick(mouseX, mouseY, mouseButton);
 		
 		if(!popupClicked)
-			handleWindowMouseClick(mouseX, mouseY, mouseButton, context);
+			handleWindowMouseClick(mouseX, mouseY, mouseButton);
 		
 		for(Popup popup : popups)
 			if(popup.getOwner().getParent().isClosing())
@@ -268,13 +264,12 @@ public final class ClickGui
 	}
 	
 	public void handleNavigatorMouseClick(double cMouseX, double cMouseY,
-		int mouseButton, Window window, MouseButtonEvent context)
+		int mouseButton, Window window)
 	{
 		if(mouseButton == GLFW.GLFW_MOUSE_BUTTON_LEFT)
 			leftMouseButtonPressed = true;
 		
-		handleComponentMouseClick(window, cMouseX, cMouseY, mouseButton,
-			context);
+		handleComponentMouseClick(window, cMouseX, cMouseY, mouseButton);
 		
 		for(Popup popup : popups)
 			if(popup.getOwner().getParent().isClosing())
@@ -318,8 +313,7 @@ public final class ClickGui
 		return false;
 	}
 	
-	private void handleWindowMouseClick(int mouseX, int mouseY, int mouseButton,
-		MouseButtonEvent context)
+	private void handleWindowMouseClick(int mouseX, int mouseY, int mouseButton)
 	{
 		for(int i = windows.size() - 1; i >= 0; i--)
 		{
@@ -356,7 +350,7 @@ public final class ClickGui
 						cMouseY -= window.getScrollOffset();
 					
 					handleComponentMouseClick(window, cMouseX, cMouseY,
-						mouseButton, context);
+						mouseButton);
 				}
 				
 			}else
@@ -441,7 +435,7 @@ public final class ClickGui
 	}
 	
 	private void handleComponentMouseClick(Window window, double mouseX,
-		double mouseY, int mouseButton, MouseButtonEvent context)
+		double mouseY, int mouseButton)
 	{
 		for(int i2 = window.countChildren() - 1; i2 >= 0; i2--)
 		{
@@ -453,7 +447,7 @@ public final class ClickGui
 				|| mouseY >= c.getY() + c.getHeight())
 				continue;
 			
-			c.handleMouseClick(mouseX, mouseY, mouseButton, context);
+			c.handleMouseClick(mouseX, mouseY, mouseButton);
 			break;
 		}
 	}
@@ -467,6 +461,7 @@ public final class ClickGui
 		matrixStack.pushMatrix();
 		
 		tooltip = "";
+		int windowLayers = 0;
 		for(Window window : windows)
 		{
 			if(window.isInvisible())
@@ -490,6 +485,7 @@ public final class ClickGui
 					window.stopDraggingScrollbar();
 				
 			context.guiRenderState.up();
+			windowLayers++;
 			renderWindow(context, window, mouseX, mouseY, partialTicks);
 		}
 		
@@ -497,6 +493,8 @@ public final class ClickGui
 		renderTooltip(context, mouseX, mouseY);
 		
 		matrixStack.popMatrix();
+		for(int i = 0; i < windowLayers; i++)
+			context.guiRenderState.down();
 	}
 	
 	public void renderPopups(GuiGraphics context, int mouseX, int mouseY)
@@ -519,6 +517,7 @@ public final class ClickGui
 			int cMouseY = mouseY - y1;
 			popup.render(context, cMouseX, cMouseY);
 			
+			context.guiRenderState.down();
 			matrixStack.popMatrix();
 		}
 	}
@@ -562,19 +561,27 @@ public final class ClickGui
 		for(int i = 0; i < lines.length; i++)
 			context.drawString(tr, lines[i], xt1 + 2,
 				yt1 + 2 + i * tr.lineHeight, txtColor, false);
+		context.guiRenderState.down();
+		
+		context.guiRenderState.down();
 	}
 	
 	public void renderPinnedWindows(GuiGraphics context, float partialTicks)
 	{
+		int windowLayers = 0;
 		for(Window window : windows)
 		{
 			if(!window.isPinned() || window.isInvisible())
 				continue;
 			
 			context.guiRenderState.up();
+			windowLayers++;
 			renderWindow(context, window, Integer.MIN_VALUE, Integer.MIN_VALUE,
 				partialTicks);
 		}
+		
+		for(int i = 0; i < windowLayers; i++)
+			context.guiRenderState.down();
 	}
 	
 	public void updateColors()
@@ -767,6 +774,7 @@ public final class ClickGui
 			x3 - x1).getString();
 		context.guiRenderState.up();
 		context.drawString(tr, title, x1 + 2, y1 + 3, txtColor, false);
+		context.guiRenderState.down();
 	}
 	
 	private void renderTitleBarButton(GuiGraphics context, int x1, int y1,

@@ -65,7 +65,7 @@ public enum RenderUtils
 	
 	public static Vec3 getCameraPos()
 	{
-		Camera camera = WurstClient.MC.gameRenderer.getMainCamera();
+		Camera camera = WurstClient.MC.getBlockEntityRenderDispatcher().camera;
 		if(camera == null)
 			return Vec3.ZERO;
 		
@@ -74,7 +74,7 @@ public enum RenderUtils
 	
 	public static BlockPos getCameraBlockPos()
 	{
-		Camera camera = WurstClient.MC.gameRenderer.getMainCamera();
+		Camera camera = WurstClient.MC.getBlockEntityRenderDispatcher().camera;
 		if(camera == null)
 			return BlockPos.ZERO;
 		
@@ -745,6 +745,7 @@ public enum RenderUtils
 				true);
 			
 			matrixStack.popMatrix();
+			context.guiRenderState.down();
 		}
 	}
 	
@@ -852,7 +853,8 @@ public enum RenderUtils
 	}
 	
 	/**
-	 * Similar to {@link GuiGraphics#drawBorder(int, int, int, int, int)}, but
+	 * Similar to {@link GuiGraphics#renderOutline(int, int, int, int, int)},
+	 * but
 	 * uses floating-point coordinates instead of integers, and is one actual
 	 * pixel wide instead of one scaled pixel.
 	 */
@@ -867,10 +869,7 @@ public enum RenderUtils
 		
 		context.pose().pushMatrix();
 		context.pose().scale(1F / scale);
-		context.hLine(x, x + w - 1, y, color);
-		context.hLine(x, x + w - 1, y + h - 1, color);
-		context.vLine(x, y + 1, y + h - 1, color);
-		context.vLine(x + w - 1, y + 1, y + h - 1, color);
+		context.renderOutline(x, y, w, h, color);
 		context.pose().popMatrix();
 	}
 	

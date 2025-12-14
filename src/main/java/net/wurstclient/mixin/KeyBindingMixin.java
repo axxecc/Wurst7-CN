@@ -13,12 +13,9 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 
 import com.mojang.blaze3d.platform.InputConstants;
-import com.mojang.blaze3d.platform.Window;
 
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.input.KeyEvent;
-import net.minecraft.client.input.MouseButtonInfo;
 import net.wurstclient.WurstClient;
 import net.wurstclient.mixinterface.IKeyBinding;
 
@@ -33,13 +30,13 @@ public abstract class KeyBindingMixin implements IKeyBinding
 	@Deprecated // use IKeyBinding.resetPressedState() instead
 	public void wurst_resetPressedState()
 	{
-		Window window = WurstClient.MC.getWindow();
+		long handle = WurstClient.MC.getWindow().getWindow();
 		int code = key.getValue();
 		
 		if(key.getType() == InputConstants.Type.MOUSE)
-			setDown(GLFW.glfwGetMouseButton(window.handle(), code) == 1);
+			setDown(GLFW.glfwGetMouseButton(handle, code) == 1);
 		else
-			setDown(InputConstants.isKeyDown(window, code));
+			setDown(InputConstants.isKeyDown(handle, code));
 	}
 	
 	@Override
@@ -48,24 +45,22 @@ public abstract class KeyBindingMixin implements IKeyBinding
 	public void wurst_simulatePress(boolean pressed)
 	{
 		Minecraft mc = WurstClient.MC;
-		Window window = mc.getWindow();
+		long window = mc.getWindow().getWindow();
 		int action = pressed ? 1 : 0;
 		
 		switch(key.getType())
 		{
 			case KEYSYM:
-			mc.keyboardHandler.keyPress(window.handle(), action,
-				new KeyEvent(key.getValue(), 0, 0));
+			mc.keyboardHandler.keyPress(window, key.getValue(), 0, action, 0);
 			break;
 			
 			case SCANCODE:
-			mc.keyboardHandler.keyPress(window.handle(), action,
-				new KeyEvent(GLFW.GLFW_KEY_UNKNOWN, key.getValue(), 0));
+			mc.keyboardHandler.keyPress(window, GLFW.GLFW_KEY_UNKNOWN,
+				key.getValue(), action, 0);
 			break;
 			
 			case MOUSE:
-			mc.mouseHandler.onButton(window.handle(),
-				new MouseButtonInfo(key.getValue(), 0), action);
+			mc.mouseHandler.onPress(window, key.getValue(), action, 0);
 			break;
 			
 			default:

@@ -22,8 +22,6 @@ import net.minecraft.client.gui.components.ObjectSelectionList;
 import net.minecraft.client.gui.components.Renderable;
 import net.minecraft.client.gui.screens.ConfirmScreen;
 import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.client.input.KeyEvent;
-import net.minecraft.client.input.MouseButtonEvent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.util.CommonColors;
 import net.minecraft.world.item.ItemStack;
@@ -94,36 +92,36 @@ public final class EditBlockListScreen extends Screen
 	}
 	
 	@Override
-	public boolean mouseClicked(MouseButtonEvent context, boolean doubleClick)
+	public boolean mouseClicked(double mouseX, double mouseY, int mouseButton)
 	{
-		blockNameField.mouseClicked(context, doubleClick);
-		return super.mouseClicked(context, doubleClick);
+		blockNameField.mouseClicked(mouseX, mouseY, mouseButton);
+		return super.mouseClicked(mouseX, mouseY, mouseButton);
 	}
 	
 	@Override
-	public boolean keyPressed(KeyEvent context)
+	public boolean keyPressed(int keyCode, int scanCode, int int_3)
 	{
-		switch(context.key())
+		switch(keyCode)
 		{
 			case GLFW.GLFW_KEY_ENTER:
 			if(addButton.active)
-				addButton.onPress(context);
+				addButton.onPress();
 			break;
 			
 			case GLFW.GLFW_KEY_DELETE:
 			if(!blockNameField.isFocused())
-				removeButton.onPress(context);
+				removeButton.onPress();
 			break;
 			
 			case GLFW.GLFW_KEY_ESCAPE:
-			doneButton.onPress(context);
+			doneButton.onPress();
 			break;
 			
 			default:
 			break;
 		}
 		
-		return super.keyPressed(context);
+		return super.keyPressed(keyCode, scanCode, int_3);
 	}
 	
 	@Override
@@ -183,6 +181,7 @@ public final class EditBlockListScreen extends Screen
 			blockToAdd == null ? ItemStack.EMPTY : new ItemStack(blockToAdd),
 			width / 2 - 164, height - 52, false);
 		
+		context.guiRenderState.down();
 		matrixStack.popMatrix();
 	}
 	
@@ -220,12 +219,10 @@ public final class EditBlockListScreen extends Screen
 		}
 		
 		@Override
-		public void renderContent(GuiGraphics context, int mouseX, int mouseY,
+		public void render(GuiGraphics context, int index, int y, int x,
+			int entryWidth, int entryHeight, int mouseX, int mouseY,
 			boolean hovered, float tickDelta)
 		{
-			int x = getContentX();
-			int y = getContentY();
-			
 			Block block = BlockUtils.getBlockFromName(blockName);
 			ItemStack stack = new ItemStack(block);
 			Font tr = minecraft.font;
@@ -257,7 +254,7 @@ public final class EditBlockListScreen extends Screen
 		public ListGui(Minecraft minecraft, EditBlockListScreen screen,
 			List<String> list)
 		{
-			super(minecraft, screen.width, screen.height - 96, 36, 30);
+			super(minecraft, screen.width, screen.height - 96, 36, 30, 0);
 			
 			list.stream().map(EditBlockListScreen.Entry::new)
 				.forEach(this::addEntry);

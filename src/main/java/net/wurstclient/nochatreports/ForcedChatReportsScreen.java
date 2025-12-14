@@ -113,8 +113,7 @@ public final class ForcedChatReportsScreen extends Screen
 		
 		context.drawCenteredString(font, title, centerX, titleY,
 			CommonColors.LIGHT_GRAY);
-		reasonFormatted.render(context, MultiLineLabel.Align.CENTER, centerX,
-			reasonY, 9, true, -1);
+		reasonFormatted.renderCentered(context, centerX, reasonY);
 		
 		for(Renderable drawable : renderables)
 			drawable.render(context, mouseX, mouseY, partialTicks);

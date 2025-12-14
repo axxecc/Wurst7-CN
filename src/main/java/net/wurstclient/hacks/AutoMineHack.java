@@ -104,7 +104,7 @@ public final class AutoMineHack extends Hack
 		
 		if(im.continueDestroyBlock(pos, side))
 		{
-			MC.level.addBreakingBlockEffect(pos, side);
+			MC.particleEngine.crack(pos, side);
 			MC.player.swing(InteractionHand.MAIN_HAND);
 			MC.options.keyAttack.setDown(true);
 		}

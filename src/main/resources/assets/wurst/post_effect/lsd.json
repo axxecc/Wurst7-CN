@@ -4,7 +4,7 @@
   },
   "passes": [
     {
-      "vertex_shader": "minecraft:core/screenquad",
+      "vertex_shader": "minecraft:post/sobel",
       "fragment_shader": "wurst:post/lsd",
       "inputs": [
         {
@@ -35,7 +35,7 @@
       }
     },
     {
-      "vertex_shader": "minecraft:core/screenquad",
+      "vertex_shader": "minecraft:post/blit",
       "fragment_shader": "minecraft:post/blit",
       "inputs": [
         {

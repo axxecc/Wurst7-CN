@@ -12,7 +12,6 @@ import java.util.OptionalInt;
 import java.util.function.Consumer;
 
 import org.joml.Matrix4fStack;
-import org.joml.Vector3f;
 import org.joml.Vector4f;
 
 import com.mojang.blaze3d.buffers.GpuBuffer;
@@ -120,8 +119,8 @@ public final class EasyVertexBuffer implements AutoCloseable
 		layer.setupRenderState();
 		GpuBufferSlice gpuBufferSlice = RenderSystem.getDynamicUniforms()
 			.writeTransform(RenderSystem.getModelViewMatrix(),
-				new Vector4f(red, green, blue, alpha), new Vector3f(),
-				RenderSystem.getTextureMatrix(),
+				new Vector4f(red, green, blue, alpha),
+				RenderSystem.getModelOffset(), RenderSystem.getTextureMatrix(),
 				RenderSystem.getShaderLineWidth());
 		
 		RenderTarget framebuffer = layer.state.outputState.getRenderTarget();

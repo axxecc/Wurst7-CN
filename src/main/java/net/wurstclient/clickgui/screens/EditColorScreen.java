@@ -23,8 +23,6 @@ import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.components.Renderable;
 import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.client.input.KeyEvent;
-import net.minecraft.client.input.MouseButtonEvent;
 import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -235,9 +233,9 @@ public final class EditColorScreen extends Screen
 	}
 	
 	@Override
-	public boolean keyPressed(KeyEvent context)
+	public boolean keyPressed(int keyCode, int scanCode, int int_3)
 	{
-		switch(context.key())
+		switch(keyCode)
 		{
 			case GLFW.GLFW_KEY_ENTER:
 			done();
@@ -248,20 +246,17 @@ public final class EditColorScreen extends Screen
 			break;
 		}
 		
-		return super.keyPressed(context);
+		return super.keyPressed(keyCode, scanCode, int_3);
 	}
 	
 	@Override
-	public boolean mouseClicked(MouseButtonEvent context, boolean doubleClick)
+	public boolean mouseClicked(double mouseX, double mouseY, int button)
 	{
-		double mouseX = context.x();
-		double mouseY = context.y();
-		
 		if(mouseX >= paletteX && mouseX <= paletteX + paletteWidth
 			&& mouseY >= paletteY && mouseY <= paletteY + paletteHeight)
 		{
 			if(paletteAsBufferedImage == null)
-				return super.mouseClicked(context, doubleClick);
+				return super.mouseClicked(mouseX, mouseY, button);
 			
 			int x = (int)Math.round((mouseX - paletteX) / paletteWidth
 				* paletteAsBufferedImage.getWidth());
@@ -280,7 +275,7 @@ public final class EditColorScreen extends Screen
 			}
 		}
 		
-		return super.mouseClicked(context, doubleClick);
+		return super.mouseClicked(mouseX, mouseY, button);
 	}
 	
 	private void setColor(Color color)

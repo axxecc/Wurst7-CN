@@ -22,9 +22,6 @@ import net.fabricmc.fabric.api.client.screen.v1.Screens;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.components.Button;
-import net.minecraft.client.input.KeyEvent;
-import net.minecraft.client.input.MouseButtonEvent;
-import net.minecraft.client.input.MouseButtonInfo;
 import net.minecraft.client.resources.sounds.SimpleSoundInstance;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.CommonColors;
@@ -231,22 +228,16 @@ public final class NavigatorFeatureScreen extends NavigatorScreen
 	}
 	
 	@Override
-	protected void onKeyPress(KeyEvent context)
+	protected void onKeyPress(int keyCode, int scanCode, int int_3)
 	{
-		int keyCode = context.key();
-		
 		if(keyCode == GLFW.GLFW_KEY_ESCAPE
 			|| keyCode == GLFW.GLFW_KEY_BACKSPACE)
 			goBack();
 	}
 	
 	@Override
-	protected void onMouseClick(MouseButtonEvent context)
+	protected void onMouseClick(double x, double y, int button)
 	{
-		double x = context.x();
-		double y = context.y();
-		int button = context.button();
-		
 		// popups
 		if(WurstClient.INSTANCE.getGui().handleNavigatorPopupClick(x, y,
 			button))
@@ -279,7 +270,7 @@ public final class NavigatorFeatureScreen extends NavigatorScreen
 		// component settings
 		WurstClient.INSTANCE.getGui().handleNavigatorMouseClick(
 			x - middleX + 154, y - 60 - scroll - windowComponentY, button,
-			window, context);
+			window);
 	}
 	
 	private void goBack()
@@ -440,6 +431,7 @@ public final class NavigatorFeatureScreen extends NavigatorScreen
 				(x1 + x2) / 2, y1 + (buttonData.height - 10) / 2 + 1,
 				buttonData.isLocked() ? WurstColors.VERY_LIGHT_GRAY
 					: buttonData.textColor);
+			context.guiRenderState.down();
 		}
 		
 		// text
@@ -451,6 +443,7 @@ public final class NavigatorFeatureScreen extends NavigatorScreen
 				false);
 			textY += minecraft.font.lineHeight;
 		}
+		context.guiRenderState.down();
 		
 		context.disableScissor();
 		
@@ -481,6 +474,7 @@ public final class NavigatorFeatureScreen extends NavigatorScreen
 			context.drawString(minecraft.font, buttonText,
 				(x1 + x2 - minecraft.font.width(buttonText)) / 2, y1 + 5,
 				txtColor, false);
+			context.guiRenderState.down();
 		}
 		
 		// popups & tooltip
@@ -492,8 +486,8 @@ public final class NavigatorFeatureScreen extends NavigatorScreen
 	public void onClose()
 	{
 		window.close();
-		WurstClient.INSTANCE.getGui().handleMouseClick(new MouseButtonEvent(
-			Double.MIN_VALUE, Double.MIN_VALUE, new MouseButtonInfo(0, 0)));
+		WurstClient.INSTANCE.getGui().handleMouseClick(Integer.MIN_VALUE,
+			Integer.MIN_VALUE, 0);
 	}
 	
 	public Feature getFeature()

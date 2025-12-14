@@ -11,7 +11,6 @@ import org.lwjgl.glfw.GLFW;
 
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.client.input.MouseButtonEvent;
 import net.wurstclient.clickgui.ClickGui;
 import net.wurstclient.clickgui.Component;
 import net.wurstclient.clickgui.screens.SelectFileScreen;
@@ -33,8 +32,7 @@ public final class FileComponent extends Component
 	}
 	
 	@Override
-	public void handleMouseClick(double mouseX, double mouseY, int mouseButton,
-		MouseButtonEvent context)
+	public void handleMouseClick(double mouseX, double mouseY, int mouseButton)
 	{
 		if(mouseButton != GLFW.GLFW_MOUSE_BUTTON_LEFT)
 			return;
@@ -80,6 +78,7 @@ public final class FileComponent extends Component
 		context.guiRenderState.up();
 		context.drawString(TR, labelText, x1, y1 + 2, txtColor, false);
 		context.drawString(TR, buttonText, x3 + 2, y1 + 2, txtColor, false);
+		context.guiRenderState.down();
 	}
 	
 	private int getFillColor(boolean hovering)

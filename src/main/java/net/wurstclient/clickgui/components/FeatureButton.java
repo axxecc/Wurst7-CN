@@ -11,7 +11,6 @@ import java.util.Objects;
 
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.client.input.MouseButtonEvent;
 import net.wurstclient.Feature;
 import net.wurstclient.clickgui.ClickGui;
 import net.wurstclient.clickgui.ClickGuiIcons;
@@ -41,8 +40,7 @@ public final class FeatureButton extends Component
 	}
 	
 	@Override
-	public void handleMouseClick(double mouseX, double mouseY, int mouseButton,
-		MouseButtonEvent context)
+	public void handleMouseClick(double mouseX, double mouseY, int mouseButton)
 	{
 		if(mouseButton != 0)
 			return;
@@ -124,6 +122,8 @@ public final class FeatureButton extends Component
 		int tx = x1 + (x3 - x1 - TR.width(name)) / 2;
 		int ty = y1 + 2;
 		context.drawString(TR, name, tx, ty, GUI.getTxtColor(), false);
+		
+		context.guiRenderState.down();
 	}
 	
 	private int getButtonColor(boolean enabled, boolean hovering)

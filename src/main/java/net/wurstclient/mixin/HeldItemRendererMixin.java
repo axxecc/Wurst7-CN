@@ -16,7 +16,7 @@ import com.mojang.blaze3d.vertex.PoseStack;
 
 import net.minecraft.client.player.AbstractClientPlayer;
 import net.minecraft.client.renderer.ItemInHandRenderer;
-import net.minecraft.client.renderer.SubmitNodeCollector;
+import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -32,12 +32,11 @@ public abstract class HeldItemRendererMixin
 	@Inject(at = @At(value = "INVOKE",
 		target = "Lnet/minecraft/client/renderer/ItemInHandRenderer;applyItemArmTransform(Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/world/entity/HumanoidArm;F)V",
 		ordinal = 3),
-		method = "renderArmWithItem(Lnet/minecraft/client/player/AbstractClientPlayer;FFLnet/minecraft/world/InteractionHand;FLnet/minecraft/world/item/ItemStack;FLcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/SubmitNodeCollector;I)V")
+		method = "renderArmWithItem(Lnet/minecraft/client/player/AbstractClientPlayer;FFLnet/minecraft/world/InteractionHand;FLnet/minecraft/world/item/ItemStack;FLcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;I)V")
 	private void onApplyEquipOffsetBlocking(AbstractClientPlayer player,
-		float tickProgress, float pitch, InteractionHand hand,
-		float swingProgress, ItemStack item, float equipProgress,
-		PoseStack matrices, SubmitNodeCollector entityRenderCommandQueue,
-		int light, CallbackInfo ci)
+		float tickDelta, float pitch, InteractionHand hand, float swingProgress,
+		ItemStack item, float equipProgress, PoseStack matrices,
+		MultiBufferSource vertexConsumers, int light, CallbackInfo ci)
 	{
 		// lower shield when blocking
 		if(item.getItem() == Items.SHIELD)
@@ -52,12 +51,11 @@ public abstract class HeldItemRendererMixin
 	@Inject(at = @At(value = "INVOKE",
 		target = "Lnet/minecraft/client/renderer/ItemInHandRenderer;swingArm(FFLcom/mojang/blaze3d/vertex/PoseStack;ILnet/minecraft/world/entity/HumanoidArm;)V",
 		ordinal = 2),
-		method = "renderArmWithItem(Lnet/minecraft/client/player/AbstractClientPlayer;FFLnet/minecraft/world/InteractionHand;FLnet/minecraft/world/item/ItemStack;FLcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/SubmitNodeCollector;I)V")
+		method = "renderArmWithItem(Lnet/minecraft/client/player/AbstractClientPlayer;FFLnet/minecraft/world/InteractionHand;FLnet/minecraft/world/item/ItemStack;FLcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;I)V")
 	private void onApplySwingOffsetNotBlocking(AbstractClientPlayer player,
-		float tickProgress, float pitch, InteractionHand hand,
-		float swingProgress, ItemStack item, float equipProgress,
-		PoseStack matrices, SubmitNodeCollector entityRenderCommandQueue,
-		int light, CallbackInfo ci)
+		float tickDelta, float pitch, InteractionHand hand, float swingProgress,
+		ItemStack item, float equipProgress, PoseStack matrices,
+		MultiBufferSource vertexConsumers, int light, CallbackInfo ci)
 	{
 		// lower shield when not blocking
 		if(item.getItem() == Items.SHIELD)

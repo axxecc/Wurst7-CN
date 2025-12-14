@@ -23,10 +23,9 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.multiplayer.PlayerInfo;
 import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.client.resources.DefaultPlayerSkin;
+import net.minecraft.client.resources.PlayerSkin;
 import net.minecraft.core.UUIDUtil;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.player.PlayerModelType;
-import net.minecraft.world.entity.player.PlayerSkin;
 import net.wurstclient.WurstClient;
 
 public final class AltRenderer
@@ -61,7 +60,7 @@ public final class AltRenderer
 		UUID uuid = UUIDUtil.createOfflinePlayerUUID(name);
 		GameProfile profile = new GameProfile(uuid, name);
 		PlayerInfo entry = new PlayerInfo(profile, false);
-		ResourceLocation texture = entry.getSkin().body().texturePath();
+		ResourceLocation texture = entry.getSkin().texture();
 		offlineSkins.put(name, texture);
 		return texture;
 	}
@@ -74,7 +73,7 @@ public final class AltRenderer
 			
 			UUID uuid = SkinStealer.getUUIDOrNull(name);
 			ProfileResult result =
-				mc.services().sessionService().fetchProfile(uuid, false);
+				mc.getMinecraftSessionService().fetchProfile(uuid, false);
 			
 			return result == null ? null : result.profile();
 			
@@ -84,14 +83,14 @@ public final class AltRenderer
 				return CompletableFuture.completedFuture(null);
 			
 			CompletableFuture<Optional<PlayerSkin>> skinFuture =
-				mc.getSkinManager().get(profile);
+				mc.getSkinManager().getOrLoad(profile);
 			
 			return skinFuture.thenApplyAsync(opt -> opt.orElse(null));
 			
 		}, BACKGROUND_THREAD).thenAcceptAsync(skinTextures -> {
 			
 			if(skinTextures != null)
-				onlineSkins.put(name, skinTextures.body().texturePath());
+				onlineSkins.put(name, skinTextures.texture());
 			
 		}, BACKGROUND_THREAD);
 	}
@@ -135,7 +134,7 @@ public final class AltRenderer
 			
 			boolean slim =
 				DefaultPlayerSkin.get(UUIDUtil.createOfflinePlayerUUID(name))
-					.model() == PlayerModelType.SLIM;
+					.model() == PlayerSkin.Model.SLIM;
 			
 			// Face
 			x = x + width / 4;
@@ -274,7 +273,7 @@ public final class AltRenderer
 			
 			boolean slim =
 				DefaultPlayerSkin.get(UUIDUtil.createOfflinePlayerUUID(name))
-					.model() == PlayerModelType.SLIM;
+					.model() == PlayerSkin.Model.SLIM;
 			
 			// Face
 			x = x + width / 4;

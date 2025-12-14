@@ -43,12 +43,16 @@ public record CustomQuadRenderState(RenderPipeline pipeline,
 	}
 	
 	@Override
-	public void buildVertices(VertexConsumer vertices)
+	public void buildVertices(VertexConsumer vertices, float depth)
 	{
-		vertices.addVertexWith2DPose(pose(), x1(), y1()).setColor(color1());
-		vertices.addVertexWith2DPose(pose(), x2(), y2()).setColor(color2());
-		vertices.addVertexWith2DPose(pose(), x3(), y3()).setColor(color3());
-		vertices.addVertexWith2DPose(pose(), x4(), y4()).setColor(color4());
+		vertices.addVertexWith2DPose(pose(), x1(), y1(), depth)
+			.setColor(color1());
+		vertices.addVertexWith2DPose(pose(), x2(), y2(), depth)
+			.setColor(color2());
+		vertices.addVertexWith2DPose(pose(), x3(), y3(), depth)
+			.setColor(color3());
+		vertices.addVertexWith2DPose(pose(), x4(), y4(), depth)
+			.setColor(color4());
 	}
 	
 	@Nullable

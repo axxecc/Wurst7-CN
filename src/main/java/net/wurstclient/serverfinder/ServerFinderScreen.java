@@ -21,7 +21,6 @@ import net.minecraft.client.gui.components.Renderable;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.multiplayer.JoinMultiplayerScreen;
 import net.minecraft.client.gui.screens.multiplayer.ServerSelectionList;
-import net.minecraft.client.input.MouseButtonEvent;
 import net.minecraft.client.multiplayer.ServerData;
 import net.minecraft.client.multiplayer.ServerData.Type;
 import net.minecraft.client.multiplayer.ServerList;
@@ -206,15 +205,15 @@ public class ServerFinderScreen extends Screen
 	}
 	
 	@Override
-	public boolean mouseClicked(MouseButtonEvent context, boolean doubleClick)
+	public boolean mouseClicked(double mouseX, double mouseY, int button)
 	{
-		if(context.button() == GLFW.GLFW_MOUSE_BUTTON_4)
+		if(button == GLFW.GLFW_MOUSE_BUTTON_4)
 		{
 			onClose();
 			return true;
 		}
 		
-		return super.mouseClicked(context, doubleClick);
+		return super.mouseClicked(mouseX, mouseY, button);
 	}
 	
 	@Override

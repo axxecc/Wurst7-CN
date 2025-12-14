@@ -16,8 +16,6 @@ import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.components.Renderable;
 import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.client.input.KeyEvent;
-import net.minecraft.client.input.MouseButtonEvent;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
@@ -208,38 +206,38 @@ public final class EditBookOfferScreen extends Screen
 	}
 	
 	@Override
-	public boolean mouseClicked(MouseButtonEvent context, boolean doubleClick)
+	public boolean mouseClicked(double mouseX, double mouseY, int mouseButton)
 	{
-		boolean childClicked = super.mouseClicked(context, doubleClick);
+		boolean childClicked = super.mouseClicked(mouseX, mouseY, mouseButton);
 		
-		levelField.mouseClicked(context, doubleClick);
-		priceField.mouseClicked(context, doubleClick);
+		levelField.mouseClicked(mouseX, mouseY, mouseButton);
+		priceField.mouseClicked(mouseX, mouseY, mouseButton);
 		
-		if(context.button() == GLFW.GLFW_MOUSE_BUTTON_4)
-			cancelButton.onPress(context);
+		if(mouseButton == GLFW.GLFW_MOUSE_BUTTON_4)
+			cancelButton.onPress();
 		
 		return childClicked;
 	}
 	
 	@Override
-	public boolean keyPressed(KeyEvent context)
+	public boolean keyPressed(int keyCode, int scanCode, int int_3)
 	{
-		switch(context.key())
+		switch(keyCode)
 		{
 			case GLFW.GLFW_KEY_ENTER:
 			if(saveButton.active)
-				saveButton.onPress(context);
+				saveButton.onPress();
 			break;
 			
 			case GLFW.GLFW_KEY_ESCAPE:
-			cancelButton.onPress(context);
+			cancelButton.onPress();
 			break;
 			
 			default:
 			break;
 		}
 		
-		return super.keyPressed(context);
+		return super.keyPressed(keyCode, scanCode, int_3);
 	}
 	
 	@Override

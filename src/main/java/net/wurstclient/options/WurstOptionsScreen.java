@@ -20,7 +20,6 @@ import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.Renderable;
 import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.client.input.InputWithModifiers;
 import net.minecraft.network.chat.Component;
 import net.minecraft.util.CommonColors;
 import net.wurstclient.WurstClient;
@@ -217,9 +216,9 @@ public class WurstOptionsScreen extends Screen
 		}
 		
 		@Override
-		public void onPress(InputWithModifiers context)
+		public void onPress()
 		{
-			super.onPress(context);
+			super.onPress();
 			setMessage(Component.literal(messageSupplier.get()));
 		}
 	}

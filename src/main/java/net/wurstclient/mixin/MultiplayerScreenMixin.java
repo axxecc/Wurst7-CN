@@ -13,10 +13,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import com.llamalad7.mixinextras.sugar.Local;
-
 import net.minecraft.client.gui.components.Button;
-import net.minecraft.client.gui.layouts.LinearLayout;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.multiplayer.JoinMultiplayerScreen;
 import net.minecraft.client.multiplayer.ServerData;
@@ -83,6 +80,18 @@ public class MultiplayerScreenMixin extends Screen
 	private void onRefreshWidgetPositions(CallbackInfo ci)
 	{
 		updateLastServerButton();
+
+		addRenderableWidget(Button
+			.builder(Component.literal("Server Finder"),
+				b -> minecraft.setScreen(new ServerFinderScreen(
+					(JoinMultiplayerScreen)(Object)this)))
+			.bounds(width / 2 + 154 + 4, height - 54, 100, 20).build());
+
+		addRenderableWidget(Button
+			.builder(Component.literal("Clean Up"),
+				b -> minecraft.setScreen(
+					new CleanUpScreen((JoinMultiplayerScreen)(Object)this)))
+			.bounds(width / 2 + 154 + 4, height - 30, 100, 20).build());
 	}
 	
 	@Inject(at = @At("HEAD"),
@@ -100,7 +109,5 @@ public class MultiplayerScreenMixin extends Screen
 			return;
 		
 		lastServerButton.active = LastServerRememberer.getLastServer() != null;
-		lastServerButton.setX(width / 2 - 154);
-		lastServerButton.setY(6);
 	}
 }

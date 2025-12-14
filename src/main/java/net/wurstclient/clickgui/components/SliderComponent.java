@@ -11,7 +11,7 @@ import org.lwjgl.glfw.GLFW;
 
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.client.input.MouseButtonEvent;
+import net.minecraft.client.gui.screens.Screen;
 import net.wurstclient.clickgui.ClickGui;
 import net.wurstclient.clickgui.Component;
 import net.wurstclient.clickgui.screens.EditSliderScreen;
@@ -35,17 +35,15 @@ public final class SliderComponent extends Component
 	}
 	
 	@Override
-	public void handleMouseClick(double mouseX, double mouseY, int mouseButton,
-		MouseButtonEvent context)
+	public void handleMouseClick(double mouseX, double mouseY, int mouseButton)
 	{
-		boolean hasControlDown = context.hasControlDown();
 		if(mouseY < getY() + 11)
 			return;
 		
 		switch(mouseButton)
 		{
 			case GLFW.GLFW_MOUSE_BUTTON_LEFT:
-			if(hasControlDown)
+			if(Screen.hasControlDown())
 				MC.setScreen(new EditSliderScreen(MC.screen, setting));
 			else
 				dragging = true;
@@ -161,6 +159,8 @@ public final class SliderComponent extends Component
 		int txtColor = GUI.getTxtColor();
 		context.drawString(TR, name, x1, y1 + 2, txtColor, false);
 		context.drawString(TR, value, x2 - valueWidth, y1 + 2, txtColor, false);
+		
+		context.guiRenderState.down();
 	}
 	
 	private String getTextTooltip()

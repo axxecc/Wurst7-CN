@@ -14,7 +14,6 @@ import com.mojang.blaze3d.platform.InputConstants;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Renderable;
 import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.client.input.KeyEvent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.util.CommonColors;
 
@@ -33,18 +32,18 @@ public class PressAKeyScreen extends Screen
 	}
 	
 	@Override
-	public boolean keyPressed(KeyEvent context)
+	public boolean keyPressed(int keyCode, int scanCode, int int_3)
 	{
-		if(context.key() != GLFW.GLFW_KEY_ESCAPE)
-			prevScreen.setKey(getKeyName(context));
+		if(keyCode != GLFW.GLFW_KEY_ESCAPE)
+			prevScreen.setKey(getKeyName(keyCode, scanCode));
 		
 		minecraft.setScreen((Screen)prevScreen);
-		return super.keyPressed(context);
+		return super.keyPressed(keyCode, scanCode, int_3);
 	}
 	
-	private String getKeyName(KeyEvent context)
+	private String getKeyName(int keyCode, int scanCode)
 	{
-		return InputConstants.getKey(context).getName();
+		return InputConstants.getKey(keyCode, scanCode).getName();
 	}
 	
 	@Override

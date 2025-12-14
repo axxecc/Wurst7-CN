@@ -17,7 +17,6 @@ import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.components.Renderable;
 import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.client.input.KeyEvent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.util.CommonColors;
 
@@ -68,9 +67,9 @@ public final class EnterProfileNameScreen extends Screen
 	}
 	
 	@Override
-	public boolean keyPressed(KeyEvent context)
+	public boolean keyPressed(int keyCode, int scanCode, int int_3)
 	{
-		switch(context.key())
+		switch(keyCode)
 		{
 			case GLFW.GLFW_KEY_ENTER:
 			done();
@@ -81,7 +80,7 @@ public final class EnterProfileNameScreen extends Screen
 			break;
 		}
 		
-		return super.keyPressed(context);
+		return super.keyPressed(keyCode, scanCode, int_3);
 	}
 	
 	@Override

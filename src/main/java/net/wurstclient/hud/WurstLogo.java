@@ -46,6 +46,8 @@ public final class WurstLogo
 		// Wurst logo
 		context.blit(RenderPipelines.GUI_TEXTURED, LOGO_TEXTURE, 0, 3, 0, 0, 72,
 			18, 72, 18);
+		
+		context.guiRenderState.down();
 	}
 	
 	private String getVersionString()
