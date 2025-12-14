@@ -91,7 +91,7 @@ public final class AutoLibrarianHack extends Hack
 		new SwingHandSetting(this, SwingHand.SERVER);
 	
 	private final SliderSetting repairMode = new SliderSetting("修复模式",
-		"当斧头的耐久度达到给定阈值时, 防止自动图书馆员使用你的斧头\n可以从 0（关闭）调整到 100 次剩余使用次数",
+		"当斧头的耐久度达到给定阈值时, 防止自动图书馆员使用你的斧头\n可以从 0 (关闭) 调整到 100 次剩余使用次数",
 		1, 0, 100, 1, ValueDisplay.INTEGER.withLabel(0, "关闭"));
 	
 	private final OverlayRenderer overlay = new OverlayRenderer();

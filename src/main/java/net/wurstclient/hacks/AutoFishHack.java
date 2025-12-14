@@ -42,7 +42,7 @@ public final class AutoFishHack extends Hack
 			AutoFishHack.BiteMode.values(), AutoFishHack.BiteMode.SOUND);
 	
 	private final SliderSetting validRange = new SliderSetting("有效范围",
-		"任何超出此范围的咬合都将被忽略\n\n如果未检测到咬钩, 则增加您的范围；如果将其他人的咬钩为您的咬钩, 则减少范围\n\n当\"咬钩模式\"设置为\u00a7l实体\u00a7r时, 此设置无效",
+		"任何超出此范围的咬合都将被忽略\n\n如果未检测到咬钩, 则增加您的范围; 如果将其他人的咬钩为您的咬钩, 则减少范围\n\n当\"咬钩模式\"设置为\u00a7l实体\u00a7r时, 此设置无效",
 		1.5, 0.25, 8, 0.25, ValueDisplay.DECIMAL);
 	
 	private final SliderSetting catchDelay = new SliderSetting("捕获延迟",

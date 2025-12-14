@@ -26,7 +26,7 @@ import net.wurstclient.settings.EnumSetting;
 public final class HackListOtf extends OtherFeature
 {
 	private final EnumSetting<Mode> mode = new EnumSetting<>("模式",
-		"\u00a7l自动\u00a7r模式会呈现整个列表（如果它适合屏幕）\n\u00a7l计数\u00a7r模式仅呈现活动黑客攻击的数量\n\u00a7l延迟\u00a7r模式不会呈现任何内容",
+		"\u00a7l自动\u00a7r模式会呈现整个列表 (如果它适合屏幕) \n\u00a7l计数\u00a7r模式仅呈现活动黑客攻击的数量\n\u00a7l延迟\u00a7r模式不会呈现任何内容",
 		Mode.values(), Mode.AUTO);
 	
 	private final EnumSetting<Position> position = new EnumSetting<>("位置",

@@ -57,7 +57,7 @@ public final class HelpCmd extends Command
 		int start = (page - 1) * CMDS_PER_PAGE;
 		int end = Math.min(page * CMDS_PER_PAGE, cmds.size());
 		
-		ChatUtils.message("命令列表（" + page + "/" + pages + "）");
+		ChatUtils.message("命令列表 (" + page + "/" + pages + ") ");
 		for(int i = start; i < end; i++)
 			ChatUtils.message("- " + cmds.get(i).getName());
 	}
