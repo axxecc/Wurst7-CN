@@ -50,7 +50,7 @@ public final class AutoToolHack extends Hack
 		true);
 	
 	private final SliderSetting repairMode = new SliderSetting("修复模式",
-		"防止工具的耐久度达到给定阈值时被使用\n可以从 0（关闭）调整到 100 次剩余使用次数",
+		"防止工具的耐久度达到给定阈值时被使用\n可以从 0 (关闭) 调整到 100 次剩余使用次数",
 		0, 0, 100, 1, ValueDisplay.INTEGER.withLabel(0, "关闭"));
 	
 	private final CheckboxSetting switchBack = new CheckboxSetting(

@@ -189,8 +189,8 @@ public final class AutoSwordHack extends Hack implements UpdateListener
 	
 	private enum Priority
 	{
-		SPEED("速度（剑）"),
-		DAMAGE("伤害（斧）");
+		SPEED("速度 (剑) "),
+		DAMAGE("伤害 (斧) ");
 		
 		private final String name;
 		
