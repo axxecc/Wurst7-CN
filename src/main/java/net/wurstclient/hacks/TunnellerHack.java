@@ -507,7 +507,7 @@ public final class TunnellerHack extends Hack
 					&& FallingBlock.isFree(BlockUtils.getState(pos.below())))
 					continue;
 				
-				MC.player.getInventory().setSelectedSlot(slot);
+				MC.player.getInventory().selected = slot;
 				return true;
 			}
 			
@@ -716,7 +716,7 @@ public final class TunnellerHack extends Hack
 				if(!(block instanceof TorchBlock))
 					continue;
 				
-				MC.player.getInventory().setSelectedSlot(slot);
+				MC.player.getInventory().selected = slot;
 				return true;
 			}
 			

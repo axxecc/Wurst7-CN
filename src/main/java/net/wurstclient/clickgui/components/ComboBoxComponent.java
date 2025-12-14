@@ -13,7 +13,6 @@ import org.lwjgl.glfw.GLFW;
 
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.client.input.MouseButtonEvent;
 import net.wurstclient.clickgui.ClickGui;
 import net.wurstclient.clickgui.ClickGuiIcons;
 import net.wurstclient.clickgui.ComboBoxPopup;
@@ -43,8 +42,7 @@ public final class ComboBoxComponent<T extends Enum<T>> extends Component
 	}
 	
 	@Override
-	public void handleMouseClick(double mouseX, double mouseY, int mouseButton,
-		MouseButtonEvent context)
+	public void handleMouseClick(double mouseX, double mouseY, int mouseButton)
 	{
 		if(mouseX < getX() + getWidth() - popupWidth - ARROW_SIZE - 4)
 			return;
@@ -111,8 +109,6 @@ public final class ComboBoxComponent<T extends Enum<T>> extends Component
 		
 		// box
 		context.fill(x4, y1, x2, y2, getFillColor(hBox));
-		
-		context.guiRenderState.up();
 		
 		// outlines
 		int outlineColor = RenderUtils.toIntColor(GUI.getAcColor(), 0.5F);

@@ -63,7 +63,7 @@ public final class StepHack extends Hack implements UpdateListener
 			|| player.isInLava())
 			return;
 		
-		if(player.input.getMoveVector().length() <= 1e-5F)
+		if(player.input.forwardImpulse == 0 && player.input.leftImpulse == 0)
 			return;
 		
 		if(player.jumping)

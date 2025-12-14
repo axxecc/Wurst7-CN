@@ -12,11 +12,8 @@ import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.components.Renderable;
 import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.client.input.MouseButtonEvent;
 import net.minecraft.network.chat.Component;
-import net.minecraft.util.CommonColors;
 import net.wurstclient.WurstClient;
-import net.wurstclient.util.WurstColors;
 
 public final class KeybindEditorScreen extends Screen
 	implements PressAKeyCallback
@@ -87,24 +84,26 @@ public final class KeybindEditorScreen extends Screen
 	}
 	
 	@Override
-	public boolean mouseClicked(MouseButtonEvent context, boolean doubleClick)
+	public boolean mouseClicked(double mouseX, double mouseY, int mouseButton)
 	{
-		commandField.mouseClicked(context, doubleClick);
-		return super.mouseClicked(context, doubleClick);
+		commandField.mouseClicked(mouseX, mouseY, mouseButton);
+		return super.mouseClicked(mouseX, mouseY, mouseButton);
 	}
 	
 	@Override
 	public void render(GuiGraphics context, int mouseX, int mouseY,
 		float partialTicks)
 	{
+		renderBackground(context, mouseX, mouseY, partialTicks);
+
 		context.drawCenteredString(font,
 			(oldKey != null ? "编辑" : "添加") + " 快捷键", width / 2, 20,
-			CommonColors.WHITE);
+			0xffffff);
 		
 		context.drawString(font, "绑定键: " + key.replace("key.keyboard.", ""),
-			width / 2 - 100, 47, WurstColors.VERY_LIGHT_GRAY);
+			width / 2 - 100, 47, 0xa0a0a0);
 		context.drawString(font, "命令 (以 ';' 分隔)", width / 2 - 100,
-			87, WurstColors.VERY_LIGHT_GRAY);
+			87, 0xa0a0a0);
 		
 		commandField.render(context, mouseX, mouseY, partialTicks);
 		

@@ -13,6 +13,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map.Entry;
 
+import com.mojang.blaze3d.platform.GlConst;
+import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 
@@ -544,6 +546,10 @@ public class PathFinder
 	public void renderPath(PoseStack matrixStack, boolean debugMode,
 		boolean depthTest)
 	{
+		int depthFunc = depthTest ? GlConst.GL_LEQUAL : GlConst.GL_ALWAYS;
+		RenderSystem.enableDepthTest();
+		RenderSystem.depthFunc(depthFunc);
+		
 		MultiBufferSource.BufferSource vcp = MC.renderBuffers().bufferSource();
 		VertexConsumer buffer =
 			vcp.getBuffer(WurstRenderLayers.getLines(depthTest));

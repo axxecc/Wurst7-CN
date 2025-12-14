@@ -13,10 +13,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import com.llamalad7.mixinextras.sugar.Local;
-
 import net.minecraft.client.gui.components.Button;
-import net.minecraft.client.gui.layouts.LinearLayout;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.multiplayer.JoinMultiplayerScreen;
 import net.minecraft.client.multiplayer.ServerData;
@@ -36,53 +33,32 @@ public class MultiplayerScreenMixin extends Screen
 		super(title);
 	}
 	
-	@Inject(at = @At("HEAD"), method = "init()V")
-	private void beforeVanillaButtons(CallbackInfo ci)
-	{
-		if(!WurstClient.INSTANCE.isEnabled())
-			return;
-
-		JoinMultiplayerScreen mpScreen = (JoinMultiplayerScreen)(Object)this;
-
-		// Add Last Server button early for better tab navigation
-		lastServerButton = Button
-			.builder(Component.nullToEmpty("上次的服务器"),
-				b -> LastServerRememberer.joinLastServer(mpScreen))
-			.width(100).build();
-		addRenderableWidget(lastServerButton);
-	}
-
-	@Inject(at = @At(value = "INVOKE",
-		target = "Lnet/minecraft/client/gui/screens/multiplayer/JoinMultiplayerScreen;repositionElements()V",
-		ordinal = 0), method = "init()V")
-	private void afterVanillaButtons(CallbackInfo ci,
-		@Local(ordinal = 1) LinearLayout footerTopRow,
-		@Local(ordinal = 2) LinearLayout footerBottomRow)
+	@Inject(at = @At("TAIL"), method = "init()V")
+	private void onInit(CallbackInfo ci)
 	{
 		if(!WurstClient.INSTANCE.isEnabled())
 			return;
 		
-		JoinMultiplayerScreen mpScreen = (JoinMultiplayerScreen)(Object)this;
-
-		Button serverFinderButton = Button
-			.builder(Component.nullToEmpty("服务器扫描"),
-				b -> minecraft.setScreen(new ServerFinderScreen(mpScreen)))
-			.width(100).build();
-		addRenderableWidget(serverFinderButton);
-		footerTopRow.addChild(serverFinderButton);
-
-		Button cleanUpButton = Button
-			.builder(Component.nullToEmpty("清理服务器"),
-				b -> minecraft.setScreen(new CleanUpScreen(mpScreen)))
-			.width(100).build();
-		addRenderableWidget(cleanUpButton);
-		footerBottomRow.addChild(cleanUpButton);
-	}
-
-	@Inject(at = @At("TAIL"), method = "repositionElements()V")
-	private void onRefreshWidgetPositions(CallbackInfo ci)
-	{
+		lastServerButton =
+			addRenderableWidget(
+				Button
+					.builder(Component.literal("上次的服务器"),
+						b -> LastServerRememberer.joinLastServer(
+							(JoinMultiplayerScreen)(Object)this))
+					.bounds(width / 2 - 154, 10, 100, 20).build());
 		updateLastServerButton();
+
+		addRenderableWidget(Button
+			.builder(Component.literal("服务器扫描"),
+				b -> minecraft.setScreen(new ServerFinderScreen(
+					(JoinMultiplayerScreen)(Object)this)))
+			.bounds(width / 2 + 154 + 4, height - 54, 100, 20).build());
+
+		addRenderableWidget(Button
+			.builder(Component.literal("清理服务器"),
+				b -> minecraft.setScreen(
+					new CleanUpScreen((JoinMultiplayerScreen)(Object)this)))
+			.bounds(width / 2 + 154 + 4, height - 30, 100, 20).build());
 	}
 	
 	@Inject(at = @At("HEAD"),
@@ -100,7 +76,5 @@ public class MultiplayerScreenMixin extends Screen
 			return;
 		
 		lastServerButton.active = LastServerRememberer.getLastServer() != null;
-		lastServerButton.setX(width / 2 - 154);
-		lastServerButton.setY(6);
 	}
 }

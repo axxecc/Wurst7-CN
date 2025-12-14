@@ -7,7 +7,6 @@
  */
 package net.wurstclient.hacks;
 
-import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.network.protocol.game.ServerboundInteractPacket;
 import net.minecraft.world.item.Items;
 import net.wurstclient.Category;
@@ -101,8 +100,7 @@ public final class AutoLeaveHack extends Hack implements UpdateListener
 	
 	public static enum Mode
 	{
-		QUIT("退出",
-			() -> MC.level.disconnect(ClientLevel.DEFAULT_QUIT_MESSAGE)),
+		QUIT("退出", () -> MC.level.disconnect()),
 		
 		CHARS("字符", () -> MC.getConnection().sendChat("\u00a7")),
 		

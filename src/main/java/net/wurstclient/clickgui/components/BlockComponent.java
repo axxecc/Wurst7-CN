@@ -11,7 +11,6 @@ import org.lwjgl.glfw.GLFW;
 
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.client.input.MouseButtonEvent;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
@@ -38,8 +37,7 @@ public final class BlockComponent extends Component
 	}
 	
 	@Override
-	public void handleMouseClick(double mouseX, double mouseY, int mouseButton,
-		MouseButtonEvent context)
+	public void handleMouseClick(double mouseX, double mouseY, int mouseButton)
 	{
 		if(mouseX < getX() + getWidth() - BLOCK_WIDTH)
 			return;
@@ -80,8 +78,6 @@ public final class BlockComponent extends Component
 		int bgColor =
 			RenderUtils.toIntColor(GUI.getBgColor(), GUI.getOpacity());
 		context.fill(x1, y1, x2, y2, bgColor);
-		
-		context.guiRenderState.up();
 		
 		// text
 		String name = setting.getName() + ":";

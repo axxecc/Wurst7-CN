@@ -19,8 +19,6 @@ import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.components.Button;
-import net.minecraft.client.input.KeyEvent;
-import net.minecraft.client.input.MouseButtonEvent;
 import net.minecraft.network.chat.Component;
 import net.wurstclient.WurstClient;
 import net.wurstclient.clickgui.ClickGui;
@@ -73,7 +71,7 @@ public class NavigatorNewKeybindScreen extends NavigatorScreen
 			}, Supplier::get)
 		{
 			@Override
-			public boolean keyPressed(KeyEvent context)
+			public boolean keyPressed(int keyCode, int scanCode, int modifiers)
 			{
 				// empty method so that pressing Enter won't trigger this button
 				return false;
@@ -90,23 +88,21 @@ public class NavigatorNewKeybindScreen extends NavigatorScreen
 	}
 	
 	@Override
-	protected void onKeyPress(KeyEvent context)
+	protected void onKeyPress(int keyCode, int scanCode, int int_3)
 	{
 		if(choosingKey)
 		{
-			selectedKey = InputConstants.getKey(context).getName();
+			selectedKey = InputConstants.getKey(keyCode, scanCode).getName();
 			okButton.active = !selectedKey.equals("key.keyboard.unknown");
 			
-		}else if(context.key() == GLFW.GLFW_KEY_ESCAPE
-			|| context.key() == GLFW.GLFW_KEY_BACKSPACE)
+		}else if(keyCode == GLFW.GLFW_KEY_ESCAPE
+			|| keyCode == GLFW.GLFW_KEY_BACKSPACE)
 			minecraft.setScreen(parent);
 	}
 	
 	@Override
-	protected void onMouseClick(MouseButtonEvent context)
+	protected void onMouseClick(double x, double y, int button)
 	{
-		int button = context.button();
-		
 		// back button
 		if(button == GLFW.GLFW_MOUSE_BUTTON_4)
 		{
@@ -210,7 +206,6 @@ public class NavigatorNewKeybindScreen extends NavigatorScreen
 				drawBox(context, x1, y1, x2, y2, buttonColor);
 				
 				// text
-				context.guiRenderState.up();
 				context.drawString(tr, pkb.getDescription(), x1 + 1, y1 + 1,
 					txtColor);
 				context.drawString(tr, pkb.getCommand(), x1 + 1,
@@ -220,7 +215,6 @@ public class NavigatorNewKeybindScreen extends NavigatorScreen
 		
 		// text
 		int textY = bgy1 + scroll + 2;
-		context.guiRenderState.up();
 		for(String line : text.split("\n"))
 		{
 			context.drawString(tr, line, bgx1 + 2, textY, txtColor);
@@ -252,7 +246,6 @@ public class NavigatorNewKeybindScreen extends NavigatorScreen
 			drawBox(context, x1, y1, x2, y2, buttonColor);
 			
 			// text
-			context.guiRenderState.up();
 			context.drawCenteredString(tr, button.getMessage().getString(),
 				(x1 + x2) / 2, y1 + 5, txtColor);
 		}

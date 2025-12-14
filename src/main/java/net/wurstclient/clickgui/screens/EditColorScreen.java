@@ -23,15 +23,11 @@ import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.components.Renderable;
 import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.client.input.KeyEvent;
-import net.minecraft.client.input.MouseButtonEvent;
-import net.minecraft.client.renderer.RenderPipelines;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.CommonColors;
 import net.wurstclient.settings.ColorSetting;
 import net.wurstclient.util.ColorUtils;
-import net.wurstclient.util.WurstColors;
 
 public final class EditColorScreen extends Screen
 {
@@ -167,8 +163,9 @@ public final class EditColorScreen extends Screen
 	{
 		Font tr = minecraft.font;
 		
+		renderBackground(context, mouseX, mouseY, partialTicks);
 		context.drawCenteredString(minecraft.font, colorSetting.getName(),
-			width / 2, 16, WurstColors.VERY_LIGHT_GRAY);
+			width / 2, 16, 0xF0F0F0);
 		
 		// Draw palette
 		int x = paletteX;
@@ -179,18 +176,18 @@ public final class EditColorScreen extends Screen
 		int fh = paletteHeight;
 		float u = 0;
 		float v = 0;
-		context.blit(RenderPipelines.GUI_TEXTURED, paletteIdentifier, x, y, u,
-			v, w, h, fw, fh);
+		context.blit(RenderType::guiTextured, paletteIdentifier, x, y, u, v, w,
+			h, fw, fh);
 		
 		// RGB letters
 		context.drawString(tr, "#", fieldsX - 3 - tr.width("#"), fieldsY + 6,
-			WurstColors.VERY_LIGHT_GRAY, false);
+			0xF0F0F0, false);
 		context.drawString(tr, "R:", fieldsX - 3 - tr.width("R:"),
-			fieldsY + 6 + 35, CommonColors.RED, false);
+			fieldsY + 6 + 35, 0xFF0000, false);
 		context.drawString(tr, "G:", fieldsX + 75 - 3 - tr.width("G:"),
-			fieldsY + 6 + 35, CommonColors.GREEN, false);
+			fieldsY + 6 + 35, 0x00FF00, false);
 		context.drawString(tr, "B:", fieldsX + 150 - 3 - tr.width("B:"),
-			fieldsY + 6 + 35, CommonColors.BLUE, false);
+			fieldsY + 6 + 35, 0x0000FF, false);
 		
 		hexValueField.render(context, mouseX, mouseY, partialTicks);
 		redValueField.render(context, mouseX, mouseY, partialTicks);
@@ -208,7 +205,7 @@ public final class EditColorScreen extends Screen
 		// Border
 		context.fill(boxX - borderSize, boxY - borderSize,
 			boxX + boxWidth + borderSize, boxY + boxHeight + borderSize,
-			CommonColors.LIGHT_GRAY);
+			0xFFAAAAAA);
 		
 		// Color box
 		context.fill(boxX, boxY, boxX + boxWidth, boxY + boxHeight,
@@ -235,9 +232,9 @@ public final class EditColorScreen extends Screen
 	}
 	
 	@Override
-	public boolean keyPressed(KeyEvent context)
+	public boolean keyPressed(int keyCode, int scanCode, int int_3)
 	{
-		switch(context.key())
+		switch(keyCode)
 		{
 			case GLFW.GLFW_KEY_ENTER:
 			done();
@@ -248,20 +245,17 @@ public final class EditColorScreen extends Screen
 			break;
 		}
 		
-		return super.keyPressed(context);
+		return super.keyPressed(keyCode, scanCode, int_3);
 	}
 	
 	@Override
-	public boolean mouseClicked(MouseButtonEvent context, boolean doubleClick)
+	public boolean mouseClicked(double mouseX, double mouseY, int button)
 	{
-		double mouseX = context.x();
-		double mouseY = context.y();
-		
 		if(mouseX >= paletteX && mouseX <= paletteX + paletteWidth
 			&& mouseY >= paletteY && mouseY <= paletteY + paletteHeight)
 		{
 			if(paletteAsBufferedImage == null)
-				return super.mouseClicked(context, doubleClick);
+				return super.mouseClicked(mouseX, mouseY, button);
 			
 			int x = (int)Math.round((mouseX - paletteX) / paletteWidth
 				* paletteAsBufferedImage.getWidth());
@@ -280,7 +274,7 @@ public final class EditColorScreen extends Screen
 			}
 		}
 		
-		return super.mouseClicked(context, doubleClick);
+		return super.mouseClicked(mouseX, mouseY, button);
 	}
 	
 	private void setColor(Color color)

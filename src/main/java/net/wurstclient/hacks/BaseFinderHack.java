@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 
+import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.DefaultVertexFormat;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexFormat.Mode;
@@ -154,13 +155,16 @@ public final class BaseFinderHack extends Hack
 		if(vertexBuffer == null)
 			return;
 		
+		color.setAsShaderColor(0.25F);
+		
 		matrixStack.pushPose();
 		RenderUtils.applyRegionalRenderOffset(matrixStack, region);
 		
-		vertexBuffer.draw(matrixStack, WurstRenderLayers.ESP_QUADS,
-			color.getColorF(), 0.25F);
+		vertexBuffer.draw(matrixStack, WurstRenderLayers.ESP_QUADS);
 		
 		matrixStack.popPose();
+		
+		RenderSystem.setShaderColor(1, 1, 1, 1);
 	}
 	
 	@Override

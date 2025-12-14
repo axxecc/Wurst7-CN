@@ -10,8 +10,9 @@ package net.wurstclient.clickgui.screens;
 import java.util.List;
 import java.util.Objects;
 
-import org.joml.Matrix3x2fStack;
 import org.lwjgl.glfw.GLFW;
+
+import com.mojang.blaze3d.vertex.PoseStack;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
@@ -22,18 +23,14 @@ import net.minecraft.client.gui.components.ObjectSelectionList;
 import net.minecraft.client.gui.components.Renderable;
 import net.minecraft.client.gui.screens.ConfirmScreen;
 import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.client.input.KeyEvent;
-import net.minecraft.client.input.MouseButtonEvent;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.CommonColors;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.wurstclient.settings.ItemListSetting;
 import net.wurstclient.util.ItemUtils;
 import net.wurstclient.util.RenderUtils;
-import net.wurstclient.util.WurstColors;
 
 public final class EditItemListScreen extends Screen
 {
@@ -96,36 +93,36 @@ public final class EditItemListScreen extends Screen
 	}
 	
 	@Override
-	public boolean mouseClicked(MouseButtonEvent context, boolean doubleClick)
+	public boolean mouseClicked(double mouseX, double mouseY, int mouseButton)
 	{
-		itemNameField.mouseClicked(context, doubleClick);
-		return super.mouseClicked(context, doubleClick);
+		itemNameField.mouseClicked(mouseX, mouseY, mouseButton);
+		return super.mouseClicked(mouseX, mouseY, mouseButton);
 	}
 	
 	@Override
-	public boolean keyPressed(KeyEvent context)
+	public boolean keyPressed(int keyCode, int scanCode, int int_3)
 	{
-		switch(context.key())
+		switch(keyCode)
 		{
 			case GLFW.GLFW_KEY_ENTER:
 			if(addButton.active)
-				addButton.onPress(context);
+				addButton.onPress();
 			break;
 			
 			case GLFW.GLFW_KEY_DELETE:
 			if(!itemNameField.isFocused())
-				removeButton.onPress(context);
+				removeButton.onPress();
 			break;
 			
 			case GLFW.GLFW_KEY_ESCAPE:
-			doneButton.onPress(context);
+			doneButton.onPress();
 			break;
 			
 			default:
 			break;
 		}
 		
-		return super.keyPressed(context);
+		return super.keyPressed(keyCode, scanCode, int_3);
 	}
 	
 	@Override
@@ -142,32 +139,37 @@ public final class EditItemListScreen extends Screen
 	public void render(GuiGraphics context, int mouseX, int mouseY,
 		float partialTicks)
 	{
-		Matrix3x2fStack matrixStack = context.pose();
+		PoseStack matrixStack = context.pose();
+		renderBackground(context, mouseX, mouseY, partialTicks);
 		
 		listGui.render(context, mouseX, mouseY, partialTicks);
 		
 		context.drawCenteredString(minecraft.font,
 			itemList.getName() + " (" + itemList.getItemNames().size() + ")",
-			width / 2, 12, CommonColors.WHITE);
+			width / 2, 12, 0xFFFFFF);
 		
-		matrixStack.pushMatrix();
+		matrixStack.pushPose();
+		matrixStack.translate(0, 0, 300);
 		
 		itemNameField.render(context, mouseX, mouseY, partialTicks);
 		
 		for(Renderable drawable : renderables)
 			drawable.render(context, mouseX, mouseY, partialTicks);
 		
-		context.guiRenderState.up();
-		matrixStack.pushMatrix();
-		matrixStack.translate(-64 + width / 2 - 152, 0);
+		matrixStack.pushPose();
+		matrixStack.translate(-64 + width / 2 - 152, 0, 0);
 		
 		if(itemNameField.getValue().isEmpty() && !itemNameField.isFocused())
+		{
+			matrixStack.pushPose();
+			matrixStack.translate(0, 0, 300);
 			context.drawString(minecraft.font, "物品名称或ID", 68,
-				height - 50, CommonColors.GRAY);
+				height - 50, 0x808080);
+			matrixStack.popPose();
+		}
 		
-		int border = itemNameField.isFocused() ? CommonColors.WHITE
-			: CommonColors.LIGHT_GRAY;
-		int black = CommonColors.BLACK;
+		int border = itemNameField.isFocused() ? 0xFFFFFFFF : 0xFFA0A0A0;
+		int black = 0xFF000000;
 		
 		context.fill(48, height - 56, 64, height - 36, border);
 		context.fill(49, height - 55, 65, height - 37, black);
@@ -179,13 +181,13 @@ public final class EditItemListScreen extends Screen
 		context.fill(213, height - 55, 216, height - 37, black);
 		context.fill(242, height - 55, 245, height - 37, black);
 		
-		matrixStack.popMatrix();
+		matrixStack.popPose();
 		
 		RenderUtils.drawItem(context,
 			itemToAdd == null ? ItemStack.EMPTY : new ItemStack(itemToAdd),
 			width / 2 - 164, height - 52, false);
 		
-		matrixStack.popMatrix();
+		matrixStack.popPose();
 	}
 	
 	@Override
@@ -223,24 +225,21 @@ public final class EditItemListScreen extends Screen
 		}
 		
 		@Override
-		public void renderContent(GuiGraphics context, int mouseX, int mouseY,
+		public void render(GuiGraphics context, int index, int y, int x,
+			int entryWidth, int entryHeight, int mouseX, int mouseY,
 			boolean hovered, float tickDelta)
 		{
-			int x = getContentX();
-			int y = getContentY();
-			
 			Item item = BuiltInRegistries.ITEM
 				.getValue(ResourceLocation.parse(itemName));
 			ItemStack stack = new ItemStack(item);
 			Font tr = minecraft.font;
 			
 			RenderUtils.drawItem(context, stack, x + 1, y + 1, true);
-			context.drawString(tr, getDisplayName(stack), x + 28, y,
-				WurstColors.VERY_LIGHT_GRAY, false);
-			context.drawString(tr, itemName, x + 28, y + 9,
-				CommonColors.LIGHT_GRAY, false);
-			context.drawString(tr, getIdText(item), x + 28, y + 18,
-				CommonColors.LIGHT_GRAY, false);
+			context.drawString(tr, getDisplayName(stack), x + 28, y, 0xF0F0F0,
+				false);
+			context.drawString(tr, itemName, x + 28, y + 9, 0xA0A0A0, false);
+			context.drawString(tr, getIdText(item), x + 28, y + 18, 0xA0A0A0,
+				false);
 		}
 		
 		private String getDisplayName(ItemStack stack)
@@ -261,7 +260,7 @@ public final class EditItemListScreen extends Screen
 		public ListGui(Minecraft minecraft, EditItemListScreen screen,
 			List<String> list)
 		{
-			super(minecraft, screen.width, screen.height - 96, 36, 30);
+			super(minecraft, screen.width, screen.height - 96, 36, 30, 0);
 			
 			list.stream().map(EditItemListScreen.Entry::new)
 				.forEach(this::addEntry);

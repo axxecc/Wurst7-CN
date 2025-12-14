@@ -59,7 +59,7 @@ public class WurstTest implements FabricClientGameTest
 		LOGGER.info("Creating test world");
 		TestWorldBuilder worldBuilder = context.worldBuilder();
 		worldBuilder.adjustSettings(creator -> {
-			String mcVersion = SharedConstants.getCurrentVersion().name();
+			String mcVersion = SharedConstants.getCurrentVersion().getName();
 			creator.setName("E2E Test " + mcVersion);
 			creator.setGameMode(WorldCreationUiState.SelectedGameMode.CREATIVE);
 			creator.getGameRules().getRule(GameRules.RULE_SENDCOMMANDFEEDBACK)
@@ -93,7 +93,8 @@ public class WurstTest implements FabricClientGameTest
 		world.waitForChunksRender();
 		
 		assertScreenshotEquals(context, "in_game",
-			"https://i.imgur.com/EfzN9Cd.png");
+			IS_MOD_COMPAT_TEST ? "https://i.imgur.com/VxbGFrb.png"
+				: "https://i.imgur.com/2UvurYl.png");
 		
 		LOGGER.info("Recording debug menu");
 		input.pressKey(GLFW.GLFW_KEY_F3);
@@ -112,7 +113,7 @@ public class WurstTest implements FabricClientGameTest
 		LOGGER.info("Opening game menu");
 		input.pressKey(GLFW.GLFW_KEY_ESCAPE);
 		assertScreenshotEquals(context, "game_menu",
-			"https://i.imgur.com/3wB05mE.png");
+			"https://i.imgur.com/L58HCGj.png");
 		input.pressKey(GLFW.GLFW_KEY_ESCAPE);
 		
 		runWurstCommand(context,

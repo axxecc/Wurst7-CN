@@ -432,9 +432,9 @@ public final class AutoLibrarianHack extends Hack
 			.filter(e -> !e.isRemoved()).filter(Villager.class::isInstance)
 			.map(e -> (Villager)e).filter(e -> e.getHealth() > 0)
 			.filter(e -> player.distanceToSqr(e) <= rangeSq)
-			.filter(e -> e.getVillagerData().profession().unwrapKey()
-				.orElse(null) == VillagerProfession.LIBRARIAN)
-			.filter(e -> e.getVillagerData().level() == 1)
+			.filter(e -> e.getVillagerData()
+				.getProfession() == VillagerProfession.LIBRARIAN)
+			.filter(e -> e.getVillagerData().getLevel() == 1)
 			.filter(e -> !experiencedVillagers.contains(e));
 		
 		villager =

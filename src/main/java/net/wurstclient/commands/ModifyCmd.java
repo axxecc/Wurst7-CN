@@ -36,7 +36,7 @@ public final class ModifyCmd extends Command
 		super("modify", "Allows you to modify component data of items.",
 			".modify set <type> <value>", ".modify remove <type>",
 			"Use $ for colors, use $$ for $.", "", "Example:",
-			".modify set custom_name {\"text\":\"$cRed Name\"}",
+			".modify set custom_name \"\\\"$cRed Name\\\"\"",
 			"(changes the item's name to \u00a7cRed Name\u00a7r)");
 	}
 	
@@ -50,8 +50,8 @@ public final class ModifyCmd extends Command
 			throw new CmdSyntaxError();
 		
 		Inventory inventory = player.getInventory();
-		int slot = inventory.getSelectedSlot();
-		ItemStack stack = inventory.getSelectedItem();
+		int slot = inventory.selected;
+		ItemStack stack = inventory.getSelected();
 		if(stack == null)
 			throw new CmdError("You must hold an item in your main hand.");
 		

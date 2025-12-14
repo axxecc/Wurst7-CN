@@ -106,7 +106,7 @@ public final class FeedAuraHack extends Hack
 	public void onUpdate()
 	{
 		LocalPlayer player = MC.player;
-		ItemStack heldStack = player.getInventory().getSelectedItem();
+		ItemStack heldStack = player.getInventory().getSelected();
 		
 		double rangeSq = range.getValueSq();
 		Stream<Animal> stream = EntityUtils.getValidAnimals()

@@ -51,7 +51,8 @@ public abstract class SelectPositionState extends TemplateToolState
 	
 	private boolean isPressingEnter()
 	{
-		return InputConstants.isKeyDown(MC.getWindow(), GLFW.GLFW_KEY_ENTER);
+		return InputConstants.isKeyDown(MC.getWindow().getWindow(),
+			GLFW.GLFW_KEY_ENTER);
 	}
 	
 	@Override

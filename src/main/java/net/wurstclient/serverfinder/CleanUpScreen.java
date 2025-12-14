@@ -22,9 +22,6 @@ import net.minecraft.client.gui.components.Renderable;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.multiplayer.JoinMultiplayerScreen;
 import net.minecraft.client.gui.screens.multiplayer.ServerSelectionList;
-import net.minecraft.client.input.InputWithModifiers;
-import net.minecraft.client.input.KeyEvent;
-import net.minecraft.client.input.MouseButtonEvent;
 import net.minecraft.client.multiplayer.ServerData;
 import net.minecraft.network.chat.Component;
 import net.minecraft.util.CommonColors;
@@ -160,7 +157,7 @@ public class CleanUpScreen extends Screen
 	private boolean isSameProtocol(ServerData server)
 	{
 		return server.protocol == SharedConstants.getCurrentVersion()
-			.protocolVersion();
+			.getProtocolVersion();
 	}
 	
 	private boolean isFailedPing(ServerData server)
@@ -183,30 +180,31 @@ public class CleanUpScreen extends Screen
 	}
 	
 	@Override
-	public boolean keyPressed(KeyEvent context)
+	public boolean keyPressed(int keyCode, int scanCode, int int_3)
 	{
-		if(context.key() == GLFW.GLFW_KEY_ENTER)
-			cleanUpButton.onPress(context);
+		if(keyCode == GLFW.GLFW_KEY_ENTER)
+			cleanUpButton.onPress();
 		
-		return super.keyPressed(context);
+		return super.keyPressed(keyCode, scanCode, int_3);
 	}
 	
 	@Override
-	public boolean mouseClicked(MouseButtonEvent context, boolean doubleClick)
+	public boolean mouseClicked(double mouseX, double mouseY, int button)
 	{
-		if(context.button() == GLFW.GLFW_MOUSE_BUTTON_4)
+		if(button == GLFW.GLFW_MOUSE_BUTTON_4)
 		{
 			onClose();
 			return true;
 		}
 		
-		return super.mouseClicked(context, doubleClick);
+		return super.mouseClicked(mouseX, mouseY, button);
 	}
 	
 	@Override
 	public void render(GuiGraphics context, int mouseX, int mouseY,
 		float partialTicks)
 	{
+		renderBackground(context, mouseX, mouseY, partialTicks);
 		context.drawCenteredString(font, "清理", width / 2, 20,
 			CommonColors.WHITE);
 		context.drawCenteredString(font,
@@ -233,8 +231,8 @@ public class CleanUpScreen extends Screen
 			if(cuButton.tooltip.isEmpty())
 				continue;
 			
-			context.setComponentTooltipForNextFrame(font, cuButton.tooltip,
-				mouseX, mouseY);
+			context.renderComponentTooltip(font, cuButton.tooltip, mouseX,
+				mouseY);
 			break;
 		}
 	}
@@ -272,9 +270,9 @@ public class CleanUpScreen extends Screen
 		}
 		
 		@Override
-		public void onPress(InputWithModifiers context)
+		public void onPress()
 		{
-			super.onPress(context);
+			super.onPress();
 			setMessage(Component.literal(messageSupplier.get()));
 		}
 	}

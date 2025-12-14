@@ -7,6 +7,8 @@
  */
 package net.wurstclient.mixin;
 
+import org.joml.Matrix4f;
+import org.objectweb.asm.Opcodes;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -16,8 +18,10 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
+import com.llamalad7.mixinextras.sugar.Local;
 import com.mojang.blaze3d.vertex.PoseStack;
 
+import net.minecraft.client.DeltaTracker;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
@@ -25,6 +29,7 @@ import net.minecraft.world.phys.HitResult;
 import net.wurstclient.WurstClient;
 import net.wurstclient.event.EventManager;
 import net.wurstclient.events.CameraTransformViewBobbingListener.CameraTransformViewBobbingEvent;
+import net.wurstclient.events.RenderListener.RenderEvent;
 import net.wurstclient.hacks.FullbrightHack;
 
 @Mixin(GameRenderer.class)
@@ -43,6 +48,22 @@ public abstract class GameRendererMixin implements AutoCloseable
 		
 		if(!event.isCancelled())
 			original.call(instance, matrices, tickDelta);
+	}
+	
+	@Inject(
+		at = @At(value = "FIELD",
+			target = "Lnet/minecraft/client/renderer/GameRenderer;renderHand:Z",
+			opcode = Opcodes.GETFIELD,
+			ordinal = 0),
+		method = "renderLevel(Lnet/minecraft/client/DeltaTracker;)V")
+	private void onRenderWorldHandRendering(DeltaTracker tickCounter,
+		CallbackInfo ci, @Local(ordinal = 2) Matrix4f matrix4f3,
+		@Local(ordinal = 1) float tickDelta)
+	{
+		PoseStack matrixStack = new PoseStack();
+		matrixStack.mulPose(matrix4f3);
+		RenderEvent event = new RenderEvent(matrixStack, tickDelta);
+		EventManager.fire(event);
 	}
 	
 	@ModifyReturnValue(at = @At("RETURN"),

@@ -103,7 +103,7 @@ public final class KillPotionHack extends Hack
 			ItemStack stack = new ItemStack(item);
 			
 			MobEffectInstance effect =
-				new MobEffectInstance(MobEffects.INSTANT_HEALTH, 2000, 125);
+				new MobEffectInstance(MobEffects.HEAL, 2000, 125);
 			
 			PotionContents potionContents = new PotionContents(Optional.empty(),
 				Optional.empty(), List.of(effect), Optional.empty());

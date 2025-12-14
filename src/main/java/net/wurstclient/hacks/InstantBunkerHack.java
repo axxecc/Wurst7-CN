@@ -62,7 +62,7 @@ public final class InstantBunkerHack extends Hack implements UpdateListener
 			return;
 		}
 		
-		ItemStack stack = MC.player.getInventory().getSelectedItem();
+		ItemStack stack = MC.player.getInventory().getSelected();
 		
 		if(!(stack.getItem() instanceof BlockItem))
 		{
@@ -71,7 +71,7 @@ public final class InstantBunkerHack extends Hack implements UpdateListener
 			return;
 		}
 		
-		if(stack.getCount() < 57 && !MC.player.getAbilities().instabuild)
+		if(stack.getCount() < 57 && !MC.player.isCreative())
 			ChatUtils.warning("没有足够的方块, 自闭小屋可能不完整");
 		
 		// get start pos and facings

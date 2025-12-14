@@ -35,10 +35,10 @@ public enum ModifyCmdTest
 		
 		// .modify it with NBT data
 		runWurstCommand(context,
-			"modify set custom_name {\"text\":\"$cRed Name\"}");
+			"modify set custom_name \"\\\"$cRed Name\\\"\"");
 		assertOneItemInSlot(context, 0, Items.DIAMOND);
 		ItemStack stack = context
-			.computeOnClient(mc -> mc.player.getInventory().getSelectedItem());
+			.computeOnClient(mc -> mc.player.getInventory().getSelected());
 		String name = stack.getComponents()
 			.getOrDefault(DataComponents.CUSTOM_NAME, Component.empty())
 			.getString();

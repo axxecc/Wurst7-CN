@@ -17,7 +17,6 @@ import net.minecraft.client.gui.components.MultiLineLabel;
 import net.minecraft.client.gui.components.Renderable;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
-import net.minecraft.util.CommonColors;
 import net.minecraft.util.StringUtil;
 import net.wurstclient.WurstClient;
 import net.wurstclient.other_feature.OtfList;
@@ -123,14 +122,14 @@ public final class NcrModRequiredScreen extends Screen
 	public void render(GuiGraphics context, int mouseX, int mouseY,
 		float partialTicks)
 	{
+		renderBackground(context, mouseX, mouseY, partialTicks);
+		
 		int centerX = width / 2;
 		int reasonY = (height - 68) / 2 - reasonHeight / 2;
 		int titleY = reasonY - font.lineHeight * 2;
 		
-		context.drawCenteredString(font, title, centerX, titleY,
-			CommonColors.LIGHT_GRAY);
-		reasonFormatted.render(context, MultiLineLabel.Align.CENTER, centerX,
-			reasonY, 9, true, -1);
+		context.drawCenteredString(font, title, centerX, titleY, 0xAAAAAA);
+		reasonFormatted.renderCentered(context, centerX, reasonY);
 		
 		for(Renderable drawable : renderables)
 			drawable.render(context, mouseX, mouseY, partialTicks);

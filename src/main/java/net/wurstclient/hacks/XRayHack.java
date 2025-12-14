@@ -82,7 +82,7 @@ public final class XRayHack extends Hack implements UpdateListener,
 	
 	private final SliderSetting opacity = new SliderSetting("Opacity",
 		"启用 X-Ray 时非矿石块的不透明度\n\n更改此设置时, 请记住重新启动 X-Ray",
-		0, 0, 0.99, 0.01, ValueDisplay.PERCENTAGE.withLabel(0, "关闭"));
+		0, 0, 0.99, 0.01, ValueDisplay.PERCENTAGE.withLabel(0, "off"));
 	
 	private final String optiFineWarning;
 	private final String renderName =
@@ -183,7 +183,7 @@ public final class XRayHack extends Hack implements UpdateListener,
 	@Override
 	public void onRenderBlockEntity(RenderBlockEntityEvent event)
 	{
-		BlockPos pos = event.getState().blockPos;
+		BlockPos pos = event.getBlockEntity().getBlockPos();
 		if(!isVisible(BlockUtils.getBlock(pos), pos))
 			event.cancel();
 	}

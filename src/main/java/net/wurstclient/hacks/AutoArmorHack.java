@@ -102,8 +102,8 @@ public final class AutoArmorHack extends Hack
 		LocalPlayer player = MC.player;
 		Inventory inventory = player.getInventory();
 		
-		if(!swapWhileMoving.isChecked()
-			&& player.input.getMoveVector().length() > 1e-5F)
+		if(!swapWhileMoving.isChecked() && (player.input.forwardImpulse != 0
+			|| player.input.leftImpulse != 0))
 			return;
 		
 		// store slots and values of best armor pieces

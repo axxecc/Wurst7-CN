@@ -12,12 +12,12 @@ import java.util.ArrayList;
 
 import org.lwjgl.glfw.GLFW;
 
+import com.mojang.blaze3d.vertex.PoseStack;
+
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.client.input.KeyEvent;
-import net.minecraft.client.input.MouseButtonEvent;
 import net.minecraft.network.chat.Component;
 import net.wurstclient.Feature;
 import net.wurstclient.WurstClient;
@@ -72,11 +72,8 @@ public final class NavigatorMainScreen extends NavigatorScreen
 	}
 	
 	@Override
-	protected void onKeyPress(KeyEvent context)
+	protected void onKeyPress(int keyCode, int scanCode, int int_3)
 	{
-		int keyCode = context.key();
-		boolean hasShiftDown = context.hasShiftDown();
-		
 		if(keyCode == GLFW.GLFW_KEY_ENTER)
 			leftClick(selectedFeature);
 		
@@ -84,13 +81,13 @@ public final class NavigatorMainScreen extends NavigatorScreen
 			expand(selectedFeature);
 		
 		if(keyCode == GLFW.GLFW_KEY_RIGHT
-			|| keyCode == GLFW.GLFW_KEY_TAB && !hasShiftDown)
+			|| keyCode == GLFW.GLFW_KEY_TAB && !hasShiftDown())
 		{
 			if(selectedFeature + 1 < navigatorDisplayList.size())
 				selectedFeature++;
 			
 		}else if(keyCode == GLFW.GLFW_KEY_LEFT
-			|| keyCode == GLFW.GLFW_KEY_TAB && hasShiftDown)
+			|| keyCode == GLFW.GLFW_KEY_TAB && hasShiftDown())
 		{
 			if(selectedFeature - 1 > -1)
 				selectedFeature--;
@@ -106,11 +103,8 @@ public final class NavigatorMainScreen extends NavigatorScreen
 	}
 	
 	@Override
-	protected void onMouseClick(MouseButtonEvent context)
+	protected void onMouseClick(double x, double y, int button)
 	{
-		int button = context.button();
-		boolean hasShiftDown = context.hasShiftDown();
-		
 		if(clickTimer != -1)
 			return;
 		
@@ -126,7 +120,7 @@ public final class NavigatorMainScreen extends NavigatorScreen
 		
 		// arrow click, shift click, wheel click
 		if(button == GLFW.GLFW_MOUSE_BUTTON_LEFT
-			&& (hasShiftDown || hoveringArrow)
+			&& (hasShiftDown() || hoveringArrow)
 			|| button == GLFW.GLFW_MOUSE_BUTTON_MIDDLE)
 		{
 			expand(hoveredFeature);
@@ -217,6 +211,7 @@ public final class NavigatorMainScreen extends NavigatorScreen
 	protected void onRender(GuiGraphics context, int mouseX, int mouseY,
 		float partialTicks)
 	{
+		PoseStack matrixStack = context.pose();
 		ClickGui gui = WurstClient.INSTANCE.getGui();
 		int txtColor = gui.getTxtColor();
 		
@@ -258,7 +253,8 @@ public final class NavigatorMainScreen extends NavigatorScreen
 		// tooltip
 		if(tooltip != null)
 		{
-			context.guiRenderState.up();
+			matrixStack.pushPose();
+			matrixStack.translate(0, 0, 300);
 			
 			String[] lines = tooltip.split("\n");
 			Font tr = minecraft.font;
@@ -289,10 +285,11 @@ public final class NavigatorMainScreen extends NavigatorScreen
 			RenderUtils.drawBorder2D(context, xt1, yt1, xt2, yt2, acColor);
 			
 			// text
-			context.guiRenderState.up();
 			for(int i = 0; i < lines.length; i++)
 				context.drawString(tr, lines[i], xt1 + 2,
 					yt1 + 2 + i * tr.lineHeight, txtColor, false);
+			
+			matrixStack.popPose();
 		}
 	}
 	
@@ -369,8 +366,6 @@ public final class NavigatorMainScreen extends NavigatorScreen
 		// hovering
 		if(hovering)
 			hoveringArrow = mouseX >= bx1;
-		
-		context.guiRenderState.up();
 		
 		// arrow
 		ClickGuiIcons.drawMinimizeArrow(context, bx1 + 2, area.y + 2.5F,

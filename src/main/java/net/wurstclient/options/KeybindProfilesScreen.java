@@ -23,11 +23,8 @@ import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.ObjectSelectionList;
 import net.minecraft.client.gui.components.Renderable;
 import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.client.input.KeyEvent;
 import net.minecraft.network.chat.Component;
-import net.minecraft.util.CommonColors;
 import net.wurstclient.WurstClient;
-import net.wurstclient.util.WurstColors;
 import net.wurstclient.util.json.JsonException;
 
 public final class KeybindProfilesScreen extends Screen
@@ -114,14 +111,14 @@ public final class KeybindProfilesScreen extends Screen
 	}
 	
 	@Override
-	public boolean keyPressed(KeyEvent context)
+	public boolean keyPressed(int keyCode, int scanCode, int int_3)
 	{
-		if(context.key() == GLFW.GLFW_KEY_ENTER)
+		if(keyCode == GLFW.GLFW_KEY_ENTER)
 			loadSelected();
-		else if(context.key() == GLFW.GLFW_KEY_ESCAPE)
+		else if(keyCode == GLFW.GLFW_KEY_ESCAPE)
 			minecraft.setScreen(prevScreen);
 		
-		return super.keyPressed(context);
+		return super.keyPressed(keyCode, scanCode, int_3);
 	}
 	
 	@Override
@@ -134,16 +131,17 @@ public final class KeybindProfilesScreen extends Screen
 	public void render(GuiGraphics context, int mouseX, int mouseY,
 		float partialTicks)
 	{
+		renderBackground(context, mouseX, mouseY, partialTicks);
 		listGui.render(context, mouseX, mouseY, partialTicks);
 		
 		context.drawCenteredString(minecraft.font, "快捷键配置文件",
-			width / 2, 12, CommonColors.WHITE);
+			width / 2, 12, 0xffffff);
 		
 		for(Renderable drawable : renderables)
 			drawable.render(context, mouseX, mouseY, partialTicks);
 		
 		if(loadButton.isHoveredOrFocused() && !loadButton.active)
-			context.setComponentTooltipForNextFrame(font,
+			context.renderComponentTooltip(font,
 				Arrays
 					.asList(Component.literal("您必须先选择一个文件")),
 				mouseX, mouseY);
@@ -173,22 +171,18 @@ public final class KeybindProfilesScreen extends Screen
 		}
 		
 		@Override
-		public void renderContent(GuiGraphics context, int mouseX, int mouseY,
+		public void render(GuiGraphics context, int index, int y, int x,
+			int entryWidth, int entryHeight, int mouseX, int mouseY,
 			boolean hovered, float tickDelta)
 		{
-			int x = getContentX();
-			int y = getContentY();
-			
 			Font tr = minecraft.font;
 			
 			String fileName = "" + path.getFileName();
-			context.drawString(tr, fileName, x + 28, y,
-				WurstColors.VERY_LIGHT_GRAY);
+			context.drawString(tr, fileName, x + 28, y, 0xF0F0F0);
 			
 			String relPath =
 				"" + minecraft.gameDirectory.toPath().relativize(path);
-			context.drawString(tr, relPath, x + 28, y + 9,
-				CommonColors.LIGHT_GRAY);
+			context.drawString(tr, relPath, x + 28, y + 9, 0xA0A0A0);
 		}
 	}
 	
@@ -198,7 +192,7 @@ public final class KeybindProfilesScreen extends Screen
 		public ListGui(Minecraft mc, KeybindProfilesScreen screen,
 			List<Path> list)
 		{
-			super(mc, screen.width, screen.height - 96, 36, 20);
+			super(mc, screen.width, screen.height - 96, 36, 20, 0);
 			
 			list.stream().map(KeybindProfilesScreen.Entry::new)
 				.forEach(this::addEntry);

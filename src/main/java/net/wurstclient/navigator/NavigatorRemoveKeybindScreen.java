@@ -19,8 +19,6 @@ import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.components.Button;
-import net.minecraft.client.input.KeyEvent;
-import net.minecraft.client.input.MouseButtonEvent;
 import net.minecraft.network.chat.Component;
 import net.wurstclient.WurstClient;
 import net.wurstclient.clickgui.ClickGui;
@@ -92,18 +90,16 @@ public class NavigatorRemoveKeybindScreen extends NavigatorScreen
 	}
 	
 	@Override
-	protected void onKeyPress(KeyEvent context)
+	protected void onKeyPress(int keyCode, int scanCode, int int_3)
 	{
-		if(context.key() == GLFW.GLFW_KEY_ESCAPE
-			|| context.key() == GLFW.GLFW_KEY_BACKSPACE)
+		if(keyCode == GLFW.GLFW_KEY_ESCAPE
+			|| keyCode == GLFW.GLFW_KEY_BACKSPACE)
 			minecraft.setScreen(parent);
 	}
 	
 	@Override
-	protected void onMouseClick(MouseButtonEvent context)
+	protected void onMouseClick(double x, double y, int button)
 	{
-		int button = context.button();
-		
 		// back button
 		if(button == GLFW.GLFW_MOUSE_BUTTON_4)
 		{
@@ -179,7 +175,6 @@ public class NavigatorRemoveKeybindScreen extends NavigatorScreen
 			drawBox(context, x1, y1, x2, y2, buttonColor);
 			
 			// text
-			context.guiRenderState.up();
 			context.drawString(tr, key.replace("key.keyboard.", "") + ": "
 				+ keybind.getDescription(), x1 + 1, y1 + 1, txtColor);
 			context.drawString(tr, keybind.getCommand(), x1 + 1,
@@ -188,7 +183,6 @@ public class NavigatorRemoveKeybindScreen extends NavigatorScreen
 		
 		// text
 		int textY = bgy1 + scroll + 2;
-		context.guiRenderState.up();
 		for(String line : text.split("\n"))
 		{
 			context.drawString(tr, line, bgx1 + 2, textY, txtColor);
@@ -221,7 +215,6 @@ public class NavigatorRemoveKeybindScreen extends NavigatorScreen
 			
 			// text
 			String buttonText = button.getMessage().getString();
-			context.guiRenderState.up();
 			context.drawCenteredString(tr, buttonText, (x1 + x2) / 2, y1 + 5,
 				txtColor);
 		}

@@ -50,5 +50,5 @@ public final class HealthTagsHack extends Hack
 		return ChatFormatting.GREEN;
 	}
 	
-	// See EntityRendererMixin
+	// See EntityRenderDispatcherMixin
 }

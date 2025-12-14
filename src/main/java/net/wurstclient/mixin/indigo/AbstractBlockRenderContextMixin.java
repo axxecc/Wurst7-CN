@@ -22,9 +22,9 @@ import net.wurstclient.hacks.XRayHack;
 
 @Pseudo
 @Mixin(
-	targets = "net.fabricmc.fabric.impl.client.indigo.renderer.render.AbstractTerrainRenderContext",
+	targets = "net.fabricmc.fabric.impl.client.indigo.renderer.render.AbstractBlockRenderContext",
 	remap = false)
-public abstract class AbstractTerrainRenderContextMixin
+public abstract class AbstractBlockRenderContextMixin
 {
 	@Shadow
 	@Final

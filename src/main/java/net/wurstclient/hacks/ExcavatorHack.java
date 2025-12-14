@@ -22,7 +22,6 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.core.BlockPos;
-import net.minecraft.util.CommonColors;
 import net.minecraft.util.Mth;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
@@ -236,8 +235,8 @@ public final class ExcavatorHack extends Hack
 		context.fill(msgX1, msgY1, msgX2, msgY2, 0x80000000);
 		
 		// text
-		context.drawString(tr, message, msgX1 + 2, msgY1 + 1,
-			CommonColors.WHITE, false);
+		context.drawString(tr, message, msgX1 + 2, msgY1 + 1, 0xFFFFFFFF,
+			false);
 	}
 	
 	public void enableWithArea(BlockPos pos1, BlockPos pos2)
@@ -251,8 +250,8 @@ public final class ExcavatorHack extends Hack
 	private void handlePositionSelection()
 	{
 		// continue with next step
-		if(step.pos != null
-			&& InputConstants.isKeyDown(MC.getWindow(), GLFW.GLFW_KEY_ENTER))
+		if(step.pos != null && InputConstants
+			.isKeyDown(MC.getWindow().getWindow(), GLFW.GLFW_KEY_ENTER))
 		{
 			step = Step.values()[step.ordinal() + 1];
 			
@@ -373,7 +372,7 @@ public final class ExcavatorHack extends Hack
 		overlay.updateProgress();
 		
 		// get remaining blocks
-		Predicate<BlockPos> pBreakable = MC.player.getAbilities().instabuild
+		Predicate<BlockPos> pBreakable = MC.player.isCreative()
 			? BlockUtils::canBeClicked : pos -> BlockUtils.canBeClicked(pos)
 				&& !BlockUtils.isUnbreakable(pos);
 		area.remainingBlocks =

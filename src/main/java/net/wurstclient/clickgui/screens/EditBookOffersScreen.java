@@ -12,6 +12,8 @@ import java.util.Objects;
 
 import org.lwjgl.glfw.GLFW;
 
+import com.mojang.blaze3d.vertex.PoseStack;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
@@ -20,14 +22,11 @@ import net.minecraft.client.gui.components.ObjectSelectionList;
 import net.minecraft.client.gui.components.Renderable;
 import net.minecraft.client.gui.screens.ConfirmScreen;
 import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.client.input.KeyEvent;
-import net.minecraft.client.input.MouseButtonEvent;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.EnchantmentTags;
-import net.minecraft.util.CommonColors;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -35,7 +34,6 @@ import net.minecraft.world.item.enchantment.Enchantment;
 import net.wurstclient.hacks.autolibrarian.BookOffer;
 import net.wurstclient.settings.BookOffersSetting;
 import net.wurstclient.util.RenderUtils;
-import net.wurstclient.util.WurstColors;
 
 public final class EditBookOffersScreen extends Screen
 {
@@ -102,40 +100,40 @@ public final class EditBookOffersScreen extends Screen
 	}
 	
 	@Override
-	public boolean mouseClicked(MouseButtonEvent context, boolean doubleClick)
+	public boolean mouseClicked(double mouseX, double mouseY, int mouseButton)
 	{
-		boolean childClicked = super.mouseClicked(context, doubleClick);
+		boolean childClicked = super.mouseClicked(mouseX, mouseY, mouseButton);
 		
-		if(context.button() == GLFW.GLFW_MOUSE_BUTTON_4)
-			doneButton.onPress(context);
+		if(mouseButton == GLFW.GLFW_MOUSE_BUTTON_4)
+			doneButton.onPress();
 		
 		return childClicked;
 	}
 	
 	@Override
-	public boolean keyPressed(KeyEvent context)
+	public boolean keyPressed(int keyCode, int scanCode, int int_3)
 	{
-		switch(context.key())
+		switch(keyCode)
 		{
 			case GLFW.GLFW_KEY_ENTER:
 			if(editButton.active)
-				editButton.onPress(context);
+				editButton.onPress();
 			break;
 			
 			case GLFW.GLFW_KEY_DELETE:
-			removeButton.onPress(context);
+			removeButton.onPress();
 			break;
 			
 			case GLFW.GLFW_KEY_ESCAPE:
 			case GLFW.GLFW_KEY_BACKSPACE:
-			doneButton.onPress(context);
+			doneButton.onPress();
 			break;
 			
 			default:
 			break;
 		}
 		
-		return super.keyPressed(context);
+		return super.keyPressed(keyCode, scanCode, int_3);
 	}
 	
 	@Override
@@ -150,14 +148,22 @@ public final class EditBookOffersScreen extends Screen
 	public void render(GuiGraphics context, int mouseX, int mouseY,
 		float partialTicks)
 	{
+		PoseStack matrixStack = context.pose();
+		renderBackground(context, mouseX, mouseY, partialTicks);
+		
 		listGui.render(context, mouseX, mouseY, partialTicks);
+		
+		matrixStack.pushPose();
+		matrixStack.translate(0, 0, 300);
 		
 		context.drawCenteredString(minecraft.font,
 			bookOffers.getName() + " (" + bookOffers.getOffers().size() + ")",
-			width / 2, 12, CommonColors.WHITE);
+			width / 2, 12, 0xFFFFFF);
 		
 		for(Renderable drawable : renderables)
 			drawable.render(context, mouseX, mouseY, partialTicks);
+		
+		matrixStack.popPose();
 	}
 	
 	@Override
@@ -191,12 +197,10 @@ public final class EditBookOffersScreen extends Screen
 		}
 		
 		@Override
-		public void renderContent(GuiGraphics context, int mouseX, int mouseY,
+		public void render(GuiGraphics context, int index, int y, int x,
+			int entryWidth, int entryHeight, int mouseX, int mouseY,
 			boolean hovered, float tickDelta)
 		{
-			int x = getContentX();
-			int y = getContentY();
-			
 			Item item = BuiltInRegistries.ITEM
 				.getValue(ResourceLocation.parse("enchanted_book"));
 			ItemStack stack = new ItemStack(item);
@@ -207,16 +211,15 @@ public final class EditBookOffersScreen extends Screen
 			
 			Holder<Enchantment> enchantment =
 				bookOffer.getEnchantmentEntry().get();
-			int nameColor = enchantment.is(EnchantmentTags.CURSE)
-				? WurstColors.LIGHT_RED : WurstColors.VERY_LIGHT_GRAY;
+			int nameColor =
+				enchantment.is(EnchantmentTags.CURSE) ? 0xFF5555 : 0xF0F0F0;
 			context.drawString(tr, name, x + 28, y, nameColor, false);
 			
-			context.drawString(tr, bookOffer.id(), x + 28, y + 9,
-				CommonColors.LIGHT_GRAY, false);
+			context.drawString(tr, bookOffer.id(), x + 28, y + 9, 0xA0A0A0,
+				false);
 			
 			String price = getPriceText();
-			context.drawString(tr, price, x + 28, y + 18,
-				CommonColors.LIGHT_GRAY, false);
+			context.drawString(tr, price, x + 28, y + 18, 0xA0A0A0, false);
 			
 			if(bookOffer.price() < 64)
 				RenderUtils.drawItem(context, new ItemStack(Items.EMERALD),
@@ -238,7 +241,7 @@ public final class EditBookOffersScreen extends Screen
 		public ListGui(Minecraft minecraft, EditBookOffersScreen screen,
 			List<BookOffer> list)
 		{
-			super(minecraft, screen.width, screen.height - 108, 36, 30);
+			super(minecraft, screen.width, screen.height - 108, 36, 30, 0);
 			
 			list.stream().map(EditBookOffersScreen.Entry::new)
 				.forEach(this::addEntry);

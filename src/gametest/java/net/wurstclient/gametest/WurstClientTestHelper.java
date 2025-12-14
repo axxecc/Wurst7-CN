@@ -123,7 +123,7 @@ public enum WurstClientTestHelper
 			int x = i % width;
 			int y = i / width;
 			int alpha = MemoryUtil.memGetByte(
-				template.getPointer() + i * channelCount + alphaOffset) & 0xff;
+				template.pixels + i * channelCount + alphaOffset) & 0xff;
 			mask[x][y] = alpha > 127;
 		}
 		

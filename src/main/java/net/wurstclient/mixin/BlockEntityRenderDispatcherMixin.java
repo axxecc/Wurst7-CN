@@ -14,10 +14,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 
-import net.minecraft.client.renderer.SubmitNodeCollector;
+import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderDispatcher;
-import net.minecraft.client.renderer.blockentity.state.BlockEntityRenderState;
-import net.minecraft.client.renderer.state.CameraRenderState;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.wurstclient.event.EventManager;
 import net.wurstclient.events.RenderBlockEntityListener.RenderBlockEntityEvent;
 
@@ -25,13 +24,13 @@ import net.wurstclient.events.RenderBlockEntityListener.RenderBlockEntityEvent;
 public class BlockEntityRenderDispatcherMixin
 {
 	@Inject(at = @At("HEAD"),
-		method = "submit(Lnet/minecraft/client/renderer/blockentity/state/BlockEntityRenderState;Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/SubmitNodeCollector;Lnet/minecraft/client/renderer/state/CameraRenderState;)V",
+		method = "render(Lnet/minecraft/world/level/block/entity/BlockEntity;FLcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;)V",
 		cancellable = true)
-	private <S extends BlockEntityRenderState> void onRenderRenderState(
-		S renderState, PoseStack matrices, SubmitNodeCollector queue,
-		CameraRenderState cameraRenderState, CallbackInfo ci)
+	private <E extends BlockEntity> void onRender(E blockEntity,
+		float tickDelta, PoseStack matrices, MultiBufferSource vertexConsumers,
+		CallbackInfo ci)
 	{
-		RenderBlockEntityEvent event = new RenderBlockEntityEvent(renderState);
+		RenderBlockEntityEvent event = new RenderBlockEntityEvent(blockEntity);
 		EventManager.fire(event);
 		
 		if(event.isCancelled())

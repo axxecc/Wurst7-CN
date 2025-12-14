@@ -15,7 +15,6 @@ import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 
 import net.minecraft.client.gui.components.Button;
-import net.minecraft.client.gui.layouts.HeaderAndFooterLayout;
 import net.minecraft.client.gui.layouts.LayoutElement;
 import net.minecraft.client.gui.layouts.LinearLayout;
 import net.minecraft.client.gui.screens.achievement.StatsScreen;
@@ -26,10 +25,10 @@ import net.wurstclient.WurstClient;
 public class StatsScreenMixin
 {
 	@WrapOperation(at = @At(value = "INVOKE",
-		target = "Lnet/minecraft/client/gui/layouts/HeaderAndFooterLayout;addToFooter(Lnet/minecraft/client/gui/layouts/LayoutElement;)Lnet/minecraft/client/gui/layouts/LayoutElement;",
-		ordinal = 0), method = "init()V")
-	private <T extends LayoutElement> T onAddFooter(
-		HeaderAndFooterLayout layout, T doneWidget, Operation<T> original)
+		target = "Lnet/minecraft/client/gui/layouts/LinearLayout;addChild(Lnet/minecraft/client/gui/layouts/LayoutElement;)Lnet/minecraft/client/gui/layouts/LayoutElement;",
+		ordinal = 4), method = "initButtons()V")
+	private <T extends LayoutElement> T onCreateDoneButton(LinearLayout layout,
+		T doneWidget, Operation<T> original)
 	{
 		if(!(doneWidget instanceof Button doneButton))
 			throw new IllegalStateException(
@@ -40,11 +39,11 @@ public class StatsScreenMixin
 		
 		doneButton.setWidth(150);
 		
-		LinearLayout subLayout = LinearLayout.horizontal().spacing(5);
+		LinearLayout subLayout =
+			layout.addChild(LinearLayout.horizontal()).spacing(5);
 		subLayout.addChild(Button.builder(getButtonText(), this::toggleWurst)
 			.width(150).build());
-		subLayout.addChild(doneButton);
-		return original.call(layout, subLayout);
+		return original.call(subLayout, doneButton);
 	}
 	
 	@Unique

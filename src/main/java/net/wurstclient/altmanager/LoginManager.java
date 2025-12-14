@@ -21,7 +21,7 @@ public enum LoginManager
 	{
 		User session =
 			new User(newName, UUIDUtil.createOfflinePlayerUUID(newName), "",
-				Optional.empty(), Optional.empty());
+				Optional.empty(), Optional.empty(), User.Type.MOJANG);
 		
 		WurstClient.IMC.setWurstSession(session);
 	}

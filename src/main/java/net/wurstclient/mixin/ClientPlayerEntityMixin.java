@@ -137,7 +137,7 @@ public class ClientPlayerEntityMixin extends AbstractClientPlayer
 	@Inject(at = @At(value = "FIELD",
 		target = "Lnet/minecraft/client/Minecraft;screen:Lnet/minecraft/client/gui/screens/Screen;",
 		opcode = Opcodes.GETFIELD,
-		ordinal = 0), method = "handlePortalTransitionEffect(Z)V")
+		ordinal = 0), method = "handleConfusionTransitionEffect(Z)V")
 	private void beforeTickNausea(boolean fromPortalEffect, CallbackInfo ci)
 	{
 		if(!WurstClient.INSTANCE.getHax().portalGuiHack.isEnabled())
@@ -152,9 +152,9 @@ public class ClientPlayerEntityMixin extends AbstractClientPlayer
 	 * method is done looking at it.
 	 */
 	@Inject(at = @At(value = "FIELD",
-		target = "Lnet/minecraft/client/player/LocalPlayer;portalEffectIntensity:F",
+		target = "Lnet/minecraft/client/player/LocalPlayer;spinningEffectIntensity:F",
 		opcode = Opcodes.GETFIELD,
-		ordinal = 1), method = "handlePortalTransitionEffect(Z)V")
+		ordinal = 1), method = "handleConfusionTransitionEffect(Z)V")
 	private void afterTickNausea(boolean fromPortalEffect, CallbackInfo ci)
 	{
 		if(tempCurrentScreen == null)
@@ -169,7 +169,7 @@ public class ClientPlayerEntityMixin extends AbstractClientPlayer
 	 * too hungry.
 	 */
 	@Inject(at = @At("HEAD"),
-		method = "hasEnoughFoodToSprint()Z",
+		method = "hasEnoughFoodToStartSprinting()Z",
 		cancellable = true)
 	private void onCanSprint(CallbackInfoReturnable<Boolean> cir)
 	{
@@ -191,11 +191,11 @@ public class ClientPlayerEntityMixin extends AbstractClientPlayer
 	}
 	
 	@Override
-	public void lerpMotion(Vec3 vec)
+	public void lerpMotion(double x, double y, double z)
 	{
-		KnockbackEvent event = new KnockbackEvent(vec.x, vec.y, vec.z);
+		KnockbackEvent event = new KnockbackEvent(x, y, z);
 		EventManager.fire(event);
-		super.lerpMotion(new Vec3(event.getX(), event.getY(), event.getZ()));
+		super.lerpMotion(event.getX(), event.getY(), event.getZ());
 	}
 	
 	@Override
@@ -274,9 +274,6 @@ public class ClientPlayerEntityMixin extends AbstractClientPlayer
 			return true;
 		
 		if(effect == MobEffects.LEVITATION && hax.noLevitationHack.isEnabled())
-			return false;
-		
-		if(effect == MobEffects.BLINDNESS && hax.antiBlindHack.isEnabled())
 			return false;
 		
 		if(effect == MobEffects.DARKNESS && hax.antiBlindHack.isEnabled())

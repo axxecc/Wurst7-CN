@@ -7,8 +7,10 @@
  */
 package net.wurstclient.commands;
 
+import com.mojang.blaze3d.systems.RenderSystem;
+
 import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.client.renderer.RenderPipelines;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.resources.ResourceLocation;
 import net.wurstclient.Category;
 import net.wurstclient.command.CmdException;
@@ -81,15 +83,16 @@ public final class TacoCmd extends Command
 	@Override
 	public void onRenderGUI(GuiGraphics context, float partialTicks)
 	{
-		int color = WURST.getHax().rainbowUiHack.isEnabled()
-			? RenderUtils.toIntColor(WURST.getGui().getAcColor(), 1)
-			: 0xFFFFFFFF;
+		if(WURST.getHax().rainbowUiHack.isEnabled())
+			RenderUtils.setShaderColor(WURST.getGui().getAcColor(), 1);
+		else
+			RenderSystem.setShaderColor(1, 1, 1, 1);
 		
 		int x = context.guiWidth() / 2 - 32 + 76;
 		int y = context.guiHeight() - 32 - 19;
 		int w = 64;
 		int h = 32;
-		context.blit(RenderPipelines.GUI_TEXTURED, tacos[ticks / 8], x, y, 0, 0,
-			w, h, w, h, color);
+		context.blit(RenderType::guiTextured, tacos[ticks / 8], x, y, 0, 0, w,
+			h, w, h);
 	}
 }

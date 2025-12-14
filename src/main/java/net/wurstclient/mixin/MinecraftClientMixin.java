@@ -12,13 +12,11 @@ import java.io.File;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
-import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import com.llamalad7.mixinextras.sugar.Local;
 import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.minecraft.UserApiService;
 import com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService;
@@ -26,7 +24,6 @@ import com.mojang.blaze3d.platform.WindowEventHandler;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.User;
-import net.minecraft.client.main.GameConfig;
 import net.minecraft.client.multiplayer.MultiPlayerGameMode;
 import net.minecraft.client.multiplayer.ProfileKeyPairManager;
 import net.minecraft.client.player.LocalPlayer;
@@ -55,9 +52,9 @@ public abstract class MinecraftClientMixin
 	public MultiPlayerGameMode gameMode;
 	@Shadow
 	public LocalPlayer player;
-	
-	@Unique
-	private YggdrasilAuthenticationService wurstAuthenticationService;
+	@Shadow
+	@Final
+	private YggdrasilAuthenticationService authenticationService;
 	
 	private User wurstSession;
 	private ProfileKeyPairManager wurstProfileKeys;
@@ -65,15 +62,6 @@ public abstract class MinecraftClientMixin
 	private MinecraftClientMixin(WurstClient wurst, String name)
 	{
 		super(name);
-	}
-	
-	@Inject(at = @At(value = "INVOKE",
-		target = "Lnet/minecraft/server/Services;create(Lcom/mojang/authlib/yggdrasil/YggdrasilAuthenticationService;Ljava/io/File;)Lnet/minecraft/server/Services;",
-		shift = At.Shift.AFTER), method = "<init>")
-	private void captureAuthenticationService(GameConfig args, CallbackInfo ci,
-		@Local YggdrasilAuthenticationService yggdrasilAuthenticationService)
-	{
-		wurstAuthenticationService = yggdrasilAuthenticationService;
 	}
 	
 	/**
@@ -166,7 +154,8 @@ public abstract class MinecraftClientMixin
 		
 		GameProfile oldProfile = cir.getReturnValue();
 		GameProfile newProfile = new GameProfile(wurstSession.getProfileId(),
-			wurstSession.getName(), oldProfile.properties());
+			wurstSession.getName());
+		newProfile.getProperties().putAll(oldProfile.getProperties());
 		cir.setReturnValue(newProfile);
 	}
 	
@@ -230,11 +219,10 @@ public abstract class MinecraftClientMixin
 			return;
 		}
 		
-		String accessToken = session.getAccessToken();
-		boolean isOffline = accessToken == null || accessToken.isBlank()
-			|| accessToken.equals("0") || accessToken.equals("null");
-		UserApiService userApiService = isOffline ? UserApiService.OFFLINE
-			: wurstAuthenticationService.createUserApiService(accessToken);
+		UserApiService userApiService =
+			session.getType() == User.Type.MSA ? authenticationService
+				.createUserApiService(session.getAccessToken())
+				: UserApiService.OFFLINE;
 		wurstProfileKeys = ProfileKeyPairManager.create(userApiService, session,
 			gameDirectory.toPath());
 	}

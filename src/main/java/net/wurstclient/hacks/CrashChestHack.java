@@ -11,7 +11,6 @@ import net.minecraft.core.component.DataComponents;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.component.CustomData;
 import net.minecraft.world.level.block.Blocks;
@@ -40,7 +39,7 @@ public final class CrashChestHack extends Hack
 			return;
 		}
 		
-		if(!MC.player.getItemBySlot(EquipmentSlot.FEET).isEmpty())
+		if(!MC.player.getInventory().getArmor(0).isEmpty())
 		{
 			ChatUtils.error("请清理您的靴子槽位");
 			setEnabled(false);
@@ -58,7 +57,7 @@ public final class CrashChestHack extends Hack
 		stack.set(DataComponents.CUSTOM_NAME, Component.literal("复制我"));
 		
 		// give item
-		MC.player.equipment.set(EquipmentSlot.FEET, stack);
+		MC.player.getInventory().armor.set(0, stack);
 		ChatUtils.message("物品已放入您的靴子槽中");
 		setEnabled(false);
 	}

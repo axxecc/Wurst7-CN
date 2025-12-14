@@ -20,9 +20,7 @@ import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.Renderable;
 import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.client.input.InputWithModifiers;
 import net.minecraft.network.chat.Component;
-import net.minecraft.util.CommonColors;
 import net.wurstclient.WurstClient;
 import net.wurstclient.analytics.PlausibleAnalytics;
 import net.wurstclient.commands.FriendsCmd;
@@ -30,7 +28,6 @@ import net.wurstclient.hacks.XRayHack;
 import net.wurstclient.other_features.VanillaSpoofOtf;
 import net.wurstclient.settings.CheckboxSetting;
 import net.wurstclient.util.ChatUtils;
-import net.wurstclient.util.WurstColors;
 
 public class WurstOptionsScreen extends Screen
 {
@@ -138,6 +135,7 @@ public class WurstOptionsScreen extends Screen
 	public void render(GuiGraphics context, int mouseX, int mouseY,
 		float partialTicks)
 	{
+		renderBackground(context, mouseX, mouseY, partialTicks);
 		renderTitles(context);
 		
 		for(Renderable drawable : renderables)
@@ -153,15 +151,11 @@ public class WurstOptionsScreen extends Screen
 		int y1 = 40;
 		int y2 = height / 4 + 24 - 28;
 		
-		context.drawCenteredString(tr, "Wurst 选项", middleX, y1,
-			CommonColors.WHITE);
+		context.drawCenteredString(tr, "Wurst 选项", middleX, y1, 0xffffff);
 		
-		context.drawCenteredString(tr, "设置", middleX - 104, y2,
-			WurstColors.VERY_LIGHT_GRAY);
-		context.drawCenteredString(tr, "管理", middleX, y2,
-			WurstColors.VERY_LIGHT_GRAY);
-		context.drawCenteredString(tr, "链接", middleX + 104, y2,
-			WurstColors.VERY_LIGHT_GRAY);
+		context.drawCenteredString(tr, "设置", middleX - 104, y2, 0xcccccc);
+		context.drawCenteredString(tr, "管理", middleX, y2, 0xcccccc);
+		context.drawCenteredString(tr, "链接", middleX + 104, y2, 0xcccccc);
 	}
 	
 	private void renderButtonTooltip(GuiGraphics context, int mouseX,
@@ -178,8 +172,8 @@ public class WurstOptionsScreen extends Screen
 			if(woButton.tooltip.isEmpty())
 				continue;
 			
-			context.setComponentTooltipForNextFrame(font, woButton.tooltip,
-				mouseX, mouseY);
+			context.renderComponentTooltip(font, woButton.tooltip, mouseX,
+				mouseY);
 			break;
 		}
 	}
@@ -217,9 +211,9 @@ public class WurstOptionsScreen extends Screen
 		}
 		
 		@Override
-		public void onPress(InputWithModifiers context)
+		public void onPress()
 		{
-			super.onPress(context);
+			super.onPress();
 			setMessage(Component.literal(messageSupplier.get()));
 		}
 	}

@@ -20,8 +20,8 @@ import net.wurstclient.settings.SwingHandSetting.SwingHand;
  * without sacrificing anti-cheat resistance or customizability.
  *
  * <p>
- * Accurately replicates {@link Minecraft#startUseItem()} as of 25w02a
- * (1.21.5), while being much easier to read and adding convenient ways to
+ * Accurately replicates {@link Minecraft#startUseItem()} as of 24w33a
+ * (1.21.2), while being much easier to read and adding convenient ways to
  * change parts of the behavior.
  */
 public enum InteractionSimulator
@@ -129,7 +129,7 @@ public enum InteractionSimulator
 			swing.swing(hand);
 			
 			if(!stack.isEmpty() && (stack.getCount() != oldCount
-				|| MC.player.hasInfiniteMaterials()))
+				|| MC.gameMode.hasInfiniteItems()))
 				MC.gameRenderer.itemInHandRenderer.itemUsed(hand);
 		}
 		

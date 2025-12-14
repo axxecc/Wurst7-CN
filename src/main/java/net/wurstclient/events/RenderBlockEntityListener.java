@@ -9,7 +9,7 @@ package net.wurstclient.events;
 
 import java.util.ArrayList;
 
-import net.minecraft.client.renderer.blockentity.state.BlockEntityRenderState;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.wurstclient.event.CancellableEvent;
 import net.wurstclient.event.Listener;
 
@@ -20,16 +20,16 @@ public interface RenderBlockEntityListener extends Listener
 	public static class RenderBlockEntityEvent
 		extends CancellableEvent<RenderBlockEntityListener>
 	{
-		private final BlockEntityRenderState state;
+		private final BlockEntity blockEntity;
 		
-		public RenderBlockEntityEvent(BlockEntityRenderState state)
+		public RenderBlockEntityEvent(BlockEntity blockEntity)
 		{
-			this.state = state;
+			this.blockEntity = blockEntity;
 		}
 		
-		public BlockEntityRenderState getState()
+		public BlockEntity getBlockEntity()
 		{
-			return state;
+			return blockEntity;
 		}
 		
 		@Override
