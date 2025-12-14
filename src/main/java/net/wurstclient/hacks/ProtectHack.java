@@ -49,7 +49,7 @@ public final class ProtectHack extends Hack
 		SwingHandSetting.genericCombatDescription(this), SwingHand.CLIENT);
 	
 	private final CheckboxSetting useAi =
-		new CheckboxSetting("使用AI（实验性）", false);
+		new CheckboxSetting("使用AI (实验性) ", false);
 	
 	private final PauseAttackOnContainersSetting pauseOnContainers =
 		new PauseAttackOnContainersSetting(true);
