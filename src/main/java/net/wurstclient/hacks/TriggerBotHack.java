@@ -40,7 +40,7 @@ public final class TriggerBotHack extends Hack
 	
 	private final SliderSetting speedRandMS =
 		new SliderSetting("速度随机化",
-			"通过改变攻击之间的延迟来帮助您绕过反作弊插件\n\n\u00b1100ms 建议用于 Vulcan\n\n0（关闭）适用于 NoCheat+、AAC、Grim、Verus、Spartan 和 vanilla 服务器",
+			"通过改变攻击之间的延迟来帮助您绕过反作弊插件\n\n\u00b1100ms 建议用于 Vulcan\n\n0 (关闭) 适用于 NoCheat+、AAC、Grim、Verus、Spartan 和 vanilla 服务器",
 			100, 0, 1000, 50, ValueDisplay.INTEGER.withPrefix("\u00b1")
 				.withSuffix("ms").withLabel(0, "关闭"));
 	
@@ -54,7 +54,7 @@ public final class TriggerBotHack extends Hack
 	
 	private final CheckboxSetting simulateMouseClick = new CheckboxSetting(
 		"模拟鼠标点击",
-		"模拟攻击时真实的鼠标点击（或按键）, 可用于欺骗 CPS 测量工具, 使其误认为您正在手动攻击\n\n\u00a7c\u00a7l警告: \u00a7r模拟鼠标点击可能会导致意外行为, 例如游戏内菜单自动点击。此外, 启用此选项时, \"挥动手\"和\"格挡时攻击\"设置将不起作用",
+		"模拟攻击时真实的鼠标点击 (或按键) , 可用于欺骗 CPS 测量工具, 使其误认为您正在手动攻击\n\n\u00a7c\u00a7l警告: \u00a7r模拟鼠标点击可能会导致意外行为, 例如游戏内菜单自动点击。此外, 启用此选项时, \"挥动手\"和\"格挡时攻击\"设置将不起作用",
 		false);
 	
 	private final EntityFilterList entityFilters =

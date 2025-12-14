@@ -37,7 +37,7 @@ public final class RadarHack extends Hack implements UpdateListener
 	private final ArrayList<Entity> entities = new ArrayList<>();
 	
 	private final SliderSetting radius = new SliderSetting("半径",
-		"半径（以块为单位）", 100, 1, 100, 1, ValueDisplay.INTEGER);
+		"半径 (以块为单位) ", 100, 1, 100, 1, ValueDisplay.INTEGER);
 	private final CheckboxSetting rotate =
 		new CheckboxSetting("与玩家一起旋转", true);
 	

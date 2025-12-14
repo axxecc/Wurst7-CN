@@ -33,7 +33,7 @@ public final class ZoomOtf extends OtherFeature implements MouseScrollListener
 		true);
 	
 	private final CheckboxSetting zoomInScreens = new CheckboxSetting(
-		"放大屏幕", "如果启用, 您还可以在屏幕（聊天、背包等）打开时进行缩放",
+		"放大屏幕", "如果启用, 您还可以在屏幕 (聊天、背包等) 打开时进行缩放",
 		false);
 	
 	private final TextFieldSetting keybind = new TextFieldSetting("快捷键",

@@ -50,7 +50,7 @@ public final class FollowHack extends Hack
 			12, 0.5, ValueDisplay.DECIMAL);
 	
 	private final CheckboxSetting useAi =
-		new CheckboxSetting("使用 AI（实验性）", false);
+		new CheckboxSetting("使用 AI (实验性) ", false);
 	
 	private final EntityFilterList entityFilters = FollowFilterList.create();
 	
