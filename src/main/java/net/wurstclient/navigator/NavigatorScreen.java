@@ -240,13 +240,12 @@ public abstract class NavigatorScreen extends Screen
 		PoseStack matrixStack = context.pose();
 		Matrix4f matrix = matrixStack.last().pose();
 		
-		context.drawSpecial(consumers -> {
-			VertexConsumer buffer = consumers.getBuffer(RenderType.gui());
-			buffer.addVertex(matrix, x1, y1, 0).setColor(shadowColor1);
-			buffer.addVertex(matrix, x1, y2, 0).setColor(shadowColor2);
-			buffer.addVertex(matrix, x2, y2, 0).setColor(shadowColor2);
-			buffer.addVertex(matrix, x2, y1, 0).setColor(shadowColor1);
-		});
+		VertexConsumer buffer =
+			RenderUtils.getVCP().getBuffer(RenderType.gui());
+		buffer.addVertex(matrix, x1, y1, 0).setColor(shadowColor1);
+		buffer.addVertex(matrix, x1, y2, 0).setColor(shadowColor2);
+		buffer.addVertex(matrix, x2, y2, 0).setColor(shadowColor2);
+		buffer.addVertex(matrix, x2, y1, 0).setColor(shadowColor1);
 	}
 	
 	protected final void drawBox(GuiGraphics context, int x1, int y1, int x2,

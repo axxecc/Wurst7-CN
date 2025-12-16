@@ -93,8 +93,8 @@ public final class PotionCmd extends Command
 			effects.add(new MobEffectInstance(effect, duration, amplifier));
 		}
 		
-		stack.set(DataComponents.POTION_CONTENTS, new PotionContents(potion,
-			oldContents.customColor(), effects, oldContents.customName()));
+		stack.set(DataComponents.POTION_CONTENTS,
+			new PotionContents(potion, oldContents.customColor(), effects));
 		ChatUtils.message("药水被修改过");
 	}
 	
@@ -123,7 +123,7 @@ public final class PotionCmd extends Command
 		Optional<Holder<Potion>> newPotion = mainPotionContainsTargetEffect
 			? Optional.empty() : oldContents.potion();
 		stack.set(DataComponents.POTION_CONTENTS, new PotionContents(newPotion,
-			oldContents.customColor(), newEffects, oldContents.customName()));
+			oldContents.customColor(), newEffects));
 		
 		ChatUtils.message("效果已移除");
 	}
@@ -138,7 +138,7 @@ public final class PotionCmd extends Command
 			try
 			{
 				ResourceLocation identifier = ResourceLocation.parse(input);
-				effect = BuiltInRegistries.MOB_EFFECT.getValue(identifier);
+				effect = BuiltInRegistries.MOB_EFFECT.get(identifier);
 				
 			}catch(ResourceLocationException e)
 			{

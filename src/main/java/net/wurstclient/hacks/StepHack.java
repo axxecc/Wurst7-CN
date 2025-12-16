@@ -66,7 +66,7 @@ public final class StepHack extends Hack implements UpdateListener
 		if(player.input.forwardImpulse == 0 && player.input.leftImpulse == 0)
 			return;
 		
-		if(player.jumping)
+		if(player.input.jumping)
 			return;
 		
 		AABB box = player.getBoundingBox().move(0, 0.05, 0).inflate(0.05);
@@ -84,12 +84,12 @@ public final class StepHack extends Hack implements UpdateListener
 		ClientPacketListener netHandler = player.connection;
 		
 		netHandler.send(new ServerboundMovePlayerPacket.Pos(player.getX(),
-			player.getY() + 0.42 * stepHeight, player.getZ(), player.onGround(),
-			MC.player.horizontalCollision));
+			player.getY() + 0.42 * stepHeight, player.getZ(),
+			player.onGround()));
 		
 		netHandler.send(new ServerboundMovePlayerPacket.Pos(player.getX(),
 			player.getY() + 0.753 * stepHeight, player.getZ(),
-			player.onGround(), MC.player.horizontalCollision));
+			player.onGround()));
 		
 		player.setPos(player.getX(), player.getY() + stepHeight, player.getZ());
 	}

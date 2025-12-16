@@ -1,6 +1,14 @@
 {
-  "vertex": "minecraft:post/sobel",
-  "fragment": "wurst:post/lsd",
+  "blend": {
+    "func": "add",
+    "srcrgb": "one",
+    "dstrgb": "zero"
+  },
+  "vertex": "sobel",
+  "fragment": "lsd",
+  "attributes": [
+    "Position"
+  ],
   "samplers": [
     {
       "name": "DiffuseSampler"
@@ -31,6 +39,15 @@
       ]
     },
     {
+      "name": "InSize",
+      "type": "float",
+      "count": 2,
+      "values": [
+        1.0,
+        1.0
+      ]
+    },
+    {
       "name": "OutSize",
       "type": "float",
       "count": 2,
@@ -40,7 +57,7 @@
       ]
     },
     {
-      "name": "GameTime",
+      "name": "Time",
       "type": "float",
       "count": 1,
       "values": [

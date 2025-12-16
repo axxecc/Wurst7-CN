@@ -16,7 +16,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.effect.MobEffect;
-import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.TamableAnimal;
@@ -24,11 +23,9 @@ import net.minecraft.world.entity.npc.Villager;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.food.FoodData;
 import net.minecraft.world.food.FoodProperties;
+import net.minecraft.world.food.FoodProperties.PossibleEffect;
+import net.minecraft.world.food.Foods;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.component.Consumable;
-import net.minecraft.world.item.consume_effects.ApplyStatusEffectsConsumeEffect;
-import net.minecraft.world.item.consume_effects.ConsumeEffect;
-import net.minecraft.world.item.consume_effects.TeleportRandomlyConsumeEffect;
 import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.CraftingTableBlock;
@@ -229,10 +226,10 @@ public final class AutoEatHack extends Hack implements UpdateListener
 			if(!stack.has(DataComponents.FOOD))
 				continue;
 			
-			if(!isAllowedFood(stack.get(DataComponents.CONSUMABLE)))
+			FoodProperties food = stack.get(DataComponents.FOOD);
+			if(!isAllowedFood(food))
 				continue;
 			
-			FoodProperties food = stack.get(DataComponents.FOOD);
 			if(maxPoints >= 0 && food.nutrition() > maxPoints)
 				continue;
 			
@@ -272,27 +269,20 @@ public final class AutoEatHack extends Hack implements UpdateListener
 		oldSlot = -1;
 	}
 	
-	private boolean isAllowedFood(Consumable consumable)
+	private boolean isAllowedFood(FoodProperties food)
 	{
-		for(ConsumeEffect consumeEffect : consumable.onConsumeEffects())
+		if(!allowChorus.isChecked() && food == Foods.CHORUS_FRUIT)
+			return false;
+		
+		for(PossibleEffect entry : food.effects())
 		{
-			if(!allowChorus.isChecked()
-				&& consumeEffect instanceof TeleportRandomlyConsumeEffect)
+			Holder<MobEffect> effect = entry.effect().getEffect();
+			
+			if(!allowHunger.isChecked() && effect == MobEffects.HUNGER)
 				return false;
 			
-			if(!(consumeEffect instanceof ApplyStatusEffectsConsumeEffect applyEffectsConsumeEffect))
-				continue;
-			
-			for(MobEffectInstance effect : applyEffectsConsumeEffect.effects())
-			{
-				Holder<MobEffect> entry = effect.getEffect();
-				
-				if(!allowHunger.isChecked() && entry == MobEffects.HUNGER)
-					return false;
-				
-				if(!allowPoison.isChecked() && entry == MobEffects.POISON)
-					return false;
-			}
+			if(!allowPoison.isChecked() && effect == MobEffects.POISON)
+				return false;
 		}
 		
 		return true;

@@ -192,7 +192,7 @@ public final class KeybindProfilesScreen extends Screen
 		public ListGui(Minecraft mc, KeybindProfilesScreen screen,
 			List<Path> list)
 		{
-			super(mc, screen.width, screen.height - 96, 36, 20, 0);
+			super(mc, screen.width, screen.height - 96, 36, 20);
 			
 			list.stream().map(KeybindProfilesScreen.Entry::new)
 				.forEach(this::addEntry);

@@ -459,7 +459,8 @@ public final class AltManagerScreen extends Screen
 		
 		int hoveredIndex = listGui.children().indexOf(hoveredEntry);
 		int itemX = mouseX - listGui.getRowLeft();
-		int itemY = mouseY - listGui.getRowTop(hoveredIndex);
+		int itemY = mouseY - 36 + (int)listGui.getScrollAmount() - 4
+			- hoveredIndex * 30;
 		
 		if(itemX < 31 || itemY < 15 || itemY >= 25)
 			return;
@@ -625,7 +626,7 @@ public final class AltManagerScreen extends Screen
 		public ListGui(Minecraft minecraft, AltManagerScreen screen,
 			List<Alt> list)
 		{
-			super(minecraft, screen.width, screen.height - 96, 36, 30, 0);
+			super(minecraft, screen.width, screen.height - 96, 36, 30);
 			
 			list.stream().map(AltManagerScreen.Entry::new)
 				.forEach(this::addEntry);

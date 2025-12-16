@@ -192,10 +192,10 @@ public final class AutoToolHack extends Hack
 		{
 			RegistryAccess drm = WurstClient.MC.level.registryAccess();
 			Registry<Enchantment> registry =
-				drm.lookupOrThrow(Registries.ENCHANTMENT);
+				drm.registryOrThrow(Registries.ENCHANTMENT);
 			
 			Optional<Reference<Enchantment>> efficiency =
-				registry.get(Enchantments.EFFICIENCY);
+				registry.getHolder(Enchantments.EFFICIENCY);
 			int effLvl = efficiency.map(entry -> EnchantmentHelper
 				.getItemEnchantmentLevel(entry, stack)).orElse(0);
 			

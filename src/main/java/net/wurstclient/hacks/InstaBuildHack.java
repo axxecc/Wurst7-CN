@@ -182,7 +182,7 @@ public final class InstaBuildHack extends Hack
 				SwingHand.OFF);
 		}
 		
-		inventory.setSelectedHotbarSlot(oldSlot);
+		inventory.selected = oldSlot;
 		remainingBlocks.clear();
 	}
 	

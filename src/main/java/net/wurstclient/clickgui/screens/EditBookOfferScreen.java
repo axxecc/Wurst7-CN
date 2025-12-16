@@ -271,7 +271,7 @@ public final class EditBookOfferScreen extends Screen
 		int y = 64;
 		
 		Item item = BuiltInRegistries.ITEM
-			.getValue(ResourceLocation.parse("enchanted_book"));
+			.get(ResourceLocation.parse("enchanted_book"));
 		ItemStack stack = new ItemStack(item);
 		RenderUtils.drawItem(context, stack, x + 1, y + 1, true);
 		

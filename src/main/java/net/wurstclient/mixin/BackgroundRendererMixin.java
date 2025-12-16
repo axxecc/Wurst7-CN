@@ -7,18 +7,15 @@
  */
 package net.wurstclient.mixin;
 
-import org.joml.Vector4f;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
-import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
-import com.mojang.blaze3d.shaders.FogShape;
+import com.mojang.blaze3d.systems.RenderSystem;
 
 import net.minecraft.client.Camera;
-import net.minecraft.client.renderer.FogParameters;
 import net.minecraft.client.renderer.FogRenderer;
 import net.minecraft.client.renderer.FogRenderer.MobEffectFogFunction;
 import net.minecraft.world.entity.Entity;
@@ -32,29 +29,24 @@ public abstract class BackgroundRendererMixin
 	 * Makes the distance fog 100% transparent when NoFog is enabled,
 	 * effectively removing it.
 	 */
-	@WrapOperation(
-		at = @At(value = "NEW",
-			target = "net/minecraft/client/renderer/FogParameters"),
-		method = "setupFog(Lnet/minecraft/client/Camera;Lnet/minecraft/client/renderer/FogRenderer$FogMode;Lorg/joml/Vector4f;FZF)Lnet/minecraft/client/renderer/FogParameters;")
-	private static FogParameters createTransparentFog(float start, float end,
-		FogShape shape, float red, float green, float blue, float alpha,
-		Operation<FogParameters> original, Camera camera,
-		FogRenderer.FogMode fogType, Vector4f color, float viewDistance,
-		boolean thickenFog, float tickDelta)
+	@Inject(at = @At("HEAD"),
+		method = "setupFog(Lnet/minecraft/client/Camera;Lnet/minecraft/client/renderer/FogRenderer$FogMode;FZF)V")
+	private static void onApplyFog(Camera camera, FogRenderer.FogMode fogType,
+		float viewDistance, boolean thickFog, float tickDelta, CallbackInfo ci)
 	{
 		if(!WurstClient.INSTANCE.getHax().noFogHack.isEnabled()
 			|| fogType != FogRenderer.FogMode.FOG_TERRAIN)
-			return original.call(start, end, shape, red, green, blue, alpha);
+			return;
 		
 		FogType cameraSubmersionType = camera.getFluidInCamera();
 		if(cameraSubmersionType != FogType.NONE)
-			return original.call(start, end, shape, red, green, blue, alpha);
+			return;
 		
 		Entity entity = camera.getEntity();
 		if(FogRenderer.getPriorityFogFunction(entity, tickDelta) != null)
-			return original.call(start, end, shape, red, green, blue, alpha);
+			return;
 		
-		return original.call(start, end, shape, 0F, 0F, 0F, 0F);
+		RenderSystem.setShaderFogColor(0, 0, 0, 0);
 	}
 	
 	@Inject(at = @At("HEAD"),

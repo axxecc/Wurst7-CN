@@ -16,7 +16,6 @@ import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.ambient.AmbientCreature;
-import net.minecraft.world.entity.animal.AgeableWaterCreature;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.animal.WaterAnimal;
 import net.minecraft.world.entity.monster.Enemy;
@@ -116,7 +115,7 @@ public final class RadarComponent extends Component
 		if(e instanceof Enemy)
 			return 0xFFFF8000;
 		if(e instanceof Animal || e instanceof AmbientCreature
-			|| e instanceof WaterAnimal || e instanceof AgeableWaterCreature)
+			|| e instanceof WaterAnimal)
 			return 0xFF00FF00;
 		return 0xFF808080;
 	}

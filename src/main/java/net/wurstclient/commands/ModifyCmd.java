@@ -106,7 +106,7 @@ public final class ModifyCmd extends Command
 		throws CmdError
 	{
 		DataComponentType<?> type = BuiltInRegistries.DATA_COMPONENT_TYPE
-			.getValue(Identifier.tryParse(typeName));
+			.get(ResourceLocation.tryParse(typeName));
 		
 		if(type == null)
 			throw new CmdError(

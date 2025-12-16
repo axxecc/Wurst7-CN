@@ -6,9 +6,8 @@ accessible	method	net/minecraft/client/Minecraft	startUseItem	()V
 accessible	method	net/minecraft/client/MouseHandler	onPress	(JIII)V
 accessible	method	net/minecraft/client/particle/ParticleEngine	clearParticles	()V
 accessible	method	net/minecraft/client/renderer/FogRenderer	getPriorityFogFunction	(Lnet/minecraft/world/entity/Entity;F)Lnet/minecraft/client/renderer/FogRenderer$MobEffectFogFunction;
-accessible	method	net/minecraft/client/renderer/GameRenderer	setPostEffect	(Lnet/minecraft/resources/ResourceLocation;)V
+accessible	method	net/minecraft/client/renderer/GameRenderer	loadEffect	(Lnet/minecraft/resources/ResourceLocation;)V
 accessible	method	net/minecraft/core/component/DataComponentMap$Builder	setUnchecked	(Lnet/minecraft/core/component/DataComponentType;Ljava/lang/Object;)V
-accessible	method	net/minecraft/world/entity/player/Player	canGlide	()Z
 accessible	method	net/minecraft/world/entity/projectile/FishingHook	calculateOpenWater	(Lnet/minecraft/core/BlockPos;)Z
 accessible	field	net/minecraft/client/Minecraft	rightClickDelay	I
 accessible	field	net/minecraft/client/gui/components/ChatComponent	trimmedMessages	Ljava/util/List;
@@ -26,7 +25,6 @@ accessible	field	net/minecraft/client/multiplayer/MultiPlayerGameMode	destroyDel
 accessible	field	net/minecraft/client/multiplayer/MultiPlayerGameMode	isDestroying	Z
 accessible	field	net/minecraft/client/multiplayer/MultiPlayerGameMode	destroyProgress	F
 accessible	field	com/mojang/blaze3d/platform/NativeImage	pixels	J
-accessible	field	net/minecraft/client/gui/components/toasts/ToastManager	queued	Ljava/util/Deque;
+accessible	field	net/minecraft/client/gui/components/toasts/ToastComponent	queued	Ljava/util/Deque;
 accessible	field	net/minecraft/world/entity/Entity	stuckSpeedMultiplier	Lnet/minecraft/world/phys/Vec3;
-accessible	field	net/minecraft/world/entity/LivingEntity	jumping	Z
 accessible	field	net/minecraft/network/protocol/game/ClientboundSectionBlocksUpdatePacket	sectionPos	Lnet/minecraft/core/SectionPos;

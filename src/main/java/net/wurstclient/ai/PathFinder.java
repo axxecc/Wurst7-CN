@@ -189,7 +189,7 @@ public class PathFinder
 		}
 		
 		// up
-		if(pos.getY() < MC.level.getMaxY() && canGoThrough(up.above())
+		if(pos.getY() < MC.level.getMaxBuildHeight() && canGoThrough(up.above())
 			&& (flying || onGround || canClimbUpAt(pos))
 			&& (flying || canClimbUpAt(pos) || goal.equals(up)
 				|| canSafelyStandOn(north) || canSafelyStandOn(east)
@@ -199,7 +199,7 @@ public class PathFinder
 			neighbors.add(new PathPos(up, onGround));
 		
 		// down
-		if(pos.getY() > MC.level.getMinY() && canGoThrough(down)
+		if(pos.getY() > MC.level.getMinBuildHeight() && canGoThrough(down)
 			&& canGoAbove(down.below()) && (flying || canFallBelow(pos))
 			&& (divingAllowed || BlockUtils.getBlock(pos) != Blocks.WATER))
 			neighbors.add(new PathPos(down));

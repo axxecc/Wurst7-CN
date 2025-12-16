@@ -7,9 +7,10 @@
  */
 package net.wurstclient.hud;
 
+import com.mojang.blaze3d.systems.RenderSystem;
+
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.client.renderer.RenderType;
 import net.minecraft.resources.ResourceLocation;
 import net.wurstclient.WurstClient;
 import net.wurstclient.other_features.WurstLogoOtf;
@@ -42,8 +43,8 @@ public final class WurstLogo
 		context.drawString(tr, version, 74, 8, otf.getTextColor(), false);
 		
 		// Wurst logo
-		context.blit(RenderType::guiTextured, LOGO_TEXTURE, 0, 3, 0, 0, 72, 18,
-			72, 18);
+		RenderSystem.enableBlend();
+		context.blit(LOGO_TEXTURE, 0, 3, 0, 0, 72, 18, 72, 18);
 	}
 	
 	private String getVersionString()

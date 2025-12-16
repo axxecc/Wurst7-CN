@@ -202,7 +202,7 @@ public final class EditBookOffersScreen extends Screen
 			boolean hovered, float tickDelta)
 		{
 			Item item = BuiltInRegistries.ITEM
-				.getValue(ResourceLocation.parse("enchanted_book"));
+				.get(ResourceLocation.parse("enchanted_book"));
 			ItemStack stack = new ItemStack(item);
 			RenderUtils.drawItem(context, stack, x + 1, y + 1, true);
 			
@@ -241,7 +241,7 @@ public final class EditBookOffersScreen extends Screen
 		public ListGui(Minecraft minecraft, EditBookOffersScreen screen,
 			List<BookOffer> list)
 		{
-			super(minecraft, screen.width, screen.height - 108, 36, 30, 0);
+			super(minecraft, screen.width, screen.height - 108, 36, 30);
 			
 			list.stream().map(EditBookOffersScreen.Entry::new)
 				.forEach(this::addEntry);

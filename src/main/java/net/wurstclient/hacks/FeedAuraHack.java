@@ -163,8 +163,7 @@ public final class FeedAuraHack extends Hack
 		if(!actionResult.consumesAction())
 			actionResult = im.interact(player, target, hand);
 		
-		if(actionResult instanceof InteractionResult.Success success
-			&& success.swingSource() == InteractionResult.SwingSource.CLIENT)
+		if(actionResult.consumesAction() && actionResult.shouldSwing())
 			player.swing(hand);
 		
 		target = null;

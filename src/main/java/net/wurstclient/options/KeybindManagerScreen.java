@@ -198,7 +198,7 @@ public final class KeybindManagerScreen extends Screen
 	{
 		public ListGui(Minecraft mc, KeybindManagerScreen screen)
 		{
-			super(mc, screen.width, screen.height - 96, 36, 30, 0);
+			super(mc, screen.width, screen.height - 96, 36, 30);
 			
 			WurstClient.INSTANCE.getKeybinds().getAllKeybinds().stream()
 				.map(KeybindManagerScreen.Entry::new).forEach(this::addEntry);

@@ -132,7 +132,7 @@ public final class InstantBunkerHack extends Hack implements UpdateListener
 		Vec3[] hitVecs = new Vec3[sides.length];
 		for(int i = 0; i < sides.length; i++)
 			hitVecs[i] = posVec
-				.add(Vec3.atLowerCornerOf(sides[i].getUnitVec3i()).scale(0.5));
+				.add(Vec3.atLowerCornerOf(sides[i].getNormal()).scale(0.5));
 		
 		for(int i = 0; i < sides.length; i++)
 		{

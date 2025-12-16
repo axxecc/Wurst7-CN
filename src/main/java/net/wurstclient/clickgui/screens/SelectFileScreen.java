@@ -195,7 +195,7 @@ public final class SelectFileScreen extends Screen
 	{
 		public ListGui(Minecraft mc, SelectFileScreen screen, List<Path> list)
 		{
-			super(mc, screen.width, screen.height - 96, 36, 20, 0);
+			super(mc, screen.width, screen.height - 96, 36, 20);
 			
 			list.stream().map(SelectFileScreen.Entry::new)
 				.forEach(this::addEntry);

@@ -105,7 +105,7 @@ public final class TrollPotionHack extends Hack
 			for(int i = 1; i <= 23; i++)
 			{
 				MobEffect effect =
-					BuiltInRegistries.MOB_EFFECT.get(i).get().value();
+					BuiltInRegistries.MOB_EFFECT.getHolder(i).get().value();
 				Holder<MobEffect> entry =
 					BuiltInRegistries.MOB_EFFECT.wrapAsHolder(effect);
 				
@@ -114,7 +114,7 @@ public final class TrollPotionHack extends Hack
 			}
 			
 			stack.set(DataComponents.POTION_CONTENTS, new PotionContents(
-				Optional.empty(), Optional.empty(), effects, Optional.empty()));
+				Optional.empty(), Optional.empty(), effects));
 			
 			String name = "\u00a7f" + itemName + "恼人药水";
 			stack.set(DataComponents.CUSTOM_NAME, Component.literal(name));

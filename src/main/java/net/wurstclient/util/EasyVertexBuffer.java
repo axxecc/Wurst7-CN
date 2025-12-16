@@ -9,13 +9,13 @@ package net.wurstclient.util;
 
 import java.util.function.Consumer;
 
-import com.mojang.blaze3d.buffers.BufferUsage;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.BufferBuilder;
 import com.mojang.blaze3d.vertex.MeshData;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.Tesselator;
 import com.mojang.blaze3d.vertex.VertexBuffer;
+import com.mojang.blaze3d.vertex.VertexBuffer.Usage;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.blaze3d.vertex.VertexFormat;
 import com.mojang.blaze3d.vertex.VertexFormat.Mode;
@@ -53,7 +53,7 @@ public final class EasyVertexBuffer implements AutoCloseable
 	
 	private EasyVertexBuffer(MeshData buffer)
 	{
-		vertexBuffer = new VertexBuffer(BufferUsage.STATIC_WRITE);
+		vertexBuffer = new VertexBuffer(Usage.STATIC);
 		vertexBuffer.bind();
 		vertexBuffer.upload(buffer);
 		VertexBuffer.unbind();
@@ -80,17 +80,6 @@ public final class EasyVertexBuffer implements AutoCloseable
 			RenderSystem.getProjectionMatrix(), RenderSystem.getShader());
 		VertexBuffer.unbind();
 		layer.clearRenderState();
-	}
-	
-	/**
-	 * Drop-in replacement for {@code VertexBuffer.draw(RenderLayer)}.
-	 */
-	public void draw(RenderType layer)
-	{
-		if(vertexBuffer == null)
-			return;
-		
-		vertexBuffer.drawWithRenderType(layer);
 	}
 	
 	@Override

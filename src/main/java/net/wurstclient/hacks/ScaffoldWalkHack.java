@@ -145,7 +145,7 @@ public final class ScaffoldWalkHack extends Hack implements UpdateListener
 				continue;
 			
 			Vec3 hitVec = Vec3.atCenterOf(neighbor)
-				.add(Vec3.atLowerCornerOf(side2.getUnitVec3i()).scale(0.5));
+				.add(Vec3.atLowerCornerOf(side2.getNormal()).scale(0.5));
 			
 			// check if hitVec is within range (4.25 blocks)
 			if(eyesPos.distanceToSqr(hitVec) > 18.0625)

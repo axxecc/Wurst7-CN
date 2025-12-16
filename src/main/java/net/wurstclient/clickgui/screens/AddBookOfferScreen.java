@@ -369,7 +369,7 @@ public final class AddBookOfferScreen extends Screen
 			boolean hovered, float tickDelta)
 		{
 			Item item = BuiltInRegistries.ITEM
-				.getValue(ResourceLocation.parse("enchanted_book"));
+				.get(ResourceLocation.parse("enchanted_book"));
 			ItemStack stack = new ItemStack(item);
 			RenderUtils.drawItem(context, stack, x + 1, y + 1, true);
 			
@@ -396,11 +396,11 @@ public final class AddBookOfferScreen extends Screen
 	{
 		public ListGui(Minecraft minecraft, AddBookOfferScreen screen)
 		{
-			super(minecraft, screen.width, screen.height - 120, 36, 30, 0);
+			super(minecraft, screen.width, screen.height - 120, 36, 30);
 			
 			RegistryAccess drm = minecraft.level.registryAccess();
 			Registry<Enchantment> registry =
-				drm.lookupOrThrow(Registries.ENCHANTMENT);
+				drm.registryOrThrow(Registries.ENCHANTMENT);
 			
 			registry.stream().map(BookOffer::create)
 				.filter(BookOffer::isFullyValid).sorted()

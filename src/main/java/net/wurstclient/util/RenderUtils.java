@@ -218,7 +218,7 @@ public enum RenderUtils
 	{
 		Vector3f normal = new Vector3f(x2, y2, z2).sub(x1, y1, z1).normalize();
 		buffer.addVertex(entry, x1, y1, z1).setColor(color).setNormal(entry,
-			normal);
+			normal.x, normal.y, normal.z);
 		
 		// If the line goes through the screen, add another vertex there. This
 		// works around a bug in Minecraft's line shader.
@@ -228,13 +228,13 @@ public enum RenderUtils
 		{
 			Vector3f closeToCam = new Vector3f(normal).mul(t).add(x1, y1, z1);
 			buffer.addVertex(entry, closeToCam).setColor(color).setNormal(entry,
-				normal);
+				normal.x, normal.y, normal.z);
 			buffer.addVertex(entry, closeToCam).setColor(color).setNormal(entry,
-				normal);
+				normal.x, normal.y, normal.z);
 		}
 		
 		buffer.addVertex(entry, x2, y2, z2).setColor(color).setNormal(entry,
-			normal);
+			normal.x, normal.y, normal.z);
 	}
 	
 	public static void drawLine(VertexConsumer buffer, float x1, float y1,
@@ -273,7 +273,8 @@ public enum RenderUtils
 		Vector3f first = points.get(0).toVector3f();
 		Vector3f second = points.get(1).toVector3f();
 		Vector3f normal = new Vector3f(first).sub(second).normalize();
-		buffer.addVertex(entry, first).setColor(color).setNormal(entry, normal);
+		buffer.addVertex(entry, first).setColor(color).setNormal(entry,
+			normal.x, normal.y, normal.z);
 		
 		for(int i = 1; i < points.size(); i++)
 		{
@@ -281,7 +282,7 @@ public enum RenderUtils
 			Vector3f current = points.get(i).toVector3f();
 			normal = new Vector3f(current).sub(prev).normalize();
 			buffer.addVertex(entry, current).setColor(color).setNormal(entry,
-				normal);
+				normal.x, normal.y, normal.z);
 		}
 	}
 	
@@ -749,7 +750,7 @@ public enum RenderUtils
 		// main line
 		drawLine(matrices, buffer, from, to, color);
 		
-		matrices.translate(to);
+		matrices.translate(to.x, to.y, to.z);
 		matrices.scale(headSize, headSize, headSize);
 		
 		double xDiff = to.x - from.x;
@@ -823,13 +824,11 @@ public enum RenderUtils
 		float y2, int color)
 	{
 		Matrix4f matrix = context.pose().last().pose();
-		context.drawSpecial(consumers -> {
-			VertexConsumer buffer = consumers.getBuffer(RenderType.gui());
-			buffer.addVertex(matrix, x1, y1, 0).setColor(color);
-			buffer.addVertex(matrix, x1, y2, 0).setColor(color);
-			buffer.addVertex(matrix, x2, y2, 0).setColor(color);
-			buffer.addVertex(matrix, x2, y1, 0).setColor(color);
-		});
+		VertexConsumer buffer = getVCP().getBuffer(RenderType.gui());
+		buffer.addVertex(matrix, x1, y1, 0).setColor(color);
+		buffer.addVertex(matrix, x1, y2, 0).setColor(color);
+		buffer.addVertex(matrix, x2, y2, 0).setColor(color);
+		buffer.addVertex(matrix, x2, y1, 0).setColor(color);
 	}
 	
 	/**
@@ -842,12 +841,9 @@ public enum RenderUtils
 		int color)
 	{
 		Matrix4f matrix = context.pose().last().pose();
-		context.drawSpecial(consumers -> {
-			VertexConsumer buffer = consumers.getBuffer(RenderType.gui());
-			for(float[] vertex : vertices)
-				buffer.addVertex(matrix, vertex[0], vertex[1], 0)
-					.setColor(color);
-		});
+		VertexConsumer buffer = getVCP().getBuffer(RenderType.gui());
+		for(float[] vertex : vertices)
+			buffer.addVertex(matrix, vertex[0], vertex[1], 0).setColor(color);
 	}
 	
 	/**
@@ -860,13 +856,9 @@ public enum RenderUtils
 		int color)
 	{
 		Matrix4f matrix = context.pose().last().pose();
-		context.drawSpecial(consumers -> {
-			VertexConsumer buffer =
-				consumers.getBuffer(RenderType.debugFilledBox());
-			for(float[] vertex : vertices)
-				buffer.addVertex(matrix, vertex[0], vertex[1], 0)
-					.setColor(color);
-		});
+		VertexConsumer buffer = getVCP().getBuffer(RenderType.debugFilledBox());
+		for(float[] vertex : vertices)
+			buffer.addVertex(matrix, vertex[0], vertex[1], 1).setColor(color);
 	}
 	
 	/**
@@ -881,12 +873,10 @@ public enum RenderUtils
 		float x2, float y2, int color)
 	{
 		Matrix4f matrix = context.pose().last().pose();
-		context.drawSpecial(consumers -> {
-			VertexConsumer buffer =
-				consumers.getBuffer(WurstRenderLayers.ONE_PIXEL_LINES);
-			buffer.addVertex(matrix, x1, y1, 1).setColor(color);
-			buffer.addVertex(matrix, x2, y2, 1).setColor(color);
-		});
+		VertexConsumer buffer =
+			getVCP().getBuffer(WurstRenderLayers.ONE_PIXEL_LINES);
+		buffer.addVertex(matrix, x1, y1, 1).setColor(color);
+		buffer.addVertex(matrix, x2, y2, 1).setColor(color);
 	}
 	
 	/**
@@ -900,15 +890,13 @@ public enum RenderUtils
 		float x2, float y2, int color)
 	{
 		Matrix4f matrix = context.pose().last().pose();
-		context.drawSpecial(consumers -> {
-			VertexConsumer buffer =
-				consumers.getBuffer(WurstRenderLayers.ONE_PIXEL_LINE_STRIP);
-			buffer.addVertex(matrix, x1, y1, 1).setColor(color);
-			buffer.addVertex(matrix, x2, y1, 1).setColor(color);
-			buffer.addVertex(matrix, x2, y2, 1).setColor(color);
-			buffer.addVertex(matrix, x1, y2, 1).setColor(color);
-			buffer.addVertex(matrix, x1, y1, 1).setColor(color);
-		});
+		VertexConsumer buffer =
+			getVCP().getBuffer(WurstRenderLayers.ONE_PIXEL_LINE_STRIP);
+		buffer.addVertex(matrix, x1, y1, 1).setColor(color);
+		buffer.addVertex(matrix, x2, y1, 1).setColor(color);
+		buffer.addVertex(matrix, x2, y2, 1).setColor(color);
+		buffer.addVertex(matrix, x1, y2, 1).setColor(color);
+		buffer.addVertex(matrix, x1, y1, 1).setColor(color);
 	}
 	
 	/**
@@ -918,15 +906,12 @@ public enum RenderUtils
 		int color)
 	{
 		Matrix4f matrix = context.pose().last().pose();
-		context.drawSpecial(consumers -> {
-			VertexConsumer buffer =
-				consumers.getBuffer(WurstRenderLayers.ONE_PIXEL_LINE_STRIP);
-			for(float[] vertex : vertices)
-				buffer.addVertex(matrix, vertex[0], vertex[1], 1)
-					.setColor(color);
-			buffer.addVertex(matrix, vertices[0][0], vertices[0][1], 1)
-				.setColor(color);
-		});
+		VertexConsumer buffer =
+			getVCP().getBuffer(WurstRenderLayers.ONE_PIXEL_LINE_STRIP);
+		for(float[] vertex : vertices)
+			buffer.addVertex(matrix, vertex[0], vertex[1], 1).setColor(color);
+		buffer.addVertex(matrix, vertices[0][0], vertices[0][1], 1)
+			.setColor(color);
 	}
 	
 	/**
@@ -958,33 +943,31 @@ public enum RenderUtils
 		PoseStack matrixStack = context.pose();
 		Matrix4f matrix = matrixStack.last().pose();
 		
-		context.drawSpecial(consumers -> {
-			VertexConsumer buffer = consumers.getBuffer(RenderType.gui());
-			
-			// top
-			buffer.addVertex(matrix, x1, y1, 0).setColor(shadowColor1);
-			buffer.addVertex(matrix, x2, y1, 0).setColor(shadowColor1);
-			buffer.addVertex(matrix, xs2, ys1, 0).setColor(shadowColor2);
-			buffer.addVertex(matrix, xs1, ys1, 0).setColor(shadowColor2);
-			
-			// left
-			buffer.addVertex(matrix, xs1, ys1, 0).setColor(shadowColor2);
-			buffer.addVertex(matrix, xs1, ys2, 0).setColor(shadowColor2);
-			buffer.addVertex(matrix, x1, y2, 0).setColor(shadowColor1);
-			buffer.addVertex(matrix, x1, y1, 0).setColor(shadowColor1);
-			
-			// right
-			buffer.addVertex(matrix, x2, y1, 0).setColor(shadowColor1);
-			buffer.addVertex(matrix, x2, y2, 0).setColor(shadowColor1);
-			buffer.addVertex(matrix, xs2, ys2, 0).setColor(shadowColor2);
-			buffer.addVertex(matrix, xs2, ys1, 0).setColor(shadowColor2);
-			
-			// bottom
-			buffer.addVertex(matrix, x2, y2, 0).setColor(shadowColor1);
-			buffer.addVertex(matrix, x1, y2, 0).setColor(shadowColor1);
-			buffer.addVertex(matrix, xs1, ys2, 0).setColor(shadowColor2);
-			buffer.addVertex(matrix, xs2, ys2, 0).setColor(shadowColor2);
-		});
+		VertexConsumer buffer = getVCP().getBuffer(RenderType.gui());
+		
+		// top
+		buffer.addVertex(matrix, x1, y1, 0).setColor(shadowColor1);
+		buffer.addVertex(matrix, x2, y1, 0).setColor(shadowColor1);
+		buffer.addVertex(matrix, xs2, ys1, 0).setColor(shadowColor2);
+		buffer.addVertex(matrix, xs1, ys1, 0).setColor(shadowColor2);
+		
+		// left
+		buffer.addVertex(matrix, xs1, ys1, 0).setColor(shadowColor2);
+		buffer.addVertex(matrix, xs1, ys2, 0).setColor(shadowColor2);
+		buffer.addVertex(matrix, x1, y2, 0).setColor(shadowColor1);
+		buffer.addVertex(matrix, x1, y1, 0).setColor(shadowColor1);
+		
+		// right
+		buffer.addVertex(matrix, x2, y1, 0).setColor(shadowColor1);
+		buffer.addVertex(matrix, x2, y2, 0).setColor(shadowColor1);
+		buffer.addVertex(matrix, xs2, ys2, 0).setColor(shadowColor2);
+		buffer.addVertex(matrix, xs2, ys1, 0).setColor(shadowColor2);
+		
+		// bottom
+		buffer.addVertex(matrix, x2, y2, 0).setColor(shadowColor1);
+		buffer.addVertex(matrix, x1, y2, 0).setColor(shadowColor1);
+		buffer.addVertex(matrix, xs1, ys2, 0).setColor(shadowColor2);
+		buffer.addVertex(matrix, xs2, ys2, 0).setColor(shadowColor2);
 	}
 	
 	public record ColoredPoint(Vec3 point, int color)

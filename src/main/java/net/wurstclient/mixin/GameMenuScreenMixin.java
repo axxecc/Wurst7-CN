@@ -24,7 +24,6 @@ import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.PauseScreen;
 import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
@@ -64,8 +63,6 @@ public abstract class GameMenuScreenMixin extends Screen
 		if(!WurstClient.INSTANCE.isEnabled() || wurstOptionsButton == null)
 			return;
 		
-		RenderSystem.setShaderColor(1, 1, 1, 1);
-		
 		int x = wurstOptionsButton.getX() + 34;
 		int y = wurstOptionsButton.getY() + 2;
 		int w = 63;
@@ -74,8 +71,8 @@ public abstract class GameMenuScreenMixin extends Screen
 		int fh = 16;
 		float u = 0;
 		float v = 0;
-		context.blit(RenderType::guiTextured, WURST_TEXTURE, x, y, u, v, w, h,
-			fw, fh);
+		RenderSystem.enableBlend();
+		context.blit(WURST_TEXTURE, x, y, u, v, w, h, fw, fh);
 	}
 	
 	@Unique

@@ -55,7 +55,7 @@ public class DefaultFluidRendererMixin
 	{
 		BlockPos.MutableBlockPos pos = mutablePosForExposedCheck.get();
 		pos.set(x, y, z);
-		ShouldDrawSideEvent event = new ShouldDrawSideEvent(state, pos);
+		ShouldDrawSideEvent event = new ShouldDrawSideEvent(state, null);
 		EventManager.fire(event);
 		
 		if(event.isRendered() != null)
@@ -67,7 +67,7 @@ public class DefaultFluidRendererMixin
 	 *
 	 * <p>
 	 * Works with Sodium >=0.6.1 and <0.6.13. Last tested with Sodium
-	 * 0.6.1+mc1.21.3.
+	 * 0.6.5+mc1.21.1.
 	 */
 	@Inject(at = @At("HEAD"),
 		method = "isFluidOccluded(Lnet/minecraft/class_1920;IIILnet/minecraft/class_2350;Lnet/minecraft/class_2680;Lnet/minecraft/class_3610;)Z",
@@ -79,7 +79,7 @@ public class DefaultFluidRendererMixin
 	{
 		BlockPos.MutableBlockPos pos = mutablePosForExposedCheck.get();
 		pos.set(x, y, z);
-		ShouldDrawSideEvent event = new ShouldDrawSideEvent(state, pos);
+		ShouldDrawSideEvent event = new ShouldDrawSideEvent(state, null);
 		EventManager.fire(event);
 		
 		if(event.isRendered() != null)
@@ -87,8 +87,7 @@ public class DefaultFluidRendererMixin
 	}
 	
 	/**
-	 * Hides and shows the top side of fluids when using X-Ray with Sodium
-	 * installed.
+	 * Hides and shows fluids when using X-Ray with Sodium installed.
 	 *
 	 * <p>
 	 * Works with Sodium >=0.6.13. Last updated for Sodium 0.6.13+mc1.21.4.
@@ -108,35 +107,6 @@ public class DefaultFluidRendererMixin
 		
 		if(event.isRendered() != null)
 			cir.setReturnValue(!event.isRendered());
-	}
-	
-	/**
-	 * Hides and shows all other sides of fluids when using X-Ray with Sodium
-	 * installed.
-	 */
-	@Inject(at = @At("HEAD"),
-		method = "isSideExposed(Lnet/minecraft/class_1920;IIILnet/minecraft/class_2350;F)Z",
-		cancellable = true,
-		remap = false,
-		require = 0)
-	private void onIsSideExposed(BlockAndTintGetter world, int x, int y, int z,
-		Direction dir, float height, CallbackInfoReturnable<Boolean> cir)
-	{
-		BlockPos pos = new BlockPos(x, y, z);
-		BlockState state = world.getBlockState(pos);
-		
-		// Note: the null BlockPos is here to skip the "exposed only" check
-		ShouldDrawSideEvent event = new ShouldDrawSideEvent(state, null);
-		EventManager.fire(event);
-		
-		if(event.isRendered() == null)
-			return;
-		
-		BlockPos nPos = pos.offset(dir.getUnitVec3i());
-		BlockState neighborState = world.getBlockState(nPos);
-		
-		cir.setReturnValue(!neighborState.getFluidState().getType()
-			.isSame(state.getFluidState().getType()) && event.isRendered());
 	}
 	
 	/**

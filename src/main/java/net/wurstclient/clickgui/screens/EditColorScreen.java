@@ -23,7 +23,6 @@ import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.components.Renderable;
 import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.client.renderer.RenderType;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.wurstclient.settings.ColorSetting;
@@ -176,8 +175,7 @@ public final class EditColorScreen extends Screen
 		int fh = paletteHeight;
 		float u = 0;
 		float v = 0;
-		context.blit(RenderType::guiTextured, paletteIdentifier, x, y, u, v, w,
-			h, fw, fh);
+		context.blit(paletteIdentifier, x, y, u, v, w, h, fw, fh);
 		
 		// RGB letters
 		context.drawString(tr, "#", fieldsX - 3 - tr.width("#"), fieldsY + 6,

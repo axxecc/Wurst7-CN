@@ -215,8 +215,8 @@ public final class EditItemListScreen extends Screen
 		@Override
 		public Component getNarration()
 		{
-			Item item = BuiltInRegistries.ITEM
-				.getValue(ResourceLocation.parse(itemName));
+			Item item =
+				BuiltInRegistries.ITEM.get(ResourceLocation.parse(itemName));
 			ItemStack stack = new ItemStack(item);
 			
 			return Component.translatable("narrator.select",
@@ -229,8 +229,8 @@ public final class EditItemListScreen extends Screen
 			int entryWidth, int entryHeight, int mouseX, int mouseY,
 			boolean hovered, float tickDelta)
 		{
-			Item item = BuiltInRegistries.ITEM
-				.getValue(ResourceLocation.parse(itemName));
+			Item item =
+				BuiltInRegistries.ITEM.get(ResourceLocation.parse(itemName));
 			ItemStack stack = new ItemStack(item);
 			Font tr = minecraft.font;
 			
@@ -260,7 +260,7 @@ public final class EditItemListScreen extends Screen
 		public ListGui(Minecraft minecraft, EditItemListScreen screen,
 			List<String> list)
 		{
-			super(minecraft, screen.width, screen.height - 96, 36, 30, 0);
+			super(minecraft, screen.width, screen.height - 96, 36, 30);
 			
 			list.stream().map(EditItemListScreen.Entry::new)
 				.forEach(this::addEntry);

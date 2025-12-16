@@ -251,7 +251,7 @@ public final class EditBlockListScreen extends Screen
 		public ListGui(Minecraft minecraft, EditBlockListScreen screen,
 			List<String> list)
 		{
-			super(minecraft, screen.width, screen.height - 96, 36, 30, 0);
+			super(minecraft, screen.width, screen.height - 96, 36, 30);
 			
 			list.stream().map(EditBlockListScreen.Entry::new)
 				.forEach(this::addEntry);

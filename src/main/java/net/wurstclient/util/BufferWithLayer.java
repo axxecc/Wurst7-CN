@@ -29,11 +29,6 @@ public record BufferWithLayer(EasyVertexBuffer buffer, RenderType layer)
 		buffer.draw(matrixStack, layer);
 	}
 	
-	public void draw()
-	{
-		buffer.draw(layer);
-	}
-	
 	@Override
 	public void close()
 	{

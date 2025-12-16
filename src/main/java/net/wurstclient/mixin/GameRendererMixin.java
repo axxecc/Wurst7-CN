@@ -57,18 +57,18 @@ public abstract class GameRendererMixin implements AutoCloseable
 			ordinal = 0),
 		method = "renderLevel(Lnet/minecraft/client/DeltaTracker;)V")
 	private void onRenderWorldHandRendering(DeltaTracker tickCounter,
-		CallbackInfo ci, @Local(ordinal = 2) Matrix4f matrix4f3,
+		CallbackInfo ci, @Local(ordinal = 1) Matrix4f matrix4f2,
 		@Local(ordinal = 1) float tickDelta)
 	{
 		PoseStack matrixStack = new PoseStack();
-		matrixStack.mulPose(matrix4f3);
+		matrixStack.mulPose(matrix4f2);
 		RenderEvent event = new RenderEvent(matrixStack, tickDelta);
 		EventManager.fire(event);
 	}
 	
 	@ModifyReturnValue(at = @At("RETURN"),
-		method = "getFov(Lnet/minecraft/client/Camera;FZ)F")
-	private float onGetFov(float original)
+		method = "getFov(Lnet/minecraft/client/Camera;FZ)D")
+	private double onGetFov(double original)
 	{
 		return WurstClient.INSTANCE.getOtfs().zoomOtf
 			.changeFovBasedOnZoom(original);
