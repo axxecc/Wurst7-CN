@@ -19,8 +19,8 @@ public final class SvCmd extends Command
 {
 	public SvCmd()
 	{
-		super("sv", "Shows the version of the server\n"
-			+ "you are currently connected to.", ".sv");
+		super("sv", "显示你当前连接的服务器版本",
+                ".sv");
 	}
 	
 	@Override
@@ -29,18 +29,18 @@ public final class SvCmd extends Command
 		if(args.length != 0)
 			throw new CmdSyntaxError();
 		
-		ChatUtils.message("Server version: " + getVersion());
+		ChatUtils.message("服务器版本: " + getVersion());
 	}
 	
 	private String getVersion() throws CmdError
 	{
 		if(MC.hasSingleplayerServer())
-			throw new CmdError("Can't check server version in singleplayer.");
+			throw new CmdError("单人模式无法查看服务器版本");
 		
 		ServerData lastServer = LastServerRememberer.getLastServer();
 		if(lastServer == null)
 			throw new IllegalStateException(
-				"LastServerRememberer doesn't remember the last server!");
+				"上次的服务器不记得上一个服务器!");
 		
 		return lastServer.version.getString();
 	}
@@ -48,7 +48,7 @@ public final class SvCmd extends Command
 	@Override
 	public String getPrimaryAction()
 	{
-		return "Get Server Version";
+		return "获取服务器版本";
 	}
 	
 	@Override

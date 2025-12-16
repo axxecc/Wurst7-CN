@@ -42,7 +42,7 @@ import net.wurstclient.util.RotationUtils;
 import net.wurstclient.util.chunk.ChunkSearcher;
 import net.wurstclient.util.chunk.ChunkSearcherCoordinator;
 
-@SearchTags({"cave finder"})
+@SearchTags({"洞穴高亮"})
 public final class CaveFinderHack extends Hack
 	implements UpdateListener, RenderListener
 {

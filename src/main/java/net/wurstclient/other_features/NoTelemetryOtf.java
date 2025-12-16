@@ -22,7 +22,7 @@ public final class NoTelemetryOtf extends OtherFeature
 	public NoTelemetryOtf()
 	{
 		super("无遥测",
-			"禁用Mojang在22w46a版本中引入的\"必需\"遥测功能。但事实证明它并非必需");
+			"禁用Mojang在22w46a版本中引入的\"必需\"遥测功能, 但事实证明它并非必需");
 		addSetting(disableTelemetry);
 	}
 	

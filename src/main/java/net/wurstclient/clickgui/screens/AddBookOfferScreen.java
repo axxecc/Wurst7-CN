@@ -343,7 +343,7 @@ public final class AddBookOfferScreen extends Screen
 				bookOffer.getEnchantmentEntry().get();
 			
 			int maxLevel = enchantment.value().getMaxLevel();
-			String levels = maxLevel + (" 级");
+			String levels = maxLevel + " 级";
 			
 			return Component.translatable("narrator.select",
 				"Enchantment " + bookOffer.getEnchantmentName() + ", ID "
@@ -389,7 +389,7 @@ public final class AddBookOfferScreen extends Screen
 				CommonColors.LIGHT_GRAY, false);
 			
 			int maxLevel = enchantment.value().getMaxLevel();
-			String levels = maxLevel + ("级");
+			String levels = maxLevel + "级";
 			context.drawString(tr, levels, x + 28, y + 18,
 				CommonColors.LIGHT_GRAY, false);
 		}

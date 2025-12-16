@@ -38,8 +38,7 @@ import net.wurstclient.util.EntityUtils;
 import net.wurstclient.util.RenderUtils;
 import net.wurstclient.util.RotationUtils;
 
-@SearchTags({"kill aura", "ForceField", "force field", "CrystalAura",
-	"crystal aura", "AutoCrystal", "auto crystal"})
+@SearchTags({"杀戮光环", "kill aura"})
 public final class KillauraHack extends Hack
 	implements UpdateListener, HandleInputListener, RenderListener
 {

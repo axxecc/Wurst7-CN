@@ -28,34 +28,34 @@ import net.wurstclient.settings.CheckboxSetting;
 import net.wurstclient.settings.SliderSetting;
 import net.wurstclient.settings.SliderSetting.ValueDisplay;
 
-@SearchTags({"anti afk", "AFKBot", "afk bot"})
+@SearchTags({"反挂机", "AntiAFK"})
 @DontSaveState
 public final class AntiAfkHack extends Hack
 	implements UpdateListener, RenderListener
 {
 	private final CheckboxSetting useAi = new CheckboxSetting("使用AI",
-		"description.wurst.setting.antiafk.use_ai", true);
+		"使用寻路人工智能自然移动并避开危险\n有时可能会卡住", true);
 	
 	private final SliderSetting aiRange = new SliderSetting("AI范围",
-		"description.wurst.setting.antiafk.ai_range", 16, 1, 64, 1,
+		"开启使用 AI 时反挂机可以移动的区域", 16, 1, 64, 1,
 		ValueDisplay.AREA_FROM_RADIUS);
 	
 	private final SliderSetting nonAiRange = new SliderSetting("无AI范围",
-		"description.wurst.setting.antiafk.non-ai_range", 1, 1, 64, 1,
+		"当使用 AI 关闭时, 反挂机可以移动的区域\n\n§c§l警告：§r该区域必须完全畅通无阻且没有危险", 1, 1, 64, 1,
 		ValueDisplay.AREA_FROM_RADIUS);
 	
 	private final SliderSetting waitTime = new SliderSetting("等待时间",
-		"description.wurst.setting.antiafk.wait_time", 2.5, 0, 60, 0.05,
+		"动作之间的时间 (以秒为单位)", 2.5, 0, 60, 0.05,
 		ValueDisplay.DECIMAL.withSuffix("s"));
 	
 	private final SliderSetting waitTimeRand = new SliderSetting(
 		"等待时间随机化",
-		"description.wurst.setting.antiafk.wait_time_randomization", 0.5, 0, 60,
+		"等待时间可以随机增加或减少多少时间, 以秒为单位", 0.5, 0, 60,
 		0.05, ValueDisplay.DECIMAL.withPrefix("\u00b1").withSuffix("s"));
 	
 	private final CheckboxSetting showWaitTime =
 		new CheckboxSetting("显示等待时间",
-			"description.wurst.setting.antiafk.show_wait_time", true);
+			"显示功能列表中剩余的等待时间", true);
 	
 	private int timer;
 	private RandomSource random = RandomSource.createNewThreadLocalInstance();

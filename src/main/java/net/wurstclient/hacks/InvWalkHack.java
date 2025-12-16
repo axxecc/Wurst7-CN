@@ -25,17 +25,16 @@ import net.wurstclient.hack.Hack;
 import net.wurstclient.mixinterface.IKeyBinding;
 import net.wurstclient.settings.CheckboxSetting;
 
-@SearchTags({"inv walk", "inventory walk", "InvMove", "inv move",
-	"inventory move", "MenuWalk", "menu walk"})
+@SearchTags({"自闭小屋", "InvMove"})
 public final class InvWalkHack extends Hack implements UpdateListener
 {
 	private final CheckboxSetting allowClickGUI =
 		new CheckboxSetting("允许 ClickGUI",
-			"description.wurst.setting.invwalk.allow_clickgui", true);
+			"允许你在 Wurst 的 ClickGUI 打开时移动", true);
 	
 	private final CheckboxSetting allowOther =
 		new CheckboxSetting("允许其他屏幕",
-			"description.wurst.setting.invwalk.allow_other", true);
+			"允许你在其他一些游戏内界面打开时移动 (比如箱子、马匹、村民交易界面等), 除非这个界面有文字输入框", true);
 	
 	private final CheckboxSetting allowSneak =
 		new CheckboxSetting("允许潜行键", true);

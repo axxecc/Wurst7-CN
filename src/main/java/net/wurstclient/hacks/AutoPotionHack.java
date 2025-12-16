@@ -19,8 +19,7 @@ import net.wurstclient.settings.SliderSetting.ValueDisplay;
 import net.wurstclient.util.ItemUtils;
 import net.wurstclient.util.Rotation;
 
-@SearchTags({"AutoPotion", "auto potion", "AutoSplashPotion",
-	"auto splash potion"})
+@SearchTags({"自动药水", "AutoPotion"})
 public final class AutoPotionHack extends Hack implements UpdateListener
 {
 	private final SliderSetting health = new SliderSetting("生命值",

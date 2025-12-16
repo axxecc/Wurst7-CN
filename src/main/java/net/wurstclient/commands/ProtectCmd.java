@@ -23,8 +23,8 @@ public final class ProtectCmd extends Command
 {
 	public ProtectCmd()
 	{
-		super("protect", "Protects the given entity from other entities.",
-			".protect <entity>");
+		super("protect", "保护指定实体免受其他实体的伤害",
+			".protect <实体>");
 	}
 	
 	@Override
@@ -50,7 +50,7 @@ public final class ProtectCmd extends Command
 		
 		if(entity == null)
 			throw new CmdError(
-				"Entity \"" + args[0] + "\" could not be found.");
+				"实体 \"" + args[0] + "\" 不存在 ");
 		
 		protectHack.setFriend(entity);
 		protectHack.setEnabled(true);

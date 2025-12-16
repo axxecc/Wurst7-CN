@@ -23,10 +23,9 @@ public final class SetCheckboxCmd extends Command
 	public SetCheckboxCmd()
 	{
 		super("setcheckbox",
-			"Changes a checkbox setting of a feature. Allows you\n"
-				+ "to toggle checkboxes through keybinds.",
-			".setcheckbox <feature> <setting> (on|off)",
-			".setcheckbox <feature> <setting> toggle");
+			"更改功能中的复选框设置, 允许你通过快捷键切换复选框",
+			".setcheckbox <功能> <设置> (on|off)",
+			".setcheckbox <功能> <设置> toggle");
 	}
 	
 	@Override
@@ -46,7 +45,7 @@ public final class SetCheckboxCmd extends Command
 	{
 		if(!(setting instanceof CheckboxSetting))
 			throw new CmdError(feature.getName() + " " + setting.getName()
-				+ " is not a checkbox setting.");
+				+ " 不是复选框设置");
 		
 		return (CheckboxSetting)setting;
 	}

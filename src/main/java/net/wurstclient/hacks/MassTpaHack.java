@@ -26,7 +26,7 @@ import net.wurstclient.settings.SliderSetting.ValueDisplay;
 import net.wurstclient.settings.TextFieldSetting;
 import net.wurstclient.util.ChatUtils;
 
-@SearchTags({"mass tpa"})
+@SearchTags({"TPA光环", "MassTpa"})
 @DontSaveState
 public final class MassTpaHack extends Hack
 	implements UpdateListener, ChatInputListener

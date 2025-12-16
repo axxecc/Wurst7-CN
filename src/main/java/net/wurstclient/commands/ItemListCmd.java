@@ -30,13 +30,12 @@ public final class ItemListCmd extends Command
 	public ItemListCmd()
 	{
 		super("itemlist",
-			"Changes a ItemList setting of a feature. Allows you\n"
-				+ "to change these settings through keybinds.",
-			".itemlist <feature> <setting> add <item>",
-			".itemlist <feature> <setting> remove <item>",
-			".itemlist <feature> <setting> list [<page>]",
-			".itemlist <feature> <setting> reset",
-			"Example: .itemlist AutoDrop Items add dirt");
+			"更改某一功能的ItemList设置\n允许你通过按键绑定来更改这些设置",
+			".itemlist <功能> <设置> add <物品>",
+			".itemlist <功能> <设置> remove <物品>",
+			".itemlist <功能> <设置> list [<页码>]",
+			".itemlist <功能> <设置> reset",
+			"示例: .itemlist AutoDrop Items add dirt");
 	}
 	
 	@Override
@@ -85,7 +84,7 @@ public final class ItemListCmd extends Command
 		int index = Collections.binarySearch(setting.getItemNames(), itemName);
 		if(index >= 0)
 			throw new CmdError(feature.getName() + " " + setting.getName()
-				+ " already contains " + itemName);
+				+ " 已经包含 " + itemName);
 		
 		setting.add(item);
 	}
@@ -102,7 +101,7 @@ public final class ItemListCmd extends Command
 		int index = Collections.binarySearch(setting.getItemNames(), itemName);
 		if(index < 0)
 			throw new CmdError(feature.getName() + " " + setting.getName()
-				+ " does not contain " + itemName);
+				+ " 不再包含 " + itemName);
 		
 		setting.remove(index);
 	}
@@ -119,17 +118,15 @@ public final class ItemListCmd extends Command
 		pages = Math.max(pages, 1);
 		
 		if(page > pages || page < 1)
-			throw new CmdSyntaxError("Invalid page: " + page);
-		
-		String total = "Total: " + items.size() + " item";
-		total += items.size() != 1 ? "s" : "";
-		ChatUtils.message(total);
+			throw new CmdSyntaxError("无效页码: " + page);
+
+		ChatUtils.message("共有: " + items.size() + " 物品");
 		
 		int start = (page - 1) * 8;
 		int end = Math.min(page * 8, items.size());
 		
 		ChatUtils.message(feature.getName() + " " + setting.getName()
-			+ " (page " + page + "/" + pages + ")");
+			+ " (页码 " + page + "/" + pages + ")");
 		for(int i = start; i < end; i++)
 			ChatUtils.message(items.get(i).toString());
 	}
@@ -140,7 +137,7 @@ public final class ItemListCmd extends Command
 			return 1;
 		
 		if(!MathUtils.isInteger(args[3]))
-			throw new CmdSyntaxError("Not a number: " + args[3]);
+			throw new CmdSyntaxError("不是数字: " + args[3]);
 		
 		return Integer.parseInt(args[3]);
 	}
@@ -150,7 +147,7 @@ public final class ItemListCmd extends Command
 	{
 		if(!(setting instanceof ItemListSetting))
 			throw new CmdError(feature.getName() + " " + setting.getName()
-				+ " is not a ItemList setting.");
+				+ " 不是ItemList设置");
 		
 		return (ItemListSetting)setting;
 	}

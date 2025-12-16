@@ -26,11 +26,11 @@ public final class EnabledHaxCmd extends Command
 {
 	public EnabledHaxCmd()
 	{
-		super("enabledhax", "Allows you to make profiles of enabled hacks.",
-			".enabledhax load-profile <file>",
-			".enabledhax save-profile <file>",
-			".enabledhax list-profiles [<page>]",
-			"Profiles are saved in '.minecraft/wurst/enabled hacks'.");
+		super("enabledhax", "允许你创建启用的功能配置文件",
+			".enabledhax load-profile <文件>",
+			".enabledhax save-profile <文件>",
+			".enabledhax list-profiles [<页码>]",
+			"配置文件保存于 '.minecraft/wurst/enabled hacks'.");
 	}
 	
 	@Override
@@ -68,22 +68,22 @@ public final class EnabledHaxCmd extends Command
 		try
 		{
 			WURST.getHax().loadProfile(name);
-			ChatUtils.message("Hacks loaded: " + name);
+			ChatUtils.message("加载功能: " + name);
 			
 		}catch(NoSuchFileException e)
 		{
-			throw new CmdError("Profile '" + name + "' doesn't exist.");
+			throw new CmdError("配置文件 '" + name + "' 不存在");
 			
 		}catch(JsonException e)
 		{
 			e.printStackTrace();
 			throw new CmdError(
-				"Profile '" + name + "' is corrupted: " + e.getMessage());
+				"配置文件 '" + name + "' 已损坏: " + e.getMessage());
 			
 		}catch(IOException e)
 		{
 			e.printStackTrace();
-			throw new CmdError("Couldn't load profile: " + e.getMessage());
+			throw new CmdError("无法加载配置文件: " + e.getMessage());
 		}
 	}
 	
@@ -97,12 +97,12 @@ public final class EnabledHaxCmd extends Command
 		try
 		{
 			WURST.getHax().saveProfile(name);
-			ChatUtils.message("Hacks saved: " + name);
+			ChatUtils.message("功能保存: " + name);
 			
 		}catch(IOException | JsonException e)
 		{
 			e.printStackTrace();
-			throw new CmdError("Couldn't save profile: " + e.getMessage());
+			throw new CmdError("无法保存配置: " + e.getMessage());
 		}
 	}
 	
@@ -126,17 +126,15 @@ public final class EnabledHaxCmd extends Command
 		pages = Math.max(pages, 1);
 		
 		if(page > pages || page < 1)
-			throw new CmdSyntaxError("Invalid page: " + page);
-		
-		String total = "Total: " + files.size() + " profile";
-		total += files.size() != 1 ? "s" : "";
-		ChatUtils.message(total);
+			throw new CmdSyntaxError("无效页码: " + page);
+
+		ChatUtils.message("共有: " + files.size() + " 条配置文件");
 		
 		int start = (page - 1) * 8;
 		int end = Math.min(page * 8, files.size());
 		
 		ChatUtils.message(
-			"Enabled hacks profile list (page " + page + "/" + pages + ")");
+			"启用功能配置文件列表 (页码 " + page + "/" + pages + ")");
 		for(int i = start; i < end; i++)
 			ChatUtils.message(files.get(i).getFileName().toString());
 	}
@@ -147,7 +145,7 @@ public final class EnabledHaxCmd extends Command
 			return 1;
 		
 		if(!MathUtils.isInteger(args[1]))
-			throw new CmdSyntaxError("Not a number: " + args[1]);
+			throw new CmdSyntaxError("不是数字: " + args[1]);
 		
 		return Integer.parseInt(args[1]);
 	}

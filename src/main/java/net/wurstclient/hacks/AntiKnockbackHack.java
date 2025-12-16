@@ -14,8 +14,7 @@ import net.wurstclient.hack.Hack;
 import net.wurstclient.settings.SliderSetting;
 import net.wurstclient.settings.SliderSetting.ValueDisplay;
 
-@SearchTags({"anti knockback", "AntiVelocity", "anti velocity", "NoKnockback",
-	"no knockback", "AntiKB", "anti kb"})
+@SearchTags({"反击退", "Velocity"})
 public final class AntiKnockbackHack extends Hack implements KnockbackListener
 {
 	private final SliderSetting hStrength =

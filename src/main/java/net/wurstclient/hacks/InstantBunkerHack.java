@@ -27,7 +27,7 @@ import net.wurstclient.util.BlockUtils;
 import net.wurstclient.util.ChatUtils;
 import net.wurstclient.util.RotationUtils;
 
-@SearchTags({"instant bunker"})
+@SearchTags({"自闭小屋", "InstantBunker"})
 public final class InstantBunkerHack extends Hack implements UpdateListener
 {
 	private final int[][] template = {{2, 0, 2}, {-2, 0, 2}, {2, 0, -2},

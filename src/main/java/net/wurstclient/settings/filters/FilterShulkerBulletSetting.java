@@ -26,7 +26,7 @@ public final class FilterShulkerBulletSetting extends EntityFilterCheckbox
 	public static FilterShulkerBulletSetting genericCombat(boolean checked)
 	{
 		return new FilterShulkerBulletSetting(
-			"description.wurst.setting.generic.filter_shulker_bullets_combat",
+			"不会攻击潜影贝子弹",
 			checked);
 	}
 }

@@ -16,7 +16,7 @@ import net.wurstclient.SearchTags;
 import net.wurstclient.events.PlayerAttacksEntityListener;
 import net.wurstclient.hack.Hack;
 
-@SearchTags({"mace dmg", "MaceDamage", "mace damage"})
+@SearchTags({"重锤出击", "MaceDamage"})
 public final class MaceDmgHack extends Hack
 	implements PlayerAttacksEntityListener
 {

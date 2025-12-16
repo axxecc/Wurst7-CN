@@ -12,7 +12,7 @@ import net.wurstclient.SearchTags;
 import net.wurstclient.hack.DontSaveState;
 import net.wurstclient.hack.Hack;
 
-@SearchTags({"auto sign"})
+@SearchTags({"自动告示牌", "AutoSign"})
 @DontSaveState
 public final class AutoSignHack extends Hack
 {

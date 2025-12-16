@@ -23,8 +23,8 @@ public final class HelpCmd extends Command
 	
 	public HelpCmd()
 	{
-		super("help", "Shows help for a command or a list of commands.",
-			".help <command>", "List commands: .help [<page>]");
+		super("help", "显示对某个命令或命令列表的帮助",
+			".help <命令>", "命令列表: .help [<页码>]");
 	}
 	
 	@Override
@@ -48,16 +48,14 @@ public final class HelpCmd extends Command
 		pages = Math.max(pages, 1);
 		
 		if(page > pages || page < 1)
-			throw new CmdSyntaxError("Invalid page: " + page);
-		
-		String total = "Total: " + cmds.size() + " command";
-		total += cmds.size() != 1 ? "s" : "";
-		ChatUtils.message(total);
+			throw new CmdSyntaxError("无效页码: " + page);
+
+		ChatUtils.message("共有: " + cmds.size() + "条命令");
 		
 		int start = (page - 1) * CMDS_PER_PAGE;
 		int end = Math.min(page * CMDS_PER_PAGE, cmds.size());
 		
-		ChatUtils.message("命令列表 (" + page + "/" + pages + ") ");
+		ChatUtils.message("命令列表 (" + page + "/" + pages + ")");
 		for(int i = start; i < end; i++)
 			ChatUtils.message("- " + cmds.get(i).getName());
 	}

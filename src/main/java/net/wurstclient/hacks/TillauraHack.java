@@ -32,9 +32,7 @@ import net.wurstclient.util.BlockUtils;
 import net.wurstclient.util.InteractionSimulator;
 import net.wurstclient.util.RotationUtils;
 
-@SearchTags({"till aura", "HoeAura", "hoe aura", "FarmlandAura",
-	"farmland aura", "farm land aura", "AutoTill", "auto till", "AutoHoe",
-	"auto hoe"})
+@SearchTags({"耕地光环", "TillAura"})
 public final class TillauraHack extends Hack implements HandleInputListener
 {
 	private final SliderSetting range = new SliderSetting("范围",

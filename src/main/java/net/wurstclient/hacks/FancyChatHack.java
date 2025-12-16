@@ -12,7 +12,7 @@ import net.wurstclient.SearchTags;
 import net.wurstclient.events.ChatOutputListener;
 import net.wurstclient.hack.Hack;
 
-@SearchTags({"fancy chat"})
+@SearchTags({"聊天绕过", "FancyChat"})
 public final class FancyChatHack extends Hack implements ChatOutputListener
 {
 	private final String blacklist = "(){}[]|";

@@ -11,7 +11,7 @@ import net.wurstclient.Category;
 import net.wurstclient.SearchTags;
 import net.wurstclient.hack.Hack;
 
-@SearchTags({"RainbowGUI", "rainbow ui", "rainbow gui", "rgb"})
+@SearchTags({"彩虹用户界面", "RainbowGUI"})
 public final class RainbowUiHack extends Hack
 {
 	public RainbowUiHack()

@@ -23,9 +23,7 @@ import net.wurstclient.settings.SliderSetting;
 import net.wurstclient.settings.SliderSetting.ValueDisplay;
 import net.wurstclient.util.BlockUtils;
 
-@SearchTags({"FastMine", "SpeedMine", "SpeedyGonzales", "fast break",
-	"fast mine", "speed mine", "speedy gonzales", "NoBreakDelay",
-	"no break delay"})
+@SearchTags({"快速破坏", "FastBreak"})
 public final class FastBreakHack extends Hack
 	implements UpdateListener, BlockBreakingProgressListener
 {

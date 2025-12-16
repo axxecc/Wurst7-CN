@@ -20,11 +20,7 @@ import net.wurstclient.hacks.chattranslator.WhatToTranslateSetting;
 import net.wurstclient.settings.CheckboxSetting;
 import net.wurstclient.util.ChatUtils;
 
-@SearchTags({"chat translator", "ChatTranslate", "chat translate",
-	"ChatTranslation", "chat translation", "AutoTranslate", "auto translate",
-	"AutoTranslator", "auto translator", "AutoTranslation", "auto translation",
-	"GoogleTranslate", "google translate", "GoogleTranslator",
-	"google translator", "GoogleTranslation", "google translation"})
+@SearchTags({"聊天翻译", "ChatTranslate"})
 public final class ChatTranslatorHack extends Hack
 	implements ChatInputListener, ChatOutputListener
 {
@@ -33,22 +29,22 @@ public final class ChatTranslatorHack extends Hack
 	
 	private final LanguageSetting playerLanguage =
 		LanguageSetting.withoutAutoDetect("你的语言",
-			"description.wurst.setting.chattranslator.your_language",
+			"您可以使用和理解的主要语言\n\n您收到的消息将始终翻译成这种语言 (如果启用)\n\n当\"检测发送语言\"关闭时, 所有发送的消息都被认为是这种语言",
 			Language.ENGLISH);
 	
 	private final LanguageSetting otherLanguage =
 		LanguageSetting.withoutAutoDetect("其他语言",
-			"description.wurst.setting.chattranslator.other_language",
+			"服务器上其他玩家使用的主要语言\n\n您发送的消息将始终被翻译成此语言 (如果启用)\n\n当\"检测收到的语言\"关闭时, 所有收到的消息都被认为是这种语言",
 			Language.CHINESE_SIMPLIFIED);
 	
 	private final CheckboxSetting autoDetectReceived =
 		new CheckboxSetting("检测接收的语言",
-			"description.wurst.setting.chattranslator.detect_received_language",
+			"自动检测收到的消息的语言\n\n当其他玩家使用多种不同语言时很有用\n\n如果每个人都使用同一种语言, 关闭此功能可以提高准确性",
 			true);
 	
 	private final CheckboxSetting autoDetectSent = new CheckboxSetting(
 		"检测发送的语言",
-		"description.wurst.setting.chattranslator.detect_sent_language", true);
+		"自动检测已发送消息的语言\n\n如果您使用多种不同语言, 此功能非常有用\n\n如果您始终使用同一种语言, 关闭此功能可以提高准确性", true);
 	
 	private final FilterOwnMessagesSetting filterOwnMessages =
 		new FilterOwnMessagesSetting();

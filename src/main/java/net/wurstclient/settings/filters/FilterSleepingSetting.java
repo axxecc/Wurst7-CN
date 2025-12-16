@@ -30,14 +30,14 @@ public final class FilterSleepingSetting extends EntityFilterCheckbox
 	public static FilterSleepingSetting genericCombat(boolean checked)
 	{
 		return new FilterSleepingSetting(
-			"description.wurst.setting.generic.filter_sleeping_combat",
+			"不会攻击正在睡觉的玩家",
 			checked);
 	}
 	
 	public static FilterSleepingSetting genericVision(boolean checked)
 	{
 		return new FilterSleepingSetting(
-			"description.wurst.setting.generic.filter_sleeping_vision",
+			"不会显示正在休眠的玩家",
 			checked);
 	}
 }

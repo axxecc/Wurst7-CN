@@ -50,14 +50,14 @@ public final class FilterNeutralSetting extends AttackDetectingEntityFilter
 	public static FilterNeutralSetting genericCombat(Mode selected)
 	{
 		return new FilterNeutralSetting(
-			"description.wurst.setting.generic.filter_neutral_combat",
+			"当设置为 §l开启§r 时, 中立生物根本不会受到攻击\n\n当设置为 §l如果愤怒§r 时, 中立生物在先攻击之前不会受到攻击. 请注意, 此过滤器无法检测中立生物是否在攻击您或其他人\n\n当设置为 §l关闭§r 时, 此过滤器不执行任何操作, 中立生物可以被攻击",
 			selected);
 	}
 	
 	public static FilterNeutralSetting genericVision(Mode selected)
 	{
 		return new FilterNeutralSetting(
-			"description.wurst.setting.generic.filter_neutral_vision",
+			"当设置为 §l开启§r 时, 中立生物将完全不显示\n\n当设置为 §l如果愤怒§r 时, 中立生物在攻击某物之前不会显示\n\n当设置为 §l关闭§r 时, 此过滤器不执行任何操作, 并且可以显示中立生物",
 			selected);
 	}
 	

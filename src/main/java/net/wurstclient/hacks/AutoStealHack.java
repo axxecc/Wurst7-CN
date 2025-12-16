@@ -20,8 +20,7 @@ import net.wurstclient.settings.CheckboxSetting;
 import net.wurstclient.settings.SliderSetting;
 import net.wurstclient.settings.SliderSetting.ValueDisplay;
 
-@SearchTags({"auto steal", "ChestStealer", "chest stealer",
-	"steal store buttons", "Steal/Store buttons"})
+@SearchTags({"自动拿取", "AutoSteal"})
 public final class AutoStealHack extends Hack
 {
 	private final SliderSetting delay = new SliderSetting("延迟",
@@ -61,7 +60,7 @@ public final class AutoStealHack extends Hack
 		if(thread != null && thread.isAlive())
 			thread.interrupt();
 		
-		thread = Thread.ofPlatform().name("AutoSteal")
+		thread = Thread.ofPlatform().name("自动拿取")
 			.uncaughtExceptionHandler((t, e) -> e.printStackTrace()).daemon()
 			.start(() -> shiftClickSlots(screen, from, to, steal));
 	}

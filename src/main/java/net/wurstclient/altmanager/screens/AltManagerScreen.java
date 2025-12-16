@@ -610,8 +610,8 @@ public final class AltManagerScreen extends Screen
 			String text = alt.isCracked() ? "\u00a78破解" : "\u00a72高级";
 			
 			if(alt.isFavorite())
-				text += "\u00a7r, \u00a7e收藏 ";
-
+				text += "\u00a7r, \u00a7e收藏";
+			
 			if(failedLogins.contains(alt))
 				text += "\u00a7r, \u00a7c密码错误？";
 			else if(alt.isUncheckedPremium())

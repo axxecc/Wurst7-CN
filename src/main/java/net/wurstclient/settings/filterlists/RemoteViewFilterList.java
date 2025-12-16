@@ -24,69 +24,66 @@ public final class RemoteViewFilterList extends EntityFilterList
 		ArrayList<EntityFilter> builder = new ArrayList<>();
 		
 		builder.add(new FilterPlayersSetting(
-			"description.wurst.setting.remoteview.filter_players", false));
+			"不会看到其他玩家", false));
 		
 		builder.add(new FilterSleepingSetting(
-			"description.wurst.setting.remoteview.filter_sleeping", false));
+			"不会看到正在睡觉的玩家", false));
 		
 		builder.add(new FilterFlyingSetting(
-			"description.wurst.setting.remoteview.filter_flying", 0));
+			"不会看到距离地面至少给定距离的玩家", 0));
 		
 		builder.add(new FilterHostileSetting(
-			"Won't view hostile mobs like zombies and creepers.", true));
+			"不会把敌对怪物当成僵尸和苦力怕", true));
 		
 		builder.add(FilterNeutralSetting.onOffOnly(
-			"description.wurst.setting.remoteview.filter_neutral", true));
+			"不会看到末影人和狼等中立生物", true));
 		
-		builder.add(new FilterPassiveSetting("Won't view animals like pigs and"
-			+ " cows, ambient mobs like bats, and water mobs like fish, squid"
-			+ " and dolphins.", true));
+		builder.add(new FilterPassiveSetting("不会看到猪和牛这样的动物, 不会看到蝙蝠这样的环境生物, 也不会看到像鱼, 鱿鱼和海豚这样的水生物", true));
 		
-		builder.add(new FilterPassiveWaterSetting("Won't view passive water"
-			+ " mobs like fish, squid, dolphins and axolotls.", true));
+		builder.add(new FilterPassiveWaterSetting("不会看到被动的水生物, 比如鱼, 鱿鱼, 海豚和美西螈", true));
 		
 		builder.add(new FilterBabiesSetting(
-			"Won't view baby pigs, baby villagers, etc.", true));
+			"不会看到小猪, 小村民等", true));
 		
 		builder.add(new FilterBatsSetting(
-			"description.wurst.setting.remoteview.filter_bats", true));
+			"不会看到蝙蝠和任何其他可能由模组添加的\"环境\"生物", true));
 		
-		builder.add(new FilterSlimesSetting("Won't view slimes.", true));
+		builder.add(new FilterSlimesSetting("不会看到史莱姆", true));
 		
 		builder.add(new FilterPetsSetting(
-			"description.wurst.setting.remoteview.filter_pets", true));
+			"不会看到驯服的狼、驯服的马等", true));
 		
 		builder.add(new FilterVillagersSetting(
-			"description.wurst.setting.remoteview.filter_villagers", true));
+			"不会看到村民和流浪商人", true));
 		
 		builder.add(new FilterZombieVillagersSetting(
-			"description.wurst.setting.remoteview.filter_zombie_villagers",
+			"不会看到僵尸村民",
 			true));
 		
 		builder.add(new FilterGolemsSetting(
-			"description.wurst.setting.remoteview.filter_golems", true));
+			"不会看到铁傀儡和雪傀儡", true));
 		
 		builder
-			.add(FilterPiglinsSetting.onOffOnly("Won't view piglins.", true));
+			.add(FilterPiglinsSetting.onOffOnly("不会看猪灵", true));
 		
 		builder.add(FilterZombiePiglinsSetting.onOffOnly(
-			"description.wurst.setting.remoteview.filter_zombie_piglins",
+			"不会看到僵尸猪灵",
 			true));
 		
 		builder.add(FilterEndermenSetting.onOffOnly(
-			"description.wurst.setting.remoteview.filter_endermen", true));
+			"不会看到末影人", true));
 		
 		builder.add(new FilterShulkersSetting(
-			"description.wurst.setting.remoteview.filter_shulkers", true));
+			"不会看到潜影贝", true));
 		
 		builder.add(new FilterAllaysSetting(
-			"description.wurst.setting.remoteview.filter_allays", true));
+			"不会看到悦灵", true));
 		
 		builder.add(new FilterInvisibleSetting(
-			"description.wurst.setting.remoteview.filter_invisible", false));
+			"不会看到不可见的实体", false));
 		
 		builder.add(new FilterArmorStandsSetting(
-			"description.wurst.setting.remoteview.filter_armor_stands", true));
+			"不会看到盔甲架", true));
 		
 		return new RemoteViewFilterList(builder);
 	}

@@ -20,7 +20,7 @@ import net.wurstclient.SearchTags;
 import net.wurstclient.hack.Hack;
 import net.wurstclient.util.ChatUtils;
 
-@SearchTags({"crash chest"})
+@SearchTags({"崩溃箱子", "CrashChest"})
 public final class CrashChestHack extends Hack
 {
 	public CrashChestHack()

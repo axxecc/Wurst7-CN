@@ -52,7 +52,7 @@ public final class NewChunksHack extends Hack
 	
 	private final CheckboxSetting showCounter =
 		new CheckboxSetting("显示数量",
-			"显示到目前为止找到的新/旧区块的数量。", false);
+			"显示到目前为止找到的新/旧区块的数量", false);
 	
 	private final SliderSetting altitude =
 		new SliderSetting("高度", 0, -64, 320, 1, ValueDisplay.INTEGER);

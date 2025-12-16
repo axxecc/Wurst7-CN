@@ -23,16 +23,16 @@ import net.wurstclient.settings.CheckboxSetting;
 import net.wurstclient.settings.SliderSetting;
 import net.wurstclient.settings.SliderSetting.ValueDisplay;
 
-@SearchTags({"arrow dmg", "ArrowDamage", "arrow damage"})
+@SearchTags({"强力箭矢", "ArrowDamage"})
 public final class ArrowDmgHack extends Hack implements StopUsingItemListener
 {
 	private final SliderSetting strength = new SliderSetting("强度",
-		"description.wurst.setting.arrowdmg.strength", 10, 0.1, 10, 0.1,
+		"效果的强度, 10是Minecraft 1.21中可能的最高值", 10, 0.1, 10, 0.1,
 		ValueDisplay.DECIMAL);
 	
 	private final CheckboxSetting yeetTridents =
 		new CheckboxSetting("三叉戟模式",
-			"description.wurst.setting.arrowdmg.trident_yeet_mode", false);
+			"打开之后, 三叉戟将飞得更远. 似乎不影响伤害以及\"激流\"附魔\n\n§c§l警告：§r打开这个选项之后你很容易弄丢你的三叉戟!", false);
 	
 	public ArrowDmgHack()
 	{

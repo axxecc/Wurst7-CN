@@ -24,10 +24,9 @@ public final class SetSliderCmd extends Command
 	public SetSliderCmd()
 	{
 		super("setslider",
-			"Changes a slider setting of a feature. Allows you to\n"
-				+ "move sliders through keybinds.",
-			".setslider <feature> <setting> <value>",
-			".setslider <feature> <setting> (more|less)");
+			"更改某个功能的滑块设置, 允许你通过快捷键移动滑块",
+			".setslider <功能> <设置> <值>",
+			".setslider <功能> <设置> (more|less)");
 	}
 	
 	@Override
@@ -47,7 +46,7 @@ public final class SetSliderCmd extends Command
 	{
 		if(!(setting instanceof SliderSetting))
 			throw new CmdError(feature.getName() + " " + setting.getName()
-				+ " is not a slider setting.");
+				+ " 不是滑块设置");
 		
 		return (SliderSetting)setting;
 	}
@@ -67,7 +66,7 @@ public final class SetSliderCmd extends Command
 			
 			default:
 			if(!MathUtils.isDouble(value))
-				throw new CmdSyntaxError("Value must be a number.");
+				throw new CmdSyntaxError("值必须是一个数字");
 			slider.setValue(Double.parseDouble(value));
 			break;
 		}
