@@ -19,7 +19,7 @@ import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.core.component.DataComponentMap;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.item.ItemStack;
 import net.wurstclient.command.CmdError;
@@ -50,8 +50,8 @@ public final class ModifyCmd extends Command
 			throw new CmdSyntaxError();
 		
 		Inventory inventory = player.getInventory();
-		int slot = inventory.getSelectedSlot();
-		ItemStack stack = inventory.getSelectedItem();
+        int slot = inventory.selected;
+        ItemStack stack = inventory.getSelected();
 		if(stack == null)
 			throw new CmdError("你必须用主手拿着物品");
 		

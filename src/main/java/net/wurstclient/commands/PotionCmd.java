@@ -96,9 +96,9 @@ public final class PotionCmd extends Command
 		stack.set(DataComponents.POTION_CONTENTS,
 			new PotionContents(potion, oldContents.customColor(), effects));
 		ChatUtils.message("药水被修改过");
-	}
-	
-	private void remove(ItemStack stack, String[] args) throws CmdSyntaxError
+    }
+
+    private void remove(ItemStack stack, String[] args) throws CmdSyntaxError
 	{
 		if(args.length != 2)
 			throw new CmdSyntaxError();
