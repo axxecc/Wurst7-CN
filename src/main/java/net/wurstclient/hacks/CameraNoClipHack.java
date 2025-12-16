@@ -11,7 +11,7 @@ import net.wurstclient.Category;
 import net.wurstclient.SearchTags;
 import net.wurstclient.hack.Hack;
 
-@SearchTags({"camera noclip", "camera no clip"})
+@SearchTags({"相机穿墙", "CameraNoClip"})
 public final class CameraNoClipHack extends Hack
 {
 	public CameraNoClipHack()

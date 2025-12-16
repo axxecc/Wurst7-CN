@@ -13,7 +13,7 @@ import net.wurstclient.SearchTags;
 import net.wurstclient.events.CactusCollisionShapeListener;
 import net.wurstclient.hack.Hack;
 
-@SearchTags({"NoCactus", "anti cactus", "no cactus"})
+@SearchTags({"反仙人掌", "AntiCactus"})
 public final class AntiCactusHack extends Hack
 	implements CactusCollisionShapeListener
 {

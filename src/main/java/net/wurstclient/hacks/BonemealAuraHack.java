@@ -40,8 +40,7 @@ import net.wurstclient.util.InteractionSimulator;
 import net.wurstclient.util.InventoryUtils;
 import net.wurstclient.util.RotationUtils;
 
-@SearchTags({"bonemeal aura", "bone meal aura", "AutoBonemeal", "auto bonemeal",
-	"auto bone meal", "fertilizer"})
+@SearchTags({"骨粉光环", "BonemealAura"})
 public final class BonemealAuraHack extends Hack implements HandleInputListener
 {
 	private final SliderSetting range =

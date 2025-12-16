@@ -17,8 +17,7 @@ import net.wurstclient.hack.Hack;
 import net.wurstclient.settings.CheckboxSetting;
 import net.wurstclient.settings.SliderSetting;
 
-@SearchTags({"boat fly", "BoatFlight", "boat flight", "EntitySpeed",
-	"entity speed"})
+@SearchTags({"载具飞行", "BoatFly"})
 public final class BoatFlyHack extends Hack implements UpdateListener
 {
 	private final CheckboxSetting changeForwardSpeed = new CheckboxSetting(

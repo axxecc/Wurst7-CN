@@ -14,7 +14,7 @@ import net.wurstclient.events.UpdateListener;
 import net.wurstclient.hack.Hack;
 import net.wurstclient.settings.CheckboxSetting;
 
-@SearchTags({"auto sprint"})
+@SearchTags({"自动疾跑", "AutoSprint"})
 public final class AutoSprintHack extends Hack implements UpdateListener
 {
 	private final CheckboxSetting allDirections =

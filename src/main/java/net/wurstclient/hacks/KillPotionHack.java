@@ -26,8 +26,7 @@ import net.wurstclient.settings.EnumSetting;
 import net.wurstclient.util.ChatUtils;
 import net.wurstclient.util.InventoryUtils;
 
-@SearchTags({"kill potion", "KillerPotion", "killer potion", "KillingPotion",
-	"killing potion", "InstantDeathPotion", "instant death potion"})
+@SearchTags({"杀戮神药", "KillerPotion"})
 public final class KillPotionHack extends Hack
 {
 	private final EnumSetting<PotionType> potionType =
@@ -69,7 +68,7 @@ public final class KillPotionHack extends Hack
 		
 		setEnabled(false);
 	}
-
+	
 	private enum PotionType
 	{
 		NORMAL("正常", "", Items.POTION),

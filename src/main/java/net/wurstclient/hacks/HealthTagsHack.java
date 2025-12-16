@@ -15,7 +15,7 @@ import net.wurstclient.Category;
 import net.wurstclient.SearchTags;
 import net.wurstclient.hack.Hack;
 
-@SearchTags({"health tags"})
+@SearchTags({"生命标签", "HealthTags"})
 public final class HealthTagsHack extends Hack
 {
 	public HealthTagsHack()

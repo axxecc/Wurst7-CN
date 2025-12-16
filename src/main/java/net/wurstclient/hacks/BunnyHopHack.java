@@ -16,7 +16,7 @@ import net.wurstclient.events.UpdateListener;
 import net.wurstclient.hack.Hack;
 import net.wurstclient.settings.EnumSetting;
 
-@SearchTags({"AutoJump", "BHop", "bunny hop", "auto jump"})
+@SearchTags({"自动跳跃", "AutoJump"})
 public final class BunnyHopHack extends Hack implements UpdateListener
 {
 	private final EnumSetting<JumpIf> jumpIf =

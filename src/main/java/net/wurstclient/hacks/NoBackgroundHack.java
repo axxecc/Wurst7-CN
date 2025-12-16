@@ -14,8 +14,7 @@ import net.wurstclient.SearchTags;
 import net.wurstclient.hack.Hack;
 import net.wurstclient.settings.CheckboxSetting;
 
-@SearchTags({"no background", "NoGuiBackground", "no gui background",
-	"NoGradient", "no gradient"})
+@SearchTags({"无深色背景", "NoBackground"})
 public final class NoBackgroundHack extends Hack
 {
 	public final CheckboxSetting allGuis = new CheckboxSetting("所有GUI",

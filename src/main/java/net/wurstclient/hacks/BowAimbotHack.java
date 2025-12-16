@@ -40,7 +40,7 @@ import net.wurstclient.util.EntityUtils;
 import net.wurstclient.util.RenderUtils;
 import net.wurstclient.util.RotationUtils;
 
-@SearchTags({"bow aimbot"})
+@SearchTags({"弓箭自瞄", "BowAimbot"})
 public final class BowAimbotHack extends Hack
 	implements UpdateListener, RenderListener, GUIRenderListener
 {

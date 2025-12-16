@@ -13,7 +13,7 @@ import net.wurstclient.hack.Hack;
 import net.wurstclient.settings.SliderSetting;
 import net.wurstclient.settings.SliderSetting.ValueDisplay;
 
-@SearchTags({"high jump"})
+@SearchTags({"高跳", "HighJump"})
 public final class HighJumpHack extends Hack
 {
 	private final SliderSetting height = new SliderSetting("高度",

@@ -40,7 +40,7 @@ import net.wurstclient.settings.SliderSetting.ValueDisplay;
 import net.wurstclient.util.InventoryUtils;
 import net.wurstclient.util.ItemUtils;
 
-@SearchTags({"auto armor"})
+@SearchTags({"自动盔甲", "AutoArmor"})
 public final class AutoArmorHack extends Hack
 	implements UpdateListener, PacketOutputListener
 {

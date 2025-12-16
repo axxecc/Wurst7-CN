@@ -32,13 +32,12 @@ public final class TooManyHaxCmd extends Command
 	public TooManyHaxCmd()
 	{
 		super("toomanyhax",
-			"Allows to manage which hacks should be blocked\n"
-				+ "when TooManyHax is enabled.",
-			".toomanyhax block <feature>", ".toomanyhax unblock <feature>",
+			"允许在启用TooManyHax时管理哪些功能需要被阻止",
+			".toomanyhax block <功能>", ".toomanyhax unblock <功能>",
 			".toomanyhax block-all", ".toomanyhax unblock-all",
-			".toomanyhax list [<page>]", ".toomanyhax load-profile <file>",
-			".toomanyhax save-profile <file>",
-			".toomanyhax list-profiles [<page>]",
+			".toomanyhax list [<页码>]", ".toomanyhax load-profile <文件>",
+			".toomanyhax save-profile <文件>",
+			".toomanyhax list-profiles [<页码>]",
 			"Profiles are saved in '.minecraft/wurst/toomanyhax'.");
 	}
 	
@@ -182,16 +181,16 @@ public final class TooManyHaxCmd extends Command
 		pages = Math.max(pages, 1);
 		
 		if(page > pages || page < 1)
-			throw new CmdSyntaxError("Invalid page: " + page);
+			throw new CmdSyntaxError("无效页码: " + page);
 		
-		String total = "Total: " + blocked.size() + " blocked feature";
+		String total = "共有: " + blocked.size() + " 条方块功能";
 		total += blocked.size() != 1 ? "s" : "";
 		ChatUtils.message(total);
 		
 		int start = (page - 1) * 8;
 		int end = Math.min(page * 8, blocked.size());
 		
-		ChatUtils.message("TooManyHax list (page " + page + "/" + pages + ")");
+		ChatUtils.message("TooManyHax列表 (页码 " + page + "/" + pages + ")");
 		for(int i = start; i < end; i++)
 			ChatUtils.message(blocked.get(i).getName());
 	}
@@ -202,7 +201,7 @@ public final class TooManyHaxCmd extends Command
 			return 1;
 		
 		if(!MathUtils.isInteger(args[1]))
-			throw new CmdSyntaxError("Not a number: " + args[1]);
+			throw new CmdSyntaxError("不是数字: " + args[1]);
 		
 		return Integer.parseInt(args[1]);
 	}
@@ -275,9 +274,9 @@ public final class TooManyHaxCmd extends Command
 		pages = Math.max(pages, 1);
 		
 		if(page > pages || page < 1)
-			throw new CmdSyntaxError("Invalid page: " + page);
+			throw new CmdSyntaxError("无效页码: " + page);
 		
-		String total = "Total: " + files.size() + " profile";
+		String total = "共有: " + files.size() + " profile";
 		total += files.size() != 1 ? "s" : "";
 		ChatUtils.message(total);
 		
@@ -285,7 +284,7 @@ public final class TooManyHaxCmd extends Command
 		int end = Math.min(page * 8, files.size());
 		
 		ChatUtils.message(
-			"TooManyHax profile list (page " + page + "/" + pages + ")");
+			"TooManyHax profile list (页码 " + page + "/" + pages + ")");
 		for(int i = start; i < end; i++)
 			ChatUtils.message(files.get(i).getFileName().toString());
 	}

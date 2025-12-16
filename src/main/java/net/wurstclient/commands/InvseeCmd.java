@@ -25,8 +25,8 @@ public final class InvseeCmd extends Command implements RenderListener
 	public InvseeCmd()
 	{
 		super("invsee",
-			"Allows you to see parts of another player's inventory.",
-			".invsee <player>");
+			"允许你查看其他玩家物品栏的部分内容",
+			".invsee <玩家>");
 	}
 	
 	@Override
@@ -37,7 +37,7 @@ public final class InvseeCmd extends Command implements RenderListener
 		
 		if(MC.player.getAbilities().instabuild)
 		{
-			ChatUtils.error("Survival mode only.");
+			ChatUtils.error("仅限生存模式");
 			return;
 		}
 		
@@ -61,14 +61,14 @@ public final class InvseeCmd extends Command implements RenderListener
 			if(!otherPlayerName.equalsIgnoreCase(targetName))
 				continue;
 			
-			ChatUtils.message("Showing inventory of " + otherPlayerName + ".");
+			ChatUtils.message("展示玩家 " + otherPlayerName + " 物品栏");
 			MC.setScreen(new InventoryScreen(player));
 			found = true;
 			break;
 		}
 		
 		if(!found)
-			ChatUtils.error("Player not found.");
+			ChatUtils.error("玩家未找到");
 		
 		targetName = null;
 		EVENTS.remove(RenderListener.class, this);

@@ -57,8 +57,7 @@ public final class WurstLogoOtf extends OtherFeature
 	{
 		ALWAYS("显示", () -> true),
 
-		ONLY_OUTDATED("隐藏",
-			() -> false);
+		ONLY_OUTDATED("隐藏", () -> false);
 		
 		private final String name;
 		private final BooleanSupplier visible;

@@ -13,7 +13,7 @@ import net.wurstclient.hack.Hack;
 import net.wurstclient.settings.CheckboxSetting;
 import net.wurstclient.settings.SliderSetting;
 
-@SearchTags({"name tags"})
+@SearchTags({"名称标签", "NameTags"})
 public final class NameTagsHack extends Hack
 {
 	private final SliderSetting scale =

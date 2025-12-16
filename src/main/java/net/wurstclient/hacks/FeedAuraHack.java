@@ -39,8 +39,7 @@ import net.wurstclient.util.EntityUtils;
 import net.wurstclient.util.RenderUtils;
 import net.wurstclient.util.RotationUtils;
 
-@SearchTags({"feed aura", "BreedAura", "breed aura", "AutoBreeder",
-	"auto breeder"})
+@SearchTags({"喂养光环", "FeedAura"})
 public final class FeedAuraHack extends Hack
 	implements UpdateListener, HandleInputListener, RenderListener
 {

@@ -26,7 +26,7 @@ public final class WurstLogo
 		WurstLogoOtf otf = WURST.getOtfs().wurstLogoOtf;
 		if(!otf.isVisible())
 			return;
-
+		
 		String version = getVersionString();
 		Font tr = WurstClient.MC.font;
 		

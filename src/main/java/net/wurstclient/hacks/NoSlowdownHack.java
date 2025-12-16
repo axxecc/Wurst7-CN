@@ -11,7 +11,7 @@ import net.wurstclient.Category;
 import net.wurstclient.SearchTags;
 import net.wurstclient.hack.Hack;
 
-@SearchTags({"no slowdown", "no slow down"})
+@SearchTags({"无减速", "NoSlow"})
 public final class NoSlowdownHack extends Hack
 {
 	public NoSlowdownHack()

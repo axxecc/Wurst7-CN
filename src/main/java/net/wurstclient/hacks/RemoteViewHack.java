@@ -26,7 +26,7 @@ import net.wurstclient.settings.filterlists.RemoteViewFilterList;
 import net.wurstclient.util.ChatUtils;
 import net.wurstclient.util.FakePlayerEntity;
 
-@SearchTags({"remote view"})
+@SearchTags({"其它视角", "RemoteView"})
 @DontSaveState
 public final class RemoteViewHack extends Hack
 	implements UpdateListener, PacketOutputListener

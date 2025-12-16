@@ -20,16 +20,16 @@ public final class RenameCmd extends Command
 {
 	public RenameCmd()
 	{
-		super("rename", "Renames the item in your hand.", ".rename <new_name>",
-			"Use $ for colors, use $$ for $.", "Example:", ".rename $cRed Name",
-			"(changes the item's name to \u00a7cRed Name\u00a7r)");
+		super("rename", "重新命名手中的物品", ".rename <名字>",
+			"用$表示颜色，用$$表示$", "示例:", ".rename $c红色名字",
+			"(将物品名称更改为 \u00a7c红色名字\u00a7r)");
 	}
 	
 	@Override
 	public void call(String[] args) throws CmdException
 	{
 		if(!MC.player.getAbilities().instabuild)
-			throw new CmdError("Creative mode only.");
+			throw new CmdError("仅限创造模式");
 		
 		if(args.length == 0)
 			throw new CmdSyntaxError();
@@ -42,9 +42,9 @@ public final class RenameCmd extends Command
 		ItemStack stack = MC.player.getInventory().getSelectedItem();
 		
 		if(stack == null)
-			throw new CmdError("There is no item in your hand.");
+			throw new CmdError("你主手剖没有物品");
 		
 		stack.set(DataComponents.CUSTOM_NAME, Component.literal(message));
-		ChatUtils.message("Renamed item to \"\u00a7o" + message + "\u00a7r\".");
+		ChatUtils.message("重命名物品为 \"\u00a7o" + message);
 	}
 }

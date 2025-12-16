@@ -14,14 +14,14 @@ public final class UnbindCmd extends Command
 {
 	public UnbindCmd()
 	{
-		super("unbind", "Shortcut for '.binds remove'.", ".unbind <key>",
-			"Use .binds for more options.");
+		super("unbind", "'.binds remove' 的快捷键", ".unbind <键>",
+			"使用 .binds 来获得更多选项");
 	}
 	
 	@Override
 	public void call(String[] args) throws CmdException
 	{
 		WURST.getCmdProcessor()
-			.process("binds remove " + String.join(" ", args));
+			.process("解除绑定 " + String.join(" ", args));
 	}
 }

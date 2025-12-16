@@ -11,7 +11,7 @@ import net.wurstclient.Category;
 import net.wurstclient.SearchTags;
 import net.wurstclient.hack.Hack;
 
-@SearchTags({"no hurtcam", "no hurt cam"})
+@SearchTags({"无视角摇晃", "NoHurtcam"})
 public final class NoHurtcamHack extends Hack
 {
 	public NoHurtcamHack()

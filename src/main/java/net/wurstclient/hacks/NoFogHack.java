@@ -11,7 +11,7 @@ import net.wurstclient.Category;
 import net.wurstclient.SearchTags;
 import net.wurstclient.hack.Hack;
 
-@SearchTags({"no fog", "AntiFog", "anti fog"})
+@SearchTags({"无雾", "NoFog"})
 public final class NoFogHack extends Hack
 {
 	public NoFogHack()

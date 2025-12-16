@@ -16,7 +16,7 @@ import net.wurstclient.mixinterface.IKeyBinding;
 import net.wurstclient.settings.CheckboxSetting;
 import net.wurstclient.settings.EnumSetting;
 
-@SearchTags({"AutoSneaking"})
+@SearchTags({"保持潜行", "AutoSneaking"})
 public final class SneakHack extends Hack
 	implements PreMotionListener, PostMotionListener
 {

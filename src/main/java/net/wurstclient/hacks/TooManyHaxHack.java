@@ -25,8 +25,7 @@ import net.wurstclient.TooManyHaxFile;
 import net.wurstclient.hack.Hack;
 import net.wurstclient.util.json.JsonException;
 
-@SearchTags({"too many hax", "TooManyHacks", "too many hacks", "YesCheat+",
-	"YesCheatPlus", "yes cheat plus"})
+@SearchTags({"屏蔽功能", "TooManyHacks"})
 @DontBlock
 public final class TooManyHaxHack extends Hack
 {

@@ -12,7 +12,7 @@ import net.wurstclient.SearchTags;
 import net.wurstclient.events.UpdateListener;
 import net.wurstclient.hack.Hack;
 
-@SearchTags({"fast place"})
+@SearchTags({"快速放置", "FastPlace"})
 public final class FastPlaceHack extends Hack implements UpdateListener
 {
 	public FastPlaceHack()

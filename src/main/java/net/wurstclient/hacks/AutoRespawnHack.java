@@ -14,7 +14,7 @@ import net.wurstclient.events.DeathListener;
 import net.wurstclient.hack.Hack;
 import net.wurstclient.settings.CheckboxSetting;
 
-@SearchTags({"auto respawn", "AutoRevive", "auto revive"})
+@SearchTags({"自动重生", "AutoRespawn"})
 public final class AutoRespawnHack extends Hack implements DeathListener
 {
 	private final CheckboxSetting button =

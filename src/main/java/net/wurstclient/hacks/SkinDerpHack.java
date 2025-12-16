@@ -15,7 +15,7 @@ import net.wurstclient.SearchTags;
 import net.wurstclient.events.UpdateListener;
 import net.wurstclient.hack.Hack;
 
-@SearchTags({"SpookySkin", "spooky skin", "SkinBlinker", "skin blinker"})
+@SearchTags({"随机切换皮肤", "SkinDerp"})
 public final class SkinDerpHack extends Hack implements UpdateListener
 {
 	private final Random random = new Random();

@@ -19,7 +19,7 @@ import net.wurstclient.settings.CheckboxSetting;
 import net.wurstclient.settings.SliderSetting;
 import net.wurstclient.settings.SliderSetting.ValueDisplay;
 
-@SearchTags({"FlyHack", "fly hack", "flying"})
+@SearchTags({"生存飞行", "FlyHack"})
 public final class FlightHack extends Hack
 	implements UpdateListener, IsPlayerInWaterListener, AirStrafingSpeedListener
 {
