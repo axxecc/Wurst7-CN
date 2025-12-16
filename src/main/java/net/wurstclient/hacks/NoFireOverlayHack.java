@@ -13,7 +13,7 @@ import net.wurstclient.hack.Hack;
 import net.wurstclient.settings.SliderSetting;
 import net.wurstclient.settings.SliderSetting.ValueDisplay;
 
-@SearchTags({"no fire overlay"})
+@SearchTags({"无火焰贴图", "NoFireOver"})
 public final class NoFireOverlayHack extends Hack
 {
 	private final SliderSetting offset =

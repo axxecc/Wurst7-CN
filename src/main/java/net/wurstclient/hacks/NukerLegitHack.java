@@ -40,7 +40,7 @@ import net.wurstclient.util.BlockUtils;
 import net.wurstclient.util.OverlayRenderer;
 import net.wurstclient.util.RotationUtils;
 
-@SearchTags({"LegitNuker", "nuker legit", "legit nuker"})
+@SearchTags({"挖掘光环合法", "NukerLegit"})
 public final class NukerLegitHack extends Hack
 	implements UpdateListener, HandleBlockBreakingListener, RenderListener
 {

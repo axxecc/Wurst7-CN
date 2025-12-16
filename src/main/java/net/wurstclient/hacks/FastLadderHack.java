@@ -14,7 +14,7 @@ import net.wurstclient.SearchTags;
 import net.wurstclient.events.UpdateListener;
 import net.wurstclient.hack.Hack;
 
-@SearchTags({"FastClimb", "fast ladder", "fast climb"})
+@SearchTags({"快速爬梯", "FastClimb"})
 public final class FastLadderHack extends Hack implements UpdateListener
 {
 	public FastLadderHack()

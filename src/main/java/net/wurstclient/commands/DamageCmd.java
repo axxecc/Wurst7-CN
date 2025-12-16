@@ -19,10 +19,10 @@ public final class DamageCmd extends Command
 {
 	public DamageCmd()
 	{
-		super("damage", "Applies the given amount of damage.",
-			".damage <amount>", "Note: The amount is in half-hearts.",
-			"Example: .damage 7 (applies 3.5 hearts)",
-			"To apply more damage, run the command multiple times.");
+		super("damage", "对自己造成指定的伤害",
+			".damage <值>", "注: 值以半心表示",
+			"示例: .damage 7 (施加3.5心)",
+			"要造成更多伤害, 可以多次执行该命令");
 	}
 	
 	@Override
@@ -32,7 +32,7 @@ public final class DamageCmd extends Command
 			throw new CmdSyntaxError();
 		
 		if(MC.player.getAbilities().instabuild)
-			throw new CmdError("Cannot damage in creative mode.");
+			throw new CmdError("创造模式下无法造成伤害");
 		
 		int amount = parseAmount(args[0]);
 		applyDamage(amount);
@@ -41,15 +41,15 @@ public final class DamageCmd extends Command
 	private int parseAmount(String dmgString) throws CmdSyntaxError
 	{
 		if(!MathUtils.isInteger(dmgString))
-			throw new CmdSyntaxError("Not a number: " + dmgString);
+			throw new CmdSyntaxError("不是数字: " + dmgString);
 		
 		int dmg = Integer.parseInt(dmgString);
 		
 		if(dmg < 1)
-			throw new CmdSyntaxError("Minimum amount is 1.");
+			throw new CmdSyntaxError("最低值为 1");
 		
 		if(dmg > 7)
-			throw new CmdSyntaxError("Maximum amount is 7.");
+			throw new CmdSyntaxError("最大值为 7");
 		
 		return dmg;
 	}

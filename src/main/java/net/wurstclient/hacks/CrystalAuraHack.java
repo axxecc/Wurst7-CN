@@ -44,18 +44,18 @@ import net.wurstclient.util.FakePlayerEntity;
 import net.wurstclient.util.InventoryUtils;
 import net.wurstclient.util.RotationUtils;
 
-@SearchTags({"crystal aura"})
+@SearchTags({"水晶光环", "CrystalAura"})
 public final class CrystalAuraHack extends Hack implements UpdateListener
 {
 	private final SliderSetting range = new SliderSetting("范围",
-		"确定水晶光环放置和引爆水晶的距离。",
+		"确定水晶光环放置和引爆水晶的距离",
 		6, 1, 6, 0.05, ValueDisplay.DECIMAL);
 	
 	private final CheckboxSetting autoPlace = new CheckboxSetting(
 		"自动放置水晶",
 		"启用后, 水晶光环会自动将水晶放置在有效实体附近\n禁用后, 水晶光环只会引爆手动放置的水晶",
 		true);
-
+	
 	private final CheckboxSetting checkLOS = new CheckboxSetting(
 		"检查视线",
 		"确保你在放置或左键点击末地水晶时不会穿过方块\n\n速度较慢, 但可以帮助反作弊插件",
@@ -63,7 +63,7 @@ public final class CrystalAuraHack extends Hack implements UpdateListener
 	
 	private final FaceTargetSetting faceTarget =
 		FaceTargetSetting.withPacketSpam(this, FaceTarget.OFF);
-
+	
 	private final SwingHandSetting swingHand =
 		new SwingHandSetting(this, SwingHand.CLIENT);
 	

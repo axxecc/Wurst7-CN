@@ -34,7 +34,7 @@ import net.wurstclient.util.RenderUtils;
 import net.wurstclient.util.RenderUtils.ColoredBox;
 import net.wurstclient.util.RenderUtils.ColoredPoint;
 
-@SearchTags({"mob esp", "MobTracers", "mob tracers"})
+@SearchTags({"生物透视", "MobEsp"})
 public final class MobEspHack extends Hack implements UpdateListener,
 	CameraTransformViewBobbingListener, RenderListener
 {

@@ -20,7 +20,7 @@ public final class FeaturesCmd extends Command
 	public FeaturesCmd()
 	{
 		super("features",
-			"Shows the number of features and some other\n" + "statistics.",
+			"显示功能数量及其他统计数据",
 			".features");
 	}
 	
@@ -32,7 +32,7 @@ public final class FeaturesCmd extends Command
 		
 		if(WurstClient.VERSION.startsWith("7.0pre"))
 			ChatUtils.warning(
-				"This is just a pre-release! It doesn't (yet) have all of the features of Wurst 7.0! See download page for details.");
+				"这只是预发布！它还没有 (目前) 拥有Wurst");
 		
 		int hax = WURST.getHax().countHax();
 		int cmds = WURST.getCmds().countCmds();

@@ -35,8 +35,7 @@ import net.wurstclient.util.EntityUtils;
 import net.wurstclient.util.RenderUtils;
 import net.wurstclient.util.RotationUtils;
 
-@SearchTags({"ArrowTrajectories", "ArrowPrediction", "aim assist",
-	"arrow trajectories", "bow trajectories"})
+@SearchTags({"轨迹预测", "Trajectories"})
 public final class TrajectoriesHack extends Hack implements RenderListener
 {
 	private final ColorSetting missColor = new ColorSetting("未命中颜色",
@@ -44,7 +43,7 @@ public final class TrajectoriesHack extends Hack implements RenderListener
 	
 	private final ColorSetting entityHitColor =
 		new ColorSetting("击中实体颜色",
-			"击中实体时的轨迹颜色。", Color.RED);
+			"击中实体时的轨迹颜色", Color.RED);
 	
 	private final ColorSetting blockHitColor =
 		new ColorSetting("击中方块颜色",

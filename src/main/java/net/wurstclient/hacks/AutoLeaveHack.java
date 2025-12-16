@@ -19,8 +19,7 @@ import net.wurstclient.settings.SliderSetting;
 import net.wurstclient.settings.SliderSetting.ValueDisplay;
 import net.wurstclient.util.InventoryUtils;
 
-@SearchTags({"auto leave", "AutoDisconnect", "auto disconnect", "AutoQuit",
-	"auto quit"})
+@SearchTags({"自动登出", "AutoLeave"})
 public final class AutoLeaveHack extends Hack implements UpdateListener
 {
 	private final SliderSetting health = new SliderSetting("血量",
@@ -54,7 +53,7 @@ public final class AutoLeaveHack extends Hack implements UpdateListener
 	public String getRenderName()
 	{
 		if(MC.player != null && MC.player.getAbilities().instabuild)
-			return getName() + " (paused)";
+			return getName() + " (暂停)";
 		
 		return getName() + " [" + mode.getSelected() + "]";
 	}

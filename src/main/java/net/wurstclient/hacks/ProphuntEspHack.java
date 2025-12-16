@@ -21,7 +21,7 @@ import net.wurstclient.events.RenderListener;
 import net.wurstclient.hack.Hack;
 import net.wurstclient.util.RenderUtils;
 
-@SearchTags({"prophunt esp"})
+@SearchTags({"躲猫猫透视", "ProphuntEsp"})
 public final class ProphuntEspHack extends Hack implements RenderListener
 {
 	private static final AABB FAKE_BLOCK_BOX =

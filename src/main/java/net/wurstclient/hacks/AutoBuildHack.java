@@ -232,7 +232,7 @@ public final class AutoBuildHack extends Hack
 		{
 			BlockPos pos = entry.getKey();
 			Item item = entry.getValue();
-
+			
 			BlockPlacingParams params = BlockPlacer.getBlockPlacingParams(pos);
 			if(params == null || params.distanceSq() > rangeSq
 				|| checkLOS.isChecked() && !params.lineOfSight())
@@ -240,7 +240,7 @@ public final class AutoBuildHack extends Hack
 					return;
 				else
 					continue;
-
+				
 			if(useSavedBlocks.isChecked() && item != Items.AIR
 				&& !MC.player.getMainHandItem().is(item))
 			{

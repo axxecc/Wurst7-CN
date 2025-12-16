@@ -18,7 +18,7 @@ public final class AttackSpeedSliderSetting extends SliderSetting
 	
 	public AttackSpeedSliderSetting()
 	{
-		this("攻击速度", "description.wurst.setting.generic.attack_speed");
+		this("攻击速度", "以每秒点击次数计算的攻击速度\n0 = 根据你的攻击冷却时间动态调整攻击速度");
 	}
 	
 	public AttackSpeedSliderSetting(String name, String description)

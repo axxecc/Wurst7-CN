@@ -26,14 +26,14 @@ public final class FilterArmorStandsSetting extends EntityFilterCheckbox
 	public static FilterArmorStandsSetting genericCombat(boolean checked)
 	{
 		return new FilterArmorStandsSetting(
-			"description.wurst.setting.generic.filter_armor_stands_combat",
+			"不会攻击盔甲架",
 			checked);
 	}
 	
 	public static FilterArmorStandsSetting genericVision(boolean checked)
 	{
 		return new FilterArmorStandsSetting(
-			"description.wurst.setting.generic.filter_armor_stands_vision",
+			"不会显示盔甲架",
 			checked);
 	}
 }

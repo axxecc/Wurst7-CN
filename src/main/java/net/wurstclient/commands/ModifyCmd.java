@@ -19,7 +19,7 @@ import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.core.component.DataComponentMap;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.item.ItemStack;
 import net.wurstclient.command.CmdError;
@@ -33,11 +33,11 @@ public final class ModifyCmd extends Command
 {
 	public ModifyCmd()
 	{
-		super("modify", "Allows you to modify component data of items.",
-			".modify set <type> <value>", ".modify remove <type>",
-			"Use $ for colors, use $$ for $.", "", "Example:",
-			".modify set custom_name \"\\\"$cRed Name\\\"\"",
-			"(changes the item's name to \u00a7cRed Name\u00a7r)");
+		super("modify", "允许你修改物品的组件数据",
+			".modify set <类型> <值>", ".modify remove <类型>",
+			"用$表示颜色，用$$表示$", "", "示例:",
+			".modify set custom_name {\"text\":\"$c红色名字\"}",
+			"(将物品名称更改为 \u00a7c红色名字\u00a7r)");
 	}
 	
 	@Override
@@ -45,15 +45,15 @@ public final class ModifyCmd extends Command
 	{
 		LocalPlayer player = MC.player;
 		if(!player.getAbilities().instabuild)
-			throw new CmdError("Creative mode only.");
+			throw new CmdError("仅限创造模式");
 		if(args.length < 2)
 			throw new CmdSyntaxError();
 		
 		Inventory inventory = player.getInventory();
-		int slot = inventory.selected;
-		ItemStack stack = inventory.getSelected();
+		int slot = inventory.getSelectedSlot();
+		ItemStack stack = inventory.getSelectedItem();
 		if(stack == null)
-			throw new CmdError("You must hold an item in your main hand.");
+			throw new CmdError("你必须用主手拿着物品");
 		
 		switch(args[0].toLowerCase())
 		{
@@ -70,7 +70,7 @@ public final class ModifyCmd extends Command
 		}
 		
 		InventoryUtils.setCreativeStack(slot, stack);
-		ChatUtils.message("Item modified.");
+		ChatUtils.message("物品已修改");
 	}
 	
 	private void set(ItemStack stack, String[] args) throws CmdException
@@ -106,11 +106,11 @@ public final class ModifyCmd extends Command
 		throws CmdError
 	{
 		DataComponentType<?> type = BuiltInRegistries.DATA_COMPONENT_TYPE
-			.getValue(ResourceLocation.tryParse(typeName));
+			.getValue(Identifier.tryParse(typeName));
 		
 		if(type == null)
 			throw new CmdError(
-				"Component type \"" + typeName + "\" does not exist.");
+				"组件类型 \"" + typeName + "\" 不存在");
 		
 		return type;
 	}

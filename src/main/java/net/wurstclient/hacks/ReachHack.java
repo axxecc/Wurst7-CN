@@ -13,7 +13,7 @@ import net.wurstclient.hack.Hack;
 import net.wurstclient.settings.SliderSetting;
 import net.wurstclient.settings.SliderSetting.ValueDisplay;
 
-@SearchTags({"Reach"})
+@SearchTags({"距离", "Reach"})
 public final class ReachHack extends Hack
 {
 	private final SliderSetting range =

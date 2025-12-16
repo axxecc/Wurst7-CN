@@ -14,7 +14,7 @@ import net.wurstclient.events.UpdateListener;
 import net.wurstclient.hack.Hack;
 import net.wurstclient.util.Rotation;
 
-@SearchTags({"head roll", "nodding", "yes"})
+@SearchTags({"点头", "HeadRoll"})
 public final class HeadRollHack extends Hack implements UpdateListener
 {
 	public HeadRollHack()

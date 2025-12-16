@@ -39,14 +39,14 @@ public final class FilterZombiePiglinsSetting
 	public static FilterZombiePiglinsSetting genericCombat(Mode selected)
 	{
 		return new FilterZombiePiglinsSetting(
-			"description.wurst.setting.generic.filter_zombie_piglins_combat",
+			"当设置为 §l开启§r 时, 僵尸猪灵根本不会受到攻击\n\n当设置为 §l如果愤怒§r 时, 僵尸猪灵在先攻击之前不会受到攻击. 请注意, 此过滤器无法检测僵尸猪灵是否正在攻击您或其他人\n\n当设置为 §l关闭§r 时, 此过滤器不执行任何操作, 僵尸猪灵可能会受到攻击",
 			selected);
 	}
 	
 	public static FilterZombiePiglinsSetting genericVision(Mode selected)
 	{
 		return new FilterZombiePiglinsSetting(
-			"description.wurst.setting.generic.filter_zombie_piglins_vision",
+			"当设置为 §l开启§r 时, 僵尸猪灵将完全不显示\n\n当设置为 §l如果愤怒§r 时, 僵尸猪灵不会显示, 直到它们攻击某物\n\n当设置为 §l关闭§r 时, 此过滤器不执行任何作, 僵尸猪灵可以显示",
 			selected);
 	}
 	

@@ -31,7 +31,7 @@ import net.wurstclient.settings.filterlists.EntityFilterList;
 import net.wurstclient.util.EntityUtils;
 import net.wurstclient.util.RotationUtils;
 
-@SearchTags({"TpAura", "tp aura", "EnderAura", "Ender-Aura", "ender aura"})
+@SearchTags({"TP-光环", "TpAura"})
 public final class TpAuraHack extends Hack implements UpdateListener
 {
 	private final Random random = new Random();

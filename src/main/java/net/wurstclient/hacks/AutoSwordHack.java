@@ -29,7 +29,7 @@ import net.wurstclient.settings.SliderSetting.ValueDisplay;
 import net.wurstclient.util.EntityUtils;
 import net.wurstclient.util.ItemUtils;
 
-@SearchTags({"auto sword"})
+@SearchTags({"自动武器", "AutoSword"})
 public final class AutoSwordHack extends Hack implements UpdateListener
 {
 	private final EnumSetting<Priority> priority =
@@ -189,8 +189,8 @@ public final class AutoSwordHack extends Hack implements UpdateListener
 	
 	private enum Priority
 	{
-		SPEED("速度 (剑) "),
-		DAMAGE("伤害 (斧) ");
+		SPEED("速度 (剑)"),
+		DAMAGE("伤害 (斧)");
 		
 		private final String name;
 		

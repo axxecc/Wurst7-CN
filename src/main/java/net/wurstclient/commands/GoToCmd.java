@@ -35,9 +35,9 @@ public final class GoToCmd extends Command
 	
 	public GoToCmd()
 	{
-		super("goto", "Walks or flies you to a specific location.",
-			".goto <x> <y> <z>", ".goto <entity>", ".goto -path",
-			"Turn off: .goto");
+		super("goto", "带你走路或飞到特定地点",
+			".goto <x> <y> <z>", ".goto <实体>", ".goto -path",
+			"关闭: .goto");
 	}
 	
 	@Override
@@ -57,7 +57,7 @@ public final class GoToCmd extends Command
 		{
 			BlockPos goal = WURST.getCmds().pathCmd.getLastGoal();
 			if(goal == null)
-				throw new CmdError("No previous position on .path.");
+				throw new CmdError("之前没有任何位置在 .path 上");
 			pathFinder = new PathFinder(goal);
 		}else
 		{
@@ -76,7 +76,7 @@ public final class GoToCmd extends Command
 		switch(args.length)
 		{
 			default:
-			throw new CmdSyntaxError("Invalid coordinates.");
+			throw new CmdSyntaxError("坐标无效");
 			
 			case 1:
 			return argsToEntityPos(args[0]);
@@ -119,7 +119,7 @@ public final class GoToCmd extends Command
 				&& MathUtils.isInteger(xyz[i].substring(1)))
 				pos[i] = player[i] + Integer.parseInt(xyz[i].substring(1));
 			else
-				throw new CmdSyntaxError("Invalid coordinates.");
+				throw new CmdSyntaxError("坐标无效");
 			
 		return new BlockPos(pos[0], pos[1], pos[2]);
 	}
@@ -138,7 +138,7 @@ public final class GoToCmd extends Command
 			{
 				if(pathFinder.isFailed())
 				{
-					ChatUtils.error("Could not find a path.");
+					ChatUtils.error("找不到合适的路径");
 					disable();
 				}
 				
@@ -150,14 +150,14 @@ public final class GoToCmd extends Command
 			// set processor
 			processor = pathFinder.getProcessor();
 			
-			System.out.println("Done");
+			System.out.println("完成");
 		}
 		
 		// check path
 		if(processor != null
 			&& !pathFinder.isPathStillValid(processor.getIndex()))
 		{
-			System.out.println("Updating path...");
+			System.out.println("更新路径...");
 			pathFinder = new PathFinder(pathFinder.getGoal());
 			return;
 		}

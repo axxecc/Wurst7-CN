@@ -27,7 +27,7 @@ import net.wurstclient.hack.Hack;
 import net.wurstclient.settings.CheckboxSetting;
 import net.wurstclient.util.BlockUtils;
 
-@SearchTags({"WaterWalking", "water walking"})
+@SearchTags({"水上行走", "Jesus"})
 public final class JesusHack extends Hack
 	implements UpdateListener, PacketOutputListener
 {

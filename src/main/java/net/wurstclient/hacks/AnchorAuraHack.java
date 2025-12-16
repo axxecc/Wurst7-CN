@@ -45,30 +45,30 @@ import net.wurstclient.util.FakePlayerEntity;
 import net.wurstclient.util.InventoryUtils;
 import net.wurstclient.util.RotationUtils;
 
-@SearchTags({"anchor aura", "CrystalAura", "crystal aura"})
+@SearchTags({"锚光环", "CrystalAura"})
 public final class AnchorAuraHack extends Hack implements UpdateListener
 {
 	private final SliderSetting range =
-		new SliderSetting("范围", "description.wurst.setting.anchoraura.range",
+		new SliderSetting("范围", "确定锚光环可以到达多远以放置、充能和引爆锚",
 			6, 1, 6, 0.05, ValueDisplay.DECIMAL);
 	
 	private final CheckboxSetting autoPlace =
 		new CheckboxSetting("自动放置锚",
-			"description.wurst.setting.anchoraura.auto-place_anchors", true);
-
+			"启用后, 锚光环会自动将锚点放置在有效实体附近\n禁用后, 锚光环将仅对手动放置的锚点进行充能和引爆", true);
+	
 	private final CheckboxSetting checkLOS =
 		new CheckboxSetting("检查视线",
-			"description.wurst.setting.anchoraura.check_line_of_sight", false);
+			"确保在放置或右键单击重生锚时不会穿过方块\n\n速度较慢, 但可以绕过反作弊插件", false);
 	
 	private final FaceTargetSetting faceTarget =
 		FaceTargetSetting.withPacketSpam(this, FaceTarget.OFF);
-
+	
 	private final SwingHandSetting swingHand =
 		new SwingHandSetting(this, SwingHand.CLIENT);
 	
 	private final EnumSetting<TakeItemsFrom> takeItemsFrom =
 		new EnumSetting<>("获取物品",
-			"description.wurst.setting.anchoraura.take_items_from",
+			"在哪里寻找重生锚和荧石",
 			TakeItemsFrom.values(), TakeItemsFrom.INVENTORY);
 	
 	private final EntityFilterList entityFilters =

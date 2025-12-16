@@ -33,7 +33,7 @@ import net.wurstclient.util.EasyVertexBuffer;
 import net.wurstclient.util.RegionPos;
 import net.wurstclient.util.RenderUtils;
 
-@SearchTags({"base finder", "factions"})
+@SearchTags({"基地查找器"})
 public final class BaseFinderHack extends Hack
 	implements UpdateListener, RenderListener
 {

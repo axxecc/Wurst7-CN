@@ -37,13 +37,13 @@ import net.wurstclient.settings.SwingHandSetting.SwingHand;
 import net.wurstclient.settings.filterlists.EntityFilterList;
 import net.wurstclient.util.EntityUtils;
 
-@SearchTags({"fight bot"})
+@SearchTags({"战斗机器人", "FightBot"})
 @DontSaveState
 public final class FightBotHack extends Hack
 	implements UpdateListener, RenderListener
 {
 	private final SliderSetting range = new SliderSetting("范围",
-		"攻击距离 (如杀戮光环) ", 4.25, 1, 6, 0.05, ValueDisplay.DECIMAL);
+		"攻击距离 (如杀戮光环)", 4.25, 1, 6, 0.05, ValueDisplay.DECIMAL);
 	
 	private final AttackSpeedSliderSetting speed =
 		new AttackSpeedSliderSetting();
@@ -56,7 +56,7 @@ public final class FightBotHack extends Hack
 		3, 1, 6, 0.05, ValueDisplay.DECIMAL);
 	
 	private final CheckboxSetting useAi =
-		new CheckboxSetting("使用 AI (实验性) ", false);
+		new CheckboxSetting("使用 AI (实验性)", false);
 	
 	private final PauseAttackOnContainersSetting pauseOnContainers =
 		new PauseAttackOnContainersSetting(true);

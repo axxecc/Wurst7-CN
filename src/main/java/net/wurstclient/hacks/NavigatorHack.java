@@ -15,13 +15,12 @@ import net.wurstclient.navigator.NavigatorMainScreen;
 
 @DontSaveState
 @DontBlock
-@SearchTags({"ClickGUI", "click gui", "SearchGUI", "search gui", "HackMenu",
-	"hack menu"})
+@SearchTags({"ClickGUI"})
 public final class NavigatorHack extends Hack
 {
 	public NavigatorHack()
 	{
-		super("navigator");
+		super("Navigator");
 	}
 	
 	@Override

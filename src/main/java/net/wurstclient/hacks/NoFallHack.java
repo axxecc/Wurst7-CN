@@ -16,15 +16,15 @@ import net.wurstclient.events.UpdateListener;
 import net.wurstclient.hack.Hack;
 import net.wurstclient.settings.CheckboxSetting;
 
-@SearchTags({"no fall"})
+@SearchTags({"无摔伤", "NoFall"})
 public final class NoFallHack extends Hack implements UpdateListener
 {
 	private final CheckboxSetting allowElytra = new CheckboxSetting(
-		"允许鞘翅", "description.wurst.setting.nofall.allow_elytra", false);
+		"允许鞘翅", "还会尝试在你使用鞘翅飞行时防止坠落伤害\n\nc§lEARNING：§r这有时会导致你意外停止飞行", false);
 	
 	private final CheckboxSetting pauseForMace =
 		new CheckboxSetting("暂停使用重锤",
-			"description.wurst.setting.nofall.pause_for_mace", false);
+			"手持重锤时暂停\"无摔伤\"效果, 以便你能够利用重锤的坠落距离加成\n\n§c§l警告：§r 手持重锤时，你将无法获得坠落伤害保护. 此外, 在坠落过程中切换至重锤或远离重锤都会中断坠落, 可能导致你受到伤害", false);
 	
 	public NoFallHack()
 	{
