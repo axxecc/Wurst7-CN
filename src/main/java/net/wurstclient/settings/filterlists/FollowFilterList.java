@@ -24,71 +24,71 @@ public final class FollowFilterList extends EntityFilterList
 		ArrayList<EntityFilter> builder = new ArrayList<>();
 		
 		builder.add(new FilterPlayersSetting(
-			"description.wurst.setting.follow.filter_players", false));
+			"不会跟随其他玩家", false));
 		
 		builder.add(new FilterSleepingSetting(
-			"description.wurst.setting.follow.filter_sleeping", false));
+			"不会跟随正在睡觉的玩家", false));
 		
 		builder.add(new FilterFlyingSetting(
-			"description.wurst.setting.follow.filter_flying", 0));
+			"不会跟随距离地面至少一定距离的玩家", 0));
 		
 		builder.add(new FilterHostileSetting(
 			"Won't follow hostile mobs like zombies and creepers.", true));
 		
 		builder.add(FilterNeutralSetting.onOffOnly(
-			"description.wurst.setting.follow.filter_neutral", true));
+			"不会跟随末影人和狼等中立生物", true));
 		
 		builder.add(new FilterPassiveSetting(
-			"Won't follow animals like pigs and cows, ambient mobs like bats, and water mobs like fish, squid and dolphins.",
+			"不会跟随猪和牛这样的动物, 不会追踪蝙蝠这样的环境生物, 也不会追踪像鱼、鱿鱼和海豚这样的水生物",
 			true));
 		
 		builder.add(new FilterPassiveWaterSetting(
-			"Won't follow passive water mobs like fish, squid, dolphins and axolotls.",
+			"不会跟随被动的水生物, 比如鱼, 鱿鱼, 海豚和美西螈",
 			true));
 		
 		builder.add(new FilterBabiesSetting(
-			"Won't follow baby pigs, baby villagers, etc.", true));
+			"不会跟随小猪, 小村民等", true));
 		
 		builder.add(new FilterBatsSetting(
-			"description.wurst.setting.follow.filter_bats", true));
+			"不会跟随蝙蝠和任何其他可能由模组添加的\"环境\"怪物", true));
 		
 		builder.add(new FilterSlimesSetting("Won't follow slimes.", true));
 		
 		builder.add(new FilterPetsSetting(
-			"description.wurst.setting.follow.filter_pets", true));
+			"不会跟随驯服的狼、驯服的马等", true));
 		
 		builder.add(new FilterVillagersSetting(
-			"description.wurst.setting.follow.filter_villagers", true));
+			"不会跟随村民和流浪商人", true));
 		
 		builder.add(new FilterZombieVillagersSetting(
-			"description.wurst.setting.follow.filter_zombie_villagers", true));
+			"不会跟随僵尸村民", true));
 		
 		builder.add(new FilterGolemsSetting(
-			"description.wurst.setting.follow.filter_golems", true));
+			"不会跟随铁傀儡和雪傀儡", true));
 		
 		builder
-			.add(FilterPiglinsSetting.onOffOnly("Won't follow piglins.", true));
+			.add(FilterPiglinsSetting.onOffOnly("不会跟随猪灵", true));
 		
 		builder.add(FilterZombiePiglinsSetting.onOffOnly(
-			"description.wurst.setting.follow.filter_zombie_piglins", true));
+			"不会跟随僵尸猪灵", true));
 		
 		builder.add(FilterEndermenSetting.onOffOnly(
-			"description.wurst.setting.follow.filter_endermen", true));
+			"不会跟随末影人", true));
 		
 		builder.add(new FilterShulkersSetting(
-			"description.wurst.setting.follow.filter_shulkers", true));
+			"不会跟随潜影贝", true));
 		
 		builder.add(new FilterAllaysSetting(
-			"description.wurst.setting.follow.filter_allays", true));
+			"不会跟随悦灵", true));
 		
 		builder.add(new FilterInvisibleSetting(
-			"description.wurst.setting.follow.filter_invisible", false));
+			"不会跟随看不见的实体", false));
 		
 		builder.add(new FilterArmorStandsSetting(
-			"description.wurst.setting.follow.filter_armor_stands", true));
+			"不会跟随盔甲架", true));
 		
 		builder.add(new FilterMinecartsSetting(
-			"description.wurst.setting.follow.filter_minecarts", true));
+			"不会跟随矿车", true));
 		
 		return new FollowFilterList(builder);
 	}

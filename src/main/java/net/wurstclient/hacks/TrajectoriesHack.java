@@ -43,7 +43,7 @@ public final class TrajectoriesHack extends Hack implements RenderListener
 	
 	private final ColorSetting entityHitColor =
 		new ColorSetting("击中实体颜色",
-			"击中实体时的轨迹颜色。", Color.RED);
+			"击中实体时的轨迹颜色", Color.RED);
 	
 	private final ColorSetting blockHitColor =
 		new ColorSetting("击中方块颜色",

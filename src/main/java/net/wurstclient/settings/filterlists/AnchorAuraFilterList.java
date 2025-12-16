@@ -23,74 +23,61 @@ public final class AnchorAuraFilterList extends EntityFilterList
 	{
 		ArrayList<EntityFilter> builder = new ArrayList<>();
 		String damageWarning =
-			"\n\nThey can still take damage if they get too close to a valid target or an existing anchor.";
+			"\n\n如果他们靠近有效目标或现有重生锚, 仍然会受到伤害";
 		
 		builder.add(new FilterPlayersSetting(
-			"Won't target other players when auto-placing anchors."
+			"锚光环不会锁定其他玩家"
 				+ damageWarning,
 			false));
 		
-		builder.add(new FilterHostileSetting("Won't target hostile mobs like"
-			+ " zombies and creepers when auto-placing anchors."
+		builder.add(new FilterHostileSetting("锚光环不会锁定敌对怪物, 比如僵尸和苦力怕"
 			+ damageWarning, true));
 		
-		builder.add(new FilterNeutralSetting("Won't target neutral mobs like"
-			+ " endermen and wolves when auto-placing anchors." + damageWarning,
+		builder.add(new FilterNeutralSetting("锚光环不会锁定中立怪物, 比如末影人和狼" + damageWarning,
 			AttackDetectingEntityFilter.Mode.ON));
 		
-		builder.add(new FilterPassiveSetting("Won't target animals like pigs"
-			+ " and cows, ambient mobs like bats, and water mobs like fish,"
-			+ " squid and dolphins when auto-placing anchors." + damageWarning,
+		builder.add(new FilterPassiveSetting("锚光环, 不会锁定猪和牛等动物, 蝙蝠等环境生物, 以及鱼, 鱿鱼和海豚等水生物" + damageWarning,
 			true));
 		
-		builder.add(new FilterPassiveWaterSetting("Won't target passive water"
-			+ " mobs like fish, squid, dolphins and axolotls when auto-placing"
-			+ " anchors." + damageWarning, true));
+		builder.add(new FilterPassiveWaterSetting("锚光环不会锁定被动水生物, 比如鱼, 鱿鱼, 海豚和美西螈" + damageWarning, true));
 		
-		builder.add(new FilterBatsSetting("Won't target bats and any other"
-			+ " \"ambient\" mobs when auto-placing anchors." + damageWarning,
+		builder.add(new FilterBatsSetting("锚光环不会锁定蝙蝠和其他\"环境\"怪物" + damageWarning,
 			true));
 		
-		builder.add(new FilterSlimesSetting("Won't target slimes when"
-			+ " auto-placing anchors." + damageWarning, true));
+		builder.add(new FilterSlimesSetting("锚光环不会锁定史莱姆" + damageWarning, true));
 		
-		builder.add(new FilterVillagersSetting("Won't target villagers and"
-			+ " wandering traders when auto-placing anchors." + damageWarning,
+		builder.add(new FilterVillagersSetting("锚光环不会锁定村民和游荡商人" + damageWarning,
 			true));
 		
-		builder.add(new FilterZombieVillagersSetting("Won't target zombified"
-			+ " villagers when auto-placing anchors." + damageWarning, true));
+		builder.add(new FilterZombieVillagersSetting("锚光环不会锁定僵尸村民" + damageWarning, true));
 		
-		builder.add(new FilterGolemsSetting("Won't target iron golems and snow"
-			+ " golems when auto-placing anchors." + damageWarning, true));
+		builder.add(new FilterGolemsSetting("锚光环不会锁定铁傀儡和雪傀儡" + damageWarning, true));
 		
 		builder.add(new FilterPiglinsSetting(
-			"Won't target piglins when auto-placing anchors.",
+			"锚光环不会锁定猪灵",
 			AttackDetectingEntityFilter.Mode.ON));
 		
-		builder.add(new FilterZombiePiglinsSetting("Won't target"
-			+ " zombified piglins when auto-placing anchors." + damageWarning,
+		builder.add(new FilterZombiePiglinsSetting("锚光环不会锁定僵尸化的猪灵" + damageWarning,
 			AttackDetectingEntityFilter.Mode.ON));
 		
-		builder.add(new FilterShulkersSetting("Won't target shulkers when"
-			+ " auto-placing anchors." + damageWarning, true));
+		builder.add(new FilterShulkersSetting("锚光环不会锁定潜影贝" + damageWarning, true));
 		
 		builder.add(new FilterAllaysSetting(
-			"Won't target allays when auto-placing anchors." + damageWarning,
+			"锚光环不会锁定悦灵" + damageWarning,
 			true));
 		
 		builder.add(new FilterInvisibleSetting(
-			"Won't target invisible entities when auto-placing anchors."
+			"锚光环不会锁定隐形实体"
 				+ damageWarning,
 			false));
 		
 		builder.add(new FilterNamedSetting(
-			"Won't target name-tagged entities when auto-placing anchors."
+			"锚光环不会锁定带有名称标签的实体"
 				+ damageWarning,
 			false));
 		
 		builder.add(new FilterArmorStandsSetting(
-			"Won't target armor stands when auto-placing anchors."
+			"锚光环不会锁定护甲架"
 				+ damageWarning,
 			true));
 		

@@ -25,12 +25,12 @@ public final class FilterNamedSetting extends EntityFilterCheckbox
 	public static FilterNamedSetting genericCombat(boolean checked)
 	{
 		return new FilterNamedSetting(
-			"description.wurst.setting.generic.filter_named_combat", checked);
+			"不会攻击带有名称标记的实体", checked);
 	}
 	
 	public static FilterNamedSetting genericVision(boolean checked)
 	{
 		return new FilterNamedSetting(
-			"description.wurst.setting.generic.filter_named_vision", checked);
+			"不会显示带有名称标记的实体", checked);
 	}
 }

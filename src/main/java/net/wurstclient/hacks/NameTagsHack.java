@@ -26,7 +26,7 @@ public final class NameTagsHack extends Hack
 	
 	private final CheckboxSetting seeThrough = new CheckboxSetting(
 		"透明模式",
-		"在透明文本图层上呈现名称标签。这使得它们在墙后更容易阅读, 但会导致水和其他透明物体出现一些图形故障",
+		"在透明文本图层上呈现名称标签. 这使得它们在墙后更容易阅读, 但会导致水和其他透明物体出现一些图形故障",
 		false);
 	
 	private final CheckboxSetting forceMobNametags = new CheckboxSetting(

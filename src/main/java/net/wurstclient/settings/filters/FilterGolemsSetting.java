@@ -27,12 +27,12 @@ public final class FilterGolemsSetting extends EntityFilterCheckbox
 	public static FilterGolemsSetting genericCombat(boolean checked)
 	{
 		return new FilterGolemsSetting(
-			"description.wurst.setting.generic.filter_golems_combat", checked);
+			"不会攻击铁傀儡和雪傀儡", checked);
 	}
 	
 	public static FilterGolemsSetting genericVision(boolean checked)
 	{
 		return new FilterGolemsSetting(
-			"description.wurst.setting.generic.filter_golems_vision", checked);
+			"不会显示铁傀儡和雪傀儡", checked);
 	}
 }

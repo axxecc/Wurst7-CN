@@ -74,7 +74,7 @@ public final class AutoLibrarianHack extends Hack
 	
 	private final CheckboxSetting lockInTrade = new CheckboxSetting(
 		"交易锁定",
-		"一旦村民学会了出售你想要的书, 它就会自动从村民那里购买东西。这可以防止村民以后更改其交易报价\n\n使用此功能时, 请确保您的库存中至少有 24 张纸和 9 颗绿宝石。或者, 1 本书和 64 颗绿宝石",
+		"一旦村民学会了出售你想要的书, 它就会自动从村民那里购买东西. 这可以防止村民以后更改其交易报价\n\n使用此功能时, 请确保您的库存中至少有 24 张纸和 9 颗绿宝石. 或者, 1 本书和 64 颗绿宝石",
 		false);
 	
 	private final UpdateBooksSetting updateBooks = new UpdateBooksSetting();
