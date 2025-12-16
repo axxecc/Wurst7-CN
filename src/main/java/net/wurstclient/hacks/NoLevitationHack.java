@@ -11,7 +11,7 @@ import net.wurstclient.Category;
 import net.wurstclient.SearchTags;
 import net.wurstclient.hack.Hack;
 
-@SearchTags({"no levitation", "levitation", "levitate"})
+@SearchTags({"无漂浮", "NoLevitation"})
 public final class NoLevitationHack extends Hack
 {
 	public NoLevitationHack()

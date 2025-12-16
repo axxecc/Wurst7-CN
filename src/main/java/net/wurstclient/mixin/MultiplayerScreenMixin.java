@@ -41,9 +41,9 @@ public class MultiplayerScreenMixin extends Screen
 	{
 		if(!WurstClient.INSTANCE.isEnabled())
 			return;
-
+		
 		JoinMultiplayerScreen mpScreen = (JoinMultiplayerScreen)(Object)this;
-
+		
 		// Add Last Server button early for better tab navigation
 		lastServerButton = Button
 			.builder(Component.nullToEmpty("上次的服务器"),
@@ -51,7 +51,7 @@ public class MultiplayerScreenMixin extends Screen
 			.width(100).build();
 		addRenderableWidget(lastServerButton);
 	}
-
+	
 	@Inject(at = @At(value = "INVOKE",
 		target = "Lnet/minecraft/client/gui/screens/multiplayer/JoinMultiplayerScreen;repositionElements()V",
 		ordinal = 0), method = "init()V")
@@ -63,14 +63,14 @@ public class MultiplayerScreenMixin extends Screen
 			return;
 		
 		JoinMultiplayerScreen mpScreen = (JoinMultiplayerScreen)(Object)this;
-
+		
 		Button serverFinderButton = Button
 			.builder(Component.nullToEmpty("服务器扫描"),
 				b -> minecraft.setScreen(new ServerFinderScreen(mpScreen)))
 			.width(100).build();
 		addRenderableWidget(serverFinderButton);
 		footerTopRow.addChild(serverFinderButton);
-
+		
 		Button cleanUpButton = Button
 			.builder(Component.nullToEmpty("清理服务器"),
 				b -> minecraft.setScreen(new CleanUpScreen(mpScreen)))
@@ -78,7 +78,7 @@ public class MultiplayerScreenMixin extends Screen
 		addRenderableWidget(cleanUpButton);
 		footerBottomRow.addChild(cleanUpButton);
 	}
-
+	
 	@Inject(at = @At("TAIL"), method = "repositionElements()V")
 	private void onRefreshWidgetPositions(CallbackInfo ci)
 	{

@@ -45,7 +45,7 @@ import net.wurstclient.util.BlockBreaker.BlockBreakingParams;
 import net.wurstclient.util.BlockUtils;
 import net.wurstclient.util.OverlayRenderer;
 
-@SearchTags({"tree bot"})
+@SearchTags({"自动砍树", "TreeBot"})
 @DontSaveState
 public final class TreeBotHack extends Hack
 	implements UpdateListener, RenderListener

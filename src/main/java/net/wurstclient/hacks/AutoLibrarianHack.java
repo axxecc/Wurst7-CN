@@ -59,9 +59,7 @@ import net.wurstclient.util.*;
 import net.wurstclient.util.BlockBreaker.BlockBreakingParams;
 import net.wurstclient.util.BlockPlacer.BlockPlacingParams;
 
-@SearchTags({"auto librarian", "AutoVillager", "auto villager",
-	"VillagerTrainer", "villager trainer", "LibrarianTrainer",
-	"librarian trainer", "AutoHmmm", "auto hmmm"})
+@SearchTags({"自动图书管理员", "AutoLibrarian"})
 public final class AutoLibrarianHack extends Hack
 	implements UpdateListener, RenderListener
 {

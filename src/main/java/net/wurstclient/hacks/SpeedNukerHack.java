@@ -30,7 +30,7 @@ import net.wurstclient.util.BlockBreaker;
 import net.wurstclient.util.BlockUtils;
 import net.wurstclient.util.RotationUtils;
 
-@SearchTags({"speed nuker", "FastNuker", "fast nuker"})
+@SearchTags({"快速Nuker", "FastNuker"})
 @DontSaveState
 public final class SpeedNukerHack extends Hack implements UpdateListener
 {

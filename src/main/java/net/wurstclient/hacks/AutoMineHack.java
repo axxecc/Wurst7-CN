@@ -22,7 +22,7 @@ import net.wurstclient.hack.Hack;
 import net.wurstclient.mixinterface.IKeyBinding;
 import net.wurstclient.settings.CheckboxSetting;
 
-@SearchTags({"auto mine", "AutoBreak", "auto break"})
+@SearchTags({"自动挖掘", "AutoMine"})
 public final class AutoMineHack extends Hack
 	implements UpdateListener, HandleBlockBreakingListener
 {

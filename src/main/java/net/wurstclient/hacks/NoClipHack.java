@@ -17,7 +17,7 @@ import net.wurstclient.events.SetOpaqueCubeListener;
 import net.wurstclient.events.UpdateListener;
 import net.wurstclient.hack.Hack;
 
-@SearchTags({"no clip"})
+@SearchTags({"穿墙", "NoClip"})
 public final class NoClipHack extends Hack
 	implements UpdateListener, PlayerMoveListener, IsNormalCubeListener,
 	SetOpaqueCubeListener, AirStrafingSpeedListener

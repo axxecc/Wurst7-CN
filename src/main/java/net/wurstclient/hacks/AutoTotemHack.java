@@ -22,7 +22,7 @@ import net.wurstclient.settings.SliderSetting;
 import net.wurstclient.settings.SliderSetting.ValueDisplay;
 import net.wurstclient.util.InventoryUtils;
 
-@SearchTags({"auto totem", "offhand", "off-hand"})
+@SearchTags({"自动图腾", "AutoTotem"})
 public final class AutoTotemHack extends Hack implements UpdateListener
 {
 	private final CheckboxSetting showCounter = new CheckboxSetting(

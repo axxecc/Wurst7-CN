@@ -33,15 +33,14 @@ import net.wurstclient.util.InteractionSimulator;
 import net.wurstclient.util.RenderUtils;
 import net.wurstclient.util.RotationUtils;
 
-@SearchTags({"build random", "RandomBuild", "random build", "PlaceRandom",
-	"place random", "RandomPlace", "random place"})
+@SearchTags({"随机建造", "RandomBuild"})
 public final class BuildRandomHack extends Hack
 	implements UpdateListener, RenderListener
 {
 	private final SliderSetting range =
 		new SliderSetting("范围", 5, 1, 6, 0.05, ValueDisplay.DECIMAL);
 	
-	private SliderSetting maxAttempts = new SliderSetting("最大尝试次数",
+	private final SliderSetting maxAttempts = new SliderSetting("最大尝试次数",
 		"随机建造在一次更新中尝试放置块的最大随机位置数\n\n较高的值会加快构建过程, 但代价是增加延迟",
 		128, 1, 1024, 1, ValueDisplay.INTEGER);
 	

@@ -11,7 +11,7 @@ import net.wurstclient.Category;
 import net.wurstclient.SearchTags;
 import net.wurstclient.hack.Hack;
 
-@SearchTags({"no pumpkin", "AntiPumpkin", "anti pumpkin"})
+@SearchTags({"无南瓜遮盖", "NoPumpkin"})
 public final class NoPumpkinHack extends Hack
 {
 	public NoPumpkinHack()

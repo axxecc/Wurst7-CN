@@ -30,9 +30,7 @@ import net.wurstclient.settings.EnumSetting;
 import net.wurstclient.settings.SliderSetting;
 import net.wurstclient.settings.SliderSetting.ValueDisplay;
 
-@SearchTags({"AutoFishing", "auto fishing", "AutoFisher", "auto fisher",
-	"AFKFishBot", "afk fish bot", "AFKFishingBot", "afk fishing bot",
-	"AFKFisherBot", "afk fisher bot"})
+@SearchTags({"自动钓鱼", "AutoFish"})
 public final class AutoFishHack extends Hack
 	implements UpdateListener, PacketInputListener, RenderListener
 {

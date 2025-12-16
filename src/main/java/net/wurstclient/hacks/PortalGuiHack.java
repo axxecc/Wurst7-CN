@@ -11,7 +11,7 @@ import net.wurstclient.Category;
 import net.wurstclient.SearchTags;
 import net.wurstclient.hack.Hack;
 
-@SearchTags({"portal gui"})
+@SearchTags({"传送门GUI", "PortalGui"})
 public final class PortalGuiHack extends Hack
 {
 	public PortalGuiHack()

@@ -28,7 +28,6 @@ import net.wurstclient.events.GUIRenderListener;
 import net.wurstclient.events.KeyPressListener;
 import net.wurstclient.events.PostMotionListener;
 import net.wurstclient.events.PreMotionListener;
-import net.wurstclient.events.UpdateListener;
 import net.wurstclient.hack.Hack;
 import net.wurstclient.hack.HackList;
 import net.wurstclient.hud.IngameHUD;
@@ -39,6 +38,7 @@ import net.wurstclient.navigator.Navigator;
 import net.wurstclient.other_feature.OtfList;
 import net.wurstclient.other_feature.OtherFeature;
 import net.wurstclient.settings.SettingsFile;
+import net.wurstclient.update.ProblematicResourcePackDetector;
 import net.wurstclient.util.json.JsonException;
 
 public enum WurstClient
@@ -70,6 +70,7 @@ public enum WurstClient
 	
 	private boolean enabled = true;
 	private static boolean guiInitialized;
+	private ProblematicResourcePackDetector problematicPackDetector;
 	private Path wurstFolder;
 	
 	public void initialize()
@@ -127,7 +128,10 @@ public enum WurstClient
 		rotationFaker = new RotationFaker();
 		eventManager.add(PreMotionListener.class, rotationFaker);
 		eventManager.add(PostMotionListener.class, rotationFaker);
-
+		
+		problematicPackDetector = new ProblematicResourcePackDetector();
+		problematicPackDetector.start();
+		
 		Path altsFile = wurstFolder.resolve("alts.encrypted_json");
 		Path encFolder = Encryption.chooseEncryptionFolder();
 		altManager = new AltManager(altsFile, encFolder);
@@ -289,7 +293,12 @@ public enum WurstClient
 			hax.panicHack.onUpdate();
 		}
 	}
-
+	
+	public ProblematicResourcePackDetector getProblematicPackDetector()
+	{
+		return problematicPackDetector;
+	}
+	
 	public Path getWurstFolder()
 	{
 		return wurstFolder;

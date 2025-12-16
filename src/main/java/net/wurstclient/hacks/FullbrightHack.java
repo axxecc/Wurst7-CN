@@ -19,9 +19,7 @@ import net.wurstclient.settings.EnumSetting;
 import net.wurstclient.settings.SliderSetting;
 import net.wurstclient.settings.SliderSetting.ValueDisplay;
 
-@SearchTags({"Fullbrightness", "full brightness", "Fulbrightness",
-	"ful brightness", "NightVision", "night vision", "FullLightness",
-	"FulLightness", "full lightness", "FullGamma", "full gamma"})
+@SearchTags({"黑暗视觉", "Fullbrightness"})
 public final class FullbrightHack extends Hack implements UpdateListener
 {
 	private final EnumSetting<Method> method = new EnumSetting<>("模式",
@@ -59,7 +57,7 @@ public final class FullbrightHack extends Hack implements UpdateListener
 			public void onUpdate()
 			{
 				double gamma = MC.options.gamma().get();
-				System.out.println("Brightness started at " + gamma);
+				System.out.println("亮度从 "+ gamma + "开始");
 				
 				if(gamma > 1)
 					wasGammaChanged = true;

@@ -23,8 +23,7 @@ import net.wurstclient.hacks.autocomplete.OpenAiMessageCompleter;
 import net.wurstclient.hacks.autocomplete.SuggestionHandler;
 import net.wurstclient.util.ChatUtils;
 
-@SearchTags({"auto complete", "Copilot", "ChatGPT", "chat GPT", "GPT-3", "GPT3",
-	"GPT 3", "OpenAI", "open ai", "ChatAI", "chat AI", "ChatBot", "chat bot"})
+@SearchTags({"自动聊天", "ChatBot"})
 public final class AutoCompleteHack extends Hack
 	implements ChatOutputListener, UpdateListener
 {

@@ -45,29 +45,28 @@ import net.wurstclient.settings.SliderSetting;
 import net.wurstclient.settings.SliderSetting.ValueDisplay;
 import net.wurstclient.util.InventoryUtils;
 
-@SearchTags({"auto eat", "AutoFood", "auto food", "AutoFeeder", "auto feeder",
-	"AutoFeeding", "auto feeding", "AutoSoup", "auto soup"})
+@SearchTags({"自动进食", "AutoEat"})
 public final class AutoEatHack extends Hack implements UpdateListener
 {
 	private final SliderSetting targetHunger = new SliderSetting(
-		"饥饿目标", "description.wurst.setting.autoeat.target_hunger", 10,
+		"饥饿目标", "\"在不浪费任何饥饿值的前提下, 尝试将饥饿条保持在此水准之上", 10,
 		0, 10, 0.5, ValueDisplay.DECIMAL);
 	
 	private final SliderSetting minHunger = new SliderSetting("最小饥饿",
-		"description.wurst.setting.autoeat.min_hunger", 6.5, 0, 10, 0.5,
+		"即便浪费一些补充的饥饿值，也总是将饥饿条保持在此水准之上\n6.5 - 不会导致任何原版食物所补充饥饿值的浪费\n10.0 - 完全忽视饥饿值的浪费，总是将饥饿条补满", 6.5, 0, 10, 0.5,
 		ValueDisplay.DECIMAL);
 	
 	private final SliderSetting injuredHunger = new SliderSetting(
-		"受伤饥饿", "description.wurst.setting.autoeat.injured_hunger",
+		"受伤饥饿", "当你受伤时将你的饥饿条补充到此水准之上, 即使这会导致食物补充的饥饿值被浪费\n10.0 - 最快的回复速度\n9.0 - 最慢的回复速度\n<9.0 - 不回复生命值\n<3.5 - 无法疾跑",
 		10, 0, 10, 0.5, ValueDisplay.DECIMAL);
 	
 	private final SliderSetting injuryThreshold =
 		new SliderSetting("受伤阈值",
-			"description.wurst.setting.autoeat.injury_threshold", 1.5, 0.5, 10,
+			"防止轻微的受伤就浪费掉你所有的食物, 自动进食将只会考虑你失去这么多颗心的情况", 1.5, 0.5, 10,
 			0.5, ValueDisplay.DECIMAL);
 	
 	private final EnumSetting<TakeItemsFrom> takeItemsFrom = new EnumSetting<>(
-		"从中获取物品", "description.wurst.setting.autoeat.take_items_from",
+		"从中获取物品", "决定自动进食从哪寻找食物",
 		TakeItemsFrom.values(), TakeItemsFrom.HOTBAR);
 	
 	private final CheckboxSetting allowOffhand =
@@ -75,19 +74,19 @@ public final class AutoEatHack extends Hack implements UpdateListener
 	
 	private final CheckboxSetting eatWhileWalking =
 		new CheckboxSetting("边走边吃",
-			"description.wurst.setting.autoeat.eat_while_walking", false);
+			"边走边吃，这会使你减速 (不推荐)", false);
 	
 	private final CheckboxSetting allowHunger =
 		new CheckboxSetting("允许饥饿效果",
-			"description.wurst.setting.autoeat.allow_hunger", true);
+			"食用腐肉会带来一个无害的\"饥饿\"效果\n将腐肉作为应急食物安全又有用", true);
 	
 	private final CheckboxSetting allowPoison =
 		new CheckboxSetting("允许中毒效果",
-			"description.wurst.setting.autoeat.allow_poison", false);
+			"食用有毒的食物会带来持续伤害\n不推荐", false);
 	
 	private final CheckboxSetting allowChorus =
 		new CheckboxSetting("允许紫颂果",
-			"description.wurst.setting.autoeat.allow_chorus", false);
+			"食用紫颂果会将你随机传送\n不推荐", false);
 	
 	private int oldSlot = -1;
 	

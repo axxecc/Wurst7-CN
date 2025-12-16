@@ -21,8 +21,8 @@ public final class TCmd extends Command
 {
 	public TCmd()
 	{
-		super("t", "Toggles a hack.", ".t <hack> [on|off]", "Examples:",
-			"Toggle Nuker: .t Nuker", "Disable Nuker: .t Nuker off");
+		super("t", "切换功能", ".t <功能> [on|off]", "示例:",
+			"切换 Nuker: .t Nuker", "禁用 Nuker: .t Nuker off");
 	}
 	
 	@Override
@@ -33,7 +33,7 @@ public final class TCmd extends Command
 		
 		Hack hack = WURST.getHax().getHackByName(args[0]);
 		if(hack == null)
-			throw new CmdError("Unknown hack: " + args[0]);
+			throw new CmdError("未知功能: " + args[0]);
 		
 		if(args.length == 1)
 			setEnabled(hack, !hack.isEnabled());
@@ -59,7 +59,7 @@ public final class TCmd extends Command
 		if(!hack.isEnabled() && tooManyHax.isEnabled()
 			&& tooManyHax.isBlocked(hack))
 		{
-			ChatUtils.error(hack.getName() + " is blocked by TooManyHax.");
+			ChatUtils.error(hack.getName() + " 被TooManyHax取消");
 			return;
 		}
 		

@@ -19,9 +19,8 @@ public final class DigCmd extends Command
 	public DigCmd()
 	{
 		super("dig",
-			"Automatically digs out the selected area,\n"
-				+ "starting in the front-left-top corner.",
-			".dig <length> <width> <height>", ".dig stop");
+			"自动从前左上角开始挖掘选定区域",
+			".dig <长> <宽> <高>", ".dig stop");
 	}
 	
 	@Override
@@ -72,11 +71,11 @@ public final class DigCmd extends Command
 			
 		}catch(NumberFormatException e)
 		{
-			throw new CmdSyntaxError("Invalid " + name + ": " + input);
+			throw new CmdSyntaxError("无效的 " + name + ": " + input);
 		}
 		
 		if(i == 0)
-			throw new CmdSyntaxError(name + " can't be zero");
+			throw new CmdSyntaxError(name + " 不可能是零");
 		
 		return i;
 	}

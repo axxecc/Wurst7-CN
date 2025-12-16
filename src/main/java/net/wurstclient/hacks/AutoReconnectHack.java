@@ -14,7 +14,7 @@ import net.wurstclient.hack.Hack;
 import net.wurstclient.settings.SliderSetting;
 import net.wurstclient.settings.SliderSetting.ValueDisplay;
 
-@SearchTags({"auto reconnect", "AutoRejoin", "auto rejoin"})
+@SearchTags({"自动重连", "AutoReconnect"})
 @DontBlock
 public final class AutoReconnectHack extends Hack
 {

@@ -23,7 +23,7 @@ import net.wurstclient.settings.SliderSetting.ValueDisplay;
 import net.wurstclient.util.ChatUtils;
 import net.wurstclient.util.InventoryUtils;
 
-@SearchTags({"item generator", "drop infinite"})
+@SearchTags({"物品生成器", "ItemGenerator"})
 public final class ItemGeneratorHack extends Hack implements UpdateListener
 {
 	private final SliderSetting speed = new SliderSetting("速度",
@@ -66,7 +66,7 @@ public final class ItemGeneratorHack extends Hack implements UpdateListener
 			ChatUtils.error("仅限创造模式");
 			setEnabled(false);
 		}
-
+		
 		int stacks = speed.getValueI();
 		for(int slot = 9; slot < 9 + stacks; slot++)
 		{

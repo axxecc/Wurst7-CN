@@ -17,7 +17,7 @@ import net.wurstclient.events.PlayerAttacksEntityListener;
 import net.wurstclient.hack.Hack;
 import net.wurstclient.settings.EnumSetting;
 
-@SearchTags({"Crits"})
+@SearchTags({"暴击", "Crits"})
 public final class CriticalsHack extends Hack
 	implements PlayerAttacksEntityListener
 {

@@ -105,7 +105,7 @@ public final class TemplateToolHack extends Hack
 			RenderUtils.drawOutlinedBox(matrixStack, box, black, false);
 			RenderUtils.drawSolidBox(matrixStack, box, green15, false);
 		}
-
+		
 		// Draw state-specific things
 		if(state != null)
 			state.onRender(this, matrixStack, partialTicks);
@@ -117,7 +117,7 @@ public final class TemplateToolHack extends Hack
 		if(state != null)
 			state.onRenderGUI(this, context, partialTicks);
 	}
-
+	
 	public void setState(TemplateToolState state)
 	{
 		if(this.state != null)
@@ -128,7 +128,7 @@ public final class TemplateToolHack extends Hack
 		if(state != null)
 			state.onEnter(this);
 	}
-
+	
 	public BlockPos getStartPos()
 	{
 		return startPos;
@@ -138,47 +138,47 @@ public final class TemplateToolHack extends Hack
 	{
 		startPos = pos;
 	}
-
+	
 	public BlockPos getEndPos()
 	{
 		return endPos;
 	}
-
+	
 	public void setEndPos(BlockPos pos)
 	{
 		endPos = pos;
 	}
-
+	
 	public BlockPos getOriginPos()
 	{
 		return originPos;
 	}
-
+	
 	public void setOriginPos(BlockPos pos)
 	{
 		originPos = pos;
 	}
-
+	
 	public LinkedHashMap<BlockPos, BlockState> getNonEmptyBlocks()
 	{
 		return nonEmptyBlocks;
 	}
-
+	
 	public LinkedHashSet<BlockPos> getSortedBlocks()
 	{
 		return sortedBlocks;
 	}
-
+	
 	public boolean areBlockTypesEnabled()
 	{
 		return blockTypesEnabled;
 	}
-
+	
 	public void setBlockTypesEnabled(boolean blockTypesEnabled)
 	{
 		this.blockTypesEnabled = blockTypesEnabled;
 	}
-
+	
 	public File getFile()
 	{
 		return file;

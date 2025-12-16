@@ -14,15 +14,15 @@ public final class BindCmd extends Command
 {
 	public BindCmd()
 	{
-		super("bind", "Shortcut for '.binds add'.", ".bind <key> <hacks>",
-			".bind <key> <commands>",
-			"Multiple hacks/commands must be separated by ';'.",
-			"Use .binds for more options.");
+		super("bind", "'.binds add' 的快捷方式", ".bind <键> <功能>",
+			".bind <键> <命令>",
+			"多个功能/命令必须用';'来区分",
+			"用 .binds 来获取更多选项");
 	}
 	
 	@Override
 	public void call(String[] args) throws CmdException
 	{
-		WURST.getCmdProcessor().process("binds add " + String.join(" ", args));
+		WURST.getCmdProcessor().process("绑定了 " + String.join(" ", args));
 	}
 }

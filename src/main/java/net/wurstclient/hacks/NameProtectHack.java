@@ -13,7 +13,7 @@ import net.wurstclient.Category;
 import net.wurstclient.SearchTags;
 import net.wurstclient.hack.Hack;
 
-@SearchTags({"name protect"})
+@SearchTags({"名称保护", "NameProtect"})
 public final class NameProtectHack extends Hack
 {
 	public NameProtectHack()
@@ -29,7 +29,7 @@ public final class NameProtectHack extends Hack
 		
 		String me = MC.getUser().getName();
 		if(string.contains(me))
-			return string.replace(me, "\u00a7oMe\u00a7r");
+			return string.replace(me, "\u00a7o自己\u00a7r");
 		
 		int i = 0;
 		for(PlayerInfo info : MC.player.connection.getOnlinePlayers())
@@ -39,7 +39,7 @@ public final class NameProtectHack extends Hack
 				info.getProfile().name().replaceAll("\u00a7(?:\\w|\\d)", "");
 			
 			if(string.contains(name))
-				return string.replace(name, "\u00a7oPlayer" + i + "\u00a7r");
+				return string.replace(name, "\u00a7o玩家" + i + "\u00a7r");
 		}
 		
 		for(AbstractClientPlayer player : MC.level.players())
@@ -48,7 +48,7 @@ public final class NameProtectHack extends Hack
 			String name = player.getName().getString();
 			
 			if(string.contains(name))
-				return string.replace(name, "\u00a7oPlayer" + i + "\u00a7r");
+				return string.replace(name, "\u00a7o玩家" + i + "\u00a7r");
 		}
 		
 		return string;

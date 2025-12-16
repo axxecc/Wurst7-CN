@@ -20,7 +20,7 @@ import net.wurstclient.settings.SliderSetting.ValueDisplay;
 
 @DontSaveState
 @DontBlock
-@SearchTags({"click gui", "WindowGUI", "window gui", "HackMenu", "hack menu"})
+@SearchTags({"click gui"})
 public final class ClickGuiHack extends Hack
 {
 	private final ColorSetting bgColor =

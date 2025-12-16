@@ -30,14 +30,14 @@ import net.wurstclient.util.RotationUtils;
 public final class KaboomHack extends Hack implements UpdateListener
 {
 	private final SliderSetting power =
-		new SliderSetting("数据包", "description.wurst.setting.kaboom.power",
+		new SliderSetting("数据包", "决定每个方块将发送多少组破坏方块的数据包\n\n数值越高, 破坏更多方块的几率就越大, 但也会给服务器带来额外的负载. 小型服务器在数值较高时更容易崩溃",
 			128, 32, 512, 32, ValueDisplay.INTEGER);
 	
 	private final CheckboxSetting sound = new CheckboxSetting("声音",
-		"description.wurst.setting.kaboom.sound", true);
+		"是否播放爆炸音效. 不影响方块破坏, 只有你能听到该音效", true);
 	
 	private final CheckboxSetting particles = new CheckboxSetting("粒子",
-		"description.wurst.setting.kaboom.particles", true);
+		"是否显示爆炸粒子. 不影响方块破坏, 只有你可以看到粒子", true);
 	
 	private final RandomSource random = RandomSource.create();
 	

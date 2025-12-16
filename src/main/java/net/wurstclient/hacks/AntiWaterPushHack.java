@@ -15,7 +15,7 @@ import net.wurstclient.events.VelocityFromFluidListener;
 import net.wurstclient.hack.Hack;
 import net.wurstclient.settings.CheckboxSetting;
 
-@SearchTags({"anti water push", "NoWaterPush", "no water push"})
+@SearchTags({"反水流推动", "NoWaterPush"})
 public final class AntiWaterPushHack extends Hack implements UpdateListener,
 	VelocityFromFluidListener, IsPlayerInWaterListener
 {

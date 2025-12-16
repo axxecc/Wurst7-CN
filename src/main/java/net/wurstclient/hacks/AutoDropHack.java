@@ -18,8 +18,7 @@ import net.wurstclient.events.UpdateListener;
 import net.wurstclient.hack.Hack;
 import net.wurstclient.settings.ItemListSetting;
 
-@SearchTags({"auto drop", "AutoEject", "auto-eject", "auto eject",
-	"InventoryCleaner", "inventory cleaner", "InvCleaner", "inv cleaner"})
+@SearchTags({"自动丢弃", "AutoDorp"})
 public final class AutoDropHack extends Hack implements UpdateListener
 {
 	private ItemListSetting items = new ItemListSetting("物品",

@@ -20,10 +20,9 @@ import net.wurstclient.util.ChatUtils;
 
 public final class AnnoyCmd extends Command implements ChatInputListener
 {
-	private final CheckboxSetting rcMode = new CheckboxSetting("RC mode",
-		"Remote control mode. Re-enables a bug that allows .annoy to run Wurst"
-			+ " commands. Not recommended for security reasons, but until we have a"
-			+ " proper remote control feature, this is at least better than nothing.",
+	private final CheckboxSetting rcMode = new CheckboxSetting("远程控制模式",
+		"重新启用一个漏洞，使 .annoy 能够运行 Wurst 命令"
+                + "出于安全原因不推荐，但在我们有合适的远程控制功能之前，这至少比什么都没有好",
 		false);
 	
 	private boolean enabled;
@@ -31,8 +30,8 @@ public final class AnnoyCmd extends Command implements ChatInputListener
 	
 	public AnnoyCmd()
 	{
-		super("annoy", "Annoys a player by repeating everything they say.",
-			".annoy <player>", "Turn off: .annoy");
+		super("annoy", "通过重复玩家说的所有话来烦恼玩家",
+			".annoy <玩家>", "关闭: .annoy");
 		addSetting(rcMode);
 	}
 	
@@ -49,7 +48,7 @@ public final class AnnoyCmd extends Command implements ChatInputListener
 		}else
 		{
 			if(!enabled)
-				throw new CmdError(".annoy is already turned off.");
+				throw new CmdError(".annoy 关闭了");
 			
 			disable();
 		}
@@ -61,11 +60,11 @@ public final class AnnoyCmd extends Command implements ChatInputListener
 			throw new CmdSyntaxError();
 		
 		target = String.join(" ", args);
-		ChatUtils.message("Now annoying " + target + ".");
+		ChatUtils.message("现在烦人了 " + target);
 		
 		LocalPlayer player = MC.player;
 		if(player != null && target.equals(player.getName().getString()))
-			ChatUtils.warning("Annoying yourself is a bad idea!");
+			ChatUtils.warning("烦自己是个坏主意!");
 		
 		EVENTS.add(ChatInputListener.class, this);
 		enabled = true;
@@ -77,7 +76,7 @@ public final class AnnoyCmd extends Command implements ChatInputListener
 		
 		if(target != null)
 		{
-			ChatUtils.message("No longer annoying " + target + ".");
+			ChatUtils.message("不再烦人了 " + target);
 			target = null;
 		}
 		

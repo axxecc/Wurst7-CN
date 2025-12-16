@@ -27,7 +27,7 @@ import net.wurstclient.settings.filterlists.EntityFilterList;
 import net.wurstclient.util.EntityUtils;
 import net.wurstclient.util.RotationUtils;
 
-@SearchTags({"multi aura", "ForceField", "force field"})
+@SearchTags({"多重光环", "MultiAura"})
 public final class MultiAuraHack extends Hack implements UpdateListener
 {
 	private final SliderSetting range =
