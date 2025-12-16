@@ -38,14 +38,14 @@ public final class FilterEndermenSetting extends AttackDetectingEntityFilter
 	public static FilterEndermenSetting genericCombat(Mode selected)
 	{
 		return new FilterEndermenSetting(
-			"description.wurst.setting.generic.filter_endermen_combat",
+			"当设置为 §l开启§r 时, 末影人根本不会受到攻击\n\n当设置为 §l如果愤怒§r 时, 末影人在先攻击之前不会受到攻击. 请注意. 此过滤器无法检测末影人是否在攻击您或其他人\n\n当设置为 §l关闭§r 时, 此过滤器不执行任何作, 末影人可以被攻击",
 			selected);
 	}
 	
 	public static FilterEndermenSetting genericVision(Mode selected)
 	{
 		return new FilterEndermenSetting(
-			"description.wurst.setting.generic.filter_endermen_vision",
+			"当设置为 §l开启§r 时, 末影人将完全不显示\n\n当设置为 §l如果愤怒§r 时, 末影人不会显示, 直到他们攻击某物\n\n当设置为 §l关闭§r 时, 此过滤器不执行任何作, 并且可以显示末影人",
 			selected);
 	}
 	

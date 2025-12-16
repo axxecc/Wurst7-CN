@@ -47,7 +47,7 @@ public final class InvWalkHack extends Hack implements UpdateListener
 	
 	public InvWalkHack()
 	{
-		super("自闭小屋");
+		super("背包移动");
 		setCategory(Category.MOVEMENT);
 		addSetting(allowClickGUI);
 		addSetting(allowOther);

@@ -19,7 +19,7 @@ import net.wurstclient.settings.SliderSetting.ValueDisplay;
 public final class AutoReconnectHack extends Hack
 {
 	private final SliderSetting waitTime =
-		new SliderSetting("等待时间", "重新连接之前的时间 (以秒为单位) ",
+		new SliderSetting("等待时间", "重新连接之前的时间 (以秒为单位)",
 			5, 0, 60, 0.5, ValueDisplay.DECIMAL.withSuffix("s"));
 	
 	public AutoReconnectHack()

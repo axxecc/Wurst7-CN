@@ -50,6 +50,6 @@ public final class FilterFlyingSetting extends SliderSetting
 	public static FilterFlyingSetting genericCombat(double value)
 	{
 		return new FilterFlyingSetting(
-			"description.wurst.setting.generic.filter_flying_combat", value);
+			"不会攻击至少离地面给定距离的玩家\n\n对于试图通过在你附近放置飞行机器人来检测你的黑客攻击的服务器很有用", value);
 	}
 }
