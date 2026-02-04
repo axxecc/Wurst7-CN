@@ -20,14 +20,14 @@ public final class CraftersGroup extends ChestEspBlockGroup
 	@Override
 	protected CheckboxSetting createIncludeSetting()
 	{
-		return new CheckboxSetting("Include crafters", false);
+		return new CheckboxSetting("包括合成器", false);
 	}
 	
 	@Override
 	protected ColorSetting createColorSetting()
 	{
-		return new ColorSetting("Crafter color",
-			"Crafters will be highlighted in this color.", Color.WHITE);
+		return new ColorSetting("合成器颜色",
+			"合成器将以该颜色高亮显示", Color.WHITE);
 	}
 	
 	@Override

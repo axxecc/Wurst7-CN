@@ -49,6 +49,6 @@ public final class WheatPlantType extends AutoFarmPlantType
 	@Override
 	protected PlantTypeSetting createSetting()
 	{
-		return new PlantTypeSetting("Wheat", Items.WHEAT, true, true);
+		return new PlantTypeSetting("小麦", Items.WHEAT, true, true);
 	}
 }

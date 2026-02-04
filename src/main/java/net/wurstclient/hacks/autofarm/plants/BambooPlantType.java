@@ -59,6 +59,6 @@ public final class BambooPlantType extends AutoFarmPlantType
 	@Override
 	protected PlantTypeSetting createSetting()
 	{
-		return new PlantTypeSetting("Bamboo", Items.BAMBOO, true, true);
+		return new PlantTypeSetting("竹子", Items.BAMBOO, true, true);
 	}
 }

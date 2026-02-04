@@ -20,14 +20,14 @@ public final class ChestCartsGroup extends ChestEspEntityGroup
 	@Override
 	protected CheckboxSetting createIncludeSetting()
 	{
-		return new CheckboxSetting("Include chest carts", true);
+		return new CheckboxSetting("包括箱子矿车", true);
 	}
 	
 	@Override
 	protected ColorSetting createColorSetting()
 	{
-		return new ColorSetting("Chest cart color",
-			"Minecarts with chests will be highlighted in this color.",
+		return new ColorSetting("箱子矿车颜色",
+			"箱子矿车将以该颜色高亮显示",
 			Color.YELLOW);
 	}
 	

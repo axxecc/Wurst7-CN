@@ -49,6 +49,6 @@ public final class CarrotsPlantType extends AutoFarmPlantType
 	@Override
 	protected PlantTypeSetting createSetting()
 	{
-		return new PlantTypeSetting("Carrots", Items.CARROT, true, true);
+		return new PlantTypeSetting("胡萝卜", Items.CARROT, true, true);
 	}
 }

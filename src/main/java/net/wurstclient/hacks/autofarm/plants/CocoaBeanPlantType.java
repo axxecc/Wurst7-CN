@@ -52,7 +52,7 @@ public final class CocoaBeanPlantType extends AutoFarmPlantType
 	@Override
 	protected PlantTypeSetting createSetting()
 	{
-		return new PlantTypeSetting("Cocoa Beans", Items.COCOA_BEANS, true,
+		return new PlantTypeSetting("可可豆", Items.COCOA_BEANS, true,
 			true);
 	}
 }

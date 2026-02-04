@@ -46,6 +46,6 @@ public final class PumpkinPlantType extends AutoFarmPlantType
 	@Override
 	protected PlantTypeSetting createSetting()
 	{
-		return new PlantTypeSetting("Pumpkins", Items.PUMPKIN, true, true);
+		return new PlantTypeSetting("南瓜", Items.PUMPKIN, true, true);
 	}
 }

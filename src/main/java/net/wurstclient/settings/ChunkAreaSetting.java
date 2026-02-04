@@ -42,22 +42,22 @@ public final class ChunkAreaSetting
 	
 	public enum ChunkArea
 	{
-		A3("3x3 chunks", 1),
-		A5("5x5 chunks", 2),
-		A7("7x7 chunks", 3),
-		A9("9x9 chunks", 4),
-		A11("11x11 chunks", 5),
-		A13("13x13 chunks", 6),
-		A15("15x15 chunks", 7),
-		A17("17x17 chunks", 8),
-		A19("19x19 chunks", 9),
-		A21("21x21 chunks", 10),
-		A23("23x23 chunks", 11),
-		A25("25x25 chunks", 12),
-		A27("27x27 chunks", 13),
-		A29("29x29 chunks", 14),
-		A31("31x31 chunks", 15),
-		A33("33x33 chunks", 16);
+		A3("3x3 区块", 1),
+		A5("5x5 区块", 2),
+		A7("7x7 区块", 3),
+		A9("9x9 区块", 4),
+		A11("11x11 区块", 5),
+		A13("13x13 区块", 6),
+		A15("15x15 区块", 7),
+		A17("17x17 区块", 8),
+		A19("19x19 区块", 9),
+		A21("21x21 区块", 10),
+		A23("23x23 区块", 11),
+		A25("25x25 区块", 12),
+		A27("27x27 区块", 13),
+		A29("29x29 区块", 14),
+		A31("31x31 区块", 15),
+		A33("33x33 区块", 16);
 		
 		private final String name;
 		private final int chunkRange;

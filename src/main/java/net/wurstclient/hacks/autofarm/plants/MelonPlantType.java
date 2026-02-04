@@ -46,6 +46,6 @@ public final class MelonPlantType extends AutoFarmPlantType
 	@Override
 	protected PlantTypeSetting createSetting()
 	{
-		return new PlantTypeSetting("Melons", Items.MELON, true, true);
+		return new PlantTypeSetting("西瓜", Items.MELON, true, true);
 	}
 }

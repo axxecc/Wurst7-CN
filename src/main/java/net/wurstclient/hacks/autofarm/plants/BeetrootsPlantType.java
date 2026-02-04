@@ -49,6 +49,6 @@ public final class BeetrootsPlantType extends AutoFarmPlantType
 	@Override
 	protected PlantTypeSetting createSetting()
 	{
-		return new PlantTypeSetting("Beetroots", Items.BEETROOT, true, true);
+		return new PlantTypeSetting("甜菜根", Items.BEETROOT, true, true);
 	}
 }

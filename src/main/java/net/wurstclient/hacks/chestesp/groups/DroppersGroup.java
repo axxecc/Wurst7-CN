@@ -20,14 +20,14 @@ public final class DroppersGroup extends ChestEspBlockGroup
 	@Override
 	protected CheckboxSetting createIncludeSetting()
 	{
-		return new CheckboxSetting("Include droppers", false);
+		return new CheckboxSetting("包括投掷器", false);
 	}
 	
 	@Override
 	protected ColorSetting createColorSetting()
 	{
-		return new ColorSetting("Dropper color",
-			"Droppers will be highlighted in this color.", Color.WHITE);
+		return new ColorSetting("投掷器颜色",
+			"投掷器将以该颜色高亮显示", Color.WHITE);
 	}
 	
 	@Override

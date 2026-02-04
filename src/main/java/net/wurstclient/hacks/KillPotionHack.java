@@ -110,7 +110,7 @@ public final class KillPotionHack extends Hack
 			stack.set(DataComponents.POTION_CONTENTS, potionContents);
 			
 			String name =
-				"\u00a7f" + itemName + " of \u00a74\u00a7l杀戮神药";
+				"\u00a7f" + itemName + "\u00a74\u00a7l杀戮神药";
 			stack.set(DataComponents.CUSTOM_NAME, Component.literal(name));
 			
 			return stack;

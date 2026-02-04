@@ -115,7 +115,7 @@ public final class ChorusPlantPlantType extends AutoFarmPlantType
 	@Override
 	protected PlantTypeSetting createSetting()
 	{
-		return new PlantTypeSetting("Chorus Plants", Items.CHORUS_FLOWER, true,
+		return new PlantTypeSetting("紫颂花", Items.CHORUS_FLOWER, true,
 			true);
 	}
 }

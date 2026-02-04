@@ -20,7 +20,7 @@ import net.wurstclient.settings.CheckboxSetting;
 public final class NoFallHack extends Hack implements UpdateListener
 {
 	private final CheckboxSetting allowElytra = new CheckboxSetting(
-		"允许鞘翅", "还会尝试在你使用鞘翅飞行时防止坠落伤害\n\nc§lEARNING：§r这有时会导致你意外停止飞行", false);
+		"允许鞘翅", "还会尝试在你使用鞘翅飞行时防止坠落伤害\n\n§c§l警告：§r这有时会导致你意外停止飞行", false);
 	
 	private final CheckboxSetting pauseForMace =
 		new CheckboxSetting("暂停使用重锤",

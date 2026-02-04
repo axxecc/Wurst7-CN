@@ -20,14 +20,14 @@ public final class ChestBoatsGroup extends ChestEspEntityGroup
 	@Override
 	protected CheckboxSetting createIncludeSetting()
 	{
-		return new CheckboxSetting("Include chest boats", true);
+		return new CheckboxSetting("包括船箱", true);
 	}
 	
 	@Override
 	protected ColorSetting createColorSetting()
 	{
-		return new ColorSetting("Chest boat color",
-			"Boats with chests will be highlighted in this color.",
+		return new ColorSetting("船箱颜色",
+			"船箱将以该颜色高亮显示",
 			Color.YELLOW);
 	}
 	

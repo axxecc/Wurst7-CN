@@ -21,14 +21,14 @@ public final class BarrelsGroup extends ChestEspBlockGroup
 	@Override
 	protected CheckboxSetting createIncludeSetting()
 	{
-		return new CheckboxSetting("Include barrels", true);
+		return new CheckboxSetting("包括木桶", true);
 	}
 	
 	@Override
 	protected ColorSetting createColorSetting()
 	{
-		return new ColorSetting("Barrel color",
-			"Barrels will be highlighted in this color.", Color.GREEN);
+		return new ColorSetting("木桶颜色",
+			"将以该颜色高亮显示", Color.GREEN);
 	}
 	
 	@Override

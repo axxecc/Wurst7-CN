@@ -65,6 +65,6 @@ public final class CactusPlantType extends AutoFarmPlantType
 	@Override
 	protected PlantTypeSetting createSetting()
 	{
-		return new PlantTypeSetting("Cactus", Items.CACTUS, true, true);
+		return new PlantTypeSetting("仙人掌", Items.CACTUS, true, true);
 	}
 }

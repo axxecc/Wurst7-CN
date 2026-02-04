@@ -46,7 +46,7 @@ public final class TorchflowerPlantType extends AutoFarmPlantType
 	@Override
 	protected PlantTypeSetting createSetting()
 	{
-		return new PlantTypeSetting("Torchflowers", Items.TORCHFLOWER, true,
+		return new PlantTypeSetting("火把花", Items.TORCHFLOWER, true,
 			true);
 	}
 }

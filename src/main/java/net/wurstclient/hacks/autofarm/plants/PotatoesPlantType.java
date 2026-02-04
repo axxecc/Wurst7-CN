@@ -49,6 +49,6 @@ public final class PotatoesPlantType extends AutoFarmPlantType
 	@Override
 	protected PlantTypeSetting createSetting()
 	{
-		return new PlantTypeSetting("Potatoes", Items.POTATO, true, true);
+		return new PlantTypeSetting("土豆", Items.POTATO, true, true);
 	}
 }

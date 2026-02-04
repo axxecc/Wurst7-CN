@@ -20,14 +20,14 @@ public final class HoppersGroup extends ChestEspBlockGroup
 	@Override
 	protected CheckboxSetting createIncludeSetting()
 	{
-		return new CheckboxSetting("Include hoppers", false);
+		return new CheckboxSetting("包括漏斗", false);
 	}
 	
 	@Override
 	protected ColorSetting createColorSetting()
 	{
-		return new ColorSetting("Hopper color",
-			"Hoppers will be highlighted in this color.", Color.WHITE);
+		return new ColorSetting("漏斗颜色",
+			"漏斗将以该颜色高亮显示", Color.WHITE);
 	}
 	
 	@Override

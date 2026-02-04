@@ -20,14 +20,14 @@ public final class HopperCartsGroup extends ChestEspEntityGroup
 	@Override
 	protected CheckboxSetting createIncludeSetting()
 	{
-		return new CheckboxSetting("Include hopper carts", false);
+		return new CheckboxSetting("包括漏斗矿车", false);
 	}
 	
 	@Override
 	protected ColorSetting createColorSetting()
 	{
-		return new ColorSetting("Hopper cart color",
-			"Minecarts with hoppers will be highlighted in this color.",
+		return new ColorSetting("漏斗矿车",
+			"漏斗矿车将以该颜色高亮显示",
 			Color.YELLOW);
 	}
 	

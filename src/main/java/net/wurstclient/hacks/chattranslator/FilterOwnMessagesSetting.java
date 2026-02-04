@@ -20,7 +20,7 @@ public class FilterOwnMessagesSetting extends CheckboxSetting
 	public FilterOwnMessagesSetting()
 	{
 		super("过滤自己的消息",
-			"description.wurst.setting.chattranslator.filter_own_messages",
+			"它不会翻译看起来像是你发送的消息\n\n它会根据常见的聊天格式如\"<name>\",\"[name]\"或\"name：\"来检测你的消息, 这在某些服务器上可能无法正常工作",
 			true);
 	}
 	

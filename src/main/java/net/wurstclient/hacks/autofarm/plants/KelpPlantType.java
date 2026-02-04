@@ -67,6 +67,6 @@ public final class KelpPlantType extends AutoFarmPlantType
 	@Override
 	protected PlantTypeSetting createSetting()
 	{
-		return new PlantTypeSetting("Kelp", Items.KELP, true, true);
+		return new PlantTypeSetting("海带", Items.KELP, true, true);
 	}
 }
