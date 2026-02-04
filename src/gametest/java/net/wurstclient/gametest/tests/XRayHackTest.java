@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014-2025 Wurst-Imperium and contributors.
+ * Copyright (c) 2014-2026 Wurst-Imperium and contributors.
  *
  * This source code is subject to the terms of the GNU General Public
  * License, version 3. If a copy of the GPL was not distributed with this
@@ -57,7 +57,7 @@ public enum XRayHackTest
 		waitForChunkReloading(context, world);
 		assertScreenshotEquals(context, "xray_opacity",
 			WurstTest.IS_MOD_COMPAT_TEST ? "https://i.imgur.com/hXdzoDB.png"
-				: "https://i.imgur.com/ERrL7ko.png");
+				: "https://i.imgur.com/oZqevTx.png");
 		
 		// Exposed only + opacity
 		runWurstCommand(context, "setcheckbox X-Ray only_show_exposed on");
@@ -67,7 +67,7 @@ public enum XRayHackTest
 		waitForChunkReloading(context, world);
 		assertScreenshotEquals(context, "xray_exposed_only_opacity",
 			WurstTest.IS_MOD_COMPAT_TEST ? "https://i.imgur.com/ZwIARSr.png"
-				: "https://i.imgur.com/mCnP6LG.png");
+				: "https://i.imgur.com/3DLxNuS.png");
 		
 		// Clean up
 		runCommand(server, "fill ~-5 ~-2 ~4 ~5 ~5 ~7 air");
