@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014-2025 Wurst-Imperium and contributors.
+ * Copyright (c) 2014-2026 Wurst-Imperium and contributors.
  *
  * This source code is subject to the terms of the GNU General Public
  * License, version 3. If a copy of the GPL was not distributed with this
@@ -22,14 +22,14 @@ public final class NormalChestsGroup extends ChestEspBlockGroup
 	@Override
 	protected CheckboxSetting createIncludeSetting()
 	{
-		return new CheckboxSetting("Include normal chests", true);
+		return new CheckboxSetting("包括普通箱子", true);
 	}
 	
 	@Override
 	protected ColorSetting createColorSetting()
 	{
-		return new ColorSetting("Chest color",
-			"Normal chests will be highlighted in this color.", Color.GREEN);
+		return new ColorSetting("箱子颜色",
+			"普通箱子会以该颜色高亮显示", Color.GREEN);
 	}
 	
 	@Override

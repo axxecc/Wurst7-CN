@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014-2025 Wurst-Imperium and contributors.
+ * Copyright (c) 2014-2026 Wurst-Imperium and contributors.
  *
  * This source code is subject to the terms of the GNU General Public
  * License, version 3. If a copy of the GPL was not distributed with this
@@ -21,14 +21,14 @@ public final class BarrelsGroup extends ChestEspBlockGroup
 	@Override
 	protected CheckboxSetting createIncludeSetting()
 	{
-		return new CheckboxSetting("Include barrels", true);
+		return new CheckboxSetting("包括木桶", true);
 	}
 	
 	@Override
 	protected ColorSetting createColorSetting()
 	{
-		return new ColorSetting("Barrel color",
-			"Barrels will be highlighted in this color.", Color.GREEN);
+		return new ColorSetting("木桶颜色",
+			"将以该颜色高亮显示", Color.GREEN);
 	}
 	
 	@Override

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014-2025 Wurst-Imperium and contributors.
+ * Copyright (c) 2014-2026 Wurst-Imperium and contributors.
  *
  * This source code is subject to the terms of the GNU General Public
  * License, version 3. If a copy of the GPL was not distributed with this
@@ -33,7 +33,7 @@ public final class FollowFilterList extends EntityFilterList
 			"不会跟随距离地面至少一定距离的玩家", 0));
 		
 		builder.add(new FilterHostileSetting(
-			"Won't follow hostile mobs like zombies and creepers.", true));
+			"不会跟随僵尸和苦力怕等敌对怪物", true));
 		
 		builder.add(FilterNeutralSetting.onOffOnly(
 			"不会跟随末影人和狼等中立生物", true));
@@ -52,7 +52,7 @@ public final class FollowFilterList extends EntityFilterList
 		builder.add(new FilterBatsSetting(
 			"不会跟随蝙蝠和任何其他可能由模组添加的\"环境\"怪物", true));
 		
-		builder.add(new FilterSlimesSetting("Won't follow slimes.", true));
+		builder.add(new FilterSlimesSetting("不会跟随史莱姆", true));
 		
 		builder.add(new FilterPetsSetting(
 			"不会跟随驯服的狼、驯服的马等", true));

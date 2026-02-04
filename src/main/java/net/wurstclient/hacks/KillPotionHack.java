@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014-2025 Wurst-Imperium and contributors.
+ * Copyright (c) 2014-2026 Wurst-Imperium and contributors.
  *
  * This source code is subject to the terms of the GNU General Public
  * License, version 3. If a copy of the GPL was not distributed with this
@@ -110,7 +110,7 @@ public final class KillPotionHack extends Hack
 			stack.set(DataComponents.POTION_CONTENTS, potionContents);
 			
 			String name =
-				"\u00a7f" + itemName + " of \u00a74\u00a7l杀戮神药";
+				"\u00a7f" + itemName + "\u00a74\u00a7l杀戮神药";
 			stack.set(DataComponents.CUSTOM_NAME, Component.literal(name));
 			
 			return stack;

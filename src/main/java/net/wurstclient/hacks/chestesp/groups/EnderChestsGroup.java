@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014-2025 Wurst-Imperium and contributors.
+ * Copyright (c) 2014-2026 Wurst-Imperium and contributors.
  *
  * This source code is subject to the terms of the GNU General Public
  * License, version 3. If a copy of the GPL was not distributed with this
@@ -20,14 +20,14 @@ public final class EnderChestsGroup extends ChestEspBlockGroup
 	@Override
 	protected CheckboxSetting createIncludeSetting()
 	{
-		return new CheckboxSetting("Include ender chests", true);
+		return new CheckboxSetting("包括末影箱", true);
 	}
 	
 	@Override
 	protected ColorSetting createColorSetting()
 	{
-		return new ColorSetting("Ender color",
-			"Ender chests will be highlighted in this color.", Color.CYAN);
+		return new ColorSetting("末影箱颜色",
+			"末影箱将以该颜色高亮显示", Color.CYAN);
 	}
 	
 	@Override

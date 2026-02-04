@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014-2025 Wurst-Imperium and contributors.
+ * Copyright (c) 2014-2026 Wurst-Imperium and contributors.
  *
  * This source code is subject to the terms of the GNU General Public
  * License, version 3. If a copy of the GPL was not distributed with this
@@ -20,14 +20,14 @@ public final class CraftersGroup extends ChestEspBlockGroup
 	@Override
 	protected CheckboxSetting createIncludeSetting()
 	{
-		return new CheckboxSetting("Include crafters", false);
+		return new CheckboxSetting("包括合成器", false);
 	}
 	
 	@Override
 	protected ColorSetting createColorSetting()
 	{
-		return new ColorSetting("Crafter color",
-			"Crafters will be highlighted in this color.", Color.WHITE);
+		return new ColorSetting("合成器颜色",
+			"合成器将以该颜色高亮显示", Color.WHITE);
 	}
 	
 	@Override

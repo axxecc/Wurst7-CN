@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014-2025 Wurst-Imperium and contributors.
+ * Copyright (c) 2014-2026 Wurst-Imperium and contributors.
  *
  * This source code is subject to the terms of the GNU General Public
  * License, version 3. If a copy of the GPL was not distributed with this
@@ -21,14 +21,14 @@ public final class TrapChestsGroup extends ChestEspBlockGroup
 	@Override
 	protected CheckboxSetting createIncludeSetting()
 	{
-		return new CheckboxSetting("Include trap chests", true);
+		return new CheckboxSetting("包括陷阱箱", true);
 	}
 	
 	@Override
 	protected ColorSetting createColorSetting()
 	{
-		return new ColorSetting("Trap chest color",
-			"Trapped chests will be highlighted in this color.",
+		return new ColorSetting("陷阱箱颜色",
+			"陷阱箱会以该颜色高亮显示",
 			new Color(0xFF8000));
 	}
 	

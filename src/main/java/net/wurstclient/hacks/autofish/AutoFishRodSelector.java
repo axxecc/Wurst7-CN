@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014-2025 Wurst-Imperium and contributors.
+ * Copyright (c) 2014-2026 Wurst-Imperium and contributors.
  *
  * This source code is subject to the terms of the GNU General Public
  * License, version 3. If a copy of the GPL was not distributed with this
@@ -35,13 +35,13 @@ public final class AutoFishRodSelector
 	private static final Minecraft MC = WurstClient.MC;
 	
 	private final CheckboxSetting stopWhenOutOfRods = new CheckboxSetting(
-		"Stop when out of rods",
-		"If enabled, AutoFish will turn itself off when it runs out of fishing rods.",
+		"无钓鱼竿时停止",
+		"如果启用, 自动钓鱼会在钓竿用尽时自动关闭",
 		false);
 	
 	private final CheckboxSetting stopWhenInvFull = new CheckboxSetting(
-		"Stop when inv full",
-		"If enabled, AutoFish will turn itself off when your inventory is full.",
+		"背包已满时停止",
+		"如果启用, 自动钓鱼会在背包满时自动关闭",
 		false);
 	
 	private final AutoFishHack autoFish;
@@ -107,7 +107,7 @@ public final class AutoFishRodSelector
 		// stop if out of rods
 		if(stopWhenOutOfRods.isChecked() && bestRodSlot == -1)
 		{
-			ChatUtils.message("AutoFish has run out of fishing rods.");
+			ChatUtils.message("自动钓鱼的钓竿已经用完了");
 			autoFish.setEnabled(false);
 			return false;
 		}
@@ -116,7 +116,7 @@ public final class AutoFishRodSelector
 		if(stopWhenInvFull.isChecked() && inventory.getFreeSlot() == -1)
 		{
 			ChatUtils.message(
-				"AutoFish has stopped because your inventory is full.");
+				"自动钓鱼已停止, 因为你的背包已满");
 			autoFish.setEnabled(false);
 			return false;
 		}

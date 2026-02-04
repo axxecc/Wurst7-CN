@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014-2025 Wurst-Imperium and contributors.
+ * Copyright (c) 2014-2026 Wurst-Imperium and contributors.
  *
  * This source code is subject to the terms of the GNU General Public
  * License, version 3. If a copy of the GPL was not distributed with this
@@ -21,14 +21,14 @@ public final class DispensersGroup extends ChestEspBlockGroup
 	@Override
 	protected CheckboxSetting createIncludeSetting()
 	{
-		return new CheckboxSetting("Include dispensers", false);
+		return new CheckboxSetting("包括发射器", false);
 	}
 	
 	@Override
 	protected ColorSetting createColorSetting()
 	{
-		return new ColorSetting("Dispenser color",
-			"Dispensers will be highlighted in this color.",
+		return new ColorSetting("发射器颜色",
+			"发射器将以该颜色高亮显示",
 			new Color(0xFF8000));
 	}
 	

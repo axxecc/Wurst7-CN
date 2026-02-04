@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014-2025 Wurst-Imperium and contributors.
+ * Copyright (c) 2014-2026 Wurst-Imperium and contributors.
  *
  * This source code is subject to the terms of the GNU General Public
  * License, version 3. If a copy of the GPL was not distributed with this
@@ -80,7 +80,7 @@ public final class XRayHack extends Hack implements UpdateListener,
 		"仅显示洞穴中可见的矿石, 这有助于绕过反X-Ray\n\n更改此设置时, 请重新启动X-Ray",
 		false);
 	
-	private final SliderSetting opacity = new SliderSetting("Opacity",
+	private final SliderSetting opacity = new SliderSetting("透明度",
 		"启用 X-Ray 时非矿石块的不透明度\n\n更改此设置时, 请记住重新启动 X-Ray",
 		0, 0, 0.99, 0.01, ValueDisplay.PERCENTAGE.withLabel(0, "关闭"));
 	
