@@ -21,14 +21,14 @@ public final class FreecamInitialPosSetting
 	
 	public FreecamInitialPosSetting()
 	{
-		super("Initial position", DESCRIPTION, InitialPosition.values(),
+		super("初始定位", DESCRIPTION, InitialPosition.values(),
 			InitialPosition.INSIDE);
 	}
 	
 	private static WText buildDescription()
 	{
 		WText text = WText
-			.translated("description.wurst.setting.freecam.initial_position");
+			.translated("启用灵魂出窍后, 相机最初应该放在哪里");
 		
 		for(InitialPosition value : InitialPosition.values())
 			text = text
@@ -40,7 +40,7 @@ public final class FreecamInitialPosSetting
 	
 	public enum InitialPosition
 	{
-		INSIDE("Inside")
+		INSIDE("体内")
 		{
 			@Override
 			public Vec3 getOffset()
@@ -49,7 +49,7 @@ public final class FreecamInitialPosSetting
 			}
 		},
 		
-		IN_FRONT("In Front")
+		IN_FRONT("前方")
 		{
 			@Override
 			public Vec3 getOffset()
@@ -62,7 +62,7 @@ public final class FreecamInitialPosSetting
 			}
 		},
 		
-		ABOVE("Above")
+		ABOVE("上面")
 		{
 			@Override
 			public Vec3 getOffset()

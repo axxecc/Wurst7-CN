@@ -111,7 +111,7 @@ public final class BlockComponent extends Component
 		ItemStack stack = new ItemStack(block);
 		
 		String translatedName = stack.isEmpty()
-			? WText.translated("gui.wurst.generic.unknown_block").toString()
+			? WText.translated("\"§o未知方块§r").toString()
 			: stack.getHoverName().getString();
 		String tooltip = "\u00a76名称:\u00a7r " + translatedName;
 		
@@ -122,9 +122,9 @@ public final class BlockComponent extends Component
 		tooltip += "\n\u00a76方块#:\u00a7r " + blockNumber;
 		
 		tooltip +=
-			"\n\n" + WText.translated("gui.wurst.generic.left_click_to_edit");
+			"\n\n" + WText.translated("§e[左键]§r 编辑");
 		tooltip +=
-			"\n" + WText.translated("gui.wurst.generic.right_click_to_reset");
+			"\n" + WText.translated("§e[右键]§r 重置");
 		
 		return tooltip;
 	}

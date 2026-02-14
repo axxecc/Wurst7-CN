@@ -100,9 +100,9 @@ public final class ColorComponent extends Component
 			.append(WText.literal(" \u00a7aG:\u00a7r" + setting.getGreen()))
 			.append(WText.literal(" \u00a79B:\u00a7r" + setting.getBlue()))
 			.append(WText.literal("\n\n"))
-			.append(WText.translated("gui.wurst.generic.left_click_to_edit"))
+			.append(WText.translated("\"§e[左键]§r 编辑\""))
 			.append(WText.literal("\n"))
-			.append(WText.translated("gui.wurst.generic.right_click_to_reset"))
+			.append(WText.translated("§e[右键]§r 重置"))
 			.toString();
 	}
 	

@@ -84,7 +84,8 @@
   "description.wurst.setting.bonemealaura.take_items_from": "Where to look for bone meal.",
   "description.wurst.hack.bowaimbot": "Automatically aims your bow or crossbow.",
   "description.wurst.hack.buildrandom": "Randomly places blocks around you.",
-
+  "description.wurst.setting.buildrandom.face_target": "How BuildRandom should face the randomly placed blocks.",
+  "description.wurst.setting.buildrandom.swing_hand": "How BuildRandom should swing your hand when placing blocks.",
   "description.wurst.hack.bunnyhop": "Makes you jump automatically.",
   "description.wurst.hack.cameradistance": "Allows you to change the camera distance in 3rd person.",
   "description.wurst.hack.cameranoclip": "Allows the camera in 3rd person to go through walls.",

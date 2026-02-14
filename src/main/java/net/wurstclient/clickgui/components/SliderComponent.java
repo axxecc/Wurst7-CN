@@ -169,11 +169,11 @@ public final class SliderComponent extends Component
 		String tooltip = setting.getWrappedDescription(200);
 		
 		if(setting.isDisabled())
-			tooltip += "\n\nThis slider is disabled.";
+			tooltip += "\n\n这个滑块是禁用的";
 		else if(setting.isLocked())
 		{
-			tooltip += "\n\nThis slider is locked to ";
-			tooltip += setting.getValueString() + ".";
+			tooltip += "\n\n这个滑块锁定于 ";
+			tooltip += setting.getValueString();
 		}
 		
 		return tooltip;
@@ -182,9 +182,9 @@ public final class SliderComponent extends Component
 	private String getSliderTooltip()
 	{
 		return WText
-			.translated("gui.wurst.generic.ctrl_left_click_for_precise_input")
+			.translated("§e[Ctrl]§r+§e[左键]§r 精确输入")
 			.append(WText.literal("\n"))
-			.append(WText.translated("gui.wurst.generic.right_click_to_reset"))
+			.append(WText.translated("§e[右键]§r 重置"))
 			.toString();
 	}
 	

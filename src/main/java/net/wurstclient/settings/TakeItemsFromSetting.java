@@ -33,7 +33,7 @@ public final class TakeItemsFromSetting
 	public static TakeItemsFromSetting withHands(WText description,
 		TakeItemsFrom selected)
 	{
-		return new TakeItemsFromSetting("Take items from",
+		return new TakeItemsFromSetting("物品来自于",
 			description.append(FULL_DESCRIPTION_SUFFIX), TakeItemsFrom.values(),
 			selected);
 	}
@@ -49,7 +49,7 @@ public final class TakeItemsFromSetting
 	{
 		TakeItemsFrom[] values =
 			{TakeItemsFrom.HOTBAR, TakeItemsFrom.INVENTORY};
-		return new TakeItemsFromSetting("Take items from",
+		return new TakeItemsFromSetting("物品来自于",
 			description.append(REDUCED_DESCRIPTION_SUFFIX), values, selected);
 	}
 	
@@ -80,9 +80,9 @@ public final class TakeItemsFromSetting
 	
 	public enum TakeItemsFrom
 	{
-		HANDS("Hands", 0),
-		HOTBAR("Hotbar", 9),
-		INVENTORY("Inventory", 36);
+		HANDS("手中", 0),
+		HOTBAR("快捷栏", 9),
+		INVENTORY("背包", 36);
 		
 		private static final String TRANSLATION_KEY_PREFIX =
 			"description.wurst.setting.generic.take_items_from.";

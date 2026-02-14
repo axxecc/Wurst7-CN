@@ -27,13 +27,13 @@ public final class WurstOptionsOtf extends OtherFeature
 	private static final Identifier WURST_TEXTURE =
 		Identifier.fromNamespaceAndPath("wurst", "wurst_128.png");
 	
-	private final EnumSetting<Location> location = new EnumSetting<>("Location",
-		"description.wurst.setting.wurstoptions.location", Location.values(),
+	private final EnumSetting<Location> location = new EnumSetting<>("位置",
+		"\"Wurst Options\" 按钮显示在哪", Location.values(),
 		Location.GAME_MENU);
 	
 	public WurstOptionsOtf()
 	{
-		super("WurstOptions", "description.wurst.other_feature.wurstoptions");
+		super("Wurst选项", "Wurst的主设置菜单");
 		addSetting(location);
 	}
 	
@@ -51,7 +51,7 @@ public final class WurstOptionsOtf extends OtherFeature
 	
 	public Button.Builder buttonBuilder(OnPress onPress)
 	{
-		MutableComponent message = Component.literal("            Options");
+		MutableComponent message = Component.literal("            选项");
 		
 		MutableComponent narration =
 			Component.translatable("gui.narrate.button", "Wurst Options");
@@ -83,8 +83,8 @@ public final class WurstOptionsOtf extends OtherFeature
 	
 	private enum Location
 	{
-		GAME_MENU("Game Menu"),
-		STATISTICS("Statistics");
+		GAME_MENU("游戏菜单"),
+		STATISTICS("统计信息");
 		
 		private final String name;
 		

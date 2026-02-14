@@ -17,14 +17,14 @@ public final class FreecamInputSetting
 	
 	public FreecamInputSetting()
 	{
-		super("Apply input to", DESCRIPTION, ApplyInputTo.values(),
+		super("应用输入", DESCRIPTION, ApplyInputTo.values(),
 			ApplyInputTo.CAMERA);
 	}
 	
 	private static WText buildDescription()
 	{
 		WText text = WText
-			.translated("description.wurst.setting.freecam.apply_input_to");
+			.translated("在灵魂出窍激活时, 你的键盘和鼠标输入应该做什么");
 		
 		for(ApplyInputTo value : ApplyInputTo.values())
 			text = text
@@ -36,8 +36,8 @@ public final class FreecamInputSetting
 	
 	public enum ApplyInputTo
 	{
-		CAMERA("Camera"),
-		PLAYER("Player");
+		CAMERA("相机"),
+		PLAYER("玩家");
 		
 		private static final String TRANSLATION_KEY_PREFIX =
 			"description.wurst.setting.freecam.apply_input_to.";

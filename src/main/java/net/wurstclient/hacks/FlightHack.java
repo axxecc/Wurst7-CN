@@ -27,38 +27,38 @@ public final class FlightHack extends Hack implements UpdateListener,
 	IsPlayerInWaterListener, AirStrafingSpeedListener, MouseScrollListener
 {
 	private final SliderSetting horizontalSpeed = new SliderSetting(
-		"水平速度", "description.wurst.setting.flight.horizontal_speed",
+		"水平速度", "使用飞行时的水平移动速度",
 		1, 0.05, 10, 0.05, ValueDisplay.DECIMAL);
 	
 	private final SliderSetting verticalSpeed =
 		new SliderSetting("垂直速度",
-			"description.wurst.setting.flight.vertical_speed", 1, 0.05, 5, 0.05,
+			"使用飞行时的垂直移动速度(相对于水平移动)", 1, 0.05, 5, 0.05,
 			v -> ValueDisplay.DECIMAL.getValueString(getActualVerticalSpeed()));
 	
 	private final CheckboxSetting allowUnsafeVerticalSpeed =
-		new CheckboxSetting("允许不安全的垂直速度",
-			"description.wurst.setting.flight.allow_unsafe_vertical_speed",
+		new CheckboxSetting("不安全的垂直速度",
+			"在生存模式下, 垂直速度可以超过3.95, 即使开启NoFall也会受到坠落伤害",
 			false);
 	
 	private final CheckboxSetting scrollToChangeSpeed =
-		new CheckboxSetting("Scroll to change speed",
-			"description.wurst.setting.flight.scroll_to_change_speed", true);
+		new CheckboxSetting("滚动以改变速度",
+			"当你滚动鼠标滚轮时, 它会改变你的速度\n\n§l注意: §r启用后, 飞行时滚动鼠标滚轮不会改变你选择的快捷栏物品", true);
 
 	private final CheckboxSetting renderSpeed =
-		new CheckboxSetting("Show speed in HackList",
-			"description.wurst.setting.flight.show_speed_in_hacklist", true);
+		new CheckboxSetting("列表中显示速度",
+			"在HackList中显示你当前的水平和垂直速度", true);
 
-	private final CheckboxSetting antiKick = new CheckboxSetting("Anti-Kick",
-		"description.wurst.setting.flight.anti-kick", false);
+	private final CheckboxSetting antiKick = new CheckboxSetting("防踢",
+		"它会让你偶尔下降一下, 防止被踢", false);
 
 	private final SliderSetting antiKickInterval =
 		new SliderSetting("防踢间隔",
-			"description.wurst.setting.flight.anti-kick_interval", 70, 5, 80, 1,
-			ValueDisplay.INTEGER.withSuffix(" ticks").withLabel(1, "1 tick"));
+			"反踢应该多久防止你被踢一次?\n大多数服务器会在80Tick后踢你", 70, 5, 80, 1,
+			ValueDisplay.INTEGER.withSuffix(" Tick"));
 	
 	private final SliderSetting antiKickDistance =
 		new SliderSetting("防踢距离",
-			"description.wurst.setting.flight.anti-kick_distance", 0.035, 0.01,
+			"防踢应该让你摔多远\n大多数服务器至少需要0.032m才能阻止你被踢", 0.035, 0.01,
 			0.2, 0.001, ValueDisplay.DECIMAL.withSuffix("m"));
 	
 	private int tickCounter = 0;

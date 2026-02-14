@@ -147,19 +147,19 @@ public final class MassTpaHack extends Hack
 				return;
 			
 			event.cancel();
-			ChatUtils.error("This server doesn't have a "
-				+ command.toUpperCase() + " command.");
+			ChatUtils.error("这个服务器没有 "
+				+ command.toUpperCase() + " 命令");
 			setEnabled(false);
 			
 		}else if(message.contains("accepted") && message.contains("request")
-			|| message.contains("akzeptiert") && message.contains("anfrage"))
+			|| message.contains("接受") && message.contains("请求"))
 		{
 			if(!stopWhenAccepted.isChecked())
 				return;
 			
 			event.cancel();
-			ChatUtils.message("Someone accepted your " + command.toUpperCase()
-				+ " request. Stopping.");
+			ChatUtils.message("有人接受了 " + command.toUpperCase()
+				+ ", 停止");
 			setEnabled(false);
 		}
 	}

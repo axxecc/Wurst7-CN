@@ -47,37 +47,37 @@ public final class FreecamHack extends Hack
 
 	private final SliderSetting horizontalSpeed =
 		new SliderSetting("水平速度",
-			"description.wurst.setting.freecam.horizontal_speed", 1, 0.05, 10,
+			"使用灵魂出窍时的水平摄像机移动速度\n\n当\"§l应用输入§r\"设置为§l玩家§r时, 不生效", 1, 0.05, 10,
 			0.05, ValueDisplay.DECIMAL);
 
 	private final SliderSetting verticalSpeed = new SliderSetting(
-		"垂直速度", "description.wurst.setting.freecam.vertical_speed", 1,
+		"垂直速度", "使用灵魂出窍时的垂直摄像机移动速度(相对于水平)\n\n当\"§l应用输入§r\"设置为§l玩家§r时, 不生效", 1,
 		0.05, 5, 0.05,
 		v -> ValueDisplay.DECIMAL.getValueString(getActualVerticalSpeed()));
 
 	private final CheckboxSetting scrollToChangeSpeed =
-		new CheckboxSetting("Scroll to change speed",
-			"description.wurst.setting.freecam.scroll_to_change_speed", true);
+		new CheckboxSetting("滚动改变速度",
+			"当你滚动鼠标滚轮时, 会改变摄像机的移动速度\n\n当\"§l应用输入§r\"设置为§l玩家§r时, 不生效", true);
 
 	private final CheckboxSetting renderSpeed =
-		new CheckboxSetting("Show speed in HackList",
-			"description.wurst.setting.freecam.show_speed_in_hacklist", true);
+		new CheckboxSetting("列表中显示速度",
+			"在HackList中显示你当前的水平和垂直摄像机移动速度", true);
 
 	private final FreecamInitialPosSetting initialPos =
 		new FreecamInitialPosSetting();
 	
-	private final CheckboxSetting tracer = new CheckboxSetting("Tracer",
-		"description.wurst.setting.freecam.tracer", false);
+	private final CheckboxSetting tracer = new CheckboxSetting("追踪",
+		"它会为你角色的实际位置画出一条线", false);
 	
 	private final ColorSetting color =
 		new ColorSetting("追踪颜色", Color.WHITE);
 	
-	private final CheckboxSetting hideHand = new CheckboxSetting("Hide hand",
-		"description.wurst.setting.freecam.hide_hand", true);
+	private final CheckboxSetting hideHand = new CheckboxSetting("隐藏手",
+		"使用灵魂出窍时, 可以隐藏你的手和手中物品", true);
 
 	private final CheckboxSetting disableOnDamage =
-		new CheckboxSetting("Disable on damage",
-			"description.wurst.setting.freecam.disable_on_damage", true);
+		new CheckboxSetting("受伤时关闭",
+			"当你受伤时,  它会自动关闭灵魂出窍", true);
 
 	private Vec3 camPos;
 	private Vec3 prevCamPos;

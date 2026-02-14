@@ -43,12 +43,12 @@ public final class BonemealAuraHack extends Hack implements HandleInputListener
 	private final SliderSetting range =
 		new SliderSetting("范围", 5, 1, 6, 0.05, ValueDisplay.DECIMAL);
 
-	private final CheckboxSetting multiMeal = new CheckboxSetting("MultiMeal",
-		"description.wurst.setting.bonemealaura.multimeal", false);
+	private final CheckboxSetting multiMeal = new CheckboxSetting("多个目标",
+		"同时对多株植物使用骨粉, 速度更快", false);
 
 	private final CheckboxSetting checkLOS =
 		new CheckboxSetting("检查视线",
-			"description.wurst.setting.bonemealaura.check_los", true);
+			"确保骨粉光环在使用骨粉时不会试图穿过方块, 慢一些", true);
 
 	private final FaceTargetSetting faceTarget =
 		FaceTargetSetting.withPacketSpam(this, FaceTarget.SERVER);
@@ -57,16 +57,16 @@ public final class BonemealAuraHack extends Hack implements HandleInputListener
 		new SwingHandSetting(this, SwingHand.CLIENT);
 	
 	private final CheckboxSetting fastPlace =
-		new CheckboxSetting("总是快速放置",
-			"description.wurst.setting.bonemealaura.always_fastplace", true);
+		new CheckboxSetting("总是快速使用",
+			"加快骨粉的使用, 就像FastPlace开启了一样", true);
 
 	private final CheckboxSetting useWhileBreaking =
-		new CheckboxSetting("Use while breaking",
-			"description.wurst.setting.bonemealaura.use_while_breaking", false);
+		new CheckboxSetting("破坏时使用",
+			"即使你在破坏方块时也会用骨粉", false);
 
 	private final CheckboxSetting useWhileRiding =
-		new CheckboxSetting("Use while riding",
-			"description.wurst.setting.bonemealaura.use_while_riding", false);
+		new CheckboxSetting("互动时使用",
+			"即使互动(右键)时也会用骨粉", false);
 
 	private final TakeItemsFromSetting takeItemsFrom =
 		TakeItemsFromSetting.withHands(this, TakeItemsFrom.HANDS);
