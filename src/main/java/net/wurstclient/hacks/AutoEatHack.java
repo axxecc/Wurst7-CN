@@ -40,9 +40,10 @@ import net.wurstclient.SearchTags;
 import net.wurstclient.events.UpdateListener;
 import net.wurstclient.hack.Hack;
 import net.wurstclient.settings.CheckboxSetting;
-import net.wurstclient.settings.EnumSetting;
 import net.wurstclient.settings.SliderSetting;
 import net.wurstclient.settings.SliderSetting.ValueDisplay;
+import net.wurstclient.settings.TakeItemsFromSetting;
+import net.wurstclient.settings.TakeItemsFromSetting.TakeItemsFrom;
 import net.wurstclient.util.InventoryUtils;
 
 @SearchTags({"自动进食", "AutoEat"})
@@ -65,9 +66,8 @@ public final class AutoEatHack extends Hack implements UpdateListener
 			"防止轻微的受伤就浪费掉你所有的食物, 自动进食将只会考虑你失去这么多颗心的情况", 1.5, 0.5, 10,
 			0.5, ValueDisplay.DECIMAL);
 	
-	private final EnumSetting<TakeItemsFrom> takeItemsFrom = new EnumSetting<>(
-		"从中获取物品", "决定自动进食从哪寻找食物",
-		TakeItemsFrom.values(), TakeItemsFrom.HOTBAR);
+	private final TakeItemsFromSetting takeItemsFrom =
+		TakeItemsFromSetting.withHands(this, TakeItemsFrom.HOTBAR);
 	
 	private final CheckboxSetting allowOffhand =
 		new CheckboxSetting("允许副手", true);
@@ -208,7 +208,7 @@ public final class AutoEatHack extends Hack implements UpdateListener
 		FoodProperties bestFood = null;
 		int bestSlot = -1;
 		
-		int maxInvSlot = takeItemsFrom.getSelected().maxInvSlot;
+		int maxInvSlot = takeItemsFrom.getMaxInvSlot();
 		
 		ArrayList<Integer> slots = new ArrayList<>();
 		if(maxInvSlot == 0)
@@ -333,29 +333,5 @@ public final class AutoEatHack extends Hack implements UpdateListener
 	{
 		int injuryThresholdI = (int)(injuryThreshold.getValue() * 2);
 		return player.getHealth() < player.getMaxHealth() - injuryThresholdI;
-	}
-	
-	private enum TakeItemsFrom
-	{
-		HANDS("手中", 0),
-		
-		HOTBAR("快捷栏", 9),
-		
-		INVENTORY("物品栏", 36);
-		
-		private final String name;
-		private final int maxInvSlot;
-		
-		private TakeItemsFrom(String name, int maxInvSlot)
-		{
-			this.name = name;
-			this.maxInvSlot = maxInvSlot;
-		}
-		
-		@Override
-		public String toString()
-		{
-			return name;
-		}
 	}
 }

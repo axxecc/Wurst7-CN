@@ -21,6 +21,7 @@ import net.wurstclient.clickgui.Window;
 import net.wurstclient.clickgui.screens.EditBlockScreen;
 import net.wurstclient.settings.BlockSetting;
 import net.wurstclient.util.RenderUtils;
+import net.wurstclient.util.text.WText;
 
 public final class BlockComponent extends Component
 {
@@ -109,7 +110,8 @@ public final class BlockComponent extends Component
 		BlockState state = block.defaultBlockState();
 		ItemStack stack = new ItemStack(block);
 		
-		String translatedName = stack.isEmpty() ? "\u00a7o未知方块\u00a7r"
+		String translatedName = stack.isEmpty()
+			? WText.translated("gui.wurst.generic.unknown_block").toString()
 			: stack.getHoverName().getString();
 		String tooltip = "\u00a76名称:\u00a7r " + translatedName;
 		
@@ -119,8 +121,10 @@ public final class BlockComponent extends Component
 		int blockNumber = Block.getId(state);
 		tooltip += "\n\u00a76方块#:\u00a7r " + blockNumber;
 		
-		tooltip += "\n\n\u00a7e[左键]\u00a7r 修改";
-		tooltip += "\n\u00a7e[右键]\u00a7r 重置";
+		tooltip +=
+			"\n\n" + WText.translated("gui.wurst.generic.left_click_to_edit");
+		tooltip +=
+			"\n" + WText.translated("gui.wurst.generic.right_click_to_reset");
 		
 		return tooltip;
 	}

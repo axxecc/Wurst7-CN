@@ -10,7 +10,10 @@ package net.wurstclient.commands;
 import java.util.Comparator;
 import java.util.stream.StreamSupport;
 
+import net.minecraft.client.multiplayer.ClientPacketListener;
+import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.protocol.game.ServerboundMovePlayerPacket;
 import net.minecraft.world.entity.LivingEntity;
 import net.wurstclient.command.CmdError;
 import net.wurstclient.command.CmdException;
@@ -22,17 +25,13 @@ import net.wurstclient.util.MathUtils;
 
 public final class TpCmd extends Command
 {
-	private final CheckboxSetting disableFreecam =
-		new CheckboxSetting("Disable Freecam",
-			"在瞬移前关闭自由摄像\n\n" +
-                    "这允许你在自由摄像状态下输入\".tp ~ ~ ~\", " +
-                    "将真实角色传送到自由摄像位置",
-			true);
+	private final CheckboxSetting disableFreecam = new CheckboxSetting(
+		"禁用灵魂出窍", "在传送前禁用自由视角", false);
 	
 	public TpCmd()
 	{
-		super("tp", "它会把你传送到最多10格外", ".tp <x> <y> <z>",
-			".tp <实体>");
+		super("tp", "它能传送到最多22格外", ".tp <x> <y> <z>",
+			".tp <entity>");
 		addSetting(disableFreecam);
 	}
 	
@@ -40,11 +39,32 @@ public final class TpCmd extends Command
 	public void call(String[] args) throws CmdException
 	{
 		BlockPos pos = argsToPos(args);
-		
+		LocalPlayer player = MC.player;
+
 		if(disableFreecam.isChecked() && WURST.getHax().freecamHack.isEnabled())
 			WURST.getHax().freecamHack.setEnabled(false);
 		
-		MC.player.setPos(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5);
+		// Simple teleport at low distances for better stability
+		if(player.distanceToSqr(pos.getBottomCenter()) < 100)
+		{
+			player.setPos(pos.getX(), pos.getY(), pos.getZ());
+			return;
+		}
+
+		// See ServerGamePacketListenerImpl.handleMovePlayer()
+		// for why it's using these numbers.
+		// Also, let me know if you find a way to bypass that check.
+		for(int i = 0; i < 4; i++)
+			sendPos(player.getX(), player.getY(), player.getZ(), true);
+		sendPos(pos.getX(), pos.getY(), pos.getZ(), true);
+		sendPos(pos.getX(), pos.getY(), pos.getZ(), false);
+	}
+
+	private void sendPos(double x, double y, double z, boolean onGround)
+	{
+		ClientPacketListener netHandler = MC.player.connection;
+		netHandler.send(new ServerboundMovePlayerPacket.Pos(x, y, z, onGround,
+			MC.player.horizontalCollision));
 	}
 	
 	private BlockPos argsToPos(String... args) throws CmdException

@@ -30,13 +30,14 @@ import net.wurstclient.SearchTags;
 import net.wurstclient.events.UpdateListener;
 import net.wurstclient.hack.Hack;
 import net.wurstclient.settings.CheckboxSetting;
-import net.wurstclient.settings.EnumSetting;
 import net.wurstclient.settings.FaceTargetSetting;
 import net.wurstclient.settings.FaceTargetSetting.FaceTarget;
 import net.wurstclient.settings.SliderSetting;
 import net.wurstclient.settings.SliderSetting.ValueDisplay;
 import net.wurstclient.settings.SwingHandSetting;
 import net.wurstclient.settings.SwingHandSetting.SwingHand;
+import net.wurstclient.settings.TakeItemsFromSetting;
+import net.wurstclient.settings.TakeItemsFromSetting.TakeItemsFrom;
 import net.wurstclient.settings.filterlists.CrystalAuraFilterList;
 import net.wurstclient.settings.filterlists.EntityFilterList;
 import net.wurstclient.util.BlockUtils;
@@ -67,9 +68,8 @@ public final class CrystalAuraHack extends Hack implements UpdateListener
 	private final SwingHandSetting swingHand =
 		new SwingHandSetting(this, SwingHand.CLIENT);
 	
-	private final EnumSetting<TakeItemsFrom> takeItemsFrom =
-		new EnumSetting<>("物品来源", "在哪里获取末影水晶",
-			TakeItemsFrom.values(), TakeItemsFrom.INVENTORY);
+	private final TakeItemsFromSetting takeItemsFrom =
+		TakeItemsFromSetting.withoutHands(this, TakeItemsFrom.INVENTORY);
 	
 	private final EntityFilterList entityFilters =
 		CrystalAuraFilterList.create();
@@ -127,7 +127,7 @@ public final class CrystalAuraHack extends Hack implements UpdateListener
 			return;
 		
 		if(InventoryUtils.indexOf(Items.END_CRYSTAL,
-			takeItemsFrom.getSelected().maxInvSlot) == -1)
+			takeItemsFrom.getMaxInvSlot()) == -1)
 			return;
 		
 		ArrayList<Entity> targets = getNearbyTargets();
@@ -203,7 +203,7 @@ public final class CrystalAuraHack extends Hack implements UpdateListener
 				continue;
 			
 			InventoryUtils.selectItem(Items.END_CRYSTAL,
-				takeItemsFrom.getSelected().maxInvSlot);
+				takeItemsFrom.getMaxInvSlot());
 			if(!MC.player.isHolding(Items.END_CRYSTAL))
 				return false;
 			
@@ -302,27 +302,5 @@ public final class CrystalAuraHack extends Hack implements UpdateListener
 	{
 		return BlockUtils.canBeClicked(pos)
 			&& !BlockUtils.getState(pos).canBeReplaced();
-	}
-	
-	private enum TakeItemsFrom
-	{
-		HOTBAR("快捷栏", 9),
-		
-		INVENTORY("背包", 36);
-		
-		private final String name;
-		private final int maxInvSlot;
-		
-		private TakeItemsFrom(String name, int maxInvSlot)
-		{
-			this.name = name;
-			this.maxInvSlot = maxInvSlot;
-		}
-		
-		@Override
-		public String toString()
-		{
-			return name;
-		}
 	}
 }

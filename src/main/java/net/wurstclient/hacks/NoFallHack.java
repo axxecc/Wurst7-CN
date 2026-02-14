@@ -8,13 +8,15 @@
 package net.wurstclient.hacks;
 
 import net.minecraft.client.player.LocalPlayer;
-import net.minecraft.network.protocol.game.ServerboundMovePlayerPacket.StatusOnly;
+import net.minecraft.network.protocol.game.ServerboundMovePlayerPacket;
 import net.minecraft.world.item.Items;
 import net.wurstclient.Category;
 import net.wurstclient.SearchTags;
 import net.wurstclient.events.UpdateListener;
 import net.wurstclient.hack.Hack;
 import net.wurstclient.settings.CheckboxSetting;
+import net.wurstclient.settings.SliderSetting;
+import net.wurstclient.settings.SliderSetting.ValueDisplay;
 
 @SearchTags({"无摔伤", "NoFall"})
 public final class NoFallHack extends Hack implements UpdateListener
@@ -26,28 +28,30 @@ public final class NoFallHack extends Hack implements UpdateListener
 		new CheckboxSetting("暂停使用重锤",
 			"手持重锤时暂停\"无摔伤\"效果, 以便你能够利用重锤的坠落距离加成\n\n§c§l警告：§r 手持重锤时，你将无法获得坠落伤害保护. 此外, 在坠落过程中切换至重锤或远离重锤都会中断坠落, 可能导致你受到伤害", false);
 	
+	private final SliderSetting minFallDistance =
+		new SliderSetting("Min fall distance",
+			"description.wurst.setting.nofall.min_fall_distance", 1, 0, 10, 0.1,
+			ValueDisplay.DECIMAL.withSuffix("m").withLabel(0, "off"));
+
+	private final SliderSetting minFallDistanceElytra =
+		new SliderSetting("Min elytra fall distance",
+			"description.wurst.setting.nofall.min_elytra_fall_distance", 2, 0,
+			10, 0.1, ValueDisplay.DECIMAL.withSuffix("m").withLabel(0, "off"));
+
 	public NoFallHack()
 	{
 		super("无摔伤");
 		setCategory(Category.MOVEMENT);
 		addSetting(allowElytra);
 		addSetting(pauseForMace);
+		addSetting(minFallDistance);
+		addSetting(minFallDistanceElytra);
 	}
 	
 	@Override
 	public String getRenderName()
 	{
-		LocalPlayer player = MC.player;
-		if(player == null)
-			return getName();
-		
-		if(player.isFallFlying() && !allowElytra.isChecked())
-			return getName() + " (暂停)";
-		
-		if(player.getAbilities().instabuild)
-			return getName() + " (暂停)";
-		
-		if(pauseForMace.isChecked() && isHoldingMace(player))
+		if(MC.player != null && isPaused())
 			return getName() + " (暂停)";
 		
 		return getName();
@@ -69,33 +73,44 @@ public final class NoFallHack extends Hack implements UpdateListener
 	@Override
 	public void onUpdate()
 	{
+		if(isPaused())
+			return;
+
+		// send packet to stop fall damage
+		MC.player.connection.send(new ServerboundMovePlayerPacket.StatusOnly(
+			true, MC.player.horizontalCollision));
+	}
+
+	private boolean isPaused()
+	{
 		// do nothing in creative mode, since there is no fall damage anyway
 		LocalPlayer player = MC.player;
-		if(player.getAbilities().instabuild)
-			return;
+		if(player.getAbilities().invulnerable)
+			return true;
 		
 		// pause when flying with elytra, unless allowed
 		boolean fallFlying = player.isFallFlying();
 		if(fallFlying && !allowElytra.isChecked())
-			return;
+			return true;
 		
 		// pause when holding a mace, if enabled
-		if(pauseForMace.isChecked() && isHoldingMace(player))
-			return;
+		if(pauseForMace.isChecked() && player.getMainHandItem().is(Items.MACE))
+			return true;
+
+		// ignore small falls that can't cause damage,
+		// unless CreativeFlight is enabled in survival mode
+		boolean creativeFlying = WURST.getHax().creativeFlightHack.isEnabled()
+			&& player.getAbilities().flying;
+		if(!creativeFlying && player.fallDistance <= (fallFlying
+			? minFallDistanceElytra.getValue() : minFallDistance.getValue()))
+			return true;
 		
 		// attempt to fix elytra weirdness, if allowed
 		if(fallFlying && player.isShiftKeyDown()
 			&& !isFallingFastEnoughToCauseDamage(player))
-			return;
+			return true;
 		
-		// send packet to stop fall damage
-		player.connection
-			.send(new StatusOnly(true, MC.player.horizontalCollision));
-	}
-	
-	private boolean isHoldingMace(LocalPlayer player)
-	{
-		return player.getMainHandItem().is(Items.MACE);
+		return false;
 	}
 	
 	private boolean isFallingFastEnoughToCauseDamage(LocalPlayer player)
