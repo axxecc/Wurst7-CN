@@ -42,49 +42,43 @@ public final class BonemealAuraHack extends Hack implements HandleInputListener
 {
 	private final SliderSetting range =
 		new SliderSetting("范围", 5, 1, 6, 0.05, ValueDisplay.DECIMAL);
-
-	private final CheckboxSetting multiMeal = new CheckboxSetting("多个目标",
-		"同时对多株植物使用骨粉, 速度更快", false);
-
+	
+	private final CheckboxSetting multiMeal =
+		new CheckboxSetting("多个目标", "同时对多株植物使用骨粉, 速度更快", false);
+	
 	private final CheckboxSetting checkLOS =
-		new CheckboxSetting("检查视线",
-			"确保骨粉光环在使用骨粉时不会试图穿过方块, 慢一些", true);
-
+		new CheckboxSetting("检查视线", "确保骨粉光环在使用骨粉时不会试图穿过方块, 慢一些", true);
+	
 	private final FaceTargetSetting faceTarget =
 		FaceTargetSetting.withPacketSpam(this, FaceTarget.SERVER);
-
+	
 	private final SwingHandSetting swingHand =
 		new SwingHandSetting(this, SwingHand.CLIENT);
 	
 	private final CheckboxSetting fastPlace =
-		new CheckboxSetting("总是快速使用",
-			"加快骨粉的使用, 就像FastPlace开启了一样", true);
-
+		new CheckboxSetting("总是快速使用", "加快骨粉的使用, 就像FastPlace开启了一样", true);
+	
 	private final CheckboxSetting useWhileBreaking =
-		new CheckboxSetting("破坏时使用",
-			"即使你在破坏方块时也会用骨粉", false);
-
+		new CheckboxSetting("破坏时使用", "即使你在破坏方块时也会用骨粉", false);
+	
 	private final CheckboxSetting useWhileRiding =
-		new CheckboxSetting("互动时使用",
-			"即使互动(右键)时也会用骨粉", false);
-
+		new CheckboxSetting("互动时使用", "即使互动(右键)时也会用骨粉", false);
+	
 	private final TakeItemsFromSetting takeItemsFrom =
 		TakeItemsFromSetting.withHands(this, TakeItemsFrom.HANDS);
 	
-	private final CheckboxSetting saplings =
-		new CheckboxSetting("树苗", true);
+	private final CheckboxSetting saplings = new CheckboxSetting("树苗", true);
 	
-	private final CheckboxSetting crops = new CheckboxSetting("庄稼",
-		"小麦、胡萝卜、土豆和甜菜根", true);
+	private final CheckboxSetting crops =
+		new CheckboxSetting("庄稼", "小麦、胡萝卜、土豆和甜菜根", true);
 	
 	private final CheckboxSetting stems =
 		new CheckboxSetting("茎类", "南瓜和西瓜", true);
 	
 	private final CheckboxSetting cocoa = new CheckboxSetting("可可", true);
 	
-	private final CheckboxSetting seaPickles =
-		new CheckboxSetting("海泡菜", true);
-
+	private final CheckboxSetting seaPickles = new CheckboxSetting("海泡菜", true);
+	
 	private final CheckboxSetting other = new CheckboxSetting("其它", false);
 	
 	public BonemealAuraHack()
@@ -131,7 +125,7 @@ public final class BonemealAuraHack extends Hack implements HandleInputListener
 		
 		if(!useWhileRiding.isChecked() && MC.player.isHandsBusy())
 			return;
-
+		
 		if(WURST.getHax().autoFarmHack.isBusy())
 			return;
 		
@@ -144,13 +138,13 @@ public final class BonemealAuraHack extends Hack implements HandleInputListener
 		List<BlockBreakingParams> validBlocks = getValidBlocks();
 		if(validBlocks.isEmpty())
 			return;
-
+		
 		if(!holdingBoneMeal)
 		{
 			InventoryUtils.selectItem(boneMealSlot);
 			return;
 		}
-
+		
 		if(multiMeal.isChecked())
 		{
 			boolean shouldSwing = false;
@@ -162,10 +156,10 @@ public final class BonemealAuraHack extends Hack implements HandleInputListener
 					SwingHand.OFF);
 				shouldSwing = true;
 			}
-
+			
 			if(shouldSwing)
 				swingHand.swing(InteractionHand.MAIN_HAND);
-
+			
 		}else
 		{
 			BlockBreakingParams params = validBlocks.getFirst();
@@ -186,10 +180,10 @@ public final class BonemealAuraHack extends Hack implements HandleInputListener
 			.filter(this::isCorrectBlock)
 			.map(BlockBreaker::getBlockBreakingParams).filter(Objects::nonNull)
 			.filter(params -> params.distanceSq() <= rangeSq);
-
+		
 		if(checkLOS.isChecked())
 			stream = stream.filter(BlockBreakingParams::lineOfSight);
-
+			
 		// As plants are bone-mealed, they will grow larger and prevent line of
 		// sight to other plants behind them. That's why we need to bone-meal
 		// the farthest plants first.
@@ -226,7 +220,7 @@ public final class BonemealAuraHack extends Hack implements HandleInputListener
 		
 		if(block instanceof SeaPickleBlock)
 			return seaPickles.isChecked();
-
+		
 		return other.isChecked();
 	}
 }

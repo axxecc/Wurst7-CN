@@ -49,32 +49,27 @@ public final class KillauraLegitHack extends Hack implements UpdateListener,
 	private final AttackSpeedSliderSetting speed =
 		new AttackSpeedSliderSetting();
 	
-	private final SliderSetting speedRandMS =
-		new SliderSetting("速度随机化",
-			"通过改变攻击之间的延迟来帮助您绕过反作弊插件",
-			100, 0, 1000, 50, ValueDisplay.INTEGER.withPrefix("\u00b1")
-				.withSuffix("ms").withLabel(0, "关闭"));
+	private final SliderSetting speedRandMS = new SliderSetting("速度随机化",
+		"通过改变攻击之间的延迟来帮助您绕过反作弊插件", 100, 0, 1000, 50, ValueDisplay.INTEGER
+			.withPrefix("\u00b1").withSuffix("ms").withLabel(0, "关闭"));
 	
-	private final SliderSetting rotationSpeed =
-		new SliderSetting("转头速度", 600, 10, 3600, 10,
-			ValueDisplay.DEGREES.withSuffix("/s"));
+	private final SliderSetting rotationSpeed = new SliderSetting("转头速度", 600,
+		10, 3600, 10, ValueDisplay.DEGREES.withSuffix("/s"));
 	
 	private final EnumSetting<Priority> priority = new EnumSetting<>("优先权",
 		"确定首先攻击哪个实体\n\u00a7l距离\u00a7r - 攻击最近的实体\n\u00a7l角度\u00a7r - 攻击需要最少视角旋转的实体\n\u00a7l角度+距离\u00a7r - 角度和距离的混合体\n\u00a7l血量\u00a7r - 攻击最弱的实体",
 		Priority.values(), Priority.ANGLE);
-
+	
 	private final SliderSetting fov = new SliderSetting("视角范围",
-		"视野 - 实体在被忽略之前可以离您的准星多远\n360° = 实体可以攻击您周围的所有实体",
-		360, 30, 360, 10, ValueDisplay.DEGREES);
+		"视野 - 实体在被忽略之前可以离您的准星多远\n360° = 实体可以攻击您周围的所有实体", 360, 30, 360, 10,
+		ValueDisplay.DEGREES);
 	
 	private final SwingHandSetting swingHand =
 		SwingHandSetting.withoutOffOption(
 			SwingHandSetting.genericCombatDescription(this), SwingHand.CLIENT);
 	
-	private final CheckboxSetting damageIndicator = new CheckboxSetting(
-		"伤害指示器",
-		"在目标中渲染一个彩色框, 与其剩余生命值成反比",
-		true);
+	private final CheckboxSetting damageIndicator =
+		new CheckboxSetting("伤害指示器", "在目标中渲染一个彩色框, 与其剩余生命值成反比", true);
 	
 	// same filters as in Killaura, but with stricter defaults
 	private final EntityFilterList entityFilters =

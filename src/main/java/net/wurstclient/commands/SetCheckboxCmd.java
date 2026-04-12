@@ -22,10 +22,8 @@ public final class SetCheckboxCmd extends Command
 {
 	public SetCheckboxCmd()
 	{
-		super("setcheckbox",
-			"更改功能中的复选框设置, 允许你通过快捷键切换复选框",
-			".setcheckbox <功能> <设置> (on|off)",
-			".setcheckbox <功能> <设置> toggle");
+		super("setcheckbox", "更改功能中的复选框设置, 允许你通过快捷键切换复选框",
+			".setcheckbox <功能> <设置> (on|off)", ".setcheckbox <功能> <设置> toggle");
 	}
 	
 	@Override
@@ -44,8 +42,8 @@ public final class SetCheckboxCmd extends Command
 		throws CmdError
 	{
 		if(!(setting instanceof CheckboxSetting))
-			throw new CmdError(feature.getName() + " " + setting.getName()
-				+ " 不是复选框设置");
+			throw new CmdError(
+				feature.getName() + " " + setting.getName() + " 不是复选框设置");
 		
 		return (CheckboxSetting)setting;
 	}

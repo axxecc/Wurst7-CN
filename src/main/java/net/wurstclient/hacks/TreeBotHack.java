@@ -51,8 +51,7 @@ public final class TreeBotHack extends Hack
 	implements UpdateListener, RenderListener
 {
 	private final SliderSetting range = new SliderSetting("范围",
-		"自动砍树可以到达多远来破坏方块", 4.5, 1, 6, 0.05,
-		ValueDisplay.DECIMAL);
+		"自动砍树可以到达多远来破坏方块", 4.5, 1, 6, 0.05, ValueDisplay.DECIMAL);
 	
 	private final FaceTargetSetting faceTarget =
 		FaceTargetSetting.withoutPacketSpam(this, FaceTarget.SERVER);

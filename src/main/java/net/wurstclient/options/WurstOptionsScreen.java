@@ -66,8 +66,7 @@ public class WurstOptionsScreen extends Screen
 			wurst.getOtfs().translationsOtf.getForceEnglish();
 		
 		new WurstOptionsButton(-154, 24,
-			() -> "点击好友: "
-				+ (middleClickFriends.isChecked() ? "开启" : "关闭"),
+			() -> "点击好友: " + (middleClickFriends.isChecked() ? "开启" : "关闭"),
 			middleClickFriends.getWrappedDescription(200),
 			b -> middleClickFriends
 				.setChecked(!middleClickFriends.isChecked()));
@@ -78,8 +77,7 @@ public class WurstOptionsScreen extends Screen
 			b -> plausible.setEnabled(!plausible.isEnabled()));
 		
 		new WurstOptionsButton(-154, 72,
-			() -> "客户端欺骗: "
-				+ (vanillaSpoofOtf.isEnabled() ? "开启" : "关闭"),
+			() -> "客户端欺骗: " + (vanillaSpoofOtf.isEnabled() ? "开启" : "关闭"),
 			vanillaSpoofOtf.getDescription(),
 			b -> vanillaSpoofOtf.doPrimaryAction());
 		
@@ -93,16 +91,13 @@ public class WurstOptionsScreen extends Screen
 	{
 		XRayHack xRayHack = WurstClient.INSTANCE.getHax().xRayHack;
 		
-		new WurstOptionsButton(-50, 24, () -> "快捷键",
-			"快捷键允许您通过按键来切换功能",
+		new WurstOptionsButton(-50, 24, () -> "快捷键", "快捷键允许您通过按键来切换功能",
 			b -> minecraft.setScreen(new KeybindManagerScreen(this)));
 		
-		new WurstOptionsButton(-50, 48, () -> "X-Ray 方块",
-			"管理 X-Ray 透视的方块",
+		new WurstOptionsButton(-50, 48, () -> "X-Ray 方块", "管理 X-Ray 透视的方块",
 			b -> xRayHack.openBlockListEditor(this));
 		
-		new WurstOptionsButton(-50, 72, () -> "缩放",
-			"缩放管理器允许您更改缩放键及其放大距离",
+		new WurstOptionsButton(-50, 72, () -> "缩放", "缩放管理器允许您更改缩放键及其放大距离",
 			b -> minecraft.setScreen(new ZoomManagerScreen(this)));
 	}
 	
@@ -110,8 +105,7 @@ public class WurstOptionsScreen extends Screen
 	{
 		OS os = Util.getPlatform();
 		
-		new WurstOptionsButton(54, 24, () -> "官方网站",
-			"§n§lWurstClient.net",
+		new WurstOptionsButton(54, 24, () -> "官方网站", "§n§lWurstClient.net",
 			b -> os.openUri("https://www.wurstclient.net/options-website/"));
 		
 		new WurstOptionsButton(54, 48, () -> "Wurst Wiki", "§n§lWurst.Wiki",
@@ -123,8 +117,7 @@ public class WurstOptionsScreen extends Screen
 		new WurstOptionsButton(54, 96, () -> "Twitter", "@Wurst_Imperium",
 			b -> os.openUri("https://www.wurstclient.net/options-twitter/"));
 		
-		new WurstOptionsButton(54, 120, () -> "汉化地址",
-            "§n§lGitHub",
+		new WurstOptionsButton(54, 120, () -> "汉化地址", "§n§lGitHub",
 			b -> os.openUri("https://github.com/axxecc/Wurst7-CN/"));
 	}
 	
@@ -153,8 +146,7 @@ public class WurstOptionsScreen extends Screen
 		int y1 = 40;
 		int y2 = height / 4 + 24 - 28;
 		
-		context.centeredText(tr, "Wurst 选项", middleX, y1,
-			CommonColors.WHITE);
+		context.centeredText(tr, "Wurst 选项", middleX, y1, CommonColors.WHITE);
 		
 		context.centeredText(tr, "设置", middleX - 104, y2,
 			WurstColors.VERY_LIGHT_GRAY);

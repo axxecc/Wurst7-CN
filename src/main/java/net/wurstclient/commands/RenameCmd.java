@@ -20,9 +20,8 @@ public final class RenameCmd extends Command
 {
 	public RenameCmd()
 	{
-		super("rename", "重新命名手中的物品", ".rename <名字>",
-			"用$表示颜色，用$$表示$", "示例:", ".rename $c红色名字",
-			"(将物品名称更改为 \u00a7c红色名字\u00a7r)");
+		super("rename", "重新命名手中的物品", ".rename <名字>", "用$表示颜色，用$$表示$", "示例:",
+			".rename $c红色名字", "(将物品名称更改为 \u00a7c红色名字\u00a7r)");
 	}
 	
 	@Override

@@ -25,15 +25,11 @@ public final class FilterShulkersSetting extends EntityFilterCheckbox
 	
 	public static FilterShulkersSetting genericCombat(boolean checked)
 	{
-		return new FilterShulkersSetting(
-			"不会攻击潜影贝",
-			checked);
+		return new FilterShulkersSetting("不会攻击潜影贝", checked);
 	}
 	
 	public static FilterShulkersSetting genericVision(boolean checked)
 	{
-		return new FilterShulkersSetting(
-			"不会显示潜影贝",
-			checked);
+		return new FilterShulkersSetting("不会显示潜影贝", checked);
 	}
 }

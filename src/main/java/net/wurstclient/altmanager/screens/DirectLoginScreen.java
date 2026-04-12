@@ -24,8 +24,7 @@ public final class DirectLoginScreen extends AltEditorScreen
 	@Override
 	protected String getDoneButtonText()
 	{
-		return getPassword().isEmpty() ? "更改破解名称"
-			: "用密码登录";
+		return getPassword().isEmpty() ? "更改破解名称" : "用密码登录";
 	}
 	
 	@Override

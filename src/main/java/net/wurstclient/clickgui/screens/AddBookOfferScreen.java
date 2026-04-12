@@ -87,7 +87,7 @@ public final class AddBookOfferScreen extends Screen
 				levelField.setTextColor(WurstColors.LIGHT_RED);
 				return;
 			}
-
+			
 			levelField.setTextColor(EditBox.DEFAULT_TEXT_COLOR);
 			if(!t.isEmpty())
 				updateLevel(Integer.parseInt(t), false);
@@ -103,7 +103,7 @@ public final class AddBookOfferScreen extends Screen
 				priceField.setTextColor(WurstColors.LIGHT_RED);
 				return;
 			}
-
+			
 			priceField.setTextColor(EditBox.DEFAULT_TEXT_COLOR);
 			if(!t.isEmpty())
 				updatePrice(Integer.parseInt(t), false);
@@ -219,27 +219,27 @@ public final class AddBookOfferScreen extends Screen
 	{
 		if(t.isEmpty())
 			return true;
-
+		
 		if(!MathUtils.isInteger(t))
 			return false;
-
+		
 		int level = Integer.parseInt(t);
 		if(level < 1 || level > 10)
 			return false;
-
+		
 		if(offerToAdd == null)
 			return true;
-
+		
 		Enchantment enchantment = offerToAdd.getEnchantment();
 		return level <= enchantment.getMaxLevel();
 	}
-
+	
 	private boolean isValidPrice(String t)
 	{
 		return t.isEmpty() || MathUtils.isInteger(t) && Integer.parseInt(t) >= 1
 			&& Integer.parseInt(t) <= 64;
 	}
-
+	
 	@Override
 	public boolean mouseClicked(MouseButtonEvent context, boolean doubleClick)
 	{
@@ -297,8 +297,7 @@ public final class AddBookOfferScreen extends Screen
 		matrixStack.pushMatrix();
 		
 		Font tr = minecraft.font;
-		String titleText =
-			"可用书籍 (" + listGui.children().size() + ")";
+		String titleText = "可用书籍 (" + listGui.children().size() + ")";
 		context.centeredText(tr, titleText, width / 2, 12, CommonColors.WHITE);
 		
 		levelField.extractRenderState(context, mouseX, mouseY, partialTicks);
@@ -310,13 +309,12 @@ public final class AddBookOfferScreen extends Screen
 		matrixStack.translate(width / 2 - 100, 0);
 		
 		context.text(tr, "等级:", 0, height - 72, WurstColors.VERY_LIGHT_GRAY);
-		context.text(tr, "价格:", 0, height - 56,
-			WurstColors.VERY_LIGHT_GRAY);
+		context.text(tr, "价格:", 0, height - 56, WurstColors.VERY_LIGHT_GRAY);
 		
 		if(alreadyAdded && offerToAdd != null)
 		{
-			String errorText = offerToAdd.getEnchantmentNameWithLevel()
-				+ " 已经在列表中!";
+			String errorText =
+				offerToAdd.getEnchantmentNameWithLevel() + " 已经在列表中!";
 			context.text(tr, errorText, 0, height - 40, WurstColors.LIGHT_RED);
 		}
 		

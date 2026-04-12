@@ -44,7 +44,8 @@ public final class ChatTranslatorHack extends Hack
 	
 	private final CheckboxSetting autoDetectSent = new CheckboxSetting(
 		"检测发送的语言",
-		"自动检测已发送消息的语言\n\n如果您使用多种不同语言, 此功能非常有用\n\n如果您始终使用同一种语言, 关闭此功能可以提高准确性", true);
+		"自动检测已发送消息的语言\n\n如果您使用多种不同语言, 此功能非常有用\n\n如果您始终使用同一种语言, 关闭此功能可以提高准确性",
+		true);
 	
 	private final FilterOwnMessagesSetting filterOwnMessages =
 		new FilterOwnMessagesSetting();

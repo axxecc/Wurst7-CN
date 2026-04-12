@@ -50,26 +50,28 @@ public class ZoomManagerScreen extends Screen implements PressAKeyCallback
 				b -> minecraft.setScreen(new PressAKeyScreen(this)))
 			.bounds(width / 2 - 79, height / 4 + 24 - 16, 158, 20).build());
 		
-		addRenderableWidget(Button
-			.builder(Component.literal("增加"), b -> level.increaseValue())
-			.bounds(width / 2 - 79, height / 4 + 72 - 16, 50, 20).build());
+		addRenderableWidget(
+			Button.builder(Component.literal("增加"), b -> level.increaseValue())
+				.bounds(width / 2 - 79, height / 4 + 72 - 16, 50, 20).build());
 		
-		addRenderableWidget(Button
-			.builder(Component.literal("减小"), b -> level.decreaseValue())
-			.bounds(width / 2 - 25, height / 4 + 72 - 16, 50, 20).build());
+		addRenderableWidget(
+			Button.builder(Component.literal("减小"), b -> level.decreaseValue())
+				.bounds(width / 2 - 25, height / 4 + 72 - 16, 50, 20).build());
 		
 		addRenderableWidget(Button
 			.builder(Component.literal("默认"),
 				b -> level.setValue(level.getDefaultValue()))
 			.bounds(width / 2 + 29, height / 4 + 72 - 16, 50, 20).build());
 		
-		addRenderableWidget(scrollButton =
-			Button
-				.builder(
-					Component.literal(
-						"使用鼠标滚轮: " + onOrOff(scroll.isChecked())),
-					b -> toggleScroll())
-				.bounds(width / 2 - 79, height / 4 + 96 - 16, 158, 20).build());
+		addRenderableWidget(
+			scrollButton =
+				Button
+					.builder(
+						Component
+							.literal("使用鼠标滚轮: " + onOrOff(scroll.isChecked())),
+						b -> toggleScroll())
+					.bounds(width / 2 - 79, height / 4 + 96 - 16, 158, 20)
+					.build());
 	}
 	
 	private void toggleScroll()
@@ -78,8 +80,8 @@ public class ZoomManagerScreen extends Screen implements PressAKeyCallback
 		CheckboxSetting scroll = zoom.getScrollSetting();
 		
 		scroll.setChecked(!scroll.isChecked());
-		scrollButton.setMessage(Component
-			.literal("使用鼠标滚轮: " + onOrOff(scroll.isChecked())));
+		scrollButton.setMessage(
+			Component.literal("使用鼠标滚轮: " + onOrOff(scroll.isChecked())));
 	}
 	
 	private String onOrOff(boolean on)
@@ -100,10 +102,9 @@ public class ZoomManagerScreen extends Screen implements PressAKeyCallback
 		ZoomOtf zoom = WurstClient.INSTANCE.getOtfs().zoomOtf;
 		SliderSetting level = zoom.getLevelSetting();
 		
-		context.centeredText(font, "缩放管理", width / 2, 40,
-			CommonColors.WHITE);
-		context.text(font, "缩放等级: " + level.getValueString(),
-			width / 2 - 75, height / 4 + 44, WurstColors.VERY_LIGHT_GRAY);
+		context.centeredText(font, "缩放管理", width / 2, 40, CommonColors.WHITE);
+		context.text(font, "缩放等级: " + level.getValueString(), width / 2 - 75,
+			height / 4 + 44, WurstColors.VERY_LIGHT_GRAY);
 		
 		for(Renderable drawable : renderables)
 			drawable.extractRenderState(context, mouseX, mouseY, partialTicks);

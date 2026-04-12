@@ -21,10 +21,8 @@ public final class CopyItemCmd extends Command
 {
 	public CopyItemCmd()
 	{
-		super("copyitem",
-			"允许你复制别人手中的物品或穿着\n需要创造模式",
-			".copyitem <player> <slot>",
-			"有效槽位: hand, head, chest, legs, feet");
+		super("copyitem", "允许你复制别人手中的物品或穿着\n需要创造模式",
+			".copyitem <player> <slot>", "有效槽位: hand, head, chest, legs, feet");
 	}
 	
 	@Override

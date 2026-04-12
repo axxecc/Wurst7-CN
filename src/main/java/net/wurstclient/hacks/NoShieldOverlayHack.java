@@ -16,15 +16,11 @@ import net.wurstclient.settings.SliderSetting.ValueDisplay;
 
 public final class NoShieldOverlayHack extends Hack
 {
-	public final SliderSetting blockingOffset =
-		new SliderSetting("格挡消除",
-			"阻挡时降低护盾覆盖的量", 0.5, 0,
-			0.8, 0.01, ValueDisplay.DECIMAL);
+	public final SliderSetting blockingOffset = new SliderSetting("格挡消除",
+		"阻挡时降低护盾覆盖的量", 0.5, 0, 0.8, 0.01, ValueDisplay.DECIMAL);
 	
-	public final SliderSetting nonBlockingOffset =
-		new SliderSetting("无格挡抵消",
-			"不阻挡时降低护盾覆盖的量", 0.2, 0,
-			0.5, 0.01, ValueDisplay.DECIMAL);
+	public final SliderSetting nonBlockingOffset = new SliderSetting("无格挡抵消",
+		"不阻挡时降低护盾覆盖的量", 0.2, 0, 0.5, 0.01, ValueDisplay.DECIMAL);
 	
 	public NoShieldOverlayHack()
 	{

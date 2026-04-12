@@ -24,9 +24,7 @@ public final class InvseeCmd extends Command implements RenderListener
 	
 	public InvseeCmd()
 	{
-		super("invsee",
-			"允许你查看其他玩家物品栏的部分内容",
-			".invsee <玩家>");
+		super("invsee", "允许你查看其他玩家物品栏的部分内容", ".invsee <玩家>");
 	}
 	
 	@Override

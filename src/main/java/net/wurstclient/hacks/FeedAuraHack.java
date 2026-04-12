@@ -43,19 +43,17 @@ import net.wurstclient.util.RotationUtils;
 public final class FeedAuraHack extends Hack
 	implements UpdateListener, HandleInputListener, RenderListener
 {
-	private final SliderSetting range = new SliderSetting("范围",
-		"确定喂养光环将到达多远来喂养动物\n任何距离超过指定值的东西都不会被喂食",
-		5, 1, 10, 0.05, ValueDisplay.DECIMAL);
+	private final SliderSetting range =
+		new SliderSetting("范围", "确定喂养光环将到达多远来喂养动物\n任何距离超过指定值的东西都不会被喂食", 5, 1,
+			10, 0.05, ValueDisplay.DECIMAL);
 	
 	private final FilterBabiesSetting filterBabies =
 		new FilterBabiesSetting("不会喂养幼年动物\n节省食物, 但不会加速幼年的成长", true);
 	
 	private final CheckboxSetting filterUntamed =
-		new CheckboxSetting("过滤未驯服",
-			"不会喂养尚未驯服的可驯服动物", false);
+		new CheckboxSetting("过滤未驯服", "不会喂养尚未驯服的可驯服动物", false);
 	
-	private final CheckboxSetting filterHorses = new CheckboxSetting(
-		"过滤骑乘物",
+	private final CheckboxSetting filterHorses = new CheckboxSetting("过滤骑乘物",
 		"不会喂马、骆驼、驴等\n推荐用于 1.20.3 之前的 Minecraft 版本, 因为 MC-233276, 这会导致这些动物无限期地食用物品",
 		false);
 	

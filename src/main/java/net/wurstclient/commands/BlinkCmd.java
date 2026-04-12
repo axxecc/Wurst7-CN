@@ -17,8 +17,7 @@ public final class BlinkCmd extends Command
 {
 	public BlinkCmd()
 	{
-		super("blink", "启用, 禁用或取消闪现", ".blink [on|off]",
-			".blink cancel");
+		super("blink", "启用, 禁用或取消闪现", ".blink [on|off]", ".blink cancel");
 	}
 	
 	@Override

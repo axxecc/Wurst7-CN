@@ -21,8 +21,7 @@ import net.wurstclient.settings.EnumSetting;
 public final class WurstLogoOtf extends OtherFeature
 {
 	private final ColorSetting bgColor = new ColorSetting("背景",
-		"背景颜色\n仅在禁用\u00a76RainbowUI\u00a7r时可见",
-		Color.WHITE);
+		"背景颜色\n仅在禁用\u00a76RainbowUI\u00a7r时可见", Color.WHITE);
 	
 	private final ColorSetting txtColor =
 		new ColorSetting("文本", "文本颜色", Color.BLACK);
@@ -56,7 +55,7 @@ public final class WurstLogoOtf extends OtherFeature
 	public static enum Visibility
 	{
 		ALWAYS("显示", () -> true),
-
+		
 		ONLY_OUTDATED("隐藏", () -> false);
 		
 		private final String name;

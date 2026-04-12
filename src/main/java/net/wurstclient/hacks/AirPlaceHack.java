@@ -35,11 +35,11 @@ public final class AirPlaceHack extends Hack
 	private final SliderSetting range =
 		new SliderSetting("范围", 5, 1, 6, 0.05, ValueDisplay.DECIMAL);
 	
-	private final CheckboxSetting guide = new CheckboxSetting("位置标记",
-		"显示方块放置位置的位置", true);
+	private final CheckboxSetting guide =
+		new CheckboxSetting("位置标记", "显示方块放置位置的位置", true);
 	
-	private final ColorSetting guideColor = new ColorSetting("标记颜色",
-		"如果启用，则方块放置位置的颜色", Color.RED);
+	private final ColorSetting guideColor =
+		new ColorSetting("标记颜色", "如果启用，则方块放置位置的颜色", Color.RED);
 	
 	private BlockPos renderPos;
 	

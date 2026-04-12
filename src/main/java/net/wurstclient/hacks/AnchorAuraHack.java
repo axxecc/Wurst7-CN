@@ -51,17 +51,14 @@ import net.wurstclient.util.RotationUtils;
 @SearchTags({"锚光环", "CrystalAura"})
 public final class AnchorAuraHack extends Hack implements UpdateListener
 {
-	private final SliderSetting range =
-		new SliderSetting("范围", "确定锚光环可以到达多远以放置、充能和引爆锚",
-			6, 1, 6, 0.05, ValueDisplay.DECIMAL);
+	private final SliderSetting range = new SliderSetting("范围",
+		"确定锚光环可以到达多远以放置、充能和引爆锚", 6, 1, 6, 0.05, ValueDisplay.DECIMAL);
 	
-	private final CheckboxSetting autoPlace =
-		new CheckboxSetting("自动放置锚",
-			"启用后, 锚光环会自动将锚点放置在有效实体附近\n禁用后, 锚光环将仅对手动放置的锚点进行充能和引爆", true);
+	private final CheckboxSetting autoPlace = new CheckboxSetting("自动放置锚",
+		"启用后, 锚光环会自动将锚点放置在有效实体附近\n禁用后, 锚光环将仅对手动放置的锚点进行充能和引爆", true);
 	
-	private final CheckboxSetting checkLOS =
-		new CheckboxSetting("检查视线",
-			"确保在放置或右键单击重生锚时不会穿过方块\n\n速度较慢, 但可以绕过反作弊插件", false);
+	private final CheckboxSetting checkLOS = new CheckboxSetting("检查视线",
+		"确保在放置或右键单击重生锚时不会穿过方块\n\n速度较慢, 但可以绕过反作弊插件", false);
 	
 	private final FaceTargetSetting faceTarget =
 		FaceTargetSetting.withPacketSpam(this, FaceTarget.OFF);

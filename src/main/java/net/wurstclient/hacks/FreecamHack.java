@@ -46,48 +46,43 @@ public final class FreecamHack extends Hack
 	CameraTransformViewBobbingListener, RenderListener, MouseScrollListener
 {
 	private final FreecamInputSetting applyInputTo = new FreecamInputSetting();
-
+	
 	private final FreecamInteractionSetting interactFrom =
 		new FreecamInteractionSetting();
-
-	private final SliderSetting horizontalSpeed =
-		new SliderSetting("水平速度",
-			"使用灵魂出窍时的水平摄像机移动速度\n\n当\"§l应用输入§r\"设置为§l玩家§r时, 不生效", 1, 0.05, 10,
-			0.05, ValueDisplay.DECIMAL);
-
-	private final SliderSetting verticalSpeed = new SliderSetting(
-		"垂直速度", "使用灵魂出窍时的垂直摄像机移动速度(相对于水平)\n\n当\"§l应用输入§r\"设置为§l玩家§r时, 不生效", 1,
-		0.05, 5, 0.05,
+	
+	private final SliderSetting horizontalSpeed = new SliderSetting("水平速度",
+		"使用灵魂出窍时的水平摄像机移动速度\n\n当\"§l应用输入§r\"设置为§l玩家§r时, 不生效", 1, 0.05, 10, 0.05,
+		ValueDisplay.DECIMAL);
+	
+	private final SliderSetting verticalSpeed = new SliderSetting("垂直速度",
+		"使用灵魂出窍时的垂直摄像机移动速度(相对于水平)\n\n当\"§l应用输入§r\"设置为§l玩家§r时, 不生效", 1, 0.05, 5,
+		0.05,
 		v -> ValueDisplay.DECIMAL.getValueString(getActualVerticalSpeed()));
-
+	
 	private final CheckboxSetting scrollToChangeSpeed =
 		new CheckboxSetting("滚动改变速度",
 			"当你滚动鼠标滚轮时, 会改变摄像机的移动速度\n\n当\"§l应用输入§r\"设置为§l玩家§r时, 不生效", true);
-
+	
 	private final CheckboxSetting renderSpeed =
-		new CheckboxSetting("列表中显示速度",
-			"在HackList中显示你当前的水平和垂直摄像机移动速度", true);
-
+		new CheckboxSetting("列表中显示速度", "在HackList中显示你当前的水平和垂直摄像机移动速度", true);
+	
 	private final FreecamInitialPosSetting initialPos =
 		new FreecamInitialPosSetting();
 	
-	private final CheckboxSetting tracer = new CheckboxSetting("追踪",
-		"它会为你角色的实际位置画出一条线", false);
+	private final CheckboxSetting tracer =
+		new CheckboxSetting("追踪", "它会为你角色的实际位置画出一条线", false);
 	
-	private final ColorSetting color =
-		new ColorSetting("追踪颜色", Color.WHITE);
+	private final ColorSetting color = new ColorSetting("追踪颜色", Color.WHITE);
 	
-	private final CheckboxSetting hideHand = new CheckboxSetting("隐藏手",
-		"使用灵魂出窍时, 可以隐藏你的手和手中物品", true);
-
+	private final CheckboxSetting hideHand =
+		new CheckboxSetting("隐藏手", "使用灵魂出窍时, 可以隐藏你的手和手中物品", true);
+	
 	private final CheckboxSetting disableOnDamage =
-		new CheckboxSetting("Disable on damage",
-			"description.wurst.setting.freecam.disable_on_damage", true);
-
-	private final CheckboxSetting reloadChunks =
-		new CheckboxSetting("Reload chunks",
-			"description.wurst.setting.freecam.reload_chunks", true);
-
+		new CheckboxSetting("受伤时关闭", "当你受伤时, 它会自动关闭灵魂出窍", true);
+	
+	private final CheckboxSetting reloadChunks = new CheckboxSetting("重载区块",
+		"关闭灵魂出窍时会重新加载所有区块\n\n关闭后性能会提升, 但可能导致世界视觉空白", true);
+	
 	private Vec3 camPos;
 	private Vec3 prevCamPos;
 	private float camYaw;
@@ -111,13 +106,13 @@ public final class FreecamHack extends Hack
 		addSetting(disableOnDamage);
 		addSetting(reloadChunks);
 	}
-
+	
 	@Override
 	public String getRenderName()
 	{
 		if(!renderSpeed.isChecked())
 			return getName();
-
+		
 		return getName() + " [" + horizontalSpeed.getValueString() + ", "
 			+ verticalSpeed.getValueString() + "]";
 	}
@@ -156,7 +151,7 @@ public final class FreecamHack extends Hack
 	public void onUpdate()
 	{
 		LocalPlayer player = MC.player;
-
+		
 		// Check for damage
 		float currentHealth = player.getHealth();
 		if(disableOnDamage.isChecked() && currentHealth < lastHealth)
@@ -165,13 +160,13 @@ public final class FreecamHack extends Hack
 			return;
 		}
 		lastHealth = currentHealth;
-
+		
 		if(!isMovingCamera() || MC.screen != null)
 		{
 			prevCamPos = camPos;
 			return;
 		}
-
+		
 		// Get movement vector (x=left, y=forward)
 		Vec2 moveVector = player.input.getMoveVector();
 		
@@ -196,7 +191,7 @@ public final class FreecamHack extends Hack
 		prevCamPos = camPos;
 		camPos = camPos.add(offsetVec);
 	}
-
+	
 	private double getActualVerticalSpeed()
 	{
 		return Mth.clamp(horizontalSpeed.getValue() * verticalSpeed.getValue(),
@@ -208,20 +203,20 @@ public final class FreecamHack extends Hack
 	{
 		if(!isControllingScrollEvents())
 			return;
-
+		
 		if(amount > 0)
 			horizontalSpeed.increaseValue();
 		else if(amount < 0)
 			horizontalSpeed.decreaseValue();
 	}
-
+	
 	public boolean isControllingScrollEvents()
 	{
 		return isMovingCamera() && scrollToChangeSpeed.isChecked()
 			&& MC.screen == null
 			&& !WURST.getOtfs().zoomOtf.isControllingScrollEvents();
 	}
-
+	
 	public boolean isMovingCamera()
 	{
 		return isEnabled() && applyInputTo.getSelected() == ApplyInputTo.CAMERA;
@@ -231,13 +226,13 @@ public final class FreecamHack extends Hack
 	{
 		return isEnabled() && interactFrom.getSelected() == InteractFrom.CAMERA;
 	}
-
+	
 	@Override
 	public void onVisGraph(VisGraphEvent event)
 	{
 		event.cancel();
 	}
-
+	
 	@Override
 	public void onCameraTransformViewBobbing(
 		CameraTransformViewBobbingEvent event)
@@ -263,17 +258,17 @@ public final class FreecamHack extends Hack
 		RenderUtils.drawTracer(matrixStack, partialTicks, rawBox.getCenter(),
 			colorI, false);
 	}
-
+	
 	public boolean shouldHideHand()
 	{
 		return isEnabled() && hideHand.isChecked();
 	}
-
+	
 	public Vec3 getCamPos(float partialTicks)
 	{
 		return Mth.lerp(partialTicks, prevCamPos, camPos);
 	}
-
+	
 	public void turn(double deltaYaw, double deltaPitch)
 	{
 		// This needs to be consistent with Entity.turn()
@@ -281,17 +276,17 @@ public final class FreecamHack extends Hack
 		camPitch += (float)(deltaPitch * 0.15);
 		camPitch = Mth.clamp(camPitch, -90, 90);
 	}
-
+	
 	public float getCamYaw()
 	{
 		return camYaw;
 	}
-
+	
 	public float getCamPitch()
 	{
 		return camPitch;
 	}
-
+	
 	public Vec3 getScaledCamDir(double scale)
 	{
 		return Vec3.directionFromRotation(camPitch, camYaw).scale(scale);

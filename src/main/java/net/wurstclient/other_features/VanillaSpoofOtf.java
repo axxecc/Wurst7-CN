@@ -26,8 +26,7 @@ public final class VanillaSpoofOtf extends OtherFeature
 	
 	public VanillaSpoofOtf()
 	{
-		super("客户端欺骗",
-			"通过伪装成原版客户端来绕过反Fabric插件");
+		super("客户端欺骗", "通过伪装成原版客户端来绕过反Fabric插件");
 		addSetting(spoof);
 		
 		EVENTS.add(ConnectionPacketOutputListener.class, this);

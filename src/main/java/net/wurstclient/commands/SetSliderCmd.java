@@ -23,10 +23,8 @@ public final class SetSliderCmd extends Command
 {
 	public SetSliderCmd()
 	{
-		super("setslider",
-			"更改某个功能的滑块设置, 允许你通过快捷键移动滑块",
-			".setslider <功能> <设置> <值>",
-			".setslider <功能> <设置> (more|less)");
+		super("setslider", "更改某个功能的滑块设置, 允许你通过快捷键移动滑块",
+			".setslider <功能> <设置> <值>", ".setslider <功能> <设置> (more|less)");
 	}
 	
 	@Override
@@ -45,8 +43,8 @@ public final class SetSliderCmd extends Command
 		throws CmdError
 	{
 		if(!(setting instanceof SliderSetting))
-			throw new CmdError(feature.getName() + " " + setting.getName()
-				+ " 不是滑块设置");
+			throw new CmdError(
+				feature.getName() + " " + setting.getName() + " 不是滑块设置");
 		
 		return (SliderSetting)setting;
 	}

@@ -27,9 +27,7 @@ public final class AutoMineHack extends Hack
 	implements UpdateListener, HandleBlockBreakingListener
 {
 	private final CheckboxSetting superFastMode =
-		new CheckboxSetting("超快速模式",
-			"破坏方块的速度比平时更快, 可能会被反作弊插件检测到",
-			false);
+		new CheckboxSetting("超快速模式", "破坏方块的速度比平时更快, 可能会被反作弊插件检测到", false);
 	
 	public AutoMineHack()
 	{

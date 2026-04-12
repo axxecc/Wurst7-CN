@@ -29,9 +29,8 @@ public final class GiveCmd extends Command
 {
 	public GiveCmd()
 	{
-		super("give",
-			"给你一个带有自定义NBT数据的物品, 需要创造模式",
-			".give <物品> [<数量>] [<nbt>]", ".give <id> [<数量>] [<nbt>]");
+		super("give", "给你一个带有自定义NBT数据的物品, 需要创造模式", ".give <物品> [<数量>] [<nbt>]",
+			".give <id> [<数量>] [<nbt>]");
 	}
 	
 	@Override

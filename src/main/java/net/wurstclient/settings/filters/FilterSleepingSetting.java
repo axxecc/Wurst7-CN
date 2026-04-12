@@ -29,15 +29,11 @@ public final class FilterSleepingSetting extends EntityFilterCheckbox
 	
 	public static FilterSleepingSetting genericCombat(boolean checked)
 	{
-		return new FilterSleepingSetting(
-			"不会攻击正在睡觉的玩家",
-			checked);
+		return new FilterSleepingSetting("不会攻击正在睡觉的玩家", checked);
 	}
 	
 	public static FilterSleepingSetting genericVision(boolean checked)
 	{
-		return new FilterSleepingSetting(
-			"不会显示正在休眠的玩家",
-			checked);
+		return new FilterSleepingSetting("不会显示正在休眠的玩家", checked);
 	}
 }

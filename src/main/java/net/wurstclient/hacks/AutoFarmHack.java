@@ -48,8 +48,7 @@ public final class AutoFarmHack extends Hack
 		new SliderSetting("范围", 5, 1, 6, 0.05, ValueDisplay.DECIMAL);
 	
 	private final CheckboxSetting checkLOS =
-		new CheckboxSetting("检查视线",
-			"确保您在种植和收获时不会穿过方块", false);
+		new CheckboxSetting("检查视线", "确保您在种植和收获时不会穿过方块", false);
 	
 	private final FaceTargetSetting faceTarget =
 		FaceTargetSetting.withoutPacketSpam(this, FaceTarget.SERVER);

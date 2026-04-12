@@ -18,9 +18,7 @@ public final class IpCmd extends Command
 {
 	public IpCmd()
 	{
-		super("ip",
-			"显示你当前连接的服务器的IP\n或者复制到剪贴板上",
-			".ip", "复制到剪贴板: .ip copy");
+		super("ip", "显示你当前连接的服务器的IP\n或者复制到剪贴板上", ".ip", "复制到剪贴板: .ip copy");
 	}
 	
 	@Override

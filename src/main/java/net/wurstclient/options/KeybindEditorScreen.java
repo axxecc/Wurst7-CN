@@ -58,9 +58,8 @@ public final class KeybindEditorScreen extends Screen
 				b -> minecraft.setScreen(new PressAKeyScreen(this)))
 			.bounds(width / 2 - 100, 60, 200, 20).build());
 		
-		addRenderableWidget(
-			Button.builder(Component.literal("保存"), b -> save())
-				.bounds(width / 2 - 100, height / 4 + 72, 200, 20).build());
+		addRenderableWidget(Button.builder(Component.literal("保存"), b -> save())
+			.bounds(width / 2 - 100, height / 4 + 72, 200, 20).build());
 		
 		addRenderableWidget(Button
 			.builder(Component.literal("取消"),
@@ -98,9 +97,8 @@ public final class KeybindEditorScreen extends Screen
 	public void extractRenderState(GuiGraphicsExtractor context, int mouseX,
 		int mouseY, float partialTicks)
 	{
-		context.centeredText(font,
-			(oldKey != null ? "编辑" : "添加") + " 快捷键", width / 2, 20,
-			CommonColors.WHITE);
+		context.centeredText(font, (oldKey != null ? "编辑" : "添加") + " 快捷键",
+			width / 2, 20, CommonColors.WHITE);
 		
 		context.text(font, "绑定键: " + Keybind.getDisplayKey(key),
 			width / 2 - 100, 47, WurstColors.VERY_LIGHT_GRAY);

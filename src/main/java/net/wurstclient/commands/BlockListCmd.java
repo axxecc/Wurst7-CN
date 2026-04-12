@@ -28,12 +28,9 @@ public final class BlockListCmd extends Command
 {
 	public BlockListCmd()
 	{
-		super("blocklist",
-			"更改某个功能的BlockList设置\n允许你通过按键绑定来更改这些设置",
-			".blocklist <功能> <设置> add <方块>",
-			".blocklist <功能> <设置> remove <方块>",
-			".blocklist <功能> <设置> list [<页码>]",
-			".blocklist <功能> <设置> reset",
+		super("blocklist", "更改某个功能的BlockList设置\n允许你通过按键绑定来更改这些设置",
+			".blocklist <功能> <设置> add <方块>", ".blocklist <功能> <设置> remove <方块>",
+			".blocklist <功能> <设置> list [<页码>]", ".blocklist <功能> <设置> reset",
 			"示例: .blocklist Nuker MultiID_List add gravel");
 	}
 	
@@ -80,8 +77,7 @@ public final class BlockListCmd extends Command
 		String inputBlockName = args[3];
 		Block block = BlockUtils.getBlockFromNameOrID(inputBlockName);
 		if(block == null)
-			throw new CmdSyntaxError(
-				"\"" + inputBlockName + "\" 不是一个有效的方块");
+			throw new CmdSyntaxError("\"" + inputBlockName + "\" 不是一个有效的方块");
 		
 		String blockName = BlockUtils.getName(block);
 		if(setting.contains(blockName))
@@ -100,8 +96,7 @@ public final class BlockListCmd extends Command
 		String inputBlockName = args[3];
 		Block block = BlockUtils.getBlockFromNameOrID(inputBlockName);
 		if(block == null)
-			throw new CmdSyntaxError(
-				"\"" + inputBlockName + "\" 不是一个有效的方块");
+			throw new CmdSyntaxError("\"" + inputBlockName + "\" 不是一个有效的方块");
 		
 		String blockName = BlockUtils.getName(block);
 		int index = setting.indexOf(blockName);
@@ -125,14 +120,14 @@ public final class BlockListCmd extends Command
 		
 		if(page > pages || page < 1)
 			throw new CmdSyntaxError("无效页码: " + page);
-
+		
 		ChatUtils.message("共有: " + blocks.size() + " 个方块");
 		
 		int start = (page - 1) * 8;
 		int end = Math.min(page * 8, blocks.size());
 		
-		ChatUtils.message(feature.getName() + " " + setting.getName()
-			+ " (页码 " + page + "/" + pages + ")");
+		ChatUtils.message(feature.getName() + " " + setting.getName() + " (页码 "
+			+ page + "/" + pages + ")");
 		for(int i = start; i < end; i++)
 			ChatUtils.message(blocks.get(i).toString());
 	}
@@ -152,8 +147,8 @@ public final class BlockListCmd extends Command
 		Setting setting) throws CmdError
 	{
 		if(!(setting instanceof BlockListSetting))
-			throw new CmdError(feature.getName() + " " + setting.getName()
-				+ " 不是BlockList设置");
+			throw new CmdError(
+				feature.getName() + " " + setting.getName() + " 不是BlockList设置");
 		
 		return (BlockListSetting)setting;
 	}

@@ -14,10 +14,8 @@ public final class BindCmd extends Command
 {
 	public BindCmd()
 	{
-		super("bind", "'.binds add' 的快捷方式", ".bind <键> <功能>",
-			".bind <键> <命令>",
-			"多个功能/命令必须用';'来区分",
-			"用 .binds 来获取更多选项");
+		super("bind", "'.binds add' 的快捷方式", ".bind <键> <功能>", ".bind <键> <命令>",
+			"多个功能/命令必须用';'来区分", "用 .binds 来获取更多选项");
 	}
 	
 	@Override

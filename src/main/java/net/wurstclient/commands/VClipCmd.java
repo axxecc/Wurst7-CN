@@ -21,9 +21,8 @@ public final class VClipCmd extends Command
 {
 	public VClipCmd()
 	{
-		super("vclip",
-			"可以让你垂直穿透方块, 最大距离为10个方块",
-			".vclip <高度>", ".vclip (up|down)");
+		super("vclip", "可以让你垂直穿透方块, 最大距离为10个方块", ".vclip <高度>",
+			".vclip (up|down)");
 	}
 	
 	@Override

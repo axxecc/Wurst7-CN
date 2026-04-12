@@ -110,9 +110,9 @@ public final class BlockComponent extends Component
 		BlockState state = block.defaultBlockState();
 		ItemStack stack = new ItemStack(block);
 		
-		String translatedName = stack.isEmpty()
-			? WText.translated("\"§o未知方块§r").toString()
-			: stack.getHoverName().getString();
+		String translatedName =
+			stack.isEmpty() ? WText.translated("\"§o未知方块§r").toString()
+				: stack.getHoverName().getString();
 		String tooltip = "\u00a76名称:\u00a7r " + translatedName;
 		
 		String blockId = setting.getBlockName();
@@ -121,10 +121,8 @@ public final class BlockComponent extends Component
 		int blockNumber = Block.getId(state);
 		tooltip += "\n\u00a76方块#:\u00a7r " + blockNumber;
 		
-		tooltip +=
-			"\n\n" + WText.translated("§e[左键]§r 编辑");
-		tooltip +=
-			"\n" + WText.translated("§e[右键]§r 重置");
+		tooltip += "\n\n" + WText.translated("§e[左键]§r 编辑");
+		tooltip += "\n" + WText.translated("§e[右键]§r 重置");
 		
 		return tooltip;
 	}

@@ -26,9 +26,7 @@ public final class ChestCartsGroup extends ChestEspEntityGroup
 	@Override
 	protected ColorSetting createColorSetting()
 	{
-		return new ColorSetting("箱子矿车颜色",
-			"箱子矿车将以该颜色高亮显示",
-			Color.YELLOW);
+		return new ColorSetting("箱子矿车颜色", "箱子矿车将以该颜色高亮显示", Color.YELLOW);
 	}
 	
 	@Override

@@ -13,8 +13,7 @@ import net.minecraft.world.entity.monster.Slime;
 
 public final class FilterSlimesSetting extends EntityFilterCheckbox
 {
-	private static final String EXCEPTIONS_TEXT =
-		"\n\n此过滤器不会影响岩浆怪";
+	private static final String EXCEPTIONS_TEXT = "\n\n此过滤器不会影响岩浆怪";
 	
 	public FilterSlimesSetting(String description, boolean checked)
 	{

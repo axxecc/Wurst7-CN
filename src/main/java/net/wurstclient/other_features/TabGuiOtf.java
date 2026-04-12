@@ -22,7 +22,8 @@ public final class TabGuiOtf extends OtherFeature
 	
 	public TabGuiOtf()
 	{
-		super("TabGUI", "允许您在玩游戏时快速切换功能\n使用箭头键导航\n\n将\u00a76功能列表\u00a76位置\u00a7r设置更改为\u00a76右边\u00a7r以防止TabGUI与功能列表重叠");
+		super("TabGUI",
+			"允许您在玩游戏时快速切换功能\n使用箭头键导航\n\n将\u00a76功能列表\u00a76位置\u00a7r设置更改为\u00a76右边\u00a7r以防止TabGUI与功能列表重叠");
 		
 		addSetting(status);
 	}

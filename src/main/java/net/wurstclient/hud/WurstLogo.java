@@ -52,7 +52,7 @@ public final class WurstLogo
 	{
 		String version = "v" + WurstClient.VERSION;
 		version += " MC" + WurstClient.MC_VERSION;
-
+		
 		return version;
 	}
 }

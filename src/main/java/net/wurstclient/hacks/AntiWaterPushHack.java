@@ -19,9 +19,8 @@ import net.wurstclient.settings.CheckboxSetting;
 public final class AntiWaterPushHack extends Hack implements UpdateListener,
 	VelocityFromFluidListener, IsPlayerInWaterListener
 {
-	private final CheckboxSetting preventSlowdown = new CheckboxSetting(
-		"防止减速", "让你在水下全速行走",
-		false);
+	private final CheckboxSetting preventSlowdown =
+		new CheckboxSetting("防止减速", "让你在水下全速行走", false);
 	
 	public AntiWaterPushHack()
 	{

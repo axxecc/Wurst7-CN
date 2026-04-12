@@ -29,24 +29,21 @@ public final class HackListOtf extends OtherFeature
 		"\u00a7l自动\u00a7r模式会呈现整个列表 (如果它适合屏幕) \n\u00a7l计数\u00a7r模式仅呈现活动黑客攻击的数量\n\u00a7l延迟\u00a7r模式不会呈现任何内容",
 		Mode.values(), Mode.AUTO);
 	
-	private final EnumSetting<Position> position = new EnumSetting<>("位置",
-		"功能列表应该显示在屏幕的哪一侧\n使用TabGUI时, 将此更改为\u00a7l右边",
-		Position.values(), Position.LEFT);
-
+	private final EnumSetting<Position> position =
+		new EnumSetting<>("位置", "功能列表应该显示在屏幕的哪一侧\n使用TabGUI时, 将此更改为\u00a7l右边",
+			Position.values(), Position.LEFT);
+	
 	private final ColorSetting color = new ColorSetting("颜色",
-		"功能列表本的颜色\n\u00a76RainbowUI\u00a7r时可见",
-		Color.WHITE);
+		"功能列表本的颜色\n\u00a76RainbowUI\u00a7r时可见", Color.WHITE);
 	
 	private final EnumSetting<SortBy> sortBy = new EnumSetting<>("排序方式",
 		"确定功能列表条目的排序方式\n仅当\u00a76模式\u00a7r设置为\u00a76自动\u00a7r时可见",
 		SortBy.values(), SortBy.NAME);
 	
-	private final CheckboxSetting revSort =
-		new CheckboxSetting("反向排序", false);
+	private final CheckboxSetting revSort = new CheckboxSetting("反向排序", false);
 	
-	private final CheckboxSetting animations = new CheckboxSetting("动画",
-		"启用后, 条目会随着功能的启用和禁用而滑入和滑出功能列表",
-		true);
+	private final CheckboxSetting animations =
+		new CheckboxSetting("动画", "启用后, 条目会随着功能的启用和禁用而滑入和滑出功能列表", true);
 	
 	private SortBy prevSortBy;
 	private Boolean prevRevSort;

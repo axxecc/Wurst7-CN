@@ -27,9 +27,7 @@ public final class TrapChestsGroup extends ChestEspBlockGroup
 	@Override
 	protected ColorSetting createColorSetting()
 	{
-		return new ColorSetting("陷阱箱颜色",
-			"陷阱箱会以该颜色高亮显示",
-			new Color(0xFF8000));
+		return new ColorSetting("陷阱箱颜色", "陷阱箱会以该颜色高亮显示", new Color(0xFF8000));
 	}
 	
 	@Override

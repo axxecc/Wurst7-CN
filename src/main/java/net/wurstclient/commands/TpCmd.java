@@ -26,13 +26,12 @@ import net.wurstclient.util.MathUtils;
 
 public final class TpCmd extends Command
 {
-	private final CheckboxSetting disableFreecam = new CheckboxSetting(
-		"禁用灵魂出窍", "在传送前禁用自由视角", false);
+	private final CheckboxSetting disableFreecam =
+		new CheckboxSetting("禁用灵魂出窍", "在传送前禁用自由视角", false);
 	
 	public TpCmd()
 	{
-		super("tp", "它能传送到最多22格外", ".tp <x> <y> <z>",
-			".tp <entity>");
+		super("tp", "它能传送到最多22格外", ".tp <x> <y> <z>", ".tp <entity>");
 		addSetting(disableFreecam);
 	}
 	
@@ -41,7 +40,7 @@ public final class TpCmd extends Command
 	{
 		BlockPos pos = argsToPos(args);
 		LocalPlayer player = MC.player;
-
+		
 		if(disableFreecam.isChecked() && WURST.getHax().freecamHack.isEnabled())
 			WURST.getHax().freecamHack.setEnabled(false);
 		
@@ -51,7 +50,7 @@ public final class TpCmd extends Command
 			player.setPos(pos.getX(), pos.getY(), pos.getZ());
 			return;
 		}
-
+		
 		// See ServerGamePacketListenerImpl.handleMovePlayer()
 		// for why it's using these numbers.
 		// Also, let me know if you find a way to bypass that check.
@@ -60,7 +59,7 @@ public final class TpCmd extends Command
 		sendPos(pos.getX(), pos.getY(), pos.getZ(), true);
 		sendPos(pos.getX(), pos.getY(), pos.getZ(), false);
 	}
-
+	
 	private void sendPos(double x, double y, double z, boolean onGround)
 	{
 		ClientPacketListener netHandler = MC.player.connection;

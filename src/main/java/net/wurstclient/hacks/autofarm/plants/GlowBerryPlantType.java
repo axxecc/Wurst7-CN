@@ -59,7 +59,6 @@ public final class GlowBerryPlantType extends AutoFarmPlantType
 	@Override
 	protected PlantTypeSetting createSetting()
 	{
-		return new PlantTypeSetting("发光浆果", Items.GLOW_BERRIES, true,
-			true);
+		return new PlantTypeSetting("发光浆果", Items.GLOW_BERRIES, true, true);
 	}
 }

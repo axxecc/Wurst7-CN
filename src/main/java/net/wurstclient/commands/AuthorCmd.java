@@ -20,8 +20,7 @@ public final class AuthorCmd extends Command
 {
 	public AuthorCmd()
 	{
-		super("author", "改变书面书籍的作者\n"
-			+ "需要创造模式", ".author <作者>");
+		super("author", "改变书面书籍的作者\n" + "需要创造模式", ".author <作者>");
 	}
 	
 	@Override
@@ -35,8 +34,7 @@ public final class AuthorCmd extends Command
 		
 		ItemStack heldStack = MC.player.getInventory().getSelectedItem();
 		if(!heldStack.is(Items.WRITTEN_BOOK))
-			throw new CmdError(
-				"你必须用主手拿着一本书");
+			throw new CmdError("你必须用主手拿着一本书");
 		
 		WrittenBookContent oldData =
 			heldStack.getComponents().get(DataComponents.WRITTEN_BOOK_CONTENT);

@@ -70,22 +70,20 @@ public final class EditBlockListScreen extends Screen
 				minecraft.setScreen(EditBlockListScreen.this);
 			}).bounds(width / 2 - 2, height - 56, 30, 20).build());
 		
-		addRenderableWidget(removeButton =
-			Button.builder(Component.literal("编辑账户"), b -> {
+		addRenderableWidget(
+			removeButton = Button.builder(Component.literal("编辑账户"), b -> {
 				blockList
 					.remove(blockList.indexOf(listGui.getSelectedBlockName()));
 				minecraft.setScreen(EditBlockListScreen.this);
 			}).bounds(width / 2 + 52, height - 56, 100, 20).build());
 		
-		addRenderableWidget(
-			Button.builder(Component.literal("重置为默认值"),
-				b -> minecraft.setScreen(new ConfirmScreen(b2 -> {
-					if(b2)
-						blockList.resetToDefaults();
-					minecraft.setScreen(EditBlockListScreen.this);
-				}, Component.literal("重置为默认值"),
-					Component.literal("是否确定?"))))
-				.bounds(width - 108, 8, 100, 20).build());
+		addRenderableWidget(Button.builder(Component.literal("重置为默认值"),
+			b -> minecraft.setScreen(new ConfirmScreen(b2 -> {
+				if(b2)
+					blockList.resetToDefaults();
+				minecraft.setScreen(EditBlockListScreen.this);
+			}, Component.literal("重置为默认值"), Component.literal("是否确定?"))))
+			.bounds(width - 108, 8, 100, 20).build());
 		
 		addRenderableWidget(doneButton = Button
 			.builder(Component.literal("完成"),

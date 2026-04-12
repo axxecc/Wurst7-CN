@@ -17,8 +17,7 @@ public final class ExcavateCmd extends Command
 {
 	public ExcavateCmd()
 	{
-		super("excavate",
-			"自动摧毁选定区域内的所有方块",
+		super("excavate", "自动摧毁选定区域内的所有方块",
 			".excavate <x1> <y1> <z1> <x2> <y2> <z2>");
 	}
 	

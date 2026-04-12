@@ -26,8 +26,7 @@ public final class CraftersGroup extends ChestEspBlockGroup
 	@Override
 	protected ColorSetting createColorSetting()
 	{
-		return new ColorSetting("合成器颜色",
-			"合成器将以该颜色高亮显示", Color.WHITE);
+		return new ColorSetting("合成器颜色", "合成器将以该颜色高亮显示", Color.WHITE);
 	}
 	
 	@Override

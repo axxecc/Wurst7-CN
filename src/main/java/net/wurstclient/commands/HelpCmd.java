@@ -23,8 +23,7 @@ public final class HelpCmd extends Command
 	
 	public HelpCmd()
 	{
-		super("help", "显示对某个命令或命令列表的帮助",
-			".help <命令>", "命令列表: .help [<页码>]");
+		super("help", "显示对某个命令或命令列表的帮助", ".help <命令>", "命令列表: .help [<页码>]");
 	}
 	
 	@Override
@@ -49,7 +48,7 @@ public final class HelpCmd extends Command
 		
 		if(page > pages || page < 1)
 			throw new CmdSyntaxError("无效页码: " + page);
-
+		
 		ChatUtils.message("共有: " + cmds.size() + "条命令");
 		
 		int start = (page - 1) * CMDS_PER_PAGE;

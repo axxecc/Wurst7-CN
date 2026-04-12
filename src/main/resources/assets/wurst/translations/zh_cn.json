@@ -89,6 +89,8 @@
   "description.wurst.setting.freecam.initial_position.inside": "相机保持原位, 你只能看到角色内部, 直到你移动",
   "description.wurst.setting.freecam.initial_position.in_front": "把摄像机往前移一点, 这样你能看得更清楚",
   "description.wurst.setting.freecam.initial_position.above": "把摄像机往上移一点, 这样你能看得更清楚",
+  "description.wurst.setting.freecam.interact_from.camera": "点击相机正在观察的目标, 这允许你与墙后方的方块和实体互动",
+  "description.wurst.setting.freecam.interact_from.player": "点击目标是角色正在看的方向",
   "description.wurst.hack.黑暗视觉": "可以在黑暗中看的一清二楚",
   "description.wurst.hack.缓降": "使你缓慢掉落\n\n§c§l警告：§r 如果你不使用 NoFall, 依然会受到摔落伤害",
   "description.wurst.hack.幽灵鬼手": "允许你能透过墙壁触碰到特殊的方块",

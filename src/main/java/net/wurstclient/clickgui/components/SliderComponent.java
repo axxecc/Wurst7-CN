@@ -181,10 +181,8 @@ public final class SliderComponent extends Component
 	
 	private String getSliderTooltip()
 	{
-		return WText
-			.translated("§e[Ctrl]§r+§e[左键]§r 精确输入")
-			.append(WText.literal("\n"))
-			.append(WText.translated("§e[右键]§r 重置"))
+		return WText.translated("§e[Ctrl]§r+§e[左键]§r 精确输入")
+			.append(WText.literal("\n")).append(WText.translated("§e[右键]§r 重置"))
 			.toString();
 	}
 	

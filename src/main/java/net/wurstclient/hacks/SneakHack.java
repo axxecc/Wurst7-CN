@@ -24,10 +24,8 @@ public final class SneakHack extends Hack
 		"\u00a7l数据包\u00a7r模式只会发送潜行数据包\n\u00a7l合法\u00a7r模式让你真的潜行",
 		SneakMode.values(), SneakMode.LEGIT);
 	
-	private final CheckboxSetting offWhileFlying =
-		new CheckboxSetting("飞行时关闭",
-			"当你在飞行或使用灵魂出窍时, 会自动禁用保持潜行, 这样它就不会强迫你飞下来",
-			false);
+	private final CheckboxSetting offWhileFlying = new CheckboxSetting("飞行时关闭",
+		"当你在飞行或使用灵魂出窍时, 会自动禁用保持潜行, 这样它就不会强迫你飞下来", false);
 	
 	public SneakHack()
 	{

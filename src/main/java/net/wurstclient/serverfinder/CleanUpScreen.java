@@ -53,16 +53,13 @@ public class CleanUpScreen extends Screen
 		addRenderableWidget(new CleanUpButton(width / 2 - 100,
 			height / 4 + 168 + 12, () -> "取消", "", b -> onClose()));
 		
-		addRenderableWidget(cleanUpButton = new CleanUpButton(width / 2 - 100,
-			height / 4 + 144 + 12, () -> "清理",
-			"使用上面指定的设置开始清理\n游戏可能看起来在几秒钟内没有响应",
-			b -> cleanUp()));
+		addRenderableWidget(cleanUpButton =
+			new CleanUpButton(width / 2 - 100, height / 4 + 144 + 12,
+				() -> "清理", "使用上面指定的设置开始清理\n游戏可能看起来在几秒钟内没有响应", b -> cleanUp()));
 		
-		addRenderableWidget(
-			new CleanUpButton(width / 2 - 100, height / 4 - 24 + 12,
-				() -> "未知主机: " + removeOrKeep(cleanupUnknown),
-				"不存在的服务器",
-				b -> cleanupUnknown = !cleanupUnknown));
+		addRenderableWidget(new CleanUpButton(width / 2 - 100,
+			height / 4 - 24 + 12, () -> "未知主机: " + removeOrKeep(cleanupUnknown),
+			"不存在的服务器", b -> cleanupUnknown = !cleanupUnknown));
 		
 		addRenderableWidget(
 			new CleanUpButton(width / 2 - 100, height / 4 + 0 + 12,
@@ -70,11 +67,11 @@ public class CleanUpScreen extends Screen
 				"运行与您不同的 Minecraft 版本的服务器",
 				b -> cleanupOutdated = !cleanupOutdated));
 		
-		addRenderableWidget(
-			new CleanUpButton(width / 2 - 100, height / 4 + 24 + 12,
-				() -> "Ping 失败: " + removeOrKeep(cleanupFailed),
-				"上次 ping 失败的所有服务器\n在执行此作之前, 请确保最后一次 ping 已完成\n这意味着: 返回, 按下刷新按钮并等待所有服务器完成刷新",
-				b -> cleanupFailed = !cleanupFailed));
+		addRenderableWidget(new CleanUpButton(width / 2 - 100,
+			height / 4 + 24 + 12,
+			() -> "Ping 失败: " + removeOrKeep(cleanupFailed),
+			"上次 ping 失败的所有服务器\n在执行此作之前, 请确保最后一次 ping 已完成\n这意味着: 返回, 按下刷新按钮并等待所有服务器完成刷新",
+			b -> cleanupFailed = !cleanupFailed));
 		
 		addRenderableWidget(
 			new CleanUpButton(width / 2 - 100, height / 4 + 48 + 12,
@@ -82,17 +79,14 @@ public class CleanUpScreen extends Screen
 				"用于删除所有名称以\"Grief me\"开头查找器找到的服务器",
 				b -> cleanupGriefMe = !cleanupGriefMe));
 		
-		addRenderableWidget(
-			new CleanUpButton(width / 2 - 100, height / 4 + 72 + 12,
-				() -> "\u00a7c删除所有服务器: " + yesOrNo(removeAll),
-				"这将彻底清除您的服务器列表\n\u00a7c请谨慎使用！",
-				b -> removeAll = !removeAll));
+		addRenderableWidget(new CleanUpButton(width / 2 - 100,
+			height / 4 + 72 + 12, () -> "\u00a7c删除所有服务器: " + yesOrNo(removeAll),
+			"这将彻底清除您的服务器列表\n\u00a7c请谨慎使用！", b -> removeAll = !removeAll));
 		
-		addRenderableWidget(
-			new CleanUpButton(width / 2 - 100, height / 4 + 96 + 12,
-				() -> "重命名所有服务器: " + yesOrNo(cleanupRename),
-				"将您的服务器重命名为\n\"Grief me #1\"\"Grief me #2\" 等等",
-				b -> cleanupRename = !cleanupRename));
+		addRenderableWidget(new CleanUpButton(width / 2 - 100,
+			height / 4 + 96 + 12, () -> "重命名所有服务器: " + yesOrNo(cleanupRename),
+			"将您的服务器重命名为\n\"Grief me #1\"\"Grief me #2\" 等等",
+			b -> cleanupRename = !cleanupRename));
 	}
 	
 	private String yesOrNo(boolean b)
@@ -207,10 +201,8 @@ public class CleanUpScreen extends Screen
 	public void extractRenderState(GuiGraphicsExtractor context, int mouseX,
 		int mouseY, float partialTicks)
 	{
-		context.centeredText(font, "清理", width / 2, 20,
-			CommonColors.WHITE);
-		context.centeredText(font,
-			"请选择要删除的服务器:", width / 2, 36,
+		context.centeredText(font, "清理", width / 2, 20, CommonColors.WHITE);
+		context.centeredText(font, "请选择要删除的服务器:", width / 2, 36,
 			CommonColors.LIGHT_GRAY);
 		
 		for(Renderable drawable : renderables)

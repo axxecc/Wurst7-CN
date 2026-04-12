@@ -22,9 +22,7 @@ public final class SetModeCmd extends Command
 {
 	public SetModeCmd()
 	{
-		super("setmode",
-			"更改某个功能的模式设置, 允许你通过快捷键切换模式",
-			".setmode <功能> <设置> <模式>",
+		super("setmode", "更改某个功能的模式设置, 允许你通过快捷键切换模式", ".setmode <功能> <设置> <模式>",
 			".setmode <功能> <设置> (prev|next)");
 	}
 	
@@ -44,8 +42,8 @@ public final class SetModeCmd extends Command
 		throws CmdError
 	{
 		if(!(setting instanceof EnumSetting<?>))
-			throw new CmdError(feature.getName() + " " + setting.getName()
-				+ " 不是模式设置");
+			throw new CmdError(
+				feature.getName() + " " + setting.getName() + " 不是模式设置");
 		
 		return (EnumSetting<?>)setting;
 	}
@@ -68,9 +66,8 @@ public final class SetModeCmd extends Command
 			default:
 			boolean successful = setting.setSelected(mode);
 			if(!successful)
-				throw new CmdError(
-                        "在 " + feature.getName() + ", " + setting.getName() +
-                                " 中找不到名为 '" + mode + " '的模式");
+				throw new CmdError("在 " + feature.getName() + ", "
+					+ setting.getName() + " 中找不到名为 '" + mode + " '的模式");
 			break;
 		}
 	}

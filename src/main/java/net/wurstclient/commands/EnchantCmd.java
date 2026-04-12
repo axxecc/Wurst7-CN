@@ -25,8 +25,7 @@ public final class EnchantCmd extends Command
 {
 	public EnchantCmd()
 	{
-		super("enchant", "附魔物品除了精准采集和诅咒外的所有属性",
-                ".enchant");
+		super("enchant", "附魔物品除了精准采集和诅咒外的所有属性", ".enchant");
 	}
 	
 	@Override

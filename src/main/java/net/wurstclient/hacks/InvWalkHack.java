@@ -29,12 +29,10 @@ import net.wurstclient.settings.CheckboxSetting;
 public final class InvWalkHack extends Hack implements UpdateListener
 {
 	private final CheckboxSetting allowClickGUI =
-		new CheckboxSetting("允许 ClickGUI",
-			"允许你在 Wurst 的 ClickGUI 打开时移动", true);
+		new CheckboxSetting("允许 ClickGUI", "允许你在 Wurst 的 ClickGUI 打开时移动", true);
 	
-	private final CheckboxSetting allowOther =
-		new CheckboxSetting("允许其他屏幕",
-			"允许你在其他一些游戏内界面打开时移动 (比如箱子、马匹、村民交易界面等), 除非这个界面有文字输入框", true);
+	private final CheckboxSetting allowOther = new CheckboxSetting("允许其他屏幕",
+		"允许你在其他一些游戏内界面打开时移动 (比如箱子、马匹、村民交易界面等), 除非这个界面有文字输入框", true);
 	
 	private final CheckboxSetting allowSneak =
 		new CheckboxSetting("允许潜行键", true);

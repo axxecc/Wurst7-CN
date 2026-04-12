@@ -38,11 +38,11 @@ public class PressAKeyScreen extends Screen
 	{
 		if(event.key() != GLFW.GLFW_KEY_ESCAPE)
 			prevScreen.setKey(InputConstants.getKey(event).getName());
-
+		
 		minecraft.setScreen((Screen)prevScreen);
 		return super.keyPressed(event);
 	}
-
+	
 	@Override
 	public boolean mouseClicked(MouseButtonEvent event, boolean doubleClick)
 	{
@@ -62,8 +62,8 @@ public class PressAKeyScreen extends Screen
 	public void extractRenderState(GuiGraphicsExtractor context, int mouseX,
 		int mouseY, float partialTicks)
 	{
-		context.centeredText(font, "请按下按键", width / 2,
-			height / 4 + 48, CommonColors.WHITE);
+		context.centeredText(font, "请按下按键", width / 2, height / 4 + 48,
+			CommonColors.WHITE);
 		
 		for(Renderable drawable : renderables)
 			drawable.extractRenderState(context, mouseX, mouseY, partialTicks);

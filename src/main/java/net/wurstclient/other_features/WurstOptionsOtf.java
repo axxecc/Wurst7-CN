@@ -28,8 +28,7 @@ public final class WurstOptionsOtf extends OtherFeature
 		Identifier.fromNamespaceAndPath("wurst", "wurst_128.png");
 	
 	private final EnumSetting<Location> location = new EnumSetting<>("位置",
-		"\"Wurst Options\" 按钮显示在哪", Location.values(),
-		Location.GAME_MENU);
+		"\"Wurst Options\" 按钮显示在哪", Location.values(), Location.GAME_MENU);
 	
 	public WurstOptionsOtf()
 	{

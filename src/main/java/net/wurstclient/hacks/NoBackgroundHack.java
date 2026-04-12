@@ -17,8 +17,8 @@ import net.wurstclient.settings.CheckboxSetting;
 @SearchTags({"无深色背景", "NoBackground"})
 public final class NoBackgroundHack extends Hack
 {
-	public final CheckboxSetting allGuis = new CheckboxSetting("所有GUI",
-		"删除所有 GUI 的背景, 而不仅仅是背包", false);
+	public final CheckboxSetting allGuis =
+		new CheckboxSetting("所有GUI", "删除所有 GUI 的背景, 而不仅仅是背包", false);
 	
 	public NoBackgroundHack()
 	{

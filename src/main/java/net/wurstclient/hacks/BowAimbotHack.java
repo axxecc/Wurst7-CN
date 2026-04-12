@@ -48,16 +48,14 @@ public final class BowAimbotHack extends Hack
 		"确定首先攻击哪个实体\n\u00a7l距离\u00a7r - 攻击最近的实体\n\u00a7l角度\u00a7r - 攻击需要最少视角旋转的实体\n\u00a7l角度+距离\u00a7r - 角度和距离的混合体\n\u00a7l血量\u00a7r - 攻击最弱的实体",
 		Priority.values(), Priority.ANGLE_DIST);
 	
-	private final SliderSetting predictMovement = new SliderSetting(
-		"预测移动",
-		"控制弓箭自瞄的运动预测算法的强度",
-		0.2, 0, 2, 0.01, ValueDisplay.PERCENTAGE);
+	private final SliderSetting predictMovement = new SliderSetting("预测移动",
+		"控制弓箭自瞄的运动预测算法的强度", 0.2, 0, 2, 0.01, ValueDisplay.PERCENTAGE);
 	
 	private final EntityFilterList entityFilters =
 		EntityFilterList.genericCombat();
 	
-	private final ColorSetting color = new ColorSetting("ESP 颜色",
-		"弓箭自瞄在目标周围绘制的框的颜色", Color.RED);
+	private final ColorSetting color =
+		new ColorSetting("ESP 颜色", "弓箭自瞄在目标周围绘制的框的颜色", Color.RED);
 	
 	private Entity target;
 	private float velocity;

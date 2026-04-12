@@ -77,7 +77,7 @@ public final class EditBookOfferScreen extends Screen
 				levelField.setTextColor(WurstColors.LIGHT_RED);
 				return;
 			}
-
+			
 			levelField.setTextColor(EditBox.DEFAULT_TEXT_COLOR);
 			if(!t.isEmpty())
 				updateLevel(Integer.parseInt(t), false);
@@ -93,7 +93,7 @@ public final class EditBookOfferScreen extends Screen
 				priceField.setTextColor(WurstColors.LIGHT_RED);
 				return;
 			}
-
+			
 			priceField.setTextColor(EditBox.DEFAULT_TEXT_COLOR);
 			if(!t.isEmpty())
 				updatePrice(Integer.parseInt(t), false);
@@ -200,27 +200,27 @@ public final class EditBookOfferScreen extends Screen
 	{
 		if(t.isEmpty())
 			return true;
-
+		
 		if(!MathUtils.isInteger(t))
 			return false;
-
+		
 		int level = Integer.parseInt(t);
 		if(level < 1 || level > 10)
 			return false;
-
+		
 		if(offerToSave == null)
 			return true;
-
+		
 		Enchantment enchantment = offerToSave.getEnchantment();
 		return level <= enchantment.getMaxLevel();
 	}
-
+	
 	private boolean isValidPrice(String t)
 	{
 		return t.isEmpty() || MathUtils.isInteger(t) && Integer.parseInt(t) >= 1
 			&& Integer.parseInt(t) <= 64;
 	}
-
+	
 	@Override
 	public boolean mouseClicked(MouseButtonEvent context, boolean doubleClick)
 	{
@@ -326,8 +326,8 @@ public final class EditBookOfferScreen extends Screen
 		
 		if(alreadyAdded && offerToSave != null)
 		{
-			String errorText = offerToSave.getEnchantmentNameWithLevel()
-				+ " 已经在列表中!";
+			String errorText =
+				offerToSave.getEnchantmentNameWithLevel() + " 已经在列表中!";
 			context.text(tr, errorText, 0, 32, WurstColors.LIGHT_RED);
 		}
 		

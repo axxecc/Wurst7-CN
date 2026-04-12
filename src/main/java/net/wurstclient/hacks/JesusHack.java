@@ -32,8 +32,7 @@ public final class JesusHack extends Hack
 	implements UpdateListener, PacketOutputListener
 {
 	private final CheckboxSetting bypass =
-		new CheckboxSetting("NoCheat+ 绕过",
-			"绕过 NoCheat+, 但会减慢您的移动速度", false);
+		new CheckboxSetting("NoCheat+ 绕过", "绕过 NoCheat+, 但会减慢您的移动速度", false);
 	
 	private int tickTimer = 10;
 	private int packetTimer = 0;

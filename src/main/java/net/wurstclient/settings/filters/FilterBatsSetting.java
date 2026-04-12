@@ -25,13 +25,11 @@ public final class FilterBatsSetting extends EntityFilterCheckbox
 	
 	public static FilterBatsSetting genericCombat(boolean checked)
 	{
-		return new FilterBatsSetting(
-			"不会攻击蝙蝠和任何其他可能由模组添加的\"环境\"生物", checked);
+		return new FilterBatsSetting("不会攻击蝙蝠和任何其他可能由模组添加的\"环境\"生物", checked);
 	}
 	
 	public static FilterBatsSetting genericVision(boolean checked)
 	{
-		return new FilterBatsSetting(
-			"不会显示蝙蝠和任何其他可能由模组添加的\"环境\"生物", checked);
+		return new FilterBatsSetting("不会显示蝙蝠和任何其他可能由模组添加的\"环境\"生物", checked);
 	}
 }

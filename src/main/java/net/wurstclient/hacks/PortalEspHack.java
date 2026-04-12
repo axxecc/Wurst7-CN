@@ -41,33 +41,29 @@ public final class PortalEspHack extends Hack implements UpdateListener,
 	
 	private final PortalEspBlockGroup netherPortal =
 		new PortalEspBlockGroup(Blocks.NETHER_PORTAL,
-			new ColorSetting("下界传送门颜色",
-				"下界传送门将以这种颜色高亮显示", Color.RED),
+			new ColorSetting("下界传送门颜色", "下界传送门将以这种颜色高亮显示", Color.RED),
 			new CheckboxSetting("显示下界传送门", true));
 	
 	private final PortalEspBlockGroup endPortal =
 		new PortalEspBlockGroup(Blocks.END_PORTAL,
-			new ColorSetting("末地传送门颜色",
-				"末地送门将以这种颜色高亮显示", Color.GREEN),
+			new ColorSetting("末地传送门颜色", "末地送门将以这种颜色高亮显示", Color.GREEN),
 			new CheckboxSetting("显示末地传送门", true));
 	
-	private final PortalEspBlockGroup endPortalFrame = new PortalEspBlockGroup(
-		Blocks.END_PORTAL_FRAME,
-		new ColorSetting("传送门框架颜色",
-			"传送框架将以这种颜色高亮显示", Color.BLUE),
-		new CheckboxSetting("显示传送门框架", true));
+	private final PortalEspBlockGroup endPortalFrame =
+		new PortalEspBlockGroup(Blocks.END_PORTAL_FRAME,
+			new ColorSetting("传送门框架颜色", "传送框架将以这种颜色高亮显示", Color.BLUE),
+			new CheckboxSetting("显示传送门框架", true));
 	
-	private final PortalEspBlockGroup endGateway = new PortalEspBlockGroup(
-		Blocks.END_GATEWAY,
-		new ColorSetting("折跃门颜色",
-			"折跃门将以这种颜色高亮显示", Color.YELLOW),
-		new CheckboxSetting("显示折跃门", true));
+	private final PortalEspBlockGroup endGateway =
+		new PortalEspBlockGroup(Blocks.END_GATEWAY,
+			new ColorSetting("折跃门颜色", "折跃门将以这种颜色高亮显示", Color.YELLOW),
+			new CheckboxSetting("显示折跃门", true));
 	
 	private final List<PortalEspBlockGroup> groups =
 		Arrays.asList(netherPortal, endPortal, endPortalFrame, endGateway);
 	
-	private final ChunkAreaSetting area = new ChunkAreaSetting("面积",
-		"玩家周围要搜索的区块");
+	private final ChunkAreaSetting area =
+		new ChunkAreaSetting("面积", "玩家周围要搜索的区块");
 	
 	private final BiPredicate<BlockPos, BlockState> query =
 		(pos, state) -> state.getBlock() == Blocks.NETHER_PORTAL

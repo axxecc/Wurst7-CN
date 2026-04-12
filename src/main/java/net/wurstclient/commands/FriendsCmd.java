@@ -22,9 +22,7 @@ public class FriendsCmd extends Command
 	private static final int FRIENDS_PER_PAGE = 8;
 	
 	private final CheckboxSetting middleClickFriends =
-		new CheckboxSetting("中键点击好友",
-			"使用鼠标中键单击 添加/删除 好友",
-			true);
+		new CheckboxSetting("中键点击好友", "使用鼠标中键单击 添加/删除 好友", true);
 	
 	public FriendsCmd()
 	{
@@ -71,8 +69,7 @@ public class FriendsCmd extends Command
 		
 		String name = args[1];
 		if(WURST.getFriends().contains(name))
-			throw new CmdError(
-				"\"" + name + "\" 已经在你的好友列表里了");
+			throw new CmdError("\"" + name + "\" 已经在你的好友列表里了");
 		
 		WURST.getFriends().addAndSave(name);
 		ChatUtils.message("添加好友 \"" + name + "\".");

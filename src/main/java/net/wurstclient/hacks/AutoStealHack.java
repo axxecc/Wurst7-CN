@@ -23,8 +23,7 @@ import net.wurstclient.settings.SliderSetting.ValueDisplay;
 @SearchTags({"自动拿取", "AutoSteal"})
 public final class AutoStealHack extends Hack
 {
-	private final SliderSetting delay = new SliderSetting("延迟",
-		"移动物品堆之间的延迟",
+	private final SliderSetting delay = new SliderSetting("延迟", "移动物品堆之间的延迟",
 		100, 0, 500, 10, ValueDisplay.INTEGER.withSuffix("ms"));
 	
 	private final CheckboxSetting buttons =

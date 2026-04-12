@@ -121,8 +121,8 @@ public class DisconnectedScreenMixin extends Screen
 			return;
 		}
 		
-		autoReconnectButton.setMessage(Component.literal("正在重连 ("
-			+ (int)Math.ceil(autoReconnectTimer / 20.0) + ")"));
+		autoReconnectButton.setMessage(Component.literal(
+			"正在重连 (" + (int)Math.ceil(autoReconnectTimer / 20.0) + ")"));
 		
 		if(autoReconnectTimer > 0)
 		{

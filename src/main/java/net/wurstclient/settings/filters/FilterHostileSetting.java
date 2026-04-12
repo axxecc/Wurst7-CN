@@ -33,13 +33,11 @@ public final class FilterHostileSetting extends EntityFilterCheckbox
 	
 	public static FilterHostileSetting genericCombat(boolean checked)
 	{
-		return new FilterHostileSetting(
-			"不会攻击僵尸和苦力怕等敌对生物", checked);
+		return new FilterHostileSetting("不会攻击僵尸和苦力怕等敌对生物", checked);
 	}
 	
 	public static FilterHostileSetting genericVision(boolean checked)
 	{
-		return new FilterHostileSetting(
-			"不会显示僵尸和苦力怕等敌对生物", checked);
+		return new FilterHostileSetting("不会显示僵尸和苦力怕等敌对生物", checked);
 	}
 }

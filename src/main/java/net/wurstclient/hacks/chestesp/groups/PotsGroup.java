@@ -26,8 +26,7 @@ public final class PotsGroup extends ChestEspBlockGroup
 	@Override
 	protected ColorSetting createColorSetting()
 	{
-		return new ColorSetting("花盆颜色",
-			"花盆将以该颜色高亮显示", Color.GREEN);
+		return new ColorSetting("花盆颜色", "花盆将以该颜色高亮显示", Color.GREEN);
 	}
 	
 	@Override

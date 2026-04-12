@@ -36,16 +36,13 @@ import net.wurstclient.util.RotationUtils;
 public final class TillauraHack extends Hack implements HandleInputListener
 {
 	private final SliderSetting range = new SliderSetting("范围",
-		"耕地光环可以到达多远来耕种方块", 5, 1, 6, 0.05,
-		ValueDisplay.DECIMAL);
+		"耕地光环可以到达多远来耕种方块", 5, 1, 6, 0.05, ValueDisplay.DECIMAL);
 	
 	private final CheckboxSetting multiTill =
 		new CheckboxSetting("多个播种", "一次耕种多个方块\n 速度更快, 但无法绕过 NoCheat+", false);
 	
 	private final CheckboxSetting checkLOS =
-		new CheckboxSetting("检查视线",
-			"防止耕地光环穿过障碍物\n适用于 NoCheat+",
-			true);
+		new CheckboxSetting("检查视线", "防止耕地光环穿过障碍物\n适用于 NoCheat+", true);
 	
 	private final List<Block> tillableBlocks = List.of(Blocks.GRASS_BLOCK,
 		Blocks.DIRT_PATH, Blocks.DIRT, Blocks.COARSE_DIRT);

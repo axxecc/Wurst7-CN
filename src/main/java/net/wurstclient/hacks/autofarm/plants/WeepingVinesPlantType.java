@@ -53,7 +53,6 @@ public final class WeepingVinesPlantType extends AutoFarmPlantType
 	@Override
 	protected PlantTypeSetting createSetting()
 	{
-		return new PlantTypeSetting("垂泪藤", Items.WEEPING_VINES, false,
-			false);
+		return new PlantTypeSetting("垂泪藤", Items.WEEPING_VINES, false, false);
 	}
 }

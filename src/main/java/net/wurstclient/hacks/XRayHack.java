@@ -73,14 +73,12 @@ public final class XRayHack extends Hack
 		"minecraft:trial_spawner", "minecraft:vault", "minecraft:wall_torch",
 		"minecraft:water");
 	
-	private final CheckboxSetting onlyExposed = new CheckboxSetting(
-		"只显示暴露",
-		"仅显示洞穴中可见的矿石, 这有助于绕过反X-Ray\n\n更改此设置时, 请重新启动X-Ray",
-		false);
+	private final CheckboxSetting onlyExposed = new CheckboxSetting("只显示暴露",
+		"仅显示洞穴中可见的矿石, 这有助于绕过反X-Ray\n\n更改此设置时, 请重新启动X-Ray", false);
 	
-	private final SliderSetting opacity = new SliderSetting("透明度",
-		"启用 X-Ray 时非矿石块的不透明度\n\n更改此设置时, 请记住重新启动 X-Ray",
-		0, 0, 0.99, 0.01, ValueDisplay.PERCENTAGE.withLabel(0, "关闭"));
+	private final SliderSetting opacity =
+		new SliderSetting("透明度", "启用 X-Ray 时非矿石块的不透明度\n\n更改此设置时, 请记住重新启动 X-Ray",
+			0, 0, 0.99, 0.01, ValueDisplay.PERCENTAGE.withLabel(0, "关闭"));
 	
 	private final String optiFineWarning;
 	private final String renderName = Math.random() < 0.01
@@ -159,7 +157,7 @@ public final class XRayHack extends Hack
 	{
 		if(!isEnabled())
 			return null;
-
+		
 		boolean visible = isVisible(state.getBlock(), pos);
 		if(!visible && opacity.getValue() > 0)
 			return null;
@@ -171,12 +169,12 @@ public final class XRayHack extends Hack
 	{
 		if(!isEnabled())
 			return false;
-
+		
 		BlockPos pos = state.blockPos;
 		Block block = BlockUtils.getBlock(pos);
 		if(isVisible(block, pos))
 			return false;
-
+		
 		return true;
 	}
 	
@@ -222,7 +220,7 @@ public final class XRayHack extends Hack
 	{
 		MC.setScreen(new EditBlockListScreen(prevScreen, ores));
 	}
-
+	
 	/**
 	 * Checks if OptiFine/OptiFabric is installed and returns a warning message
 	 * if it is.

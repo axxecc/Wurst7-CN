@@ -33,11 +33,10 @@ public final class AutoFishDebugDraw
 	private static final Minecraft MC = WurstClient.MC;
 	
 	private final CheckboxSetting debugDraw = new CheckboxSetting("调试绘制",
-		"显示咬伤发生的位置以及被发现的位置, 对优化你的\"有效范围\"设置非常有用",
-		false);
+		"显示咬伤发生的位置以及被发现的位置, 对优化你的\"有效范围\"设置非常有用", false);
 	
-	private final ColorSetting ddColor = new ColorSetting("调试颜色",
-		"调试绘制的颜色 (如果启用的话)", Color.RED);
+	private final ColorSetting ddColor =
+		new ColorSetting("调试颜色", "调试绘制的颜色 (如果启用的话)", Color.RED);
 	
 	private final SliderSetting validRange;
 	private final FishingSpotManager fishingSpots;

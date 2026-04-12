@@ -26,9 +26,7 @@ public final class ChestBoatsGroup extends ChestEspEntityGroup
 	@Override
 	protected ColorSetting createColorSetting()
 	{
-		return new ColorSetting("船箱颜色",
-			"船箱将以该颜色高亮显示",
-			Color.YELLOW);
+		return new ColorSetting("船箱颜色", "船箱将以该颜色高亮显示", Color.YELLOW);
 	}
 	
 	@Override

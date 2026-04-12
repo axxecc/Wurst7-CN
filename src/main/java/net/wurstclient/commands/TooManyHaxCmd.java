@@ -31,13 +31,11 @@ public final class TooManyHaxCmd extends Command
 {
 	public TooManyHaxCmd()
 	{
-		super("toomanyhax",
-			"允许在启用TooManyHax时管理哪些功能需要被阻止",
+		super("toomanyhax", "允许在启用TooManyHax时管理哪些功能需要被阻止",
 			".toomanyhax block <功能>", ".toomanyhax unblock <功能>",
 			".toomanyhax block-all", ".toomanyhax unblock-all",
 			".toomanyhax list [<页码>]", ".toomanyhax load-profile <文件>",
-			".toomanyhax save-profile <文件>",
-			".toomanyhax list-profiles [<页码>]",
+			".toomanyhax save-profile <文件>", ".toomanyhax list-profiles [<页码>]",
 			"Profiles are saved in '.minecraft/wurst/toomanyhax'.");
 	}
 	
@@ -283,8 +281,8 @@ public final class TooManyHaxCmd extends Command
 		int start = (page - 1) * 8;
 		int end = Math.min(page * 8, files.size());
 		
-		ChatUtils.message(
-			"TooManyHax profile list (页码 " + page + "/" + pages + ")");
+		ChatUtils
+			.message("TooManyHax profile list (页码 " + page + "/" + pages + ")");
 		for(int i = start; i < end; i++)
 			ChatUtils.message(files.get(i).getFileName().toString());
 	}

@@ -27,8 +27,7 @@ public final class BarrelsGroup extends ChestEspBlockGroup
 	@Override
 	protected ColorSetting createColorSetting()
 	{
-		return new ColorSetting("木桶颜色",
-			"将以该颜色高亮显示", Color.GREEN);
+		return new ColorSetting("木桶颜色", "将以该颜色高亮显示", Color.GREEN);
 	}
 	
 	@Override

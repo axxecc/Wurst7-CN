@@ -19,9 +19,7 @@ public final class FeaturesCmd extends Command
 {
 	public FeaturesCmd()
 	{
-		super("features",
-			"显示功能数量及其他统计数据",
-			".features");
+		super("features", "显示功能数量及其他统计数据", ".features");
 	}
 	
 	@Override
@@ -31,8 +29,7 @@ public final class FeaturesCmd extends Command
 			throw new CmdSyntaxError();
 		
 		if(WurstClient.VERSION.startsWith("7.0pre"))
-			ChatUtils.warning(
-				"这只是预发布！它还没有 (目前) 拥有Wurst");
+			ChatUtils.warning("这只是预发布！它还没有 (目前) 拥有Wurst");
 		
 		int hax = WURST.getHax().countHax();
 		int cmds = WURST.getCmds().countCmds();

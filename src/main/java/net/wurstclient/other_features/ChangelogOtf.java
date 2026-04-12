@@ -27,11 +27,11 @@ public final class ChangelogOtf extends OtherFeature
 	{
 		return "查看更改日志";
 	}
-
+	
 	@Override
 	public void doPrimaryAction()
 	{
-        String link = "https://www.wurstclient.net/download/";
+		String link = "https://www.wurstclient.net/download/";
 		Util.getPlatform().openUri(link);
 	}
 }

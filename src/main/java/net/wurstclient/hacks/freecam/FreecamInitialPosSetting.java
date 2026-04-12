@@ -27,8 +27,7 @@ public final class FreecamInitialPosSetting
 	
 	private static WText buildDescription()
 	{
-		WText text = WText
-			.translated("启用灵魂出窍后, 相机最初应该放在哪里");
+		WText text = WText.translated("启用灵魂出窍后, 相机最初应该放在哪里");
 		
 		for(InitialPosition value : InitialPosition.values())
 			text = text

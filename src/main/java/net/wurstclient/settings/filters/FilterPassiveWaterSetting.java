@@ -15,13 +15,11 @@ import net.minecraft.world.entity.animal.fish.WaterAnimal;
 
 public final class FilterPassiveWaterSetting extends EntityFilterCheckbox
 {
-	private static final String EXCEPTIONS_TEXT =
-		"\n\n此过滤器不会影响守卫者、溺尸和河豚";
+	private static final String EXCEPTIONS_TEXT = "\n\n此过滤器不会影响守卫者、溺尸和河豚";
 	
 	public FilterPassiveWaterSetting(String description, boolean checked)
 	{
-		super("过水生生物", description + EXCEPTIONS_TEXT,
-			checked);
+		super("过水生生物", description + EXCEPTIONS_TEXT, checked);
 	}
 	
 	@Override
@@ -37,11 +35,13 @@ public final class FilterPassiveWaterSetting extends EntityFilterCheckbox
 	
 	public static FilterPassiveWaterSetting genericCombat(boolean checked)
 	{
-		return new FilterPassiveWaterSetting("不会攻击被动的水生物, 如鱼、鱿鱼、海豚和美西螈", checked);
+		return new FilterPassiveWaterSetting("不会攻击被动的水生物, 如鱼、鱿鱼、海豚和美西螈",
+			checked);
 	}
 	
 	public static FilterPassiveWaterSetting genericVision(boolean checked)
 	{
-		return new FilterPassiveWaterSetting("不会显示被动的水生物, 如鱼、鱿鱼、海豚和美西螈", checked);
+		return new FilterPassiveWaterSetting("不会显示被动的水生物, 如鱼、鱿鱼、海豚和美西螈",
+			checked);
 	}
 }

@@ -94,8 +94,7 @@ public abstract class AltEditorScreen extends Screen
 			.build());
 		
 		addRenderableWidget(Button
-			.builder(Component.literal("打开皮肤文件夹"),
-				b -> openSkinFolder())
+			.builder(Component.literal("打开皮肤文件夹"), b -> openSkinFolder())
 			.bounds((width / 2 - 100) / 2 - 64, height - 32, 128, 20).build());
 		
 		setFocused(nameOrEmailBox);

@@ -254,12 +254,11 @@ public final class AltManagerScreen extends Screen
 		if(alt == null)
 			return;
 		
-		Component text =
-			Component.literal("您确定要删除这个账户吗?");
+		Component text = Component.literal("您确定要删除这个账户吗?");
 		
 		String altName = alt.getDisplayName();
-		Component message = Component.literal(
-			"\"" + altName + "\" 将会永远消失! (很久!)");
+		Component message =
+			Component.literal("\"" + altName + "\" 将会永远消失! (很久!)");
 		
 		ConfirmScreen screen = new ConfirmScreen(this::confirmRemove, text,
 			message, Component.literal("删除"), Component.literal("取消"));
@@ -359,8 +358,7 @@ public final class AltManagerScreen extends Screen
 				
 			}catch(InvalidPathException e)
 			{
-				throw new IOException(
-					"来自文件选择器的响应不是有效路径");
+				throw new IOException("来自文件选择器的响应不是有效路径");
 			}
 		}
 	}
@@ -426,8 +424,7 @@ public final class AltManagerScreen extends Screen
 		}
 		
 		// title text
-		context.centeredText(font, "账户管理", width / 2, 4,
-			CommonColors.WHITE);
+		context.centeredText(font, "账户管理", width / 2, 4, CommonColors.WHITE);
 		context.centeredText(font, "账户: " + altManager.getList().size(),
 			width / 2, 14, CommonColors.LIGHT_GRAY);
 		context.centeredText(font,

@@ -45,14 +45,11 @@ public final class NewChunksHack extends Hack
 	
 	private final NewChunksShowSetting show = new NewChunksShowSetting();
 	
-	private final CheckboxSetting showReasons = new CheckboxSetting(
-		"显示原因",
-		"高亮显示导致每个数据块被标记为新/旧区块数据",
-		false);
+	private final CheckboxSetting showReasons =
+		new CheckboxSetting("显示原因", "高亮显示导致每个数据块被标记为新/旧区块数据", false);
 	
 	private final CheckboxSetting showCounter =
-		new CheckboxSetting("显示数量",
-			"显示到目前为止找到的新/旧区块的数量", false);
+		new CheckboxSetting("显示数量", "显示到目前为止找到的新/旧区块的数量", false);
 	
 	private final SliderSetting altitude =
 		new SliderSetting("高度", 0, -64, 320, 1, ValueDisplay.INTEGER);
@@ -60,8 +57,8 @@ public final class NewChunksHack extends Hack
 	private final SliderSetting drawDistance =
 		new SliderSetting("绘制距离", 32, 8, 64, 1, ValueDisplay.INTEGER);
 	
-	private final SliderSetting opacity = new SliderSetting("不透明度", 0.75,
-		0.1, 1, 0.01, ValueDisplay.PERCENTAGE);
+	private final SliderSetting opacity =
+		new SliderSetting("不透明度", 0.75, 0.1, 1, 0.01, ValueDisplay.PERCENTAGE);
 	
 	private final ColorSetting newChunksColor =
 		new ColorSetting("新区块颜色", Color.RED);
@@ -69,8 +66,8 @@ public final class NewChunksHack extends Hack
 	private final ColorSetting oldChunksColor =
 		new ColorSetting("旧区块颜色", Color.BLUE);
 	
-	private final CheckboxSetting logChunks = new CheckboxSetting("记录区块",
-		"找到新/旧区块时写入日志文件", false);
+	private final CheckboxSetting logChunks =
+		new CheckboxSetting("记录区块", "找到新/旧区块时写入日志文件", false);
 	
 	private final Set<ChunkPos> newChunks = ConcurrentHashMap.newKeySet();
 	private final Set<ChunkPos> oldChunks = ConcurrentHashMap.newKeySet();

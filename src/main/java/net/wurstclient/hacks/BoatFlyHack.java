@@ -20,16 +20,14 @@ import net.wurstclient.settings.SliderSetting;
 @SearchTags({"载具飞行", "BoatFly"})
 public final class BoatFlyHack extends Hack implements UpdateListener
 {
-	private final CheckboxSetting changeForwardSpeed = new CheckboxSetting(
-		"更改前进速度",
-		"允许更改\u00a7e前进速度\u00a7r, 禁用平滑加速",
-		false);
+	private final CheckboxSetting changeForwardSpeed =
+		new CheckboxSetting("更改前进速度", "允许更改\u00a7e前进速度\u00a7r, 禁用平滑加速", false);
 	
-	private final SliderSetting forwardSpeed = new SliderSetting(
-		"前进速度", 1, 0.05, 5, 0.05, SliderSetting.ValueDisplay.DECIMAL);
+	private final SliderSetting forwardSpeed = new SliderSetting("前进速度", 1,
+		0.05, 5, 0.05, SliderSetting.ValueDisplay.DECIMAL);
 	
-	private final SliderSetting upwardSpeed = new SliderSetting("上升速度",
-		0.3, 0, 5, 0.05, SliderSetting.ValueDisplay.DECIMAL);
+	private final SliderSetting upwardSpeed = new SliderSetting("上升速度", 0.3, 0,
+		5, 0.05, SliderSetting.ValueDisplay.DECIMAL);
 	
 	public BoatFlyHack()
 	{

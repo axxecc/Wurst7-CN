@@ -42,18 +42,16 @@ import net.wurstclient.util.RotationUtils;
 public final class KillauraHack extends Hack
 	implements UpdateListener, HandleInputListener, RenderListener
 {
-	private final SliderSetting range = new SliderSetting("范围",
-		"杀戮光环攻击实体的距离\n任何距离超过指定值的东西都不会受到攻击",
-		5, 1, 10, 0.05, ValueDisplay.DECIMAL);
+	private final SliderSetting range =
+		new SliderSetting("范围", "杀戮光环攻击实体的距离\n任何距离超过指定值的东西都不会受到攻击", 5, 1, 10,
+			0.05, ValueDisplay.DECIMAL);
 	
 	private final AttackSpeedSliderSetting speed =
 		new AttackSpeedSliderSetting();
 	
-	private final SliderSetting speedRandMS =
-		new SliderSetting("速度随机化",
-			"通过改变攻击之间的延迟来帮助您绕过反作弊插件",
-			100, 0, 1000, 50, ValueDisplay.INTEGER.withPrefix("\u00b1")
-				.withSuffix("ms").withLabel(0, "关闭"));
+	private final SliderSetting speedRandMS = new SliderSetting("速度随机化",
+		"通过改变攻击之间的延迟来帮助您绕过反作弊插件", 100, 0, 1000, 50, ValueDisplay.INTEGER
+			.withPrefix("\u00b1").withSuffix("ms").withLabel(0, "关闭"));
 	
 	private final EnumSetting<Priority> priority = new EnumSetting<>("优先权",
 		"确定哪个实体将首先受到攻击\n\u00a7l距离\u00a7r - 攻击最近的实体\n\u00a7l角度\u00a7r - 攻击需要最少视角旋转的实体\n\u00a7l血量\u00a7r - 攻击最弱的实体",
@@ -65,18 +63,14 @@ public final class KillauraHack extends Hack
 	private final SwingHandSetting swingHand = new SwingHandSetting(
 		SwingHandSetting.genericCombatDescription(this), SwingHand.CLIENT);
 	
-	private final CheckboxSetting damageIndicator = new CheckboxSetting(
-		"伤害指示器",
-		"在目标中渲染一个彩色框, 与其剩余生命值成反比",
-		true);
+	private final CheckboxSetting damageIndicator =
+		new CheckboxSetting("伤害指示器", "在目标中渲染一个彩色框, 与其剩余生命值成反比", true);
 	
 	private final PauseAttackOnContainersSetting pauseOnContainers =
 		new PauseAttackOnContainersSetting(true);
 	
 	private final CheckboxSetting checkLOS =
-		new CheckboxSetting("检查视线",
-			"确保你在攻击时不会伸手穿过物块\n速度较慢, 但可以帮助反作弊插件",
-			false);
+		new CheckboxSetting("检查视线", "确保你在攻击时不会伸手穿过物块\n速度较慢, 但可以帮助反作弊插件", false);
 	
 	private final EntityFilterList entityFilters =
 		EntityFilterList.genericCombat();

@@ -34,24 +34,18 @@ public final class MassTpaHack extends Hack
 	private static final Pattern ALLOWED_COMMANDS =
 		Pattern.compile("^/+[\u0000-\uFFFF_\\-]+$");
 	
-	private final TextFieldSetting commandSetting =
-		new TextFieldSetting("命令",
-			"用于传送的命令\n示例: /tp、/tpa、/tpahere、/tpo",
-			"/tpa",
-			s -> s.length() < 64 && ALLOWED_COMMANDS.matcher(s).matches());
+	private final TextFieldSetting commandSetting = new TextFieldSetting("命令",
+		"用于传送的命令\n示例: /tp、/tpa、/tpahere、/tpo", "/tpa",
+		s -> s.length() < 64 && ALLOWED_COMMANDS.matcher(s).matches());
 	
-	private final SliderSetting delay = new SliderSetting("延迟",
-		"每个传送请求之间的延迟", 20, 1, 200, 1,
-		ValueDisplay.INTEGER.withSuffix(" Tick"));
+	private final SliderSetting delay = new SliderSetting("延迟", "每个传送请求之间的延迟",
+		20, 1, 200, 1, ValueDisplay.INTEGER.withSuffix(" Tick"));
 	
 	private final CheckboxSetting ignoreErrors =
-		new CheckboxSetting("忽略错误",
-			"是否忽略来自服务器的消息, 告诉您传送命令无效或您无权使用它",
-			false);
+		new CheckboxSetting("忽略错误", "是否忽略来自服务器的消息, 告诉您传送命令无效或您无权使用它", false);
 	
-	private final CheckboxSetting stopWhenAccepted = new CheckboxSetting(
-		"接受时停止", "当有人接受其中一个传送请求时, 是否停止发送更多传送请求",
-		true);
+	private final CheckboxSetting stopWhenAccepted =
+		new CheckboxSetting("接受时停止", "当有人接受其中一个传送请求时, 是否停止发送更多传送请求", true);
 	
 	private final Random random = new Random();
 	private final ArrayList<String> players = new ArrayList<>();
@@ -147,8 +141,7 @@ public final class MassTpaHack extends Hack
 				return;
 			
 			event.cancel();
-			ChatUtils.error("这个服务器没有 "
-				+ command.toUpperCase() + " 命令");
+			ChatUtils.error("这个服务器没有 " + command.toUpperCase() + " 命令");
 			setEnabled(false);
 			
 		}else if(message.contains("accepted") && message.contains("request")
@@ -158,8 +151,7 @@ public final class MassTpaHack extends Hack
 				return;
 			
 			event.cancel();
-			ChatUtils.message("有人接受了 " + command.toUpperCase()
-				+ ", 停止");
+			ChatUtils.message("有人接受了 " + command.toUpperCase() + ", 停止");
 			setEnabled(false);
 		}
 	}

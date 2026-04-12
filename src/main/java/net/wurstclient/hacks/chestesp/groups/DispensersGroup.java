@@ -27,9 +27,7 @@ public final class DispensersGroup extends ChestEspBlockGroup
 	@Override
 	protected ColorSetting createColorSetting()
 	{
-		return new ColorSetting("发射器颜色",
-			"发射器将以该颜色高亮显示",
-			new Color(0xFF8000));
+		return new ColorSetting("发射器颜色", "发射器将以该颜色高亮显示", new Color(0xFF8000));
 	}
 	
 	@Override

@@ -26,8 +26,7 @@ public final class HitboxCheckSetting
 	
 	public HitboxCheckSetting()
 	{
-		super("碰撞箱检查", DESCRIPTION, HitboxCheck.values(),
-			HitboxCheck.OFF);
+		super("碰撞箱检查", DESCRIPTION, HitboxCheck.values(), HitboxCheck.OFF);
 	}
 	
 	public boolean isSpaceEmpty(BlockPos pos)

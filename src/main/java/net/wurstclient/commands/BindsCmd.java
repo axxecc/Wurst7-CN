@@ -32,13 +32,11 @@ public final class BindsCmd extends Command
 {
 	public BindsCmd()
 	{
-		super("binds", "它允许你通过聊天管理按键绑定",
-			".binds add <键> <功能>", ".binds add <键> <命令>",
-			".binds remove <键>", ".binds list [<页码>]",
+		super("binds", "它允许你通过聊天管理按键绑定", ".binds add <键> <功能>",
+			".binds add <键> <命令>", ".binds remove <键>", ".binds list [<页码>]",
 			".binds load-profile <文件>", ".binds save-profile <文件>",
-			".binds list-profiles [<页码>]", ".binds remove-all",
-			".binds reset", "多个功能/命令必须用';'分隔",
-			"配置文件保存于 '.minecraft/wurst/keybinds'");
+			".binds list-profiles [<页码>]", ".binds remove-all", ".binds reset",
+			"多个功能/命令必须用';'分隔", "配置文件保存于 '.minecraft/wurst/keybinds'");
 	}
 	
 	@Override
@@ -150,7 +148,7 @@ public final class BindsCmd extends Command
 		
 		if(page > pages || page < 1)
 			throw new CmdSyntaxError("无效页码: " + page);
-
+		
 		ChatUtils.message("共有: " + binds.size() + " 快捷键");
 		
 		int start = (page - 1) * 8;
@@ -203,8 +201,7 @@ public final class BindsCmd extends Command
 		}catch(JsonException e)
 		{
 			e.printStackTrace();
-			throw new CmdError(
-				"配置文件 '" + name + "' 已损坏: " + e.getMessage());
+			throw new CmdError("配置文件 '" + name + "' 已损坏: " + e.getMessage());
 			
 		}catch(IOException e)
 		{
@@ -253,14 +250,13 @@ public final class BindsCmd extends Command
 		
 		if(page > pages || page < 1)
 			throw new CmdSyntaxError("无效页码: " + page);
-
+		
 		ChatUtils.message("共有: " + files.size() + " 条配置文件");
 		
 		int start = (page - 1) * 8;
 		int end = Math.min(page * 8, files.size());
 		
-		ChatUtils
-			.message("快捷键配置文件列表 (页码 " + page + "/" + pages + ")");
+		ChatUtils.message("快捷键配置文件列表 (页码 " + page + "/" + pages + ")");
 		for(int i = start; i < end; i++)
 			ChatUtils.message(files.get(i).getFileName().toString());
 	}

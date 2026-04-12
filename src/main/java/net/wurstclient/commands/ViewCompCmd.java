@@ -30,10 +30,8 @@ public final class ViewCompCmd extends Command
 {
 	public ViewCompCmd()
 	{
-		super("viewcomp", "显示某个物品的组成数据",
-			".viewcomp", ".viewcomp type <查询>",
-			"Copy to clipboard: .viewcomp copy",
-			"示例: .viewcomp type name");
+		super("viewcomp", "显示某个物品的组成数据", ".viewcomp", ".viewcomp type <查询>",
+			"Copy to clipboard: .viewcomp copy", "示例: .viewcomp type name");
 	}
 	
 	@Override

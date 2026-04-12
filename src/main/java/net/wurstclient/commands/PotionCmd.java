@@ -32,10 +32,8 @@ public final class PotionCmd extends Command
 {
 	public PotionCmd()
 	{
-		super("potion", "改变持有药水的效果",
-			".potion add (<效果> <等级> <时间>)...",
-			".potion set (<效果> <等级> <时间>)...",
-			".potion remove <效果>");
+		super("potion", "改变持有药水的效果", ".potion add (<效果> <等级> <时间>)...",
+			".potion set (<效果> <等级> <时间>)...", ".potion remove <效果>");
 	}
 	
 	@Override

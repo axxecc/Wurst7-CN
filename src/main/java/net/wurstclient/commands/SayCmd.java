@@ -17,9 +17,7 @@ public final class SayCmd extends Command
 {
 	public SayCmd()
 	{
-		super("say",
-			"发送给定的聊天消息, 即使消息以.开头",
-			".say <message>");
+		super("say", "发送给定的聊天消息, 即使消息以.开头", ".say <message>");
 	}
 	
 	@Override

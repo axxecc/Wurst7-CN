@@ -34,29 +34,24 @@ public final class AimAssistHack extends Hack
 	private final SliderSetting range =
 		new SliderSetting("范围", 4.5, 1, 6, 0.05, ValueDisplay.DECIMAL);
 	
-	private final SliderSetting rotationSpeed =
-		new SliderSetting("旋转速度", 600, 10, 3600, 10,
-			ValueDisplay.DEGREES.withSuffix("/s"));
+	private final SliderSetting rotationSpeed = new SliderSetting("旋转速度", 600,
+		10, 3600, 10, ValueDisplay.DEGREES.withSuffix("/s"));
 	
-	private final SliderSetting fov =
-		new SliderSetting("视野范围", "视野 - 一个实体在被忽略之前可以距离你的十字准线多远\n360° = 瞄准你周围的所有实体", 120,
-			30, 360, 10, ValueDisplay.DEGREES);
+	private final SliderSetting fov = new SliderSetting("视野范围",
+		"视野 - 一个实体在被忽略之前可以距离你的十字准线多远\n360° = 瞄准你周围的所有实体", 120, 30, 360, 10,
+		ValueDisplay.DEGREES);
 	
-	private final AimAtSetting aimAt = new AimAtSetting(
-		"辅助瞄准应该瞄准目标碰撞箱的哪个点？");
+	private final AimAtSetting aimAt = new AimAtSetting("辅助瞄准应该瞄准目标碰撞箱的哪个点？");
 	
-	private final SliderSetting ignoreMouseInput =
-		new SliderSetting("忽略鼠标输入",
-			"在 AimAssist 瞄准时忽略部分鼠标输入, 这样可以减少意外瞄准偏离目标的情况", 0, 0, 1,
-			0.01, ValueDisplay.PERCENTAGE);
+	private final SliderSetting ignoreMouseInput = new SliderSetting("忽略鼠标输入",
+		"在 AimAssist 瞄准时忽略部分鼠标输入, 这样可以减少意外瞄准偏离目标的情况", 0, 0, 1, 0.01,
+		ValueDisplay.PERCENTAGE);
 	
 	private final CheckboxSetting checkLOS =
-		new CheckboxSetting("检查视线",
-			"不会瞄准方块后面的实体", true);
+		new CheckboxSetting("检查视线", "不会瞄准方块后面的实体", true);
 	
 	private final CheckboxSetting aimWhileBlocking =
-		new CheckboxSetting("格挡时瞄准",
-			"当你用盾牌或物品格挡时, 继续瞄准实体", false);
+		new CheckboxSetting("格挡时瞄准", "当你用盾牌或物品格挡时, 继续瞄准实体", false);
 	
 	private final EntityFilterList entityFilters =
 		new EntityFilterList(FilterPlayersSetting.genericCombat(false),

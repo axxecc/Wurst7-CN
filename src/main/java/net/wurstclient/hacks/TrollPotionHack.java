@@ -31,9 +31,8 @@ import net.wurstclient.util.InventoryUtils;
 @SearchTags({"恼人药水", "TrollPotion"})
 public final class TrollPotionHack extends Hack
 {
-	private final EnumSetting<PotionType> potionType =
-		new EnumSetting<>("药水类型", "要生成的药水类型",
-			PotionType.values(), PotionType.SPLASH);
+	private final EnumSetting<PotionType> potionType = new EnumSetting<>("药水类型",
+		"要生成的药水类型", PotionType.values(), PotionType.SPLASH);
 	
 	public TrollPotionHack()
 	{
@@ -69,7 +68,7 @@ public final class TrollPotionHack extends Hack
 		
 		setEnabled(false);
 	}
-
+	
 	private enum PotionType
 	{
 		NORMAL("正常", "", Items.POTION),

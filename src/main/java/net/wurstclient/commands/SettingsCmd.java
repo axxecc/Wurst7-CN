@@ -26,9 +26,8 @@ public final class SettingsCmd extends Command
 {
 	public SettingsCmd()
 	{
-		super("settings", "允许你创建设置配置文件",
-			".settings load-profile <文件>", ".settings save-profile <文件>",
-			".settings list-profiles [<页码>]",
+		super("settings", "允许你创建设置配置文件", ".settings load-profile <文件>",
+			".settings save-profile <文件>", ".settings list-profiles [<页码>]",
 			"配置文件保存于 '.minecraft/wurst/settings'.");
 	}
 	
@@ -76,8 +75,7 @@ public final class SettingsCmd extends Command
 		}catch(JsonException e)
 		{
 			e.printStackTrace();
-			throw new CmdError(
-				"配置文件 '" + name + "' 已损坏: " + e.getMessage());
+			throw new CmdError("配置文件 '" + name + "' 已损坏: " + e.getMessage());
 			
 		}catch(IOException e)
 		{
@@ -126,14 +124,13 @@ public final class SettingsCmd extends Command
 		
 		if(page > pages || page < 1)
 			throw new CmdSyntaxError("无效页码: " + page);
-
+		
 		ChatUtils.message("共有: " + files.size() + " 条配置文件");
 		
 		int start = (page - 1) * 8;
 		int end = Math.min(page * 8, files.size());
 		
-		ChatUtils
-			.message("设置配置文件列表 (页码 " + page + "/" + pages + ")");
+		ChatUtils.message("设置配置文件列表 (页码 " + page + "/" + pages + ")");
 		for(int i = start; i < end; i++)
 			ChatUtils.message(files.get(i).getFileName().toString());
 	}

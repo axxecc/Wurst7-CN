@@ -26,13 +26,11 @@ public final class FullbrightHack extends Hack implements UpdateListener
 		"\u00a7l伽马覆写\u00a7r 将亮度滑块设置为 100% 以上\n\n\u00a7l夜视效果\u00a7r 通过应用夜视效果来工作",
 		Method.values(), Method.GAMMA);
 	
-	private final CheckboxSetting fade = new CheckboxSetting("淡出",
-		"在光明与黑暗之间慢慢消失", true);
+	private final CheckboxSetting fade =
+		new CheckboxSetting("淡出", "在光明与黑暗之间慢慢消失", true);
 	
-	private final SliderSetting defaultGamma = new SliderSetting(
-		"默认亮度",
-		"当您关闭黑暗视觉时, 它会将亮度滑块设置回此值",
-		0.5, 0, 1, 0.01, ValueDisplay.PERCENTAGE);
+	private final SliderSetting defaultGamma = new SliderSetting("默认亮度",
+		"当您关闭黑暗视觉时, 它会将亮度滑块设置回此值", 0.5, 0, 1, 0.01, ValueDisplay.PERCENTAGE);
 	
 	private boolean wasGammaChanged;
 	private float nightVisionStrength;
@@ -57,7 +55,7 @@ public final class FullbrightHack extends Hack implements UpdateListener
 			public void onUpdate()
 			{
 				double gamma = MC.options.gamma().get();
-				System.out.println("亮度从 "+ gamma + "开始");
+				System.out.println("亮度从 " + gamma + "开始");
 				
 				if(gamma > 1)
 					wasGammaChanged = true;

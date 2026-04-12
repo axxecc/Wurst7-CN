@@ -21,7 +21,6 @@ public final class UnbindCmd extends Command
 	@Override
 	public void call(String[] args) throws CmdException
 	{
-		WURST.getCmdProcessor()
-			.process("解除绑定 " + String.join(" ", args));
+		WURST.getCmdProcessor().process("解除绑定 " + String.join(" ", args));
 	}
 }

@@ -47,10 +47,9 @@ public abstract class DeathScreenMixin extends Screen
 		int backButtonX = width / 2 - 100;
 		int backButtonY = height / 4;
 		
-		addRenderableWidget(
-			Button.builder(Component.literal("自动重生: 关闭"), b -> {
-				autoRespawn.setEnabled(true);
-				autoRespawn.onDeath();
-			}).bounds(backButtonX, backButtonY + 48, 200, 20).build());
+		addRenderableWidget(Button.builder(Component.literal("自动重生: 关闭"), b -> {
+			autoRespawn.setEnabled(true);
+			autoRespawn.onDeath();
+		}).bounds(backButtonX, backButtonY + 48, 200, 20).build());
 	}
 }

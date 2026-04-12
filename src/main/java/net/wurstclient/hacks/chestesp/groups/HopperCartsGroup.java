@@ -26,9 +26,7 @@ public final class HopperCartsGroup extends ChestEspEntityGroup
 	@Override
 	protected ColorSetting createColorSetting()
 	{
-		return new ColorSetting("漏斗矿车",
-			"漏斗矿车将以该颜色高亮显示",
-			Color.YELLOW);
+		return new ColorSetting("漏斗矿车", "漏斗矿车将以该颜色高亮显示", Color.YELLOW);
 	}
 	
 	@Override

@@ -17,8 +17,7 @@ public final class GetPosCmd extends Command
 {
 	public GetPosCmd()
 	{
-		super("getpos", "显示您当前的位置", ".getpos",
-			"复制到剪贴板: .getpos copy");
+		super("getpos", "显示您当前的位置", ".getpos", "复制到剪贴板: .getpos copy");
 	}
 	
 	@Override

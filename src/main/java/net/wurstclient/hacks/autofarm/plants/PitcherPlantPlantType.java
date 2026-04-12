@@ -51,7 +51,6 @@ public final class PitcherPlantPlantType extends AutoFarmPlantType
 	@Override
 	protected PlantTypeSetting createSetting()
 	{
-		return new PlantTypeSetting("瓶子草", Items.PITCHER_PLANT, true,
-			true);
+		return new PlantTypeSetting("瓶子草", Items.PITCHER_PLANT, true, true);
 	}
 }

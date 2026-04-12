@@ -88,11 +88,9 @@ public final class FaceTargetSetting
 	{
 		OFF("关闭", v -> {}),
 		
-		SERVER("服务端",
-			v -> WURST.getRotationFaker().faceVectorPacket(v)),
+		SERVER("服务端", v -> WURST.getRotationFaker().faceVectorPacket(v)),
 		
-		CLIENT("客户端",
-			v -> WURST.getRotationFaker().faceVectorClient(v)),
+		CLIENT("客户端", v -> WURST.getRotationFaker().faceVectorClient(v)),
 		
 		SPAM("垃圾数据包",
 			v -> RotationUtils.getNeededRotations(v).sendPlayerLookPacket());

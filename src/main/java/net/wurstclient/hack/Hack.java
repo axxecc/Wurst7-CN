@@ -30,10 +30,9 @@ public abstract class Hack extends Feature
 		this.name = Objects.requireNonNull(name);
 		description = "description.wurst.hack." + name.toLowerCase();
 		addPossibleKeybind(name, "切换 " + name);
-
+		
 		if(name.contains(" "))
-			throw new IllegalArgumentException(
-				"特征名称不得包含空格: " + name);
+			throw new IllegalArgumentException("特征名称不得包含空格: " + name);
 	}
 	
 	@Override

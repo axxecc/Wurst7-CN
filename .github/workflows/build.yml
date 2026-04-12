@@ -8,15 +8,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Set up JDK 21
+      - name: Set up JDK 25
         uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
-          java-version: '21'
+          java-version: '25'
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
       - name: Build with Gradle
-        run: ./gradlew remapJar --stacktrace --warning-mode=fail
+        run: ./gradlew build --stacktrace --warning-mode=fail -x test
       - name: Upload Artifact to GitHub Action
         uses: actions/upload-artifact@v4
         with:

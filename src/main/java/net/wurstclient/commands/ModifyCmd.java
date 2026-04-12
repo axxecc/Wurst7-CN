@@ -33,9 +33,8 @@ public final class ModifyCmd extends Command
 {
 	public ModifyCmd()
 	{
-		super("modify", "允许你修改物品的组件数据",
-			".modify set <类型> <值>", ".modify remove <类型>",
-			"用$表示颜色，用$$表示$", "", "示例:",
+		super("modify", "允许你修改物品的组件数据", ".modify set <类型> <值>",
+			".modify remove <类型>", "用$表示颜色，用$$表示$", "", "示例:",
 			".modify set custom_name {\"text\":\"$c红色名字\"}",
 			"(将物品名称更改为 \u00a7c红色名字\u00a7r)");
 	}
@@ -109,8 +108,7 @@ public final class ModifyCmd extends Command
 			.getValue(Identifier.tryParse(typeName));
 		
 		if(type == null)
-			throw new CmdError(
-				"组件类型 \"" + typeName + "\" 不存在");
+			throw new CmdError("组件类型 \"" + typeName + "\" 不存在");
 		
 		return type;
 	}

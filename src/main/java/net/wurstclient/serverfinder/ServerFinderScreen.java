@@ -221,16 +221,13 @@ public class ServerFinderScreen extends Screen
 	public void extractRenderState(GuiGraphicsExtractor context, int mouseX,
 		int mouseY, float partialTicks)
 	{
-		context.centeredText(font, "服务器查找器", width / 2, 20,
-			CommonColors.WHITE);
-		context.centeredText(font,
-			"他将搜索具有相似 IP 的服务器", width / 2, 40,
+		context.centeredText(font, "服务器查找器", width / 2, 20, CommonColors.WHITE);
+		context.centeredText(font, "他将搜索具有相似 IP 的服务器", width / 2, 40,
 			CommonColors.LIGHT_GRAY);
-		context.centeredText(font, "到您在下面的字段中输入的 IP",
-			width / 2, 50, CommonColors.LIGHT_GRAY);
-		context.centeredText(font,
-			"它找到的服务器将添加到您的服务器列表中",
-			width / 2, 60, CommonColors.LIGHT_GRAY);
+		context.centeredText(font, "到您在下面的字段中输入的 IP", width / 2, 50,
+			CommonColors.LIGHT_GRAY);
+		context.centeredText(font, "它找到的服务器将添加到您的服务器列表中", width / 2, 60,
+			CommonColors.LIGHT_GRAY);
 		
 		context.text(font, "服务器地址:", width / 2 - 100, height / 4 + 24,
 			CommonColors.LIGHT_GRAY);
@@ -245,8 +242,8 @@ public class ServerFinderScreen extends Screen
 		
 		context.text(font, "检查: " + checked + " / 1792", width / 2 - 100,
 			height / 4 + 84, CommonColors.LIGHT_GRAY);
-		context.text(font, "工作中: " + working, width / 2 - 100,
-			height / 4 + 94, CommonColors.LIGHT_GRAY);
+		context.text(font, "工作中: " + working, width / 2 - 100, height / 4 + 94,
+			CommonColors.LIGHT_GRAY);
 		
 		for(Renderable drawable : renderables)
 			drawable.extractRenderState(context, mouseX, mouseY, partialTicks);

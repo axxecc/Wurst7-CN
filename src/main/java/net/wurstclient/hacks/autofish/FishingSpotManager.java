@@ -44,8 +44,8 @@ public final class FishingSpotManager
 			true);
 	
 	private final SliderSetting mcmmoLimit = new SliderSetting("mcMMO 限制",
-		"mcMMO 的超额钓鱼配置选项\n\n过度捕捞从这个数值开始, 所以你实际上只能 (限制-1) 在同一地点钓到鱼",
-		10, 2, 1000, 1, ValueDisplay.INTEGER);
+		"mcMMO 的超额钓鱼配置选项\n\n过度捕捞从这个数值开始, 所以你实际上只能 (限制-1) 在同一地点钓到鱼", 10, 2, 1000,
+		1, ValueDisplay.INTEGER);
 	
 	private final ArrayList<FishingSpot> fishingSpots = new ArrayList<>();
 	private FishingSpot lastSpot;
@@ -86,8 +86,7 @@ public final class FishingSpotManager
 			if(spot2MsgShown)
 				return false;
 			
-			ChatUtils
-				.message("自动钓鱼mcMMO模式需要另一个钓鱼点");
+			ChatUtils.message("自动钓鱼mcMMO模式需要另一个钓鱼点");
 			ChatUtils.message("移动你的摄像机 (或必要时移动玩家), 使浮标落在红盒子外, 然后抛竿");
 			spot2MsgShown = true;
 			setupDoneMsgShown = false;

@@ -21,23 +21,21 @@ import net.wurstclient.settings.SliderSetting.ValueDisplay;
 @SearchTags({"无摔伤", "NoFall"})
 public final class NoFallHack extends Hack implements UpdateListener
 {
-	private final CheckboxSetting allowElytra = new CheckboxSetting(
-		"允许鞘翅", "还会尝试在你使用鞘翅飞行时防止坠落伤害\n\n§c§l警告：§r这有时会导致你意外停止飞行", false);
+	private final CheckboxSetting allowElytra = new CheckboxSetting("允许鞘翅",
+		"还会尝试在你使用鞘翅飞行时防止坠落伤害\n\n§c§l警告：§r这有时会导致你意外停止飞行", false);
 	
-	private final CheckboxSetting pauseForMace =
-		new CheckboxSetting("暂停使用重锤",
-			"手持重锤时暂停\"无摔伤\"效果, 以便你能够利用重锤的坠落距离加成\n\n§c§l警告：§r 手持重锤时，你将无法获得坠落伤害保护. 此外, 在坠落过程中切换至重锤或远离重锤都会中断坠落, 可能导致你受到伤害", false);
+	private final CheckboxSetting pauseForMace = new CheckboxSetting("暂停使用重锤",
+		"手持重锤时暂停\"无摔伤\"效果, 以便你能够利用重锤的坠落距离加成\n\n§c§l警告：§r 手持重锤时，你将无法获得坠落伤害保护. 此外, 在坠落过程中切换至重锤或远离重锤都会中断坠落, 可能导致你受到伤害",
+		false);
 	
 	private final SliderSetting minFallDistance =
-		new SliderSetting("最小摔落距离",
-			"NoFall启动的最小坠落距离, 通过忽略那些不会伤害你的小坠落", 1, 0, 10, 0.1,
-			ValueDisplay.DECIMAL.withSuffix("m").withLabel(0, "关闭"));
-
-	private final SliderSetting minFallDistanceElytra =
-		new SliderSetting("最小鞘翅摔落距离",
-			"飞行时NoFall激活的最小坠落距离, 并通过忽略那些不会造成实质性伤害的小坠落, 避免了飞行中断的问题", 2, 0,
+		new SliderSetting("最小摔落距离", "NoFall启动的最小坠落距离, 通过忽略那些不会伤害你的小坠落", 1, 0,
 			10, 0.1, ValueDisplay.DECIMAL.withSuffix("m").withLabel(0, "关闭"));
-
+	
+	private final SliderSetting minFallDistanceElytra = new SliderSetting(
+		"最小鞘翅摔落距离", "飞行时NoFall激活的最小坠落距离, 并通过忽略那些不会造成实质性伤害的小坠落, 避免了飞行中断的问题", 2,
+		0, 10, 0.1, ValueDisplay.DECIMAL.withSuffix("m").withLabel(0, "关闭"));
+	
 	public NoFallHack()
 	{
 		super("无摔伤");
@@ -75,12 +73,12 @@ public final class NoFallHack extends Hack implements UpdateListener
 	{
 		if(isPaused())
 			return;
-
+		
 		// send packet to stop fall damage
 		MC.player.connection.send(new ServerboundMovePlayerPacket.StatusOnly(
 			true, MC.player.horizontalCollision));
 	}
-
+	
 	private boolean isPaused()
 	{
 		// do nothing in creative mode, since there is no fall damage anyway
@@ -96,7 +94,7 @@ public final class NoFallHack extends Hack implements UpdateListener
 		// pause when holding a mace, if enabled
 		if(pauseForMace.isChecked() && player.getMainHandItem().is(Items.MACE))
 			return true;
-
+			
 		// ignore small falls that can't cause damage,
 		// unless CreativeFlight is enabled in survival mode
 		boolean creativeFlying = WURST.getHax().creativeFlightHack.isEnabled()

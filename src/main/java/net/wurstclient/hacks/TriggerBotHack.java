@@ -37,19 +37,16 @@ public final class TriggerBotHack extends Hack
 	private final AttackSpeedSliderSetting speed =
 		new AttackSpeedSliderSetting();
 	
-	private final SliderSetting speedRandMS =
-		new SliderSetting("速度随机化",
-			"通过改变攻击之间的延迟来帮助您绕过反作弊插件\n\n\u00b1100ms 建议用于 Vulcan\n\n0 (关闭) 适用于 NoCheat+、AAC、Grim、Verus、Spartan 和 vanilla 服务器",
-			100, 0, 1000, 50, ValueDisplay.INTEGER.withPrefix("\u00b1")
-				.withSuffix("ms").withLabel(0, "关闭"));
+	private final SliderSetting speedRandMS = new SliderSetting("速度随机化",
+		"通过改变攻击之间的延迟来帮助您绕过反作弊插件\n\n\u00b1100ms 建议用于 Vulcan\n\n0 (关闭) 适用于 NoCheat+、AAC、Grim、Verus、Spartan 和 vanilla 服务器",
+		100, 0, 1000, 50, ValueDisplay.INTEGER.withPrefix("\u00b1")
+			.withSuffix("ms").withLabel(0, "关闭"));
 	
 	private final SwingHandSetting swingHand =
 		new SwingHandSetting(this, SwingHand.CLIENT);
 	
-	private final CheckboxSetting attackWhileBlocking =
-		new CheckboxSetting("格挡时攻击",
-			"即使在使用盾牌或物品格挡时也会攻击\n\n这在原版中是不可能的, 并且不会启用\"模拟鼠标点击\"",
-			false);
+	private final CheckboxSetting attackWhileBlocking = new CheckboxSetting(
+		"格挡时攻击", "即使在使用盾牌或物品格挡时也会攻击\n\n这在原版中是不可能的, 并且不会启用\"模拟鼠标点击\"", false);
 	
 	private final CheckboxSetting simulateMouseClick = new CheckboxSetting(
 		"模拟鼠标点击",

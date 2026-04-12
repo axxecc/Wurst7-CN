@@ -73,8 +73,7 @@ public final class KeybindManagerScreen extends Screen
 					WurstClient.INSTANCE.getKeybinds()
 						.setKeybinds(KeybindList.DEFAULT_KEYBINDS);
 				minecraft.setScreen(this);
-			}, Component
-				.literal("您确定要重置您的快捷键?"),
+			}, Component.literal("您确定要重置您的快捷键?"),
 				Component.literal("此操作无法撤消!"))))
 			.bounds(8, 8, 100, 20).build());
 		
@@ -145,8 +144,7 @@ public final class KeybindManagerScreen extends Screen
 	{
 		listGui.extractRenderState(context, mouseX, mouseY, partialTicks);
 		
-		context.centeredText(font, "快捷键管理", width / 2, 8,
-			CommonColors.WHITE);
+		context.centeredText(font, "快捷键管理", width / 2, 8, CommonColors.WHITE);
 		
 		int count = WurstClient.INSTANCE.getKeybinds().getAllKeybinds().size();
 		context.centeredText(font, "快捷键: " + count, width / 2, 20,

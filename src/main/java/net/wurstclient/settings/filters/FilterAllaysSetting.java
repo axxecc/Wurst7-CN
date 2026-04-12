@@ -25,13 +25,11 @@ public final class FilterAllaysSetting extends EntityFilterCheckbox
 	
 	public static FilterAllaysSetting genericCombat(boolean checked)
 	{
-		return new FilterAllaysSetting(
-			"不会攻击队友", checked);
+		return new FilterAllaysSetting("不会攻击队友", checked);
 	}
 	
 	public static FilterAllaysSetting genericVision(boolean checked)
 	{
-		return new FilterAllaysSetting(
-			"不会显示任何缓解", checked);
+		return new FilterAllaysSetting("不会显示任何缓解", checked);
 	}
 }

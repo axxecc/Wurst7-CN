@@ -24,10 +24,8 @@ public final class SetColorCmd extends Command
 {
 	public SetColorCmd()
 	{
-		super("setcolor",
-			"更改某个功能物的颜色设置, 它允许你通过快捷键定设置RGB值",
-			".setcolor <功能> <设置> <RGB>",
-			"示例: .setcolor ClickGUI AC #FF0000");
+		super("setcolor", "更改某个功能物的颜色设置, 它允许你通过快捷键定设置RGB值",
+			".setcolor <功能> <设置> <RGB>", "示例: .setcolor ClickGUI AC #FF0000");
 	}
 	
 	@Override
@@ -46,8 +44,8 @@ public final class SetColorCmd extends Command
 		throws CmdError
 	{
 		if(!(setting instanceof ColorSetting))
-			throw new CmdError(feature.getName() + " " + setting.getName()
-				+ " 不是颜色设置");
+			throw new CmdError(
+				feature.getName() + " " + setting.getName() + " 不是颜色设置");
 		
 		return (ColorSetting)setting;
 	}

@@ -49,8 +49,7 @@ public final class FollowCmd extends Command
 			.orElse(null);
 		
 		if(entity == null)
-			throw new CmdError(
-				"实体 \"" + args[0] + "\" 不存在");
+			throw new CmdError("实体 \"" + args[0] + "\" 不存在");
 		
 		followHack.setEntity(entity);
 		followHack.setEnabled(true);

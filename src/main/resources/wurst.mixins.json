@@ -49,7 +49,6 @@
     "MouseHandlerMixin",
     "MultiPlayerGameModeMixin",
     "OptionInstanceMixin",
-    "PackSelectionScreenMixin",
     "PauseScreenMixin",
     "PowderSnowBlockMixin",
     "ScreenEffectRendererMixin",

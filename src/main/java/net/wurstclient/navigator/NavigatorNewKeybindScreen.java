@@ -131,7 +131,7 @@ public class NavigatorNewKeybindScreen extends NavigatorScreen
 			okButton.active = !selectedKey.equals("key.keyboard.unknown");
 			return;
 		}
-
+		
 		// back button
 		if(button == GLFW.GLFW_MOUSE_BUTTON_4)
 		{
@@ -161,8 +161,7 @@ public class NavigatorNewKeybindScreen extends NavigatorScreen
 					WurstClient.INSTANCE.getKeybinds().getCommands(selectedKey);
 				if(commands != null)
 				{
-					text +=
-						"\n\n警告: 此键已绑定以下命令: ";
+					text += "\n\n警告: 此键已绑定以下命令: ";
 					commands = commands.replace(";", "\u00a7")
 						.replace("\u00a7\u00a7", ";");
 					

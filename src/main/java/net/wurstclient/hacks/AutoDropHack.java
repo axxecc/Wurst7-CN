@@ -21,9 +21,8 @@ import net.wurstclient.settings.ItemListSetting;
 @SearchTags({"自动丢弃", "AutoDorp"})
 public final class AutoDropHack extends Hack implements UpdateListener
 {
-	private ItemListSetting items = new ItemListSetting("物品",
-		"将被丢弃的不需要的物品", "minecraft:allium",
-		"minecraft:azure_bluet", "minecraft:blue_orchid",
+	private ItemListSetting items = new ItemListSetting("物品", "将被丢弃的不需要的物品",
+		"minecraft:allium", "minecraft:azure_bluet", "minecraft:blue_orchid",
 		"minecraft:cornflower", "minecraft:dandelion", "minecraft:lilac",
 		"minecraft:lily_of_the_valley", "minecraft:orange_tulip",
 		"minecraft:oxeye_daisy", "minecraft:peony", "minecraft:pink_tulip",

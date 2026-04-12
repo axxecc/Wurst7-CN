@@ -29,9 +29,8 @@ import net.wurstclient.util.InventoryUtils;
 @SearchTags({"杀戮神药", "KillerPotion"})
 public final class KillPotionHack extends Hack
 {
-	private final EnumSetting<PotionType> potionType =
-		new EnumSetting<>("药水类型", "要生成的药水类型",
-			PotionType.values(), PotionType.SPLASH);
+	private final EnumSetting<PotionType> potionType = new EnumSetting<>("药水类型",
+		"要生成的药水类型", PotionType.values(), PotionType.SPLASH);
 	
 	public KillPotionHack()
 	{
@@ -109,8 +108,7 @@ public final class KillPotionHack extends Hack
 			
 			stack.set(DataComponents.POTION_CONTENTS, potionContents);
 			
-			String name =
-				"\u00a7f" + itemName + "\u00a74\u00a7l杀戮神药";
+			String name = "\u00a7f" + itemName + "\u00a74\u00a7l杀戮神药";
 			stack.set(DataComponents.CUSTOM_NAME, Component.literal(name));
 			
 			return stack;

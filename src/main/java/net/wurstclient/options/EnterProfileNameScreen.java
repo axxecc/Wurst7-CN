@@ -88,8 +88,8 @@ public final class EnterProfileNameScreen extends Screen
 	public void extractRenderState(GuiGraphicsExtractor context, int mouseX,
 		int mouseY, float partialTicks)
 	{
-		context.centeredText(minecraft.font, "为新配置命名", width / 2,
-			20, CommonColors.WHITE);
+		context.centeredText(minecraft.font, "为新配置命名", width / 2, 20,
+			CommonColors.WHITE);
 		
 		valueField.extractRenderState(context, mouseX, mouseY, partialTicks);
 		

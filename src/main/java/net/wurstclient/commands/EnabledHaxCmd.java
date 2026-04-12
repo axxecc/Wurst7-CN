@@ -26,10 +26,8 @@ public final class EnabledHaxCmd extends Command
 {
 	public EnabledHaxCmd()
 	{
-		super("enabledhax", "允许你创建启用的功能配置文件",
-			".enabledhax load-profile <文件>",
-			".enabledhax save-profile <文件>",
-			".enabledhax list-profiles [<页码>]",
+		super("enabledhax", "允许你创建启用的功能配置文件", ".enabledhax load-profile <文件>",
+			".enabledhax save-profile <文件>", ".enabledhax list-profiles [<页码>]",
 			"配置文件保存于 '.minecraft/wurst/enabled hacks'.");
 	}
 	
@@ -77,8 +75,7 @@ public final class EnabledHaxCmd extends Command
 		}catch(JsonException e)
 		{
 			e.printStackTrace();
-			throw new CmdError(
-				"配置文件 '" + name + "' 已损坏: " + e.getMessage());
+			throw new CmdError("配置文件 '" + name + "' 已损坏: " + e.getMessage());
 			
 		}catch(IOException e)
 		{
@@ -127,14 +124,13 @@ public final class EnabledHaxCmd extends Command
 		
 		if(page > pages || page < 1)
 			throw new CmdSyntaxError("无效页码: " + page);
-
+		
 		ChatUtils.message("共有: " + files.size() + " 条配置文件");
 		
 		int start = (page - 1) * 8;
 		int end = Math.min(page * 8, files.size());
 		
-		ChatUtils.message(
-			"启用功能配置文件列表 (页码 " + page + "/" + pages + ")");
+		ChatUtils.message("启用功能配置文件列表 (页码 " + page + "/" + pages + ")");
 		for(int i = start; i < end; i++)
 			ChatUtils.message(files.get(i).getFileName().toString());
 	}

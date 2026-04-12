@@ -58,7 +58,6 @@ public final class SweetBerryPlantType extends AutoFarmPlantType
 	@Override
 	protected PlantTypeSetting createSetting()
 	{
-		return new PlantTypeSetting("甜浆果", Items.SWEET_BERRIES, true,
-			true);
+		return new PlantTypeSetting("甜浆果", Items.SWEET_BERRIES, true, true);
 	}
 }

@@ -17,14 +17,12 @@ public final class FreecamInteractionSetting
 	
 	public FreecamInteractionSetting()
 	{
-		super("Interact from", DESCRIPTION, InteractFrom.values(),
-			InteractFrom.PLAYER);
+		super("互动", DESCRIPTION, InteractFrom.values(), InteractFrom.PLAYER);
 	}
 	
 	private static WText buildDescription()
 	{
-		WText text =
-			WText.translated("description.wurst.setting.freecam.interact_from");
+		WText text = WText.translated("在灵魂出窍激活时, 你的左右/中键点击应的目标");
 		
 		for(InteractFrom value : InteractFrom.values())
 			text = text
@@ -36,8 +34,8 @@ public final class FreecamInteractionSetting
 	
 	public enum InteractFrom
 	{
-		CAMERA("Camera"),
-		PLAYER("Player");
+		CAMERA("相机"),
+		PLAYER("玩家");
 		
 		private static final String TRANSLATION_KEY_PREFIX =
 			"description.wurst.setting.freecam.interact_from.";

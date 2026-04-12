@@ -17,14 +17,12 @@ public final class FreecamInputSetting
 	
 	public FreecamInputSetting()
 	{
-		super("应用输入", DESCRIPTION, ApplyInputTo.values(),
-			ApplyInputTo.CAMERA);
+		super("应用输入", DESCRIPTION, ApplyInputTo.values(), ApplyInputTo.CAMERA);
 	}
 	
 	private static WText buildDescription()
 	{
-		WText text = WText
-			.translated("在灵魂出窍激活时, 你的键盘和鼠标输入应该做什么");
+		WText text = WText.translated("在灵魂出窍激活时, 你的键盘和鼠标输入应该做什么");
 		
 		for(ApplyInputTo value : ApplyInputTo.values())
 			text = text

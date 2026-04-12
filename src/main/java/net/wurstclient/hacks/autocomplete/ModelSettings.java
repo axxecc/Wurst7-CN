@@ -21,9 +21,9 @@ import net.wurstclient.settings.TextFieldSetting;
 
 public final class ModelSettings
 {
-	public final EnumSetting<OpenAiModel> openAiModel = new EnumSetting<>(
-		"OpenAI 模型", "用于OpenAI API调用的模型",
-		OpenAiModel.values(), OpenAiModel.GPT_4O_2024_08_06);
+	public final EnumSetting<OpenAiModel> openAiModel =
+		new EnumSetting<>("OpenAI 模型", "用于OpenAI API调用的模型",
+			OpenAiModel.values(), OpenAiModel.GPT_4O_2024_08_06);
 	
 	public enum OpenAiModel
 	{
@@ -66,22 +66,20 @@ public final class ModelSettings
 		16, 1, 100, 1, ValueDisplay.INTEGER);
 	
 	public final SliderSetting temperature = new SliderSetting("温度",
-		"控制模特的创造力和随机性\n\n分值越高, 完成会更有创意, 有时甚至有些无厘头, 而分值越低,完成就会越无聊",
-		1, 0, 2, 0.01, ValueDisplay.DECIMAL);
+		"控制模特的创造力和随机性\n\n分值越高, 完成会更有创意, 有时甚至有些无厘头, 而分值越低,完成就会越无聊", 1, 0, 2,
+		0.01, ValueDisplay.DECIMAL);
 	
 	public final SliderSetting topP = new SliderSetting("Top P",
-		"温度的替代品, 通过只允许模型从最可能的标记中选择, 使模型不那么随机\n\n值为100%则禁用该功能, 允许模型从所有标记中选择",
-		1, 0, 1, 0.01, ValueDisplay.PERCENTAGE);
+		"温度的替代品, 通过只允许模型从最可能的标记中选择, 使模型不那么随机\n\n值为100%则禁用该功能, 允许模型从所有标记中选择", 1,
+		0, 1, 0.01, ValueDisplay.PERCENTAGE);
 	
-	public final SliderSetting presencePenalty =
-		new SliderSetting("同义词惩罚",
-			"选择已出现在聊天记录中的标记会受到惩罚\n\n积极值鼓励模型使用同义词并讨论不同话题, 负值则鼓励模型反复重复同一个词",
-			0, -2, 2, 0.01, ValueDisplay.DECIMAL);
+	public final SliderSetting presencePenalty = new SliderSetting("同义词惩罚",
+		"选择已出现在聊天记录中的标记会受到惩罚\n\n积极值鼓励模型使用同义词并讨论不同话题, 负值则鼓励模型反复重复同一个词", 0, -2, 2,
+		0.01, ValueDisplay.DECIMAL);
 	
-	public final SliderSetting frequencyPenalty =
-		new SliderSetting("频率惩罚",
-			"类似于存在惩罚, 但基于Token在聊天记录中出现的频率\n\n正值鼓励模型使用同义词并讨论不同话题, 负值则鼓励模型重复已有的聊天消息",
-			0, -2, 2, 0.01, ValueDisplay.DECIMAL);
+	public final SliderSetting frequencyPenalty = new SliderSetting("频率惩罚",
+		"类似于存在惩罚, 但基于Token在聊天记录中出现的频率\n\n正值鼓励模型使用同义词并讨论不同话题, 负值则鼓励模型重复已有的聊天消息",
+		0, -2, 2, 0.01, ValueDisplay.DECIMAL);
 	
 	public final EnumSetting<StopSequence> stopSequence = new EnumSetting<>(
 		"停止序列",
@@ -114,23 +112,22 @@ public final class ModelSettings
 		}
 	}
 	
-	public final SliderSetting contextLength = new SliderSetting(
-		"上下文长度",
+	public final SliderSetting contextLength = new SliderSetting("上下文长度",
 		"控制聊天记录中用于生成预测的消息数量\n\n更高的值提升预测质量, 但也增加生成预测所需的时间, 以及成本 (如OpenAI的API) 或RAM使用 (自架模型) 的使用",
 		10, 0, 100, 1, ValueDisplay.INTEGER);
 	
-	public final CheckboxSetting filterServerMessages =
-		new CheckboxSetting("过滤服务器消息",
-			"只向模型显示玩家创建的聊天消息\n\n这可以帮助你节省Token, 并在低上下文长度下获得更多收益, 但也意味着模型不会知道玩家加入、离开、死亡等事件",
-			false);
+	public final CheckboxSetting filterServerMessages = new CheckboxSetting(
+		"过滤服务器消息",
+		"只向模型显示玩家创建的聊天消息\n\n这可以帮助你节省Token, 并在低上下文长度下获得更多收益, 但也意味着模型不会知道玩家加入、离开、死亡等事件",
+		false);
 	
-	public final TextFieldSetting customModel = new TextFieldSetting(
-		"自定义模型",
+	public final TextFieldSetting customModel = new TextFieldSetting("自定义模型",
 		"如果设置好, 该模型将取代\"OpenAI 模型\"设置中指定的模型\n\n如果你有一个经过精细调校的 OpenAI 模型, 或者使用兼容 OpenAI 但提供不同模型的自定义端点, 请使用此模型",
 		"");
 	
 	public final EnumSetting<CustomModelType> customModelType =
-		new EnumSetting<>("自定义模型类型", "自定义模型是应该使用聊天端点还是传统端点\n\n如果\"自定义模型\"留空, 这个设置将被忽略",
+		new EnumSetting<>("自定义模型类型",
+			"自定义模型是应该使用聊天端点还是传统端点\n\n如果\"自定义模型\"留空, 这个设置将被忽略",
 			CustomModelType.values(), CustomModelType.CHAT);
 	
 	public enum CustomModelType
@@ -159,13 +156,12 @@ public final class ModelSettings
 		}
 	}
 	
-	public final TextFieldSetting openaiChatEndpoint = new TextFieldSetting(
-		"OpenAI 聊天端点", "OpenAI 聊天完成 API 的端点",
-		"https://api.openai.com/v1/chat/completions");
+	public final TextFieldSetting openaiChatEndpoint =
+		new TextFieldSetting("OpenAI 聊天端点", "OpenAI 聊天完成 API 的端点",
+			"https://api.openai.com/v1/chat/completions");
 	
 	public final TextFieldSetting openaiLegacyEndpoint =
-		new TextFieldSetting("OpenAI 传统端点",
-			"OpenAI 传统补全 API 的端点",
+		new TextFieldSetting("OpenAI 传统端点", "OpenAI 传统补全 API 的端点",
 			"https://api.openai.com/v1/completions");
 	
 	private final List<Setting> settings =

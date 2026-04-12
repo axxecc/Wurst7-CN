@@ -24,8 +24,7 @@ public final class ProtectCmd extends Command
 {
 	public ProtectCmd()
 	{
-		super("protect", "保护指定实体免受其他实体的伤害",
-			".protect <实体>");
+		super("protect", "保护指定实体免受其他实体的伤害", ".protect <实体>");
 	}
 	
 	@Override
@@ -50,8 +49,7 @@ public final class ProtectCmd extends Command
 			.orElse(null);
 		
 		if(entity == null)
-			throw new CmdError(
-				"实体 \"" + args[0] + "\" 不存在 ");
+			throw new CmdError("实体 \"" + args[0] + "\" 不存在 ");
 		
 		protectHack.setFriend(entity);
 		protectHack.setEnabled(true);

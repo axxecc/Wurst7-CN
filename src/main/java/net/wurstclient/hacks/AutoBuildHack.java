@@ -53,18 +53,14 @@ public final class AutoBuildHack extends Hack
 		"autobuild", DefaultAutoBuildTemplates::createFiles);
 	
 	private final SliderSetting range = new SliderSetting("范围",
-		"放置方块时可以到达多远\n建议的值: \n6.0 对于Vanilla\n" + "4.25 对于NoCheat+",
-		6, 1, 10, 0.05, ValueDisplay.DECIMAL);
+		"放置方块时可以到达多远\n建议的值: \n6.0 对于Vanilla\n" + "4.25 对于NoCheat+", 6, 1, 10,
+		0.05, ValueDisplay.DECIMAL);
 	
-	private final CheckboxSetting checkLOS = new CheckboxSetting(
-		"检查视线",
-		"确保在放置方块时不要穿过墙壁, 可以帮助 AntiCheat 插件, 但会减慢建造速度",
-		false);
+	private final CheckboxSetting checkLOS = new CheckboxSetting("检查视线",
+		"确保在放置方块时不要穿过墙壁, 可以帮助 AntiCheat 插件, 但会减慢建造速度", false);
 	
 	private final CheckboxSetting useSavedBlocks = new CheckboxSetting(
-		"使用已保存的块",
-		"尝试放置保存在模板中的相同块\n\n如果模板未指定块类型, 则将从您持有的任何块构建它",
-		true);
+		"使用已保存的块", "尝试放置保存在模板中的相同块\n\n如果模板未指定块类型, 则将从您持有的任何块构建它", true);
 	
 	private final FaceTargetSetting faceTarget =
 		FaceTargetSetting.withoutPacketSpam(this, FaceTarget.SERVER);
@@ -73,14 +69,11 @@ public final class AutoBuildHack extends Hack
 		new SwingHandSetting(this, SwingHand.SERVER);
 	
 	private final CheckboxSetting fastPlace =
-		new CheckboxSetting("总是快速放置 ",
-			"即使未启用快速放置也会加快放置速度", true);
+		new CheckboxSetting("总是快速放置 ", "即使未启用快速放置也会加快放置速度", true);
 	
 	private final CheckboxSetting strictBuildOrder = new CheckboxSetting(
-		"严格的构建顺序",
-		"按块在模板中的显示顺序完全相同的顺序放置块, 这速度较慢, 但提供更一致的结果",
-		false);
-
+		"严格的构建顺序", "按块在模板中的显示顺序完全相同的顺序放置块, 这速度较慢, 但提供更一致的结果", false);
+	
 	private Status status = Status.NO_TEMPLATE;
 	private AutoBuildTemplate template;
 	private LinkedHashMap<BlockPos, Item> remainingBlocks =

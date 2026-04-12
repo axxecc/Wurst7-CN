@@ -26,9 +26,7 @@ public final class FurnacesGroup extends ChestEspBlockGroup
 	@Override
 	protected ColorSetting createColorSetting()
 	{
-		return new ColorSetting("熔炉颜色",
-			"熔炉烟熏炉和高炉将以该颜色高亮显示",
-			Color.RED);
+		return new ColorSetting("熔炉颜色", "熔炉烟熏炉和高炉将以该颜色高亮显示", Color.RED);
 	}
 	
 	@Override

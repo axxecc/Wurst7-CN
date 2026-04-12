@@ -19,8 +19,7 @@ public final class SvCmd extends Command
 {
 	public SvCmd()
 	{
-		super("sv", "显示你当前连接的服务器版本",
-                ".sv");
+		super("sv", "显示你当前连接的服务器版本", ".sv");
 	}
 	
 	@Override
@@ -39,8 +38,7 @@ public final class SvCmd extends Command
 		
 		ServerData lastServer = LastServerRememberer.getLastServer();
 		if(lastServer == null)
-			throw new IllegalStateException(
-				"上次的服务器不记得上一个服务器!");
+			throw new IllegalStateException("上次的服务器不记得上一个服务器!");
 		
 		return lastServer.version.getString();
 	}

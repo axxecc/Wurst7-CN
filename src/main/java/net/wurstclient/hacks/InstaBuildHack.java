@@ -46,13 +46,11 @@ public final class InstaBuildHack extends Hack
 		"autobuild", path -> {});
 	
 	private final SliderSetting range = new SliderSetting("范围",
-		"放置物块时要达到多远\n" + "推荐值: \nvanilla 为 6.0\n\" + \"NoCheat+ 为 4.25",
-		6, 1, 10, 0.05, ValueDisplay.DECIMAL);
+		"放置物块时要达到多远\n" + "推荐值: \nvanilla 为 6.0\n\" + \"NoCheat+ 为 4.25", 6, 1,
+		10, 0.05, ValueDisplay.DECIMAL);
 	
 	private final CheckboxSetting useSavedBlocks = new CheckboxSetting(
-		"使用已保存的块",
-		"尝试放置保存在模板中的相同块\n\n如果模板未指定块类型, 则将从您持有的任何块构建它",
-		false);
+		"使用已保存的块", "尝试放置保存在模板中的相同块\n\n如果模板未指定块类型, 则将从您持有的任何块构建它", false);
 	
 	private Status status = Status.NO_TEMPLATE;
 	private AutoBuildTemplate template;

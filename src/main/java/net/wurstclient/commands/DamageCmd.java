@@ -19,10 +19,8 @@ public final class DamageCmd extends Command
 {
 	public DamageCmd()
 	{
-		super("damage", "对自己造成指定的伤害",
-			".damage <值>", "注: 值以半心表示",
-			"示例: .damage 7 (施加3.5心)",
-			"要造成更多伤害, 可以多次执行该命令");
+		super("damage", "对自己造成指定的伤害", ".damage <值>", "注: 值以半心表示",
+			"示例: .damage 7 (施加3.5心)", "要造成更多伤害, 可以多次执行该命令");
 	}
 	
 	@Override

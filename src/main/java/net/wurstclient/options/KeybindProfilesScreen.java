@@ -144,9 +144,7 @@ public final class KeybindProfilesScreen extends Screen
 		
 		if(loadButton.isHoveredOrFocused() && !loadButton.active)
 			context.setComponentTooltipForNextFrame(font,
-				Arrays
-					.asList(Component.literal("您必须先选择一个文件")),
-				mouseX, mouseY);
+				Arrays.asList(Component.literal("您必须先选择一个文件")), mouseX, mouseY);
 	}
 	
 	@Override

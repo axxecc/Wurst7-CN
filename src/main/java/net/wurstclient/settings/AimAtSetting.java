@@ -92,17 +92,13 @@ public final class AimAtSetting extends EnumSetting<AimAtSetting.AimAt>
 	
 	public enum AimAt
 	{
-		AUTO("自动", "瞄准目标碰撞箱的最近点",
-			AimAtSetting::aimAtClosestPoint),
+		AUTO("自动", "瞄准目标碰撞箱的最近点", AimAtSetting::aimAtClosestPoint),
 		
-		HEAD("头部", "瞄准目标的眼睛位置",
-			AimAtSetting::aimAtHead),
+		HEAD("头部", "瞄准目标的眼睛位置", AimAtSetting::aimAtHead),
 		
-		CENTER("中央", "瞄准目标的碰撞箱中央",
-			AimAtSetting::aimAtCenter),
+		CENTER("中央", "瞄准目标的碰撞箱中央", AimAtSetting::aimAtCenter),
 		
-		FEET("底部", "瞄准目标的碰撞框底",
-			AimAtSetting::aimAtFeet);
+		FEET("底部", "瞄准目标的碰撞框底", AimAtSetting::aimAtFeet);
 		
 		private final String name;
 		private final String description;

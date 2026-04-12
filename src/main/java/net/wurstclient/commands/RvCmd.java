@@ -16,8 +16,7 @@ public final class RvCmd extends Command
 {
 	public RvCmd()
 	{
-		super("rv", "让 RemoteView 针对特定实体",
-			".rv <实体>");
+		super("rv", "让 RemoteView 针对特定实体", ".rv <实体>");
 	}
 	
 	@Override

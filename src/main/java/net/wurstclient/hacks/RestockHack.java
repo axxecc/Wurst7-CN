@@ -37,22 +37,19 @@ public final class RestockHack extends Hack implements UpdateListener
 		Stream.concat(IntStream.range(0, 36).boxed(), Stream.of(OFFHAND_ID))
 			.collect(Collectors.toCollection(ArrayList::new));
 	
-	private ItemListSetting items = new ItemListSetting("物品",
-		"需要补货的物品", "minecraft:minecart");
+	private ItemListSetting items =
+		new ItemListSetting("物品", "需要补货的物品", "minecraft:minecart");
 	
-	private final SliderSetting restockSlot = new SliderSetting("槽位",
-		"应该补货到哪个槽位", 0, -1, 9, 1,
-		ValueDisplay.INTEGER.withLabel(9, "副手").withLabel(-1, "当前"));
+	private final SliderSetting restockSlot =
+		new SliderSetting("槽位", "应该补货到哪个槽位", 0, -1, 9, 1,
+			ValueDisplay.INTEGER.withLabel(9, "副手").withLabel(-1, "当前"));
 	
-	private final SliderSetting restockAmount = new SliderSetting(
-		"最低数量",
-		"触发新一轮补货前的最低手头物品数量",
-		1, 1, 64, 1, ValueDisplay.INTEGER);
+	private final SliderSetting restockAmount = new SliderSetting("最低数量",
+		"触发新一轮补货前的最低手头物品数量", 1, 1, 64, 1, ValueDisplay.INTEGER);
 	
-	private final SliderSetting repairMode = new SliderSetting(
-		"工具修复模式",
-		"当工具的耐久度达到给定阈值时更换工具, 以便您可以在它们损坏之前修复它们\n可以从 0 (关闭) 调整到 100 次剩余使用次数",
-		0, 0, 100, 1, ValueDisplay.INTEGER.withLabel(0, "关闭"));
+	private final SliderSetting repairMode = new SliderSetting("工具修复模式",
+		"当工具的耐久度达到给定阈值时更换工具, 以便您可以在它们损坏之前修复它们\n可以从 0 (关闭) 调整到 100 次剩余使用次数", 0,
+		0, 100, 1, ValueDisplay.INTEGER.withLabel(0, "关闭"));
 	
 	public RestockHack()
 	{

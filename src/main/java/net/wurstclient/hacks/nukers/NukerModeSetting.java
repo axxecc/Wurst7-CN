@@ -25,7 +25,7 @@ public final class NukerModeSetting
 		ID("ID"),
 		MULTI_ID("多个方块"),
 		SMASH("破坏");
-
+		
 		private final String name;
 		
 		private NukerMode(String name)

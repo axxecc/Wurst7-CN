@@ -44,16 +44,15 @@ import net.wurstclient.util.chunk.ChunkSearcherCoordinator;
 public final class SearchHack extends Hack
 	implements UpdateListener, RenderListener
 {
-	private final BlockSetting block = new BlockSetting("方块",
-		"要搜索的方块的类型", "minecraft:diamond_ore", false);
+	private final BlockSetting block =
+		new BlockSetting("方块", "要搜索的方块的类型", "minecraft:diamond_ore", false);
 	private Block lastBlock;
 	
-	private final ChunkAreaSetting area = new ChunkAreaSetting("面积",
-		"玩家周围要搜索的区域");
+	private final ChunkAreaSetting area =
+		new ChunkAreaSetting("面积", "玩家周围要搜索的区域");
 	
-	private final SliderSetting limit = new SliderSetting("限制",
-		"要显示的最大方块数",
-		4, 3, 6, 1, ValueDisplay.LOGARITHMIC);
+	private final SliderSetting limit = new SliderSetting("限制", "要显示的最大方块数", 4,
+		3, 6, 1, ValueDisplay.LOGARITHMIC);
 	private int prevLimit;
 	private boolean notify;
 	

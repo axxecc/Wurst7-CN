@@ -23,22 +23,20 @@ import net.wurstclient.util.InventoryUtils;
 @SearchTags({"自动登出", "AutoLeave"})
 public final class AutoLeaveHack extends Hack implements UpdateListener
 {
-	private final SliderSetting health = new SliderSetting("血量",
-		"当您的生命值达到或低于该值时离开服务器",
-		4, 0.5, 9.5, 0.5, ValueDisplay.DECIMAL.withSuffix(" 心"));
+	private final SliderSetting health =
+		new SliderSetting("血量", "当您的生命值达到或低于该值时离开服务器", 4, 0.5, 9.5, 0.5,
+			ValueDisplay.DECIMAL.withSuffix(" 心"));
 	
 	public final EnumSetting<Mode> mode = new EnumSetting<>("模式",
 		"\u00a7l退出\u00a7r 模式会正常退出游戏\n\n\u00a7l字符\u00a7r 模式会发送一条特殊的聊天消息\n\n\u00a7l自残\u00a7r 模式会攻击自己导致服务器踢出",
 		Mode.values(), Mode.QUIT);
 	
-	private final CheckboxSetting disableAutoReconnect = new CheckboxSetting(
-		"禁用自动重连", "自动关闭自动重连",
-		true);
+	private final CheckboxSetting disableAutoReconnect =
+		new CheckboxSetting("禁用自动重连", "自动关闭自动重连", true);
 	
 	private final SliderSetting totems = new SliderSetting("图腾",
-		"当你拥有的图腾数量达到或低于此值才会离开服务器",
-		11, 0, 11, 1, ValueDisplay.INTEGER.withSuffix(" 图腾")
-			.withLabel(1, "1 图腾").withLabel(11, "忽略"));
+		"当你拥有的图腾数量达到或低于此值才会离开服务器", 11, 0, 11, 1, ValueDisplay.INTEGER
+			.withSuffix(" 图腾").withLabel(1, "1 图腾").withLabel(11, "忽略"));
 	
 	public AutoLeaveHack()
 	{
@@ -100,8 +98,7 @@ public final class AutoLeaveHack extends Hack implements UpdateListener
 	
 	public static enum Mode
 	{
-		QUIT("退出",
-			() -> MC.level.disconnect(ClientLevel.DEFAULT_QUIT_MESSAGE)),
+		QUIT("退出", () -> MC.level.disconnect(ClientLevel.DEFAULT_QUIT_MESSAGE)),
 		
 		CHARS("字符", () -> MC.getConnection().sendChat("\u00a7")),
 		

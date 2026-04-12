@@ -24,13 +24,11 @@ public final class FilterNamedSetting extends EntityFilterCheckbox
 	
 	public static FilterNamedSetting genericCombat(boolean checked)
 	{
-		return new FilterNamedSetting(
-			"不会攻击带有名称标记的实体", checked);
+		return new FilterNamedSetting("不会攻击带有名称标记的实体", checked);
 	}
 	
 	public static FilterNamedSetting genericVision(boolean checked)
 	{
-		return new FilterNamedSetting(
-			"不会显示带有名称标记的实体", checked);
+		return new FilterNamedSetting("不会显示带有名称标记的实体", checked);
 	}
 }

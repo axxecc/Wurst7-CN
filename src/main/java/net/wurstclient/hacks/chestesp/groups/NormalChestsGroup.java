@@ -28,8 +28,7 @@ public final class NormalChestsGroup extends ChestEspBlockGroup
 	@Override
 	protected ColorSetting createColorSetting()
 	{
-		return new ColorSetting("箱子颜色",
-			"普通箱子会以该颜色高亮显示", Color.GREEN);
+		return new ColorSetting("箱子颜色", "普通箱子会以该颜色高亮显示", Color.GREEN);
 	}
 	
 	@Override

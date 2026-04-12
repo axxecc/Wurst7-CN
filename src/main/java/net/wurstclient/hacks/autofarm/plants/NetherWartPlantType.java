@@ -49,7 +49,6 @@ public final class NetherWartPlantType extends AutoFarmPlantType
 	@Override
 	protected PlantTypeSetting createSetting()
 	{
-		return new PlantTypeSetting("下界疣", Items.NETHER_WART, true,
-			true);
+		return new PlantTypeSetting("下界疣", Items.NETHER_WART, true, true);
 	}
 }

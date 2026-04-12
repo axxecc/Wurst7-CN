@@ -18,9 +18,7 @@ public class ShallowWaterWarningCheckbox extends CheckboxSetting
 	
 	public ShallowWaterWarningCheckbox()
 	{
-		super("浅水警告",
-			"在浅水区钓鱼时, 聊天会显示警告信息",
-			true);
+		super("浅水警告", "在浅水区钓鱼时, 聊天会显示警告信息", true);
 	}
 	
 	public void reset()

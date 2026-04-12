@@ -33,13 +33,11 @@ public final class AutoSwordHack extends Hack implements UpdateListener
 	private final EnumSetting<Priority> priority =
 		new EnumSetting<>("优先权", Priority.values(), Priority.SPEED);
 	
-	private final CheckboxSetting switchBack = new CheckboxSetting(
-		"切换回去", "在\u00a7l等待时间\u00a7r过去后切换回之前选择的插槽",
-		true);
+	private final CheckboxSetting switchBack =
+		new CheckboxSetting("切换回去", "在\u00a7l等待时间\u00a7r过去后切换回之前选择的插槽", true);
 	
 	private final SliderSetting releaseTime = new SliderSetting("等待时间",
-		"直到自动武器从武器切换回之前选择的插槽\n\n仅在启用\u00a7l切换回去\u00a7r时有效",
-		10, 1, 200, 1,
+		"直到自动武器从武器切换回之前选择的插槽\n\n仅在启用\u00a7l切换回去\u00a7r时有效", 10, 1, 200, 1,
 		ValueDisplay.INTEGER.withSuffix(" Tick"));
 	
 	private int oldSlot;

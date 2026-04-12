@@ -36,19 +36,17 @@ import net.wurstclient.util.RenderUtils;
 public final class BaseFinderHack extends Hack
 	implements UpdateListener, RenderListener
 {
-	private final BlockListSetting naturalBlocks = new BlockListSetting(
-		"自然方块",
-		"这些块将被视为自然生成的一部分\n\n它们不会作为玩家基础突出显示",
-		"minecraft:acacia_leaves", "minecraft:acacia_log", "minecraft:air",
-		"minecraft:allium", "minecraft:amethyst_block",
-		"minecraft:amethyst_cluster", "minecraft:andesite",
-		"minecraft:azure_bluet", "minecraft:bedrock", "minecraft:birch_leaves",
-		"minecraft:birch_log", "minecraft:blue_orchid",
-		"minecraft:brown_mushroom", "minecraft:brown_mushroom_block",
-		"minecraft:bubble_column", "minecraft:budding_amethyst",
-		"minecraft:calcite", "minecraft:cave_air", "minecraft:clay",
-		"minecraft:coal_ore", "minecraft:cobweb", "minecraft:copper_ore",
-		"minecraft:cornflower", "minecraft:dandelion",
+	private final BlockListSetting naturalBlocks = new BlockListSetting("自然方块",
+		"这些块将被视为自然生成的一部分\n\n它们不会作为玩家基础突出显示", "minecraft:acacia_leaves",
+		"minecraft:acacia_log", "minecraft:air", "minecraft:allium",
+		"minecraft:amethyst_block", "minecraft:amethyst_cluster",
+		"minecraft:andesite", "minecraft:azure_bluet", "minecraft:bedrock",
+		"minecraft:birch_leaves", "minecraft:birch_log",
+		"minecraft:blue_orchid", "minecraft:brown_mushroom",
+		"minecraft:brown_mushroom_block", "minecraft:bubble_column",
+		"minecraft:budding_amethyst", "minecraft:calcite", "minecraft:cave_air",
+		"minecraft:clay", "minecraft:coal_ore", "minecraft:cobweb",
+		"minecraft:copper_ore", "minecraft:cornflower", "minecraft:dandelion",
 		"minecraft:dark_oak_leaves", "minecraft:dark_oak_log",
 		"minecraft:dead_bush", "minecraft:deepslate",
 		"minecraft:deepslate_coal_ore", "minecraft:deepslate_copper_ore",
@@ -80,8 +78,8 @@ public final class BaseFinderHack extends Hack
 		"minecraft:tall_grass", "minecraft:tall_seagrass", "minecraft:tuff",
 		"minecraft:vine", "minecraft:water", "minecraft:white_tulip");
 	
-	private final ColorSetting color = new ColorSetting("颜色",
-		"人造块将以这种颜色突出显示", Color.RED);
+	private final ColorSetting color =
+		new ColorSetting("颜色", "人造块将以这种颜色突出显示", Color.RED);
 	
 	private ArrayList<String> blockNames;
 	
@@ -224,10 +222,8 @@ public final class BaseFinderHack extends Hack
 			// show message
 			if(messageTimer <= 0)
 			{
-				ChatUtils
-					.warning("基地查找器发现了很多\u00a7方块");
-				ChatUtils.message(
-					"为了防止延迟, 它只会显示前 10000 个方块");
+				ChatUtils.warning("基地查找器发现了很多\u00a7方块");
+				ChatUtils.message("为了防止延迟, 它只会显示前 10000 个方块");
 			}
 			
 			// reset timer

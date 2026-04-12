@@ -50,17 +50,16 @@ public final class MobSpawnEspHack extends Hack
 	private final ChunkAreaSetting drawDistance =
 		new ChunkAreaSetting("绘制距离", "", ChunkArea.A9);
 	
-	private final ColorSetting nightColor = new ColorSetting("夜晚颜色",
-		"夜间怪物可能生成的位置的 X 颜色", Color.YELLOW);
+	private final ColorSetting nightColor =
+		new ColorSetting("夜晚颜色", "夜间怪物可能生成的位置的 X 颜色", Color.YELLOW);
 	
-	private final ColorSetting dayColor = new ColorSetting("白天颜色",
-		"怪物总是可以生成的位置的 X 的颜色", Color.RED);
+	private final ColorSetting dayColor =
+		new ColorSetting("白天颜色", "怪物总是可以生成的位置的 X 的颜色", Color.RED);
 	
 	private final SliderSetting opacity =
 		new SliderSetting("不透明度", 0.5, 0, 1, 0.01, ValueDisplay.PERCENTAGE);
 	
-	private final CheckboxSetting depthTest =
-		new CheckboxSetting("深度测试", true);
+	private final CheckboxSetting depthTest = new CheckboxSetting("深度测试", true);
 	
 	private final HitboxCheckSetting hitboxCheck = new HitboxCheckSetting();
 	

@@ -24,10 +24,8 @@ public final class SetBlockCmd extends Command
 {
 	public SetBlockCmd()
 	{
-		super("setblock",
-			"更改某个功能的块设置, 允许你通过按键绑定来更改这些设置",
-			".setblock <功能> <设置> <方块>",
-			".setblock <功能> <设置> reset",
+		super("setblock", "更改某个功能的块设置, 允许你通过按键绑定来更改这些设置",
+			".setblock <功能> <设置> <方块>", ".setblock <功能> <设置> reset",
 			"示例: .setblock Nuker ID dirt");
 	}
 	
@@ -47,8 +45,8 @@ public final class SetBlockCmd extends Command
 		throws CmdError
 	{
 		if(!(setting instanceof BlockSetting))
-			throw new CmdError(feature.getName() + " " + setting.getName()
-				+ " 不是方块设置");
+			throw new CmdError(
+				feature.getName() + " " + setting.getName() + " 不是方块设置");
 		
 		return (BlockSetting)setting;
 	}

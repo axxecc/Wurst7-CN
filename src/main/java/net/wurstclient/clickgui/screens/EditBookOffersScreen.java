@@ -85,15 +85,13 @@ public final class EditBookOffersScreen extends Screen
 			}).bounds(width / 2 + 54, height - 56, 100, 20).build());
 		removeButton.active = false;
 		
-		addRenderableWidget(
-			Button.builder(Component.literal("重置为默认值"),
-				b -> minecraft.setScreen(new ConfirmScreen(b2 -> {
-					if(b2)
-						bookOffers.resetToDefaults();
-					minecraft.setScreen(EditBookOffersScreen.this);
-				}, Component.literal("重置为默认值"),
-					Component.literal("是否确定?"))))
-				.bounds(width - 106, 6, 100, 20).build());
+		addRenderableWidget(Button.builder(Component.literal("重置为默认值"),
+			b -> minecraft.setScreen(new ConfirmScreen(b2 -> {
+				if(b2)
+					bookOffers.resetToDefaults();
+				minecraft.setScreen(EditBookOffersScreen.this);
+			}, Component.literal("重置为默认值"), Component.literal("是否确定?"))))
+			.bounds(width - 106, 6, 100, 20).build());
 		
 		addRenderableWidget(doneButton = Button
 			.builder(Component.literal("完成"),

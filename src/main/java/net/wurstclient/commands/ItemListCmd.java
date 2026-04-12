@@ -29,12 +29,9 @@ public final class ItemListCmd extends Command
 {
 	public ItemListCmd()
 	{
-		super("itemlist",
-			"更改某一功能的ItemList设置\n允许你通过按键绑定来更改这些设置",
-			".itemlist <功能> <设置> add <物品>",
-			".itemlist <功能> <设置> remove <物品>",
-			".itemlist <功能> <设置> list [<页码>]",
-			".itemlist <功能> <设置> reset",
+		super("itemlist", "更改某一功能的ItemList设置\n允许你通过按键绑定来更改这些设置",
+			".itemlist <功能> <设置> add <物品>", ".itemlist <功能> <设置> remove <物品>",
+			".itemlist <功能> <设置> list [<页码>]", ".itemlist <功能> <设置> reset",
 			"示例: .itemlist AutoDrop Items add dirt");
 	}
 	
@@ -119,14 +116,14 @@ public final class ItemListCmd extends Command
 		
 		if(page > pages || page < 1)
 			throw new CmdSyntaxError("无效页码: " + page);
-
+		
 		ChatUtils.message("共有: " + items.size() + " 物品");
 		
 		int start = (page - 1) * 8;
 		int end = Math.min(page * 8, items.size());
 		
-		ChatUtils.message(feature.getName() + " " + setting.getName()
-			+ " (页码 " + page + "/" + pages + ")");
+		ChatUtils.message(feature.getName() + " " + setting.getName() + " (页码 "
+			+ page + "/" + pages + ")");
 		for(int i = start; i < end; i++)
 			ChatUtils.message(items.get(i).toString());
 	}
@@ -146,8 +143,8 @@ public final class ItemListCmd extends Command
 		Setting setting) throws CmdError
 	{
 		if(!(setting instanceof ItemListSetting))
-			throw new CmdError(feature.getName() + " " + setting.getName()
-				+ " 不是ItemList设置");
+			throw new CmdError(
+				feature.getName() + " " + setting.getName() + " 不是ItemList设置");
 		
 		return (ItemListSetting)setting;
 	}

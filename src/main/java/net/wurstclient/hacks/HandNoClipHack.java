@@ -18,10 +18,9 @@ import net.wurstclient.util.BlockUtils;
 public final class HandNoClipHack extends Hack
 {
 	private final BlockListSetting blocks = new BlockListSetting("方块",
-		"你想穿过墙壁互动的方块", "minecraft:barrel",
-		"minecraft:black_shulker_box", "minecraft:blue_shulker_box",
-		"minecraft:brown_shulker_box", "minecraft:chest",
-		"minecraft:cyan_shulker_box", "minecraft:dispenser",
+		"你想穿过墙壁互动的方块", "minecraft:barrel", "minecraft:black_shulker_box",
+		"minecraft:blue_shulker_box", "minecraft:brown_shulker_box",
+		"minecraft:chest", "minecraft:cyan_shulker_box", "minecraft:dispenser",
 		"minecraft:dropper", "minecraft:ender_chest",
 		"minecraft:gray_shulker_box", "minecraft:green_shulker_box",
 		"minecraft:hopper", "minecraft:light_blue_shulker_box",
