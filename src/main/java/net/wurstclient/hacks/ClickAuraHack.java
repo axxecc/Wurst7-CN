@@ -113,7 +113,8 @@ public final class ClickAuraHack extends Hack
 		Stream<Entity> stream = EntityUtils.getAttackableEntities();
 		
 		double rangeSq = Math.pow(range.getValue(), 2);
-		stream = stream.filter(e -> player.distanceToSqr(e) <= rangeSq);
+		stream =
+			stream.filter(e -> EntityUtils.distanceToHitboxSq(e) <= rangeSq);
 		
 		if(fov.getValue() < 360.0)
 			stream = stream.filter(e -> RotationUtils.getAngleToLookVec(
@@ -140,7 +141,7 @@ public final class ClickAuraHack extends Hack
 	
 	private enum Priority
 	{
-		DISTANCE("距离", e -> MC.player.distanceToSqr(e)),
+		DISTANCE("距离", EntityUtils::distanceToHitboxSq),
 		
 		ANGLE("角度",
 			e -> RotationUtils

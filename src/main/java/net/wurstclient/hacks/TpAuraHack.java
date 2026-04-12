@@ -108,7 +108,8 @@ public final class TpAuraHack extends Hack implements UpdateListener
 		// set entity
 		Stream<Entity> stream = EntityUtils.getAttackableEntities();
 		double rangeSq = Math.pow(range.getValue(), 2);
-		stream = stream.filter(e -> MC.player.distanceToSqr(e) <= rangeSq);
+		stream =
+			stream.filter(e -> EntityUtils.distanceToHitboxSq(e) <= rangeSq);
 		
 		stream = entityFilters.applyTo(stream);
 		
@@ -138,7 +139,7 @@ public final class TpAuraHack extends Hack implements UpdateListener
 	
 	private enum Priority
 	{
-		DISTANCE("距离", e -> MC.player.distanceToSqr(e)),
+		DISTANCE("距离", EntityUtils::distanceToHitboxSq),
 		
 		ANGLE("角度",
 			e -> RotationUtils

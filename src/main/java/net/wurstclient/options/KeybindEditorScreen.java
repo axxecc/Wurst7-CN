@@ -7,7 +7,7 @@
  */
 package net.wurstclient.options;
 
-import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.components.Renderable;
@@ -16,6 +16,7 @@ import net.minecraft.client.input.MouseButtonEvent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.util.CommonColors;
 import net.wurstclient.WurstClient;
+import net.wurstclient.keybinds.Keybind;
 import net.wurstclient.util.WurstColors;
 
 public final class KeybindEditorScreen extends Screen
@@ -94,22 +95,22 @@ public final class KeybindEditorScreen extends Screen
 	}
 	
 	@Override
-	public void render(GuiGraphics context, int mouseX, int mouseY,
-		float partialTicks)
+	public void extractRenderState(GuiGraphicsExtractor context, int mouseX,
+		int mouseY, float partialTicks)
 	{
-		context.drawCenteredString(font,
+		context.centeredText(font,
 			(oldKey != null ? "编辑" : "添加") + " 快捷键", width / 2, 20,
 			CommonColors.WHITE);
 		
-		context.drawString(font, "绑定键: " + key.replace("key.keyboard.", ""),
+		context.text(font, "绑定键: " + Keybind.getDisplayKey(key),
 			width / 2 - 100, 47, WurstColors.VERY_LIGHT_GRAY);
-		context.drawString(font, "命令 (以 ';' 分隔)", width / 2 - 100,
-			87, WurstColors.VERY_LIGHT_GRAY);
+		context.text(font, "命令 (以 ';' 分隔)", width / 2 - 100, 87,
+			WurstColors.VERY_LIGHT_GRAY);
 		
-		commandField.render(context, mouseX, mouseY, partialTicks);
+		commandField.extractRenderState(context, mouseX, mouseY, partialTicks);
 		
 		for(Renderable drawable : renderables)
-			drawable.render(context, mouseX, mouseY, partialTicks);
+			drawable.extractRenderState(context, mouseX, mouseY, partialTicks);
 	}
 	
 	@Override

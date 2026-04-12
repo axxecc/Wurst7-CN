@@ -31,9 +31,13 @@ import net.wurstclient.events.RightClickListener;
 import net.wurstclient.events.UpdateListener;
 import net.wurstclient.hack.Hack;
 import net.wurstclient.settings.CheckboxSetting;
+import net.wurstclient.settings.FaceTargetSetting;
+import net.wurstclient.settings.FaceTargetSetting.FaceTarget;
 import net.wurstclient.settings.FileSetting;
 import net.wurstclient.settings.SliderSetting;
 import net.wurstclient.settings.SliderSetting.ValueDisplay;
+import net.wurstclient.settings.SwingHandSetting;
+import net.wurstclient.settings.SwingHandSetting.SwingHand;
 import net.wurstclient.util.*;
 import net.wurstclient.util.BlockPlacer.BlockPlacingParams;
 import net.wurstclient.util.json.JsonException;
@@ -62,6 +66,12 @@ public final class AutoBuildHack extends Hack
 		"尝试放置保存在模板中的相同块\n\n如果模板未指定块类型, 则将从您持有的任何块构建它",
 		true);
 	
+	private final FaceTargetSetting faceTarget =
+		FaceTargetSetting.withoutPacketSpam(this, FaceTarget.SERVER);
+	
+	private final SwingHandSetting swingHand =
+		new SwingHandSetting(this, SwingHand.SERVER);
+	
 	private final CheckboxSetting fastPlace =
 		new CheckboxSetting("总是快速放置 ",
 			"即使未启用快速放置也会加快放置速度", true);
@@ -84,6 +94,8 @@ public final class AutoBuildHack extends Hack
 		addSetting(range);
 		addSetting(checkLOS);
 		addSetting(useSavedBlocks);
+		addSetting(faceTarget);
+		addSetting(swingHand);
 		addSetting(fastPlace);
 		addSetting(strictBuildOrder);
 	}
@@ -235,6 +247,7 @@ public final class AutoBuildHack extends Hack
 			
 			BlockPlacingParams params = BlockPlacer.getBlockPlacingParams(pos);
 			if(params == null || params.distanceSq() > rangeSq
+				|| params.requiresSneaking()
 				|| checkLOS.isChecked() && !params.lineOfSight())
 				if(strictBuildOrder.isChecked())
 					return;
@@ -249,9 +262,9 @@ public final class AutoBuildHack extends Hack
 			}
 			
 			MC.rightClickDelay = 4;
-			RotationUtils.getNeededRotations(params.hitVec())
-				.sendPlayerLookPacket();
-			InteractionSimulator.rightClickBlock(params.toHitResult());
+			faceTarget.face(params.hitVec());
+			InteractionSimulator.rightClickBlock(params.toHitResult(),
+				swingHand.getSelected());
 			return;
 		}
 	}

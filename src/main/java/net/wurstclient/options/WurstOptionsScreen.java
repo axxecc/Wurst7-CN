@@ -13,7 +13,7 @@ import java.util.function.Supplier;
 
 import net.fabricmc.fabric.api.client.screen.v1.Screens;
 import net.minecraft.client.gui.Font;
-import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.Renderable;
@@ -135,39 +135,39 @@ public class WurstOptionsScreen extends Screen
 	}
 	
 	@Override
-	public void render(GuiGraphics context, int mouseX, int mouseY,
-		float partialTicks)
+	public void extractRenderState(GuiGraphicsExtractor context, int mouseX,
+		int mouseY, float partialTicks)
 	{
 		renderTitles(context);
 		
 		for(Renderable drawable : renderables)
-			drawable.render(context, mouseX, mouseY, partialTicks);
+			drawable.extractRenderState(context, mouseX, mouseY, partialTicks);
 		
 		renderButtonTooltip(context, mouseX, mouseY);
 	}
 	
-	private void renderTitles(GuiGraphics context)
+	private void renderTitles(GuiGraphicsExtractor context)
 	{
 		Font tr = minecraft.font;
 		int middleX = width / 2;
 		int y1 = 40;
 		int y2 = height / 4 + 24 - 28;
 		
-		context.drawCenteredString(tr, "Wurst 选项", middleX, y1,
+		context.centeredText(tr, "Wurst 选项", middleX, y1,
 			CommonColors.WHITE);
 		
-		context.drawCenteredString(tr, "设置", middleX - 104, y2,
+		context.centeredText(tr, "设置", middleX - 104, y2,
 			WurstColors.VERY_LIGHT_GRAY);
-		context.drawCenteredString(tr, "管理", middleX, y2,
+		context.centeredText(tr, "管理", middleX, y2,
 			WurstColors.VERY_LIGHT_GRAY);
-		context.drawCenteredString(tr, "链接", middleX + 104, y2,
+		context.centeredText(tr, "链接", middleX + 104, y2,
 			WurstColors.VERY_LIGHT_GRAY);
 	}
 	
-	private void renderButtonTooltip(GuiGraphics context, int mouseX,
+	private void renderButtonTooltip(GuiGraphicsExtractor context, int mouseX,
 		int mouseY)
 	{
-		for(AbstractWidget button : Screens.getButtons(this))
+		for(AbstractWidget button : Screens.getWidgets(this))
 		{
 			if(!button.isHoveredOrFocused()
 				|| !(button instanceof WurstOptionsButton))
@@ -224,12 +224,12 @@ public class WurstOptionsScreen extends Screen
 		}
 		
 		@Override
-		protected void renderContents(GuiGraphics drawContext, int i, int j,
-			float f)
+		protected void extractContents(GuiGraphicsExtractor drawContext, int i,
+			int j, float f)
 		{
-			renderDefaultSprite(drawContext);
-			renderDefaultLabel(drawContext.textRendererForWidget(this,
-				GuiGraphics.HoveredTextEffects.NONE));
+			extractDefaultSprite(drawContext);
+			extractDefaultLabel(drawContext.textRendererForWidget(this,
+				GuiGraphicsExtractor.HoveredTextEffects.NONE));
 		}
 	}
 }

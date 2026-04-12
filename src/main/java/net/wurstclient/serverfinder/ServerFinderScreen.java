@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 import org.lwjgl.glfw.GLFW;
 
-import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.components.Renderable;
@@ -218,39 +218,38 @@ public class ServerFinderScreen extends Screen
 	}
 	
 	@Override
-	public void render(GuiGraphics context, int mouseX, int mouseY,
-		float partialTicks)
+	public void extractRenderState(GuiGraphicsExtractor context, int mouseX,
+		int mouseY, float partialTicks)
 	{
-		context.drawCenteredString(font, "服务器查找器", width / 2, 20,
+		context.centeredText(font, "服务器查找器", width / 2, 20,
 			CommonColors.WHITE);
-		context.drawCenteredString(font,
+		context.centeredText(font,
 			"他将搜索具有相似 IP 的服务器", width / 2, 40,
 			CommonColors.LIGHT_GRAY);
-		context.drawCenteredString(font,
-			"到您在下面的字段中输入的 IP", width / 2, 50,
-			CommonColors.LIGHT_GRAY);
-		context.drawCenteredString(font,
+		context.centeredText(font, "到您在下面的字段中输入的 IP",
+			width / 2, 50, CommonColors.LIGHT_GRAY);
+		context.centeredText(font,
 			"它找到的服务器将添加到您的服务器列表中",
 			width / 2, 60, CommonColors.LIGHT_GRAY);
 		
-		context.drawString(font, "服务器地址:", width / 2 - 100,
-			height / 4 + 24, CommonColors.LIGHT_GRAY);
-		ipBox.render(context, mouseX, mouseY, partialTicks);
+		context.text(font, "服务器地址:", width / 2 - 100, height / 4 + 24,
+			CommonColors.LIGHT_GRAY);
+		ipBox.extractRenderState(context, mouseX, mouseY, partialTicks);
 		
-		context.drawString(font, "最大线程数:", width / 2 - 100,
-			height / 4 + 60, CommonColors.LIGHT_GRAY);
-		maxThreadsBox.render(context, mouseX, mouseY, partialTicks);
+		context.text(font, "最大线程数:", width / 2 - 100, height / 4 + 60,
+			CommonColors.LIGHT_GRAY);
+		maxThreadsBox.extractRenderState(context, mouseX, mouseY, partialTicks);
 		
-		context.drawCenteredString(font, state.toString(), width / 2,
-			height / 4 + 73, CommonColors.LIGHT_GRAY);
+		context.centeredText(font, state.toString(), width / 2, height / 4 + 73,
+			CommonColors.LIGHT_GRAY);
 		
-		context.drawString(font, "检查: " + checked + " / 1792",
-			width / 2 - 100, height / 4 + 84, CommonColors.LIGHT_GRAY);
-		context.drawString(font, "工作中: " + working, width / 2 - 100,
+		context.text(font, "检查: " + checked + " / 1792", width / 2 - 100,
+			height / 4 + 84, CommonColors.LIGHT_GRAY);
+		context.text(font, "工作中: " + working, width / 2 - 100,
 			height / 4 + 94, CommonColors.LIGHT_GRAY);
 		
 		for(Renderable drawable : renderables)
-			drawable.render(context, mouseX, mouseY, partialTicks);
+			drawable.extractRenderState(context, mouseX, mouseY, partialTicks);
 	}
 	
 	@Override

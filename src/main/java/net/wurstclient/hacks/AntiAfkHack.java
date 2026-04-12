@@ -58,7 +58,7 @@ public final class AntiAfkHack extends Hack
 			"显示功能列表中剩余的等待时间", true);
 	
 	private int timer;
-	private RandomSource random = RandomSource.createNewThreadLocalInstance();
+	private RandomSource random = RandomSource.createThreadLocalInstance();
 	private BlockPos start;
 	private BlockPos nextBlock;
 	

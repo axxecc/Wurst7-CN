@@ -156,5 +156,5 @@ public final class AutoCompleteHack extends Hack
 		lastRefreshTime = System.currentTimeMillis();
 	}
 	
-	// See ChatInputSuggestorMixin
+	// See CommandSuggestionsMixin
 }
