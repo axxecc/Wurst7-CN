@@ -29,43 +29,40 @@ import net.wurstclient.settings.SliderSetting;
 import net.wurstclient.settings.SliderSetting.ValueDisplay;
 import net.wurstclient.util.InventoryUtils;
 
-@SearchTags({"attribute swap", "weapon swap", "auto breach swap", "mace swap",
-	"auto swap", "auto shield break", "auto mace", "disable shield",
-	"item swap", "hotbar swap", "item saver", "durability saver"})
+@SearchTags({"AttributeSwap"})
 public final class AttributeSwapHack extends Hack
 	implements PlayerAttacksEntityListener, UpdateListener
 {
-	private final EnumSetting<Mode> mode = new EnumSetting<>("Mode",
-		"Simple: swaps to a fixed hotbar slot on attack.\n"
-			+ "Smart: checks target and picks the best item automatically.",
+	private final EnumSetting<Mode> mode = new EnumSetting<>("模式",
+		"简单: 攻击时切换到固定快捷栏槽\n智能: 检查目标并自动使用最好的物品",
 		Mode.values(), Mode.SIMPLE);
 	
-	private final SliderSetting targetSlot = new SliderSetting("Target slot",
-		"Hotbar slot to swap to (Simple mode).", 1, 1, 9, 1,
+	private final SliderSetting targetSlot = new SliderSetting("目标槽位",
+		"快捷栏槽切换到 (简单模式)", 1, 1, 9, 1,
 		ValueDisplay.INTEGER);
 	
-	private final CheckboxSetting swapBack = new CheckboxSetting("Swap back",
-		"Swap back to the original slot after delay.", true);
+	private final CheckboxSetting swapBack = new CheckboxSetting("切换回去",
+		"延迟后切换回回原快捷栏", true);
 	
 	private final SliderSetting swapBackDelay =
-		new SliderSetting("Swap-back delay",
-			"How many ticks to wait before swapping back.", 2, 0, 20, 1,
-			ValueDisplay.INTEGER.withSuffix(" ticks").withLabel(0, "instant"));
+		new SliderSetting("切回延迟",
+			"要等多少Tick才能切换回去", 2, 0, 20, 1,
+			ValueDisplay.INTEGER.withSuffix(" Tick").withLabel(0, "instant"));
 	
 	private final CheckboxSetting breachSwapping = new CheckboxSetting(
-		"Breach swapping",
-		"Swaps to a mace with Breach to deal more damage (Smart mode).", true);
+		"破甲重锤",
+		"切换成带破甲重锤以造成更多伤害 (智能模式)", true);
 	
 	private final CheckboxSetting shieldBreaker =
-		new CheckboxSetting("Shield breaker",
-			"Swaps to an axe when target is blocking (Smart mode).", true);
+		new CheckboxSetting("自动破盾",
+			"当目标格挡时切换成斧头 (智能模式)", true);
 	
-	private final CheckboxSetting itemSaver = new CheckboxSetting("Item saver",
-		"Swaps to a non-damageable item to save main weapon durability (Smart mode).",
+	private final CheckboxSetting itemSaver = new CheckboxSetting("物品保护",
+		"切换到不可损坏的物品以节省主武器耐久度 (智能模式)",
 		true);
 	
 	private final CheckboxSetting onlyWithKillAura = new CheckboxSetting(
-		"Only with Killaura", "Only activate when Killaura is enabled.", false);
+		"仅杀戮光环", "只有在杀戮光环被启用时才会激活", false);
 	
 	private int backTimer;
 	private boolean awaitingBack;
@@ -73,7 +70,7 @@ public final class AttributeSwapHack extends Hack
 	
 	public AttributeSwapHack()
 	{
-		super("AttributeSwap");
+		super("自动秒切");
 		setCategory(Category.COMBAT);
 		addSetting(mode);
 		addSetting(targetSlot);
@@ -249,8 +246,8 @@ public final class AttributeSwapHack extends Hack
 	
 	private enum Mode
 	{
-		SIMPLE("Simple"),
-		SMART("Smart");
+		SIMPLE("简单"),
+		SMART("智能");
 		
 		private final String name;
 		
