@@ -17,7 +17,6 @@ import java.util.stream.Stream;
 import net.minecraft.client.Minecraft;
 import net.wurstclient.altmanager.AltManager;
 import net.wurstclient.altmanager.Encryption;
-import net.wurstclient.analytics.PlausibleAnalytics;
 import net.wurstclient.clickgui.ClickGui;
 import net.wurstclient.command.CmdList;
 import net.wurstclient.command.CmdProcessor;
@@ -50,8 +49,7 @@ public enum WurstClient
 	
 	public static final String VERSION = "7.54";
 	public static final String MC_VERSION = "26.1.2";
-	
-	private PlausibleAnalytics plausible;
+
 	private EventManager eventManager;
 	private AltManager altManager;
 	private HackList hax;
@@ -79,10 +77,6 @@ public enum WurstClient
 		MC = Minecraft.getInstance();
 		IMC = (IMinecraftClient)MC;
 		wurstFolder = createWurstFolder();
-		
-		Path analyticsFile = wurstFolder.resolve("analytics.json");
-		plausible = new PlausibleAnalytics(analyticsFile);
-		plausible.pageview("/");
 		
 		eventManager = new EventManager(this);
 		
@@ -155,11 +149,6 @@ public enum WurstClient
 	public String translate(String key, Object... args)
 	{
 		return translator.translate(key, args);
-	}
-	
-	public PlausibleAnalytics getPlausible()
-	{
-		return plausible;
 	}
 	
 	public EventManager getEventManager()

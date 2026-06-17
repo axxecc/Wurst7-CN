@@ -24,7 +24,6 @@ import net.minecraft.util.CommonColors;
 import net.minecraft.util.Util;
 import net.minecraft.util.Util.OS;
 import net.wurstclient.WurstClient;
-import net.wurstclient.analytics.PlausibleAnalytics;
 import net.wurstclient.commands.FriendsCmd;
 import net.wurstclient.hacks.XRayHack;
 import net.wurstclient.other_features.VanillaSpoofOtf;
@@ -60,7 +59,6 @@ public class WurstOptionsScreen extends Screen
 		WurstClient wurst = WurstClient.INSTANCE;
 		FriendsCmd friendsCmd = wurst.getCmds().friendsCmd;
 		CheckboxSetting middleClickFriends = friendsCmd.getMiddleClickFriends();
-		PlausibleAnalytics plausible = wurst.getPlausible();
 		VanillaSpoofOtf vanillaSpoofOtf = wurst.getOtfs().vanillaSpoofOtf;
 		CheckboxSetting forceEnglish =
 			wurst.getOtfs().translationsOtf.getForceEnglish();
@@ -72,16 +70,11 @@ public class WurstOptionsScreen extends Screen
 				.setChecked(!middleClickFriends.isChecked()));
 		
 		new WurstOptionsButton(-154, 48,
-			() -> "统用户统计: " + (plausible.isEnabled() ? "开启" : "关闭"),
-			"统计有多少用户使用 Wurst",
-			b -> plausible.setEnabled(!plausible.isEnabled()));
-		
-		new WurstOptionsButton(-154, 72,
 			() -> "客户端欺骗: " + (vanillaSpoofOtf.isEnabled() ? "开启" : "关闭"),
 			vanillaSpoofOtf.getDescription(),
 			b -> vanillaSpoofOtf.doPrimaryAction());
 		
-		new WurstOptionsButton(-154, 96,
+		new WurstOptionsButton(-154, 72,
 			() -> "翻译: " + (!forceEnglish.isChecked() ? "开启" : "关闭"),
 			"使用客户端语言, 但我只做了中文汉化\n所以这个选项已经没有意义了",
 			b -> forceEnglish.setChecked(!forceEnglish.isChecked()));
