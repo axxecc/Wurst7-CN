@@ -62,7 +62,7 @@ public final class EditBookOffersScreen extends Screen
 		
 		addRenderableWidget(Button
 			.builder(Component.literal("添加"),
-				b -> minecraft
+				b -> minecraft.gui
 					.setScreen(new AddBookOfferScreen(this, bookOffers)))
 			.bounds(width / 2 - 154, height - 56, 100, 20).build());
 		
@@ -72,8 +72,8 @@ public final class EditBookOffersScreen extends Screen
 				if(selected == null)
 					return;
 				
-				minecraft.setScreen(new EditBookOfferScreen(this, bookOffers,
-					bookOffers.indexOf(selected)));
+				minecraft.gui.setScreen(new EditBookOfferScreen(this,
+					bookOffers, bookOffers.indexOf(selected)));
 			}).bounds(width / 2 - 50, height - 56, 100, 20).build());
 		editButton.active = false;
 		
@@ -81,21 +81,23 @@ public final class EditBookOffersScreen extends Screen
 			removeButton = Button.builder(Component.literal("移除"), b -> {
 				bookOffers
 					.remove(bookOffers.indexOf(listGui.getSelectedOffer()));
-				minecraft.setScreen(EditBookOffersScreen.this);
+				minecraft.gui.setScreen(EditBookOffersScreen.this);
 			}).bounds(width / 2 + 54, height - 56, 100, 20).build());
 		removeButton.active = false;
 		
-		addRenderableWidget(Button.builder(Component.literal("重置为默认值"),
-			b -> minecraft.setScreen(new ConfirmScreen(b2 -> {
-				if(b2)
-					bookOffers.resetToDefaults();
-				minecraft.setScreen(EditBookOffersScreen.this);
-			}, Component.literal("重置为默认值"), Component.literal("是否确定?"))))
-			.bounds(width - 106, 6, 100, 20).build());
+		addRenderableWidget(
+			Button.builder(Component.literal("重置为默认值"),
+				b -> minecraft.gui.setScreen(new ConfirmScreen(b2 -> {
+					if(b2)
+						bookOffers.resetToDefaults();
+					minecraft.gui.setScreen(EditBookOffersScreen.this);
+				}, Component.literal("重置为默认值"),
+					Component.literal("是否确定?"))))
+				.bounds(width - 106, 6, 100, 20).build());
 		
 		addRenderableWidget(doneButton = Button
 			.builder(Component.literal("完成"),
-				b -> minecraft.setScreen(prevScreen))
+				b -> minecraft.gui.setScreen(prevScreen))
 			.bounds(width / 2 - 100, height - 32, 200, 20).build());
 	}
 	

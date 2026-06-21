@@ -117,7 +117,7 @@ public class CleanUpScreen extends Screen
 			}
 		
 		saveServerList();
-		minecraft.setScreen(prevScreen);
+		minecraft.gui.setScreen(prevScreen);
 	}
 	
 	private boolean shouldRemove(ServerData server)
@@ -234,7 +234,7 @@ public class CleanUpScreen extends Screen
 	@Override
 	public void onClose()
 	{
-		minecraft.setScreen(prevScreen);
+		minecraft.gui.setScreen(prevScreen);
 	}
 	
 	private final class CleanUpButton extends Button

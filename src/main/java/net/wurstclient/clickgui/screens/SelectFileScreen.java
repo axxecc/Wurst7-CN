@@ -74,7 +74,7 @@ public final class SelectFileScreen extends Screen
 	
 	private void openPrevScreen()
 	{
-		minecraft.setScreen(prevScreen);
+		minecraft.gui.setScreen(prevScreen);
 	}
 	
 	private void done()
@@ -97,7 +97,7 @@ public final class SelectFileScreen extends Screen
 			Component.literal("这将清空 '" + setting.getFolder().getFileName()
 				+ "' 文件夹, 然后重新生成默认文件\n" + "你确定要这样做吗?");
 		
-		minecraft
+		minecraft.gui
 			.setScreen(new ConfirmScreen(this::confirmReset, title, message));
 	}
 	
@@ -106,7 +106,7 @@ public final class SelectFileScreen extends Screen
 		if(confirmed)
 			setting.resetFolder();
 		
-		minecraft.setScreen(SelectFileScreen.this);
+		minecraft.gui.setScreen(SelectFileScreen.this);
 	}
 	
 	@Override

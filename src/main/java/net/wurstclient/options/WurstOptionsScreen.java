@@ -46,7 +46,7 @@ public class WurstOptionsScreen extends Screen
 	{
 		addRenderableWidget(Button
 			.builder(Component.literal("返回"),
-				b -> minecraft.setScreen(prevScreen))
+				b -> minecraft.gui.setScreen(prevScreen))
 			.bounds(width / 2 - 100, height / 4 + 144 - 16, 200, 20).build());
 		
 		addSettingButtons();
@@ -85,13 +85,13 @@ public class WurstOptionsScreen extends Screen
 		XRayHack xRayHack = WurstClient.INSTANCE.getHax().xRayHack;
 		
 		new WurstOptionsButton(-50, 24, () -> "快捷键", "快捷键允许您通过按键来切换功能",
-			b -> minecraft.setScreen(new KeybindManagerScreen(this)));
+			b -> minecraft.gui.setScreen(new KeybindManagerScreen(this)));
 		
 		new WurstOptionsButton(-50, 48, () -> "X-Ray 方块", "管理 X-Ray 透视的方块",
 			b -> xRayHack.openBlockListEditor(this));
 		
 		new WurstOptionsButton(-50, 72, () -> "缩放", "缩放管理器允许您更改缩放键及其放大距离",
-			b -> minecraft.setScreen(new ZoomManagerScreen(this)));
+			b -> minecraft.gui.setScreen(new ZoomManagerScreen(this)));
 	}
 	
 	private void addLinkButtons()
@@ -117,7 +117,7 @@ public class WurstOptionsScreen extends Screen
 	@Override
 	public void onClose()
 	{
-		minecraft.setScreen(prevScreen);
+		minecraft.gui.setScreen(prevScreen);
 	}
 	
 	@Override

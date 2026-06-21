@@ -69,27 +69,29 @@ public final class EditItemListScreen extends Screen
 		addRenderableWidget(
 			addButton = Button.builder(Component.literal("添加"), b -> {
 				itemList.add(itemToAdd);
-				minecraft.setScreen(EditItemListScreen.this);
+				minecraft.gui.setScreen(EditItemListScreen.this);
 			}).bounds(width / 2 - 2, height - 56, 30, 20).build());
 		
 		addRenderableWidget(
 			removeButton = Button.builder(Component.literal("删除选定项"), b -> {
 				itemList.remove(itemList.getItemNames()
 					.indexOf(listGui.getSelectedBlockName()));
-				minecraft.setScreen(EditItemListScreen.this);
+				minecraft.gui.setScreen(EditItemListScreen.this);
 			}).bounds(width / 2 + 52, height - 56, 100, 20).build());
 		
-		addRenderableWidget(Button.builder(Component.literal("重置为默认值"),
-			b -> minecraft.setScreen(new ConfirmScreen(b2 -> {
-				if(b2)
-					itemList.resetToDefaults();
-				minecraft.setScreen(EditItemListScreen.this);
-			}, Component.literal("重置为默认值"), Component.literal("是否确定?"))))
-			.bounds(width - 108, 8, 100, 20).build());
+		addRenderableWidget(
+			Button.builder(Component.literal("重置为默认值"),
+				b -> minecraft.gui.setScreen(new ConfirmScreen(b2 -> {
+					if(b2)
+						itemList.resetToDefaults();
+					minecraft.gui.setScreen(EditItemListScreen.this);
+				}, Component.literal("重置为默认值"),
+					Component.literal("是否确定?"))))
+				.bounds(width - 108, 8, 100, 20).build());
 		
 		addRenderableWidget(doneButton = Button
 			.builder(Component.literal("完成"),
-				b -> minecraft.setScreen(prevScreen))
+				b -> minecraft.gui.setScreen(prevScreen))
 			.bounds(width / 2 - 100, height - 28, 200, 20).build());
 	}
 	

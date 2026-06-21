@@ -253,7 +253,7 @@ public class ServerFinderScreen extends Screen
 	public void onClose()
 	{
 		state = ServerFinderState.CANCELLED;
-		minecraft.setScreen(prevScreen);
+		minecraft.gui.setScreen(prevScreen);
 	}
 	
 	enum ServerFinderState

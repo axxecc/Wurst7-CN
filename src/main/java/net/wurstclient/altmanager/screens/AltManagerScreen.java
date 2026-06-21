@@ -106,7 +106,7 @@ public final class AltManagerScreen extends Screen
 			
 			AlertScreen screen =
 				new AlertScreen(action, title, message, buttonText, false);
-			minecraft.setScreen(screen);
+			minecraft.gui.setScreen(screen);
 			
 		}else if(altManager.getList().isEmpty() && shouldAsk)
 		{
@@ -117,7 +117,7 @@ public final class AltManagerScreen extends Screen
 			BooleanConsumer callback = this::confirmGenerate;
 			
 			ConfirmScreen screen = new ConfirmScreen(callback, title, message);
-			minecraft.setScreen(screen);
+			minecraft.gui.setScreen(screen);
 		}
 		
 		addRenderableWidget(useButton =
@@ -126,15 +126,14 @@ public final class AltManagerScreen extends Screen
 		
 		addRenderableWidget(Button
 			.builder(Component.literal("直接登录"),
-				b -> minecraft.setScreen(new DirectLoginScreen(this)))
+				b -> minecraft.gui.setScreen(new DirectLoginScreen(this)))
 			.bounds(width / 2 - 50, height - 52, 100, 20).build());
 		
-		addRenderableWidget(
-			Button
-				.builder(Component.literal("添加"),
-					b -> minecraft
-						.setScreen(new AddAltScreen(this, altManager)))
-				.bounds(width / 2 + 54, height - 52, 100, 20).build());
+		addRenderableWidget(Button
+			.builder(Component.literal("添加"),
+				b -> minecraft.gui
+					.setScreen(new AddAltScreen(this, altManager)))
+			.bounds(width / 2 + 54, height - 52, 100, 20).build());
 		
 		addRenderableWidget(starButton =
 			Button.builder(Component.literal("收藏"), b -> pressFavorite())
@@ -150,7 +149,7 @@ public final class AltManagerScreen extends Screen
 		
 		addRenderableWidget(Button
 			.builder(Component.literal("取消"),
-				b -> minecraft.setScreen(prevScreen))
+				b -> minecraft.gui.setScreen(prevScreen))
 			.bounds(width / 2 + 80, height - 28, 75, 20).build());
 		
 		addRenderableWidget(importButton =
@@ -214,7 +213,7 @@ public final class AltManagerScreen extends Screen
 		{
 			altManager.login(alt);
 			failedLogins.remove(alt);
-			minecraft.setScreen(prevScreen);
+			minecraft.gui.setScreen(prevScreen);
 			
 		}catch(LoginException e)
 		{
@@ -245,7 +244,7 @@ public final class AltManagerScreen extends Screen
 		if(alt == null)
 			return;
 		
-		minecraft.setScreen(new EditAltScreen(this, altManager, alt));
+		minecraft.gui.setScreen(new EditAltScreen(this, altManager, alt));
 	}
 	
 	private void pressDelete()
@@ -261,8 +260,8 @@ public final class AltManagerScreen extends Screen
 			Component.literal("\"" + altName + "\" 将会永远消失! (很久!)");
 		
 		ConfirmScreen screen = new ConfirmScreen(this::confirmRemove, text,
-			message, Component.literal("删除"), Component.literal("取消"));
-		minecraft.setScreen(screen);
+			message, Component.literal("删除"), Component.literal("Cancel"));
+		minecraft.gui.setScreen(screen);
 	}
 	
 	private void pressImportAlts()
@@ -391,7 +390,7 @@ public final class AltManagerScreen extends Screen
 		}
 		
 		shouldAsk = false;
-		minecraft.setScreen(this);
+		minecraft.gui.setScreen(this);
 	}
 	
 	private void confirmRemove(boolean confirmed)
@@ -403,7 +402,7 @@ public final class AltManagerScreen extends Screen
 		if(confirmed)
 			altManager.remove(alt);
 		
-		minecraft.setScreen(this);
+		minecraft.gui.setScreen(this);
 	}
 	
 	@Override
@@ -537,7 +536,7 @@ public final class AltManagerScreen extends Screen
 	@Override
 	public void onClose()
 	{
-		minecraft.setScreen(prevScreen);
+		minecraft.gui.setScreen(prevScreen);
 	}
 	
 	private final class Entry

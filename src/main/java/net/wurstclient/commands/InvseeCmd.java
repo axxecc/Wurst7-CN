@@ -59,8 +59,8 @@ public final class InvseeCmd extends Command implements RenderListener
 			if(!otherPlayerName.equalsIgnoreCase(targetName))
 				continue;
 			
-			ChatUtils.message("展示玩家 " + otherPlayerName + " 物品栏");
-			MC.setScreen(new InventoryScreen(player));
+			ChatUtils.message("显示玩家 " + otherPlayerName + " 的物品栏");
+			MC.gui.setScreen(new InventoryScreen(player));
 			found = true;
 			break;
 		}

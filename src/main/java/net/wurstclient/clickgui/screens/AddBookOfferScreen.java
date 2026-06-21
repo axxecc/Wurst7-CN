@@ -148,13 +148,13 @@ public final class AddBookOfferScreen extends Screen
 		addRenderableWidget(
 			addButton = Button.builder(Component.literal("添加"), b -> {
 				bookOffers.add(offerToAdd);
-				minecraft.setScreen(prevScreen);
+				minecraft.gui.setScreen(prevScreen);
 			}).bounds(width / 2 - 102, height - 28, 100, 20).build());
 		addButton.active = false;
 		
 		addRenderableWidget(cancelButton = Button
 			.builder(Component.literal("取消"),
-				b -> minecraft.setScreen(prevScreen))
+				b -> minecraft.gui.setScreen(prevScreen))
 			.bounds(width / 2 + 2, height - 28, 100, 20).build());
 	}
 	

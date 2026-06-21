@@ -48,7 +48,7 @@ public enum WurstClient
 	public static IMinecraftClient IMC;
 	
 	public static final String VERSION = "7.54";
-	public static final String MC_VERSION = "26.1.2";
+	public static final String MC_VERSION = "26.2";
 
 	private EventManager eventManager;
 	private AltManager altManager;
@@ -77,7 +77,7 @@ public enum WurstClient
 		MC = Minecraft.getInstance();
 		IMC = (IMinecraftClient)MC;
 		wurstFolder = createWurstFolder();
-		
+
 		eventManager = new EventManager(this);
 		
 		Path enabledHacksFile = wurstFolder.resolve("enabled-hacks.json");
@@ -122,7 +122,7 @@ public enum WurstClient
 		rotationFaker = new RotationFaker();
 		eventManager.add(PreMotionListener.class, rotationFaker);
 		eventManager.add(PostMotionListener.class, rotationFaker);
-		
+
 		Path altsFile = wurstFolder.resolve("alts.encrypted_json");
 		Path encFolder = Encryption.chooseEncryptionFolder();
 		altManager = new AltManager(altsFile, encFolder);
@@ -150,7 +150,7 @@ public enum WurstClient
 	{
 		return translator.translate(key, args);
 	}
-	
+
 	public EventManager getEventManager()
 	{
 		return eventManager;
@@ -279,7 +279,7 @@ public enum WurstClient
 			hax.panicHack.onUpdate();
 		}
 	}
-	
+
 	public Path getWurstFolder()
 	{
 		return wurstFolder;

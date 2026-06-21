@@ -65,16 +65,18 @@ public class JoinMultiplayerScreenMixin extends Screen
 		
 		JoinMultiplayerScreen mpScreen = (JoinMultiplayerScreen)(Object)this;
 		
-		Button serverFinderButton = Button
-			.builder(Component.nullToEmpty("服务器扫描"),
-				b -> minecraft.setScreen(new ServerFinderScreen(mpScreen)))
-			.width(100).build();
+		Button serverFinderButton =
+			Button
+				.builder(Component.nullToEmpty("服务器扫描"),
+					b -> minecraft.gui
+						.setScreen(new ServerFinderScreen(mpScreen)))
+				.width(100).build();
 		addRenderableWidget(serverFinderButton);
 		footerTopRow.addChild(serverFinderButton);
 		
 		Button cleanUpButton = Button
 			.builder(Component.nullToEmpty("清理服务器"),
-				b -> minecraft.setScreen(new CleanUpScreen(mpScreen)))
+				b -> minecraft.gui.setScreen(new CleanUpScreen(mpScreen)))
 			.width(100).build();
 		addRenderableWidget(cleanUpButton);
 		footerBottomRow.addChild(cleanUpButton);
